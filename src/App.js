@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import Home from './components/Home';
+import ReadingPassage from './components/ReadingPassage';
+import { tests } from './components/data';
+import logo from './logo.svg'; // Import your logo
+
+function Header() {
+  return (
+    <header className="app-header">
+        <img src={`https://genk.mediacdn.vn/k:thumb_w/640/2015/screen-shot-2015-07-30-at-2-31-57-pm-1438334096188/cau-chuyen-ve-nguoi-tao-ra-chu-ech-xanh-than-thanh.png`} alt="Website Logo" className="logo" />
+        <h1>The Best IELTS Practice Test On Computer</h1>
+        <p>Real practise, Real score</p>
+    </header>
+  );
+}
+
+function AppContent() {
+  const location = useLocation();
+
+  return (
+    <div className="App">
+      {!location.pathname.startsWith('/test/') && <Header />}
+      <Routes>
+          <Route path="/" element={<Home tests={tests} />} />
+          <Route path="/test/:id" element={<ReadingPassage />} />
+          {/* ... other routes */}
+      </Routes>
+    </div>
+  );
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <AppContent />
+    </Router>
   );
 }
 

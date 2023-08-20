@@ -1,0 +1,32 @@
+.tests-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 16px; 
+    padding: 16px; 
+}
+
+
+.test-item {
+    width: 100%; 
+    max-width: 270px;
+    height: auto;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 4px; 
+    overflow: hidden; 
+}
+
+.test-item img {
+    width: 100%;
+    height: auto; 
+}
+
+.app-header {
+    text-align: center;
+    padding: 20px 0;
+    background-color: #f7f7f7;
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+}
