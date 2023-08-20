@@ -21,10 +21,10 @@ function AppContent() {
 
   return (
     <div className="App">
-      {!location.pathname.startsWith('/test/') && <Header />}
+      {!location.pathname.startsWith('/reading/') && <Header />}
       <Routes>
           <Route path="/" element={<Home tests={tests} />} />
-          <Route path="/test/:id" element={<ReadingPassage />} />
+          <Route path="/reading/:id" element={<ReadingPassage />} />
           {/* ... other routes */}
       </Routes>
     </div>
