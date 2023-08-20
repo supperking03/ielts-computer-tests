@@ -500,8 +500,11 @@ export const tests = [
     {
         id: 3,
         title: 'Reading CAM 18 Test 3',
-        image: 'https://ieltstrainingonline.com/wp-content/uploads/2023/06/cam-18-test-2.jpg',
-        results:[],
+        image: 'https://ieltstrainingonline.com/wp-content/uploads/2023/06/cam-18-test-3.jpg',
+        results:[
+            'G', 'D', 'C', 'F', 'architects', 'moisture', 'layers', 'speed', 'C', 'A', 'B', 'D', 'A', 'iii', 'viii', 'vi', 'v', 'vii', 'i', 'iv', 'A', 'C', 'B', 'speed',
+            'fifty / 50', 'strict', 'B', 'A', 'C', 'C', 'H', 'D', 'F', 'E', 'B', 'NO', 'NOT GIVEN', 'YES', 'NO', 'NOT GIVEN'
+        ],
         passages: [
             {
                 title: `Reading Passage 1`,
@@ -567,18 +570,164 @@ export const tests = [
                 <p style="padding-left: 40px;"><span style="font-size: large;"><strong>C&nbsp; </strong>&nbsp;&nbsp;&nbsp;Anna Surgenor</span></p>
                 <p style="padding-left: 40px;"><span style="font-size: large;"><strong>D&nbsp; </strong>&nbsp;&nbsp;&nbsp;Felix Preston and Johanna Lehne</span></p>
                 <h2 style="text-align: center;"></h2>
-                
+
                 `
             },
             {
                 title: `Reading Passage 2`,
-                content: ``,
-                question: ``
+                content: `
+                <p><span style="font-size: large;">You should spend about 20 minutes on <strong>Questions 14-26</strong>&nbsp;which are based on Reading Passage 2 below.</span><span style="font-size: 14px;">&nbsp;</span></p>
+<h2 style="text-align: center;"><span style="font-size: x-large;"><strong>The steam car</strong></span></h2>
+<p style="text-align: center;"><span style="font-size: large;"><em>The successes and failures of the Doble brothers and their steam cars</em></span></p>
+<p><span style="font-size: large;"><strong>A</strong></span></p>
+<p><span style="font-size: large;">When primitive automobiles first began to appear in the 1800s, their engines were based on steam power. Steam had already enjoyed a long and successful career in the railways, so it was only natural that the technology evolved into a miniaturized version which was separate from the trains. But these early cars inherited steam’s weaknesses along with its strengths. The boilers had to be lit by hand, and they required about twenty minutes to build up pressure before they could be driven. Furthermore, their water reservoirs only lasted for about thirty miles before needing replenishment. Despite such shortcomings, these newly designed self-propelled carriages offered quick transportation, and by the early 1900s it was not uncommon to see such machines shuttling wealthy citizens around town.</span></p>
+<p><span style="font-size: large;"><strong>B</strong></span></p>
+<p><span style="font-size: large;">But the glory days of steam cars were few. A new technology called the Internal Combustion Engine soon appeared, which offered the ability to drive down the road just moments after starting up. At first, these noisy gasoline cars were unpopular because they were more complicated to operate and they had difficult hand-crank starters, which were known to break arms when the engines backfired. But in 1912 General Motors introduced the electric starter, and over the following few years steam power was gradually phased out.</span></p>
+<p><span style="font-size: large;"><strong>C </strong></span></p>
+<p><span style="font-size: large;">Even as the market was declining, four brothers made one last effort to rekindle the technology. Between 1906 and 1909, while still attending high school, Abner Doble and his three brothers built their first steam car in their parents’ basement. It comprised parts taken from a wrecked early steam car but reconfigured to drive an engine of their own design. Though it did not run well, the Doble brothers went on to build a second and third prototype in the following years. Though the Doble boys’ third prototype, nicknamed the Model B, still lacked the convenience of an internal combustion engine, it drew the attention of automobile trade magazines due to its numerous improvements over previous steam cars. The Model B proved to be superior to gasoline automobiles in many ways. Its high-pressure steam drove the engine pistons in virtual silence, in contrast to clattering gas engines which emitted the aroma of burned hydrocarbons. Perhaps most impressively, the Model B was amazingly swift. It could accelerate from zero to sixty miles per hour in just fifteen seconds, a feat described as ‘remarkable acceleration’ by <em>Automobile</em> magazine in 1914.</span></p>
+<p><span style="font-size: large;"><strong>D </strong></span></p>
+<p><span style="font-size: large;">The following year Abner Doble drove the Model B from Massachusetts to Detroit in order to seek investment in his automobile design, which he used to open the General Engineering Company. He and his brothers immediately began working on the Model C, which was intended to expand upon the innovations of the Model B. The brothers added features such as a key-based ignition in the cabin, eliminating the need for the operator to manually ignite the boiler. With these enhancements, the Dobles’ new car company promised a steam vehicle which would provide all of the convenience of a gasoline car, but with much greater speed, much simpler driving controls, and a virtually silent powerplant. By the following April, the General Engineering Company had received 5,390 deposits for Doble Detroits, which were scheduled for delivery in early 1918.</span></p>
+<p><span style="font-size: large;"><strong>E </strong></span></p>
+<p><span style="font-size: large;">Later that year Abner Doble delivered unhappy news to those eagerly awaiting the delivery of their modem new cars. Those buyers who received the handful of completed cars complained that the vehicles were sluggish and erratic, sometimes going in reverse when they should go forward. The new engine design, though innovative, was still plagued with serious glitches.</span></p>
+<p><span style="font-size: large;"><strong>F</strong></span></p>
+<p><span style="font-size: large;">The brothers made one final attempt to produce a viable steam automobile. In early 1924, the Doble brothers shipped a Model E to New York City to be road-tested by the Automobile Club of America. After sitting overnight in freezing temperatures, the car was pushed out into the road and left to sit for over an hour in the frosty morning air. At the turn of the key, the boiler lit and reached its operating pressure inside of forty seconds. As they drove the test vehicle further, they found that its evenly distributed weight lent it surprisingly good handling, even though it was so heavy. As the new Doble steamer was further developed and tested, its maximum speed was pushed to over a hundred miles per hour, and it achieved about fifteen miles per gallon of kerosene with negligible emissions.</span></p>
+<p><span style="font-size: large;"><strong>G</strong></span></p>
+<p><span style="font-size: large;">Sadly, the Dobles’ brilliant steam car never was a financial success. Priced at around $18,000 in 1924, it was popular only among the very wealthy. Plus, it is said that no two Model Es were quite the same, because Abner Doble tinkered endlessly with the design. By the time the company folded in 1931, fewer than fifty of the amazing Model E steam cars had been produced. For his whole career, until his death in 1961, Abner Doble remained adamant that steam-powered automobiles were at least equal to gasoline cars, if not superior. Given the evidence, he may have been right. Many of the Model E Dobles which have survived are still in good working condition, some having been driven over half a million miles with only normal maintenance. Astonishingly, an unmodified Doble Model E runs clean enough to pass the emissions laws in California today, and they are pretty strict. It is true that the technology poses some difficult problems, but you cannot help but wonder how efficient a steam car might be with the benefit of modem materials and computers. Under the current pressure to improve automotive performance and reduce emissions, it is not unthinkable that the steam car may rise again.</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+                `,
+                question: `
+                <h3><em><span style="font-size: x-large;"><strong>Questions 14-20</strong></span></em></h3>
+<p><span style="font-size: large;">Reading Passage 2 has seven paragraphs, <strong>A-G</strong>.</span></p>
+<p><span style="font-size: large;"><em>Choose the correct heading for each paragraph from the list of headings below.</em></span></p>
+<p><span style="font-size: large;"><em>Write the correct number, <strong>i-viii</strong>, in boxes 14-20 on your answer sheet.</em></span></p>
+<p style="padding-left: 80px;"><span style="font-size: large;"><strong>List of Headings</strong></span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>i&nbsp;&nbsp;&nbsp;&nbsp; </strong>&nbsp;A period in cold conditions before the technology is assessed</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>ii&nbsp;&nbsp;&nbsp; </strong>&nbsp;Marketing issues lead to failure</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>iii&nbsp;&nbsp; </strong>&nbsp;Good and bad aspects of steam technology are passed on</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>iv&nbsp;&nbsp; </strong>&nbsp;A possible solution to the issues of today</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>v&nbsp;&nbsp;&nbsp; </strong>&nbsp;Further improvements lead to commercial orders</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>vi&nbsp;&nbsp; </strong>&nbsp;Positive publicity at last for this quiet, clean, fast vehicle</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>vii&nbsp; </strong>&nbsp;A disappointing outcome for customers</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>viii </strong>&nbsp;A better option than the steam car arises</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong>14 </strong>&nbsp;&nbsp;Paragraph <strong>A</strong></span></p>
+<p><span style="font-size: large;"><strong>15 </strong>&nbsp;&nbsp;Paragraph <strong>B</strong></span></p>
+<p><span style="font-size: large;"><strong>16 </strong>&nbsp;&nbsp;Paragraph <strong>C</strong></span></p>
+<p><span style="font-size: large;"><strong>17 </strong>&nbsp;&nbsp;Paragraph <strong>D</strong></span></p>
+<p><span style="font-size: large;"><strong>18 </strong>&nbsp;&nbsp;Paragraph <strong>E</strong></span></p>
+<p><span style="font-size: large;"><strong>19 </strong>&nbsp;&nbsp;Paragraph <strong>F</strong></span></p>
+<p><span style="font-size: large;"><strong>20 </strong>&nbsp;&nbsp;Paragraph <strong>G</strong></span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<h3><em><span style="font-size: x-large;"><strong>Questions 21-23</strong></span></em></h3>
+<p><span style="font-size: large;"><em>Choose the correct letter, <strong>A</strong>, <strong>B</strong>, <strong>C</strong> or <strong>D</strong>.</em></span></p>
+<p><span style="font-size: large;"><em>Write the correct letter in boxes 21-23 on your answer sheet.</em></span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong>21</strong> &nbsp;&nbsp;What point does the writer make about the steam car in Paragraph B?</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>A </strong>&nbsp;&nbsp;Its success was short-lived.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>B&nbsp; </strong>&nbsp;Not enough cars were made.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>C&nbsp; </strong>&nbsp;Car companies found them hard to sell.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>D </strong>&nbsp;&nbsp;People found them hard to drive.</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong>22</strong> &nbsp;&nbsp;When building their first steam car, the Doble brothers</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>A&nbsp; </strong>&nbsp;constructed all the parts themselves.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>B&nbsp; </strong>&nbsp;made written notes at each stage of the construction.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>D&nbsp; </strong>&nbsp;sought the advice of experienced people in the car industry.</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong>23 </strong>&nbsp;&nbsp;In order to produce the Model C, the Doble brothers</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>A&nbsp;&nbsp; </strong>moved production to a different city.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>B&nbsp;&nbsp; </strong>raised financial capital.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>C&nbsp;&nbsp; </strong>employed an additional worker.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>D&nbsp; </strong>&nbsp;abandoned their earlier designs.</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<h3><em><span style="font-size: x-large;"><strong>Questions 24-26</strong></span></em></h3>
+<p><span style="font-size: large;"><em>Complete the summary below.</em></span></p>
+<p><span style="font-size: large;"><em>Choose ONE WORD ANDIOR A NUMBER from the passage for each answer.</em></span></p>
+<p><span style="font-size: large;"><em>Write your answers in boxes 24-26 on your answer sheet.</em></span></p>
+<h3 style="text-align: center;"><span style="font-size: large;"><strong>The Model E</strong></span></h3>
+<p><span style="font-size: large;">The Model E was road-tested in 1924 by the Automobile Club of America. They found it easy to drive, despite its weight, and it impressed the spectators. A later version of the Model E raised its <strong>24</strong>………………, while keeping its emissions extremely low.</span></p>
+<p><span style="font-size: large;">The steam car was too expensive for many people and its design was constantly being altered. Under <strong>25</strong>……………… cars were produced before the company went out of business. However, even today, there are Model Es on the road in the US. They are straightforward to maintain, and they satisfy California’s <strong>26</strong>……………… emissions laws. Perhaps today’s technology and materials would help us revive the steam car.</span></p>
+                `
             },
             {
                 title: `Reading Passage 3`,
-                content: ``,
-                question: ``
+                content: `
+                <p><span style="font-size: large;">You should spend about 20 minutes on <strong>Questions 27-40</strong> which are based on Reading Passage 3 below.</span></p>
+<h2 style="text-align: center;"><span style="font-size: x-large;"><strong>The case for mixed-ability classes</strong></span></h2>
+<p><span style="font-size: large;">Picture this scene. It’s an English literature lesson in a UK school, and the teacher has just read an extract from Shakespeare’s <em>Romeo</em> <em>and</em> <em>Juliet</em> with a class of 15-year-olds. He’s given some of the students copies of <em>No</em> <em>Fear</em> <em>Shakespeare</em>, a kid-friendly translation of the original. For three students, even these literacy demands are beyond them. Another girl simply can’t focus and he gives her pens and paper to draw with. The teacher can ask the <em>No</em> <em>Fear</em> group to identify the key characters and maybe provide a tentative plot summary. He can ask most of the class about character development, and five of them might be able to support their statements with textual evidence. Now two curious students are wondering whether Shakespeare advocates living a life of moderation or one of passionate engagement.</span></p>
+<p><span style="font-size: large;">As a teacher myself, I’d think my lesson would be going rather well if the discussion went as described above. But wouldn’t this kind of class work better if there weren’t such a huge gap between the top and the bottom? If we put all the kids who needed literacy support into one class, and all the students who want to discuss the virtue of moderation into another?</span></p>
+<p><span style="font-size: large;">The practice of ‘streaming’, or ‘tracking’, involves separating students into classes depending on their diagnosed levels of attainment. At a macro level, it requires the establishment of academically selective schools for the brightest students, and comprehensive schools for the rest. Within schools, it means selecting students into a ‘stream’ of general ability, or ‘sets’ of subject-specific ability. The practice is intuitively appealing to almost every stakeholder.</span></p>
+<p><span style="font-size: large;">I have heard the mixed-ability model attacked by way of analogy: a group hike. The fittest in the group take the lead and set a brisk pace, only to have to stop and wait every 20 minutes. This is frustrating, and their enthusiasm wanes. Meanwhile, the slowest ones are not only embarrassed but physically struggling to keep up. What’s worse, they never get a long enough break. They honestly just want to quit. Hiking, they feel, is not for them.</span></p>
+<p><span style="font-size: large;">Mixed-ability classes bore students, frustrate parents and bum out teachers. The brightest ones will never summit Mount Qomolangma, and the stragglers won’t enjoy the lovely stroll in the park they are perhaps more suited to. Individuals suffer at the demands of the collective, mediocrity prevails. So: is learning like hiking?</span></p>
+<p><span style="font-size: large;">The current pedagogical paradigm is arguably that of constructivism, which emerged out of the work of psychologist Lev Vygotsky. In the 1930s, Vygotsky emphasised the importance of targeting a student’s specific ‘zone of proximal development’ (ZPD). This is the gap between what they can achieve only with support – teachers, textbooks, worked examples, parents and so on – and what they can achieve independently. The purpose of teaching is to provide and then gradually remove this ‘scaffolding’ until they are autonomous. If we accept this model, it follows that streaming students with similar ZPDs would be an efficient and effective solution. And that forcing everyone on the same hike – regardless of aptitude – would be madness.</span></p>
+<p><span style="font-size: large;">Despite all this, there is limited empirical evidence to suggest that streaming results in better outcomes for students. Professor John Hattie, director of the Melbourne Education Research Institute, notes that ‘tracking has minimal effects on learning outcomes’. What is more, streaming appears to significantly – and negatively – affect those students assigned to the lowest sets. These students tend to have much higher representation of low socioeconomic class. Less significant is the small benefit for those lucky clever students in the higher sets. The overall result is that the smart stay smart and the dumb get dumber, further entrenching the social divide.</span></p>
+<p><span style="font-size: large;">In the latest update of Hattie’s influential meta-analysis of factors influencing student achievement, one of the most significant factors is the teachers’ estimate of achievement. Streaming students by diagnosed achievement automatically limits what the teacher feels the student is capable of. Meanwhile, in a mixed environment, teachers’ estimates need to be more diverse and flexible.</span></p>
+<p><span style="font-size: large;">While streaming might seem to help teachers effectively target a student’s ZPD, it can underestimate the importance of peer-to-peer learning. A crucial aspect of constructivist theory is the role of the MKO – ‘more knowledgeable other’ – in knowledge construction. While teachers are traditionally the MKOs in classrooms, the value of knowledgeable student peers must not go unrecognised either.</span></p>
+<p><span style="font-size: large;">I find it amazing to watch students get over an idea to their peers in ways that I would never think of. They operate with different language tools and different social tools from teachers and, having just learnt it themselves, they possess similar cognitive structures to their struggling classmates. There is also something exciting about passing on skills and knowledge that you yourself have just mastered – a certain pride and zeal, a certain freshness to the interaction between ‘teacher’ and ‘learner’ that is often lost by the expert for whom the steps are obvious and the joy of discovery forgotten.</span></p>
+<p><span style="font-size: large;">Having a variety of different abilities in a collaborative learning environment provides valuable resources for helping students meet their learning needs, not to mention improving their communication and social skills. And today, more than ever, we need the many to flourish – not suffer at the expense of a few bright stars. Once a year, I go on a hike with my class, a mixed bunch of students. It is challenging. The fittest students realise they need to encourage the reluctant. There are lookouts who report back, and extra items to carry for others. We make it – together.</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+                `,
+                question: `
+                <h3><span style="font-size: x-large;"><em><strong>Questions 27-30</strong></em></span></h3>
+<p><span style="font-size: large;"><em>Choose the correct letter, <strong>A</strong>, <strong>B</strong>, <strong>C</strong> or <strong>D</strong>.</em></span></p>
+<p><span style="font-size: large;"><em>Write the correct letter in boxes <strong>27-30</strong> on your answer sheet.</em></span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong>27 </strong>&nbsp;&nbsp;The writer describes the <em>Romeo and Juliet</em> lesson in order to demonstrate</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>A&nbsp;&nbsp; </strong>how few students are interested in literature.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>B&nbsp;&nbsp; </strong>how a teacher handles a range of learning needs.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>C&nbsp;&nbsp; </strong>how unsuitable Shakespeare is for most teenagers.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>D&nbsp;&nbsp; </strong>how weaker students can disrupt their classmates’ learning.</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong>28</strong>&nbsp; &nbsp;What does the writer say about streaming in the third paragraph?</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>A&nbsp; </strong>&nbsp;It has a very broad appeal.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>B&nbsp; </strong>&nbsp;It favours cleverer students.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>C&nbsp; </strong>&nbsp;It is relatively simple to implement.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>D&nbsp; </strong>&nbsp;It works better in some schools than others.</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong>29 </strong>&nbsp;&nbsp;What idea is suggested by the reference to Mount Qomolangma in the fifth paragraph?</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>A&nbsp;&nbsp; </strong>students following unsuitable paths</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>B&nbsp;&nbsp; </strong>students attempting interesting tasks</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>C&nbsp;&nbsp; </strong>students not achieving their full potential</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>D&nbsp; </strong>&nbsp;students not being aware of their limitations</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong>30 </strong>&nbsp;&nbsp;What does the word ‘scaffolding’ in the sixth paragraph refer to?</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>A&nbsp;&nbsp; </strong>the factors which prevent a student from learning effectively</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>B&nbsp;&nbsp; </strong>the environment where most of a student’s learning takes place</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>C&nbsp;&nbsp; </strong>the assistance given to a student in their initial stages of learning</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>D&nbsp; </strong>&nbsp;the setting of appropriate learning targets for a student’s aptitude</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<h3><span style="font-size: x-large;"><em><strong>Questions 31-35</strong></em></span></h3>
+<p><span style="font-size: large;"><em>Complete the summary using the list of phrases, <strong>A-l</strong>, below.</em></span></p>
+<p><span style="font-size: large;"><em>Write the correct letter, <strong>A-l</strong>, in boxes 31-35 on your answer sheet.</em></span></p>
+<h3 style="text-align: center;"><span style="font-size: x-large;"><strong>Is streaming effective?</strong></span></h3>
+<p><span style="font-size: large;">According to Professor John Hattie of the Melbourne Education Research Institute there is very little indication that streaming leads to <strong>31</strong>………………… . He points out that, in schools which use streaming, the most significant impact is on those students placed in the <strong>32</strong>…………………, especially where a large proportion of them have <strong>33</strong>………………… . Meanwhile, for the <strong>34</strong>…………………, there appears to be only minimal advantage. A further issue is that teachers tend to have <strong>35</strong>………………… of students in streamed groups.</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>A&nbsp; </strong>&nbsp;wrong classes&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>B&nbsp; </strong>&nbsp;lower expectations</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>C&nbsp; </strong>&nbsp;average learners&nbsp;&nbsp;&nbsp;&nbsp; <strong>D&nbsp; </strong>&nbsp;bottom sets</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>E&nbsp; </strong>&nbsp;brightest pupils &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong>F&nbsp; </strong>&nbsp;disadvantaged backgrounds</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>G </strong>&nbsp;&nbsp;weaker students&nbsp;&nbsp;&nbsp;&nbsp; <strong>H </strong>&nbsp;&nbsp;higher achievements</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>I&nbsp;&nbsp; </strong>&nbsp;positive impressions</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<h3><span style="font-size: x-large;"><em><strong>Questions 36-40</strong></em></span></h3>
+<p><span style="font-size: large;"><em>Do the following statements agree with the views of the writer in Reading Passage 3?</em></span></p>
+<p><span style="font-size: large;"><em>In boxes 36-40 on your answer sheet, write </em></span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong><em>YES</em></strong><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement agrees with the views of the writer</em></span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong><em>NO</em></strong><em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if the statement contradicts the views of the writer</em></span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong><em>NOT</em></strong><em> <strong>GIVEN</strong>&nbsp;&nbsp;&nbsp;&nbsp; if it is impossible to say what the writer thinks about this</em></span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong>36</strong>&nbsp; &nbsp;The Vygotsky model of education supports the concept of a mixed-ability class.</span></p>
+<p><span style="font-size: large;"><strong>37</strong> &nbsp;&nbsp;Some teachers are uncertain about allowing students to take on MKO roles in the classroom.</span></p>
+<p><span style="font-size: large;"><strong>38</strong>&nbsp; &nbsp;It can be rewarding to teach knowledge which you have only recently acquired.</span></p>
+<p><span style="font-size: large;"><strong>39</strong> &nbsp;&nbsp;The priority should be to ensure that the highest-achieving students attain their goals.</span></p>
+<p><span style="font-size: large;"><strong>40</strong>&nbsp; &nbsp;Taking part in collaborative outdoor activities with teachers and classmates can improve student outcomes in the classroom.</span></p>
+<p><span style="font-size: large;"></span></p>
+<p><span style="font-size: large;"></span></p>
+                `
             }
         ]
     }
