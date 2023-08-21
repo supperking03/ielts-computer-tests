@@ -162,7 +162,7 @@ function ReadingPassage() {
                         type="text" 
                         value={answer}
                         onChange={e => handleAnswerChange(idx, e.target.value)}
-                        placeholder={`Answer ${idx + 1}`}
+                        placeholder={`${idx + 1}`}
                     />
                 ))}
             </div>
