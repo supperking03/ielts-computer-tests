@@ -1,12 +1,14 @@
 // App.js
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import Home from './components/Home';
 import ReadingPassage from './components/ReadingPassage';
 import { tests } from './components/data';
+import { tests as tests2 } from './components/dataLis';
 import logo from './logo.svg'; // Import your logo
 import ListeningPassage from './components/ListeningPassage';
 import './Menu.css';
+
 
 function Header() {
   return (
@@ -21,17 +23,19 @@ function Header() {
 function AppContent() {
   const location = useLocation();
 
+  const [currentPage, setCurrentPage] = useState(0);  
+
   return (
     <div className="App">
-      {!location.pathname.startsWith('/reading/') && <Header />}
-      {!location.pathname.startsWith('/reading/') && <div className="menu">
-          <Link to="/">Reading</Link>
-          <Link to="/listening">Listening</Link>
+      {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/listening/')) && <Header />}
+      {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/listening/')) && <div className="menu">
+          <Link onClick={()=>{setCurrentPage(0)}}>Reading</Link>
+          <Link onClick={()=>{setCurrentPage(1)}}>Listening</Link>
       </div>}
       <Routes>
-          <Route path="/" element={<Home tests={tests} />} />
-          <Route path="/reading/:id" element={<ReadingPassage />} />
-          <Route path="/listening" element={<ListeningPassage />} />
+          <Route path="/" element={<Home tests={currentPage==0 ? tests : tests2} />} />
+          <Route path="/reading/:id" element={<ReadingPassage/>} />
+          <Route path="/listening/:id" element={<ListeningPassage />} />
           {/* ... other routes */}
       </Routes>
     </div>

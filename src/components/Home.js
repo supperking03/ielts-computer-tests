@@ -6,7 +6,7 @@ function Home({ tests }) {
     return (
         <div className="tests-grid">
             {tests.map(test => (
-                <Link key={test.id} to={`/reading/${test.id}`}>
+                <Link key={test.id} to={!tests[0].audioSource ? `/reading/${test.id}` : `/listening/${test.id}`}>
                     <div className="test-item">
                         <img src={test.image} alt={test.title} />
                         <h2>{test.title}</h2>
