@@ -17,7 +17,7 @@ function Header() {
     <div>
       <Helmet>
         <title>The Best IELTS Practice Test On Computer</title>
-        <meta name="description" content="The best IELTS computer-based practice tests for learners" />
+        <meta name="description" content="Real practise, Real score" />
       </Helmet>
       <header className="app-header">
         <img src={`https://genk.mediacdn.vn/k:thumb_w/640/2015/screen-shot-2015-07-30-at-2-31-57-pm-1438334096188/cau-chuyen-ve-nguoi-tao-ra-chu-ech-xanh-than-thanh.png`} alt="Website Logo" className="logo" />
