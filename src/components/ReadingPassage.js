@@ -3,6 +3,8 @@ import CountdownTimer from './CountdownTimer';
 import './ReadingPassage.css';
 import { useParams, useNavigate } from 'react-router-dom';
 import { tests } from './data';
+import { Helmet } from 'react-helmet';
+
 
 function ReadingPassage() {
     const { id } = useParams();
@@ -103,7 +105,12 @@ function ReadingPassage() {
     
 
     return (
-        <div className="reading-passage" onContextMenu={handleRightClick}>
+        <div>
+            <Helmet>
+                <title>IELTS Reading Practice</title>
+                <meta name="description" content="Engage with our reading practice tests to get a real feel of the IELTS exam." />
+            </Helmet>
+            <div className="reading-passage" onContextMenu={handleRightClick}>
             <div className="main-section">
                 <button onClick={navigateBackToHome}>{`< Back to Home`}</button>
                 <div className="timer-container">
@@ -166,6 +173,7 @@ function ReadingPassage() {
                     />
                 ))}
             </div>
+        </div>
         </div>
     );
 }

@@ -8,15 +8,23 @@ import { tests as tests2 } from './components/dataLis';
 import logo from './logo.svg'; // Import your logo
 import ListeningPassage from './components/ListeningPassage';
 import './Menu.css';
+import { Helmet } from 'react-helmet';
+
 
 
 function Header() {
   return (
-    <header className="app-header">
+    <div>
+      <Helmet>
+        <title>The Best IELTS Practice Test On Computer</title>
+        <meta name="description" content="The best IELTS computer-based practice tests for learners" />
+      </Helmet>
+      <header className="app-header">
         <img src={`https://genk.mediacdn.vn/k:thumb_w/640/2015/screen-shot-2015-07-30-at-2-31-57-pm-1438334096188/cau-chuyen-ve-nguoi-tao-ra-chu-ech-xanh-than-thanh.png`} alt="Website Logo" className="logo" />
         <h1>The Best IELTS Practice Test On Computer</h1>
         <p>Real practise, Real score</p>
-    </header>
+      </header>
+    </div>
   );
 }
 
@@ -34,8 +42,8 @@ function AppContent() {
       </div>}
       <Routes>
           <Route path="/" element={<Home tests={currentPage==0 ? tests : tests2} />} />
-          <Route path="/reading/:id" element={<ReadingPassage/>} />
-          <Route path="/listening/:id" element={<ListeningPassage />} />
+          <Route path="/reading/:id/:title" element={<ReadingPassage/>} />
+          <Route path="/listening/:id/:title" element={<ListeningPassage />} />
           {/* ... other routes */}
       </Routes>
     </div>

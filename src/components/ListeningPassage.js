@@ -4,6 +4,8 @@ import CountdownTimer from './CountdownTimer';
 import './ListeningPassage.css';
 import { useParams, useNavigate } from 'react-router-dom';
 import { tests } from './dataLis';
+import { Helmet } from 'react-helmet';
+
 
 function ListeningPassage() {
     const { id } = useParams();
@@ -108,7 +110,12 @@ function ListeningPassage() {
     
 
     return (
-        <div className="reading-passage" onContextMenu={handleRightClick}>
+        <div>
+            <Helmet>
+                <title>IELTS Listening Practice</title>
+                <meta name="description" content="Tune in to our listening practice tests and improve your IELTS listening skills." />
+            </Helmet>
+            <div className="reading-passage" onContextMenu={handleRightClick}>
             <div className="main-section">
                 <button onClick={navigateBackToHome}>{`< Back to Home`}</button>
                 {/* Audio Section */}
@@ -177,6 +184,7 @@ function ListeningPassage() {
                     />
                 ))}
             </div>
+        </div>
         </div>
     );
 }
