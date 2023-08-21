@@ -36,3 +36,22 @@
     transform: rotate(360deg);
   }
 }
+
+.menu {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.menu a {
+  /* padding: 10px 20px; */
+  margin: 0 10px;
+  /* background-color: #007BFF; */
+  color: #0320fa;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.menu a:hover {
+  
+}

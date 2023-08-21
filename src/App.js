@@ -1,10 +1,12 @@
 // App.js
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import Home from './components/Home';
 import ReadingPassage from './components/ReadingPassage';
 import { tests } from './components/data';
 import logo from './logo.svg'; // Import your logo
+import ListeningPassage from './components/ListeningPassage';
+import './Menu.css';
 
 function Header() {
   return (
@@ -22,9 +24,14 @@ function AppContent() {
   return (
     <div className="App">
       {!location.pathname.startsWith('/reading/') && <Header />}
+      {!location.pathname.startsWith('/reading/') && <div className="menu">
+          <Link to="/">Reading</Link>
+          <Link to="/listening">Listening</Link>
+      </div>}
       <Routes>
           <Route path="/" element={<Home tests={tests} />} />
           <Route path="/reading/:id" element={<ReadingPassage />} />
+          <Route path="/listening" element={<ListeningPassage />} />
           {/* ... other routes */}
       </Routes>
     </div>
