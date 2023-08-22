@@ -196,5 +196,245 @@ export const tests = [
                 `
             }
         ]
-    }
+    },
+    {
+        id: 2,
+        title: 'Listening CAM 18 Test 2',
+        image: 'https://ieltstrainingonline.com/wp-content/uploads/2023/06/cam-18-test-2.jpg',
+        audioSource:'https://docs.google.com/uc?export=open&id=1hbLCSUqaG5AnrcFRVkuj73PnQcOf9vUx',
+        results:[
+            'training', 'discount', 'taxi', 'service', 'English', 'Wivenhoe', 'equipment', '9.75', 'deliveries', 'Sunday',
+            'B, E', 'B, E', 'B, C', 'B, C', 'G', 'C', 'D', 'B', 'H', 'A', 'C', 'A', 'B', 'B', 'A, B', 'A, B', 'D', 'A', 'C', 'F',
+            'convenient', 'suits', 'tailor', 'profession', 'visible', 'string(s)', 'waist(s)', 'perfume', 'image', 'handbag'
+        ],
+        passages: [
+            {
+                title: `Task 1`,
+                content: `
+                <div class="et_pb_text_inner"><h3><span style="font-size: xx-large;"><strong>PART 1</strong></span></h3>
+<h4><span style="font-size: x-large;"><strong></strong></span></h4>
+<h4><strong style="font-size: large; color: #666666;"></strong></h4>
+<h3><span style="font-size: x-large;"><em><strong>Questions 1-5</strong></em></span></h3>
+<p><span style="font-size: large;"><em>Complete the notes below.</em></span></p>
+<p><span style="font-size: large;"><em>Write <strong>ONE WORD ONLY</strong> for each answer.</em></span></p>
+<h2 style="text-align: center;"><span style="font-size: x-large;"><strong>Working at Milo’s Restaurants</strong></span></h2>
+<p><span style="font-size: large;"><strong>Benefits</strong></span></p>
+<p><span style="font-size: large;">●&nbsp;&nbsp; <strong>1</strong>………………… provided for all staff</span></p>
+<p><span style="font-size: large;">●&nbsp;&nbsp; <strong>2</strong>………………… during weekdays at all Milo’s Restaurants</span></p>
+<p><span style="font-size: large;">●&nbsp;&nbsp; <strong>3</strong>………………… provided after midnight</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong>Person specification</strong></span></p>
+<p><span style="font-size: large;">●&nbsp;&nbsp; must be prepared to work well in a team</span></p>
+<p><span style="font-size: large;">●&nbsp;&nbsp; must care about maintaining a high standard of <strong>4</strong>…………………</span></p>
+<p><span style="font-size: large;">●&nbsp;&nbsp; must have a qualification in <strong>5</strong>…………………</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<h3><span style="font-size: x-large;"><em><strong>Questions 6-10</strong></em></span></h3>
+<p><span style="font-size: large;"><em>Complete the table below.</em></span></p>
+<p><span style="font-size: large;"><em>Write <strong>ONE WORD AND/OR A NUMBER</strong> for each answer.</em></span></p>
+<table>
+<tbody>
+<tr>
+<td width="119">
+<p><span style="font-size: large;"><strong>Location</strong></span></p>
+</td>
+<td width="143">
+<p><span style="font-size: large;"><strong>Job title</strong></span></p>
+</td>
+<td width="151">
+<p><span style="font-size: large;"><strong>Responsibilities include</strong></span></p>
+</td>
+<td width="161">
+<p><span style="font-size: large;"><strong>Pay and conditions</strong></span></p>
+</td>
+</tr>
+<tr>
+<td width="119">
+<p><span style="font-size: large;"><strong>6</strong>…………… Street</span></p>
+</td>
+<td width="143">
+<p><span style="font-size: large;">Breakfast supervisor</span></p>
+</td>
+<td width="151">
+<p><span style="font-size: large;">Checking portions, etc. are correct</span></p>
+<p><span style="font-size: large;">&nbsp;</span></p>
+<p><span style="font-size: large;">Making sure <strong>7</strong>…………… is clean</span></p>
+</td>
+<td width="161">
+<p><span style="font-size: large;">Starting salary <strong>8</strong> £…………… per hour</span></p>
+<p><span style="font-size: large;">&nbsp;</span></p>
+<p><span style="font-size: large;">Start work at 5.30 a.m.</span></p>
+</td>
+</tr>
+<tr>
+<td width="119">
+<p><span style="font-size: large;">City Road</span></p>
+</td>
+<td width="143">
+<p><span style="font-size: large;">Junior chef</span></p>
+</td>
+<td width="151">
+<p><span style="font-size: large;">Supporting senior chefs</span></p>
+<p><span style="font-size: large;">&nbsp;</span></p>
+<p><span style="font-size: large;">Maintaining stock and organising <strong>9</strong>……………</span></p>
+</td>
+<td width="161">
+<p><span style="font-size: large;">Annual salary £23,000</span></p>
+<p><span style="font-size: large;">&nbsp;</span></p>
+<p><span style="font-size: large;">No work on a <strong>10</strong>…………… once a month</span></p>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span style="font-size: large;"></span></p>
+<p><span style="font-size: large;"></span></p></div>
+                `
+            },
+            {
+                title: `Task 2`,
+                content: `<<div class="et_pb_text_inner"><h3><span style="font-size: xx-large;"><strong>PART 2</strong></span></h3>
+                <h4><span style="font-size: x-large;"><strong></strong></span></h4>
+                <h4><strong style="font-size: large; color: #666666;"></strong></h4>
+                <h3><span style="font-size: x-large;"><em><strong>Questions 11 and 12</strong></em></span></h3>
+                <p><span style="font-size: large;"><em>Choose <strong>TWO</strong> letters, <strong>A-E</strong>.</em></span></p>
+                <p><span style="font-size: large;">What are the <strong>TWO</strong> main reasons why this site has been chosen for the housing development?</span></p>
+                <p style="padding-left: 40px;"><span style="font-size: large;"><strong>A </strong>&nbsp;&nbsp;It has suitable geographical features.</span></p>
+                <p style="padding-left: 40px;"><span style="font-size: large;"><strong>B </strong>&nbsp;&nbsp;There is easy access to local facilities.</span></p>
+                <p style="padding-left: 40px;"><span style="font-size: large;"><strong>C </strong>&nbsp;&nbsp;It has good connections with the airport.</span></p>
+                <p style="padding-left: 40px;"><span style="font-size: large;"><strong>D </strong>&nbsp;&nbsp;The land is of little agricultural value.</span></p>
+                <p style="padding-left: 40px;"><span style="font-size: large;"><strong>E </strong>&nbsp;&nbsp;It will be convenient for workers.</span></p>
+                <p><span style="font-size: large;"><strong></strong></span></p>
+                <p><span style="font-size: large;"><strong></strong></span></p>
+                <h3><span style="font-size: x-large;"><em><strong>Questions 13 and 14</strong></em></span></h3>
+                <p><span style="font-size: large;"><em>Choose <strong>TWO</strong> letters, <strong>A-E</strong>.</em></span></p>
+                <p><span style="font-size: large;">Which <strong>TWO</strong> aspects of the planned housing development have people given positive feedback about?</span></p>
+                <p style="padding-left: 40px;"><span style="font-size: large;"><strong>A </strong>&nbsp;&nbsp;the facilities for cyclists</span></p>
+                <p style="padding-left: 40px;"><span style="font-size: large;"><strong>B </strong>&nbsp;&nbsp;the impact on the environment</span></p>
+                <p style="padding-left: 40px;"><span style="font-size: large;"><strong>C </strong>&nbsp;&nbsp;the encouragement of good relations between residents</span></p>
+                <p style="padding-left: 40px;"><span style="font-size: large;"><strong>D </strong>&nbsp;&nbsp;the low cost of all the accommodation</span></p>
+                <p style="padding-left: 40px;"><span style="font-size: large;"><strong>E&nbsp; </strong>&nbsp;the rural location</span></p>
+                <p><span style="font-size: large;"><strong></strong></span></p>
+                <p><span style="font-size: large;"><strong></strong></span></p>
+                <h3><span style="font-size: x-large;"><em><strong>Questions 15-20</strong></em></span></h3>
+                <p><span style="font-size: large;"><em>Label the map below.</em></span></p>
+                <p><span style="font-size: large;"><em>Write the correct letter, <strong>A-l</strong>, next to Questions 15-20.</em></span></p>
+                <p><img decoding="async" src="https://ieltstrainingonline.com/wp-content/uploads/2023/06/cam18-listening-test-2-part-2-1024x729.jpg" width="1024" height="729" alt="" class="wp-image-27283 aligncenter size-large" srcset="https://ieltstrainingonline.com/wp-content/uploads/2023/06/cam18-listening-test-2-part-2-1024x729.jpg 1024w, https://ieltstrainingonline.com/wp-content/uploads/2023/06/cam18-listening-test-2-part-2-980x698.jpg 980w, https://ieltstrainingonline.com/wp-content/uploads/2023/06/cam18-listening-test-2-part-2-480x342.jpg 480w" sizes="(min-width: 0px) and (max-width: 480px) 480px, (min-width: 481px) and (max-width: 980px) 980px, (min-width: 981px) 1024px, 100vw"></p>
+                <p><span style="font-size: large;"><strong></strong></span></p>
+                <p><span style="font-size: large;"><strong>15 </strong>&nbsp;&nbsp;School&nbsp;&nbsp; …………….</span></p>
+                <p><span style="font-size: large;"><strong>16 </strong>&nbsp;&nbsp;Sports centre&nbsp;&nbsp; …………….</span></p>
+                <p><span style="font-size: large;"><strong>17 </strong>&nbsp;&nbsp;Clinic&nbsp;&nbsp; …………….</span></p>
+                <p><span style="font-size: large;"><strong>18 </strong>&nbsp;&nbsp;Community centre&nbsp;&nbsp; …………….</span></p>
+                <p><span style="font-size: large;"><strong>19 </strong>&nbsp;&nbsp;Supermarket&nbsp;&nbsp; …………….</span></p>
+                <p><span style="font-size: large;"><strong>20 </strong>&nbsp;&nbsp;Playground&nbsp;&nbsp; …………….</span></p></div>`
+            },
+            {
+                title: `Task 3`,
+                content: `
+                <div class="et_pb_text_inner" style="height: auto !important;"><h3><span style="font-size: xx-large;"><strong>PART 3</strong></span></h3>
+<h4><span style="font-size: x-large;"><strong></strong></span></h4>
+<h4><strong style="font-size: large; color: #666666;"></strong></h4>
+<h3><span style="font-size: x-large;"><em><strong>Questions 21-24</strong></em></span></h3>
+<p><span style="font-size: large;"><em>Choose the correct letter, <strong>A</strong>, <strong>B</strong> or <strong>C</strong>.</em></span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong>21</strong> &nbsp;&nbsp;Why do the students think the Laki eruption of 1783 is so important?</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>A&nbsp; </strong>&nbsp;It was the most severe eruption in modern times.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>B&nbsp; </strong>&nbsp;It led to the formal study of volcanoes.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>C&nbsp; </strong>&nbsp;It had a profound effect on society.</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong>22</strong>&nbsp; &nbsp;What surprised Adam about observations made at the time?</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>A&nbsp; </strong>&nbsp;the number of places producing them</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>B&nbsp; </strong>&nbsp;the contradictions in them</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>C&nbsp; </strong>&nbsp;the lack of scientific data to support them</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong>23</strong>&nbsp; &nbsp;According to Michelle, what did the contemporary sources say about the Laki haze?</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>A&nbsp; </strong>&nbsp;People thought it was similar to ordinary fog.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>B&nbsp; </strong>&nbsp;It was associated with health issues.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>C&nbsp; </strong>&nbsp;It completely blocked out the sun for weeks.</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong>24</strong>&nbsp; &nbsp;Adam corrects Michelle when she claims that Benjamin Franklin</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>A&nbsp; </strong>&nbsp;came to the wrong conclusion about the cause of the haze.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>B&nbsp; </strong>&nbsp;was the first to identify the reason for the haze.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>C&nbsp; </strong>&nbsp;supported the opinions of other observers about the haze.</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<h3><span style="font-size: x-large;"><em><strong>Questions 25 and 26</strong></em></span></h3>
+<p><span style="font-size: large;"><em>Choose <strong>TWO</strong> letters, <strong>A-E</strong>.</em></span></p>
+<p><span style="font-size: large;">Which <strong>TWO</strong> issues following the Laki eruption surprised the students?</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>A&nbsp; </strong>&nbsp;how widespread the effects were</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>B&nbsp; </strong>&nbsp;how long-lasting the effects were</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>C&nbsp; </strong>&nbsp;the number of deaths it caused</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>D </strong>&nbsp;&nbsp;the speed at which the volcanic ash cloud spread</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>E&nbsp; </strong>&nbsp;how people ignored the warning signs</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<h3><span style="font-size: x-large;"><em><strong>Questions 27-30</strong></em></span></h3>
+<p><span style="font-size: large;">What comment do the students make about the impact of the Laki eruption on the following countries?</span></p>
+<p><span style="font-size: large;"><em>Choose <strong>FOUR</strong> answers from the box and write the correct letter, <strong>A-F</strong>, next to Questions 27-30.</em></span></p>
+<h3><span style="font-size: large;"><strong>Comments</strong></span></h3>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>A </strong>&nbsp;&nbsp;This country suffered the most severe loss of life.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>B </strong>&nbsp;&nbsp;The impact on agriculture was predictable.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>C </strong>&nbsp;&nbsp;There was a significant increase in deaths of young people.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>D </strong>&nbsp;&nbsp;Animals suffered from a sickness.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>E </strong>&nbsp;&nbsp;This country saw the highest rise in food prices in the world.</span></p>
+<p style="padding-left: 40px;"><span style="font-size: large;"><strong>F </strong>&nbsp;&nbsp;It caused a particularly harsh winter.</span></p>
+<p><span style="font-size: large;"></span></p>
+<h3><span style="font-size: large;"><strong>Countries</strong></span></h3>
+<p><span style="font-size: large;"><strong>27 </strong>&nbsp;&nbsp;Iceland&nbsp;&nbsp; …………</span></p>
+<p><span style="font-size: large;"><strong>28 </strong>&nbsp;&nbsp;Egypt&nbsp;&nbsp; …………</span></p>
+<p><span style="font-size: large;"><strong>29 </strong>&nbsp;&nbsp;UK&nbsp;&nbsp; …………</span></p>
+<p><span style="font-size: large;"><strong>30 </strong>&nbsp;&nbsp;USA&nbsp;&nbsp; …………</span></p></div>
+                `
+            },
+            {
+                title: `Task 4`,
+                content: `
+                <div class="et_pb_text_inner"><h3><span style="font-size: xx-large;"><strong>PART 4</strong></span></h3>
+<h4><span style="font-size: x-large;"><strong></strong></span></h4>
+<h4><strong style="font-size: large; color: #666666;"></strong></h4>
+<h3><span style="font-size: x-large;"><em><strong>Questions 31-40</strong></em></span></h3>
+<p><span style="font-size: large;"><em>Complete the notes below.</em></span></p>
+<p><span style="font-size: large;"><em>Write <strong>ONE WORD ONLY</strong> for each answer.</em></span></p>
+<h2 style="text-align: center;"><span style="font-size: x-large;"><strong>Pockets</strong></span></h2>
+<p><span style="font-size: large;"><strong>Reason for choice of subject</strong></span></p>
+<p><span style="font-size: large;">●&nbsp;&nbsp; They are <strong>31</strong>………………… but can be overlooked by consumers and designers.</span></p>
+<p><span style="font-size: large;"><strong>Pockets in men’s clothes</strong></span></p>
+<p><span style="font-size: large;">●&nbsp;&nbsp; Men started to wear <strong>32</strong>………………… in the 18th century.</span></p>
+<p><span style="font-size: large;">●&nbsp;&nbsp; A <strong>33</strong>………………… sewed pockets into the lining of the garments.</span></p>
+<p><span style="font-size: large;">●&nbsp;&nbsp; The wearer could use the pockets for small items.</span></p>
+<p><span style="font-size: large;">●&nbsp;&nbsp; Bigger pockets might be made for men who belonged to a certain type of <strong>34</strong>…………………</span></p>
+<p><span style="font-size: large;"><strong>Pockets in women’s clothes</strong></span></p>
+<p><span style="font-size: large;">●&nbsp;&nbsp; Women’s pockets were less <strong>35</strong>………………… than men’s.</span></p>
+<p><span style="font-size: large;">●&nbsp;&nbsp; Women were very concerned about pickpockets.</span></p>
+<p><span style="font-size: large;">●&nbsp;&nbsp; Pockets were produced in pairs using <strong>36</strong>………………… to link them together.</span></p>
+<p><span style="font-size: large;">●&nbsp;&nbsp; Pockets hung from the women’s <strong>37</strong>………………… under skirts and petticoats.</span></p>
+<p><span style="font-size: large;">●&nbsp;&nbsp; Items such as <strong>38</strong>………………… could be reached through a gap in the material.</span></p>
+<p><span style="font-size: large;">●&nbsp;&nbsp; Pockets, of various sizes, stayed inside clothing for many decades.</span></p>
+<p><span style="font-size: large;">●&nbsp;&nbsp; When dresses changed shape, hidden pockets had a negative effect on the <strong>39</strong>………………… of women.</span></p>
+<p><span style="font-size: large;">●&nbsp;&nbsp; Bags called ‘pouches’ became popular, before women carried a <strong>40</strong>…………………</span></p>
+<p><span style="font-size: large;"></span></p></div>
+                `
+            }
+        ]
+    },
+    // {
+    //     id: 2,
+    //     title: 'Listening CAM 18 Test 2',
+    //     image: 'https://ieltstrainingonline.com/wp-content/uploads/2023/06/cam-18-test-2.jpg',
+    //     audioSource:'https://docs.google.com/uc?export=open&id=1HuKNcL0d6MWM7lhVNnJ_mUZ1vrzyB5Qx',
+    //     results:[],
+    //     passages: [
+    //         {
+    //             title: `Reading Passage 1`,
+    //             content: ``
+    //         },
+    //         {
+    //             title: `Reading Passage 2`,
+    //             content: ``
+    //         },
+    //         {
+    //             title: `Reading Passage 3`,
+    //             content: ``
+    //         }
+    //     ]
+    // }
 ]
