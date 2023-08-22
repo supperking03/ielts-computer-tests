@@ -1,3 +1,5 @@
+@import "~font-awesome/css/font-awesome.min.css";
+
 .reading-passage {
     font-family: 'Arial', sans-serif;
     display: flex;
@@ -50,6 +52,8 @@
     display: flex;
     gap: 20px;
     overflow: hidden;
+    color: #333;  /* dark gray color */
+    background-color: #ffffff;  /* white background */
 }
 
 .passage-section,
@@ -60,6 +64,9 @@
     padding: 20px;
     border: 1px solid #ccc;
     box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif; /* Use Arial font */
+    font-size: 16px; /* Adjust as per your requirement */
+    line-height: 1.6; /* Providing spacing between lines for better readability */
 }
 
 .passage-navigation {
@@ -150,3 +157,25 @@ div[style*="absolute"] button:hover {
 .questions-section div {
     text-align: left;
 }
+
+.fullscreen-button {
+    position: absolute;
+    top: 10px;
+    right: 200px;
+    z-index: 1000; /* ensures it's above other content */
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: smaller;
+    color: grey;
+}
+
+.back-button {
+    cursor: pointer;
+    font-size: smaller;
+    color: grey;
+    position: absolute;
+    top: 10px;
+    left: 10;
+    padding: 5px 10px;
+}
+

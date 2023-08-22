@@ -34,8 +34,17 @@ function ReadingPassage() {
     }
     
     const passages = selectedTest.passages;
-    
 
+    function toggleFullScreen() {
+        if (!document.fullscreenElement) {
+            document.documentElement.requestFullscreen();
+        } else {
+            if (document.exitFullscreen) {
+                document.exitFullscreen();
+            }
+        }
+    }
+    
     const handleRightClick = (e) => {
         e.preventDefault();
 
@@ -110,9 +119,10 @@ function ReadingPassage() {
                 <title>IELTS Reading Practice</title>
                 <meta name="description" content="Engage with our reading practice tests to get a real feel of the IELTS exam." />
             </Helmet>
+            <a className="fullscreen-button" onClick={toggleFullScreen} aria-hidden="true">Full screen</a>
             <div className="reading-passage" onContextMenu={handleRightClick}>
             <div className="main-section">
-                <button onClick={navigateBackToHome}>{`< Back to Home`}</button>
+                <a className="back-button" onClick={navigateBackToHome}>{`< Back to Home`}</a>
                 <div className="timer-container">
                     <CountdownTimer />
                 </div>
