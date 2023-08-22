@@ -1,11 +1,10 @@
 // App.js
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import Home from './components/Home';
 import ReadingPassage from './components/ReadingPassage';
 import { tests } from './components/data';
 import { tests as tests2 } from './components/dataLis';
-import logo from './logo.svg'; // Import your logo
 import ListeningPassage from './components/ListeningPassage';
 import './Menu.css';
 import { Helmet } from 'react-helmet';
@@ -18,11 +17,12 @@ function Header() {
       <Helmet>
         <title>The Best IELTS Practice Test On Computer</title>
         <meta name="description" content="Real practise, Real score" />
+        <h1>The Best IELTS Practice Test On Computer</h1>
       </Helmet>
       <header className="app-header">
         <img src={`https://genk.mediacdn.vn/k:thumb_w/640/2015/screen-shot-2015-07-30-at-2-31-57-pm-1438334096188/cau-chuyen-ve-nguoi-tao-ra-chu-ech-xanh-than-thanh.png`} alt="Website Logo" className="logo" />
         <h1>The Best IELTS Practice Test On Computer</h1>
-        <p>Real practise, Real score</p>
+        <a>Real practise, Real score</a>
       </header>
     </div>
   );
