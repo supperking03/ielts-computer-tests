@@ -126,8 +126,7 @@ button:hover {
 /* Close button on popup */
 .popup-container button {
   position: absolute;
-  right: 20px;
-  top: 20px;
+  bottom: 20px;
 }
 
 

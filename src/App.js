@@ -40,11 +40,11 @@ function Header() {
                 setPopupVisible(false)
                 setCurrentSlide(1)
               }}>Close</button>}
-            {currentSlide === 1 && <img style={{width: "80vh", height: "80vh"}} src={sampleImage1} alt="Highlight pen sample" />}
-            {currentSlide === 2 && <img style={{width: "80vh", height: "80vh"}} src={sampleImage2} alt="Highlight pen sample" />}
-            {currentSlide === 3 && <img style={{width: "80vh", height: "80vh"}} src={sampleImage3} alt="Highlight pen sample" />}
-            {currentSlide === 4 && <img style={{width: "80vh", height: "80vh"}} src={sampleImage4} alt="Highlight pen sample" />}
-            {currentSlide != 4 && <button style={{fontSize: "20px"}} onClick={() => setCurrentSlide(currentSlide + 1)}>Next slide</button>}
+            {currentSlide === 1 && <img style={{width: "80vh", height: "80vh", marginBottom: "50px"}} src={sampleImage1} alt="Highlight pen sample" />}
+            {currentSlide === 2 && <img style={{width: "80vh", height: "80vh", marginBottom: "50px"}} src={sampleImage2} alt="Highlight pen sample" />}
+            {currentSlide === 3 && <img style={{width: "80vh", height: "80vh", marginBottom: "50px"}} src={sampleImage3} alt="Highlight pen sample" />}
+            {currentSlide === 4 && <img style={{width: "80vh", height: "80vh", marginBottom: "50px"}} src={sampleImage4} alt="Highlight pen sample" />}
+            {currentSlide != 4 && <button style={{fontSize: "20px"}} onClick={() => setCurrentSlide(currentSlide + 1)}>Next slide {' >'} </button>}
         </div>
       )}
     </div>
