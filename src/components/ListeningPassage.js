@@ -158,8 +158,8 @@ function ListeningPassage() {
                             zIndex: 1000 
                         }}
                     >
-                        <button style={{color:'black', padding:'0px', paddingLeft: '10px', paddingRight:'10px'}} onClick={highlightText}>Highlight</button>
-                        <button style={{color:'black', padding:'0px', paddingLeft: '10px',paddingRight:'10px'}} onClick={removeHighlight}>Remove Highlight</button>
+                        <button style={{color:'black', padding:'10px', margin:'0px', textDecoration:'none'}} onClick={highlightText}>Highlight</button>
+                        <button style={{color:'black', padding:'10px', margin:'0px', textDecoration:'none'}} onClick={removeHighlight}>Remove Highlight</button>
                     </div>
                 )}
                 <div className="passage-navigation">
