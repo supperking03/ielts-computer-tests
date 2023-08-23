@@ -45,12 +45,28 @@ var obj = {
 };
 
 // Assuming you have the modifiedOuterHTMLs array as before
-for (var i = 0; i < 4 && i < modifiedOuterHTMLs.length; i++) {
-    obj.passages[i].content = modifiedOuterHTMLs[i];
+
+if(modifiedOuterHTMLs[0].includes("PART 1"))
+{
+    for (var i = 0; i < 4 && i < modifiedOuterHTMLs.length; i++) {
+        obj.passages[i].content = modifiedOuterHTMLs[i];
+    }
+}
+else{
+    for (var i = 0; i < 4 && i < modifiedOuterHTMLs.length; i++) {
+        obj.passages[i].content = modifiedOuterHTMLs[i+1];
+    }
 }
 
 // The provided HTML content (as a string)
-var htmlContent = document.querySelector('.et_pb_row.et_pb_row_11.et_pb_row_4col').outerHTML;
+var htmlContent = '';
+if(document.querySelector('.et_pb_row.et_pb_row_11.et_pb_row_4col') != null)
+{
+    htmlContent = document.querySelector('.et_pb_row.et_pb_row_11.et_pb_row_4col').outerHTML;
+}
+else{
+    htmlContent = document.querySelector('.et_pb_row.et_pb_row_13.et_pb_row_4col').outerHTML;
+}
 
 // Parse the HTML content using a DOMParser
 var parser = new DOMParser();
