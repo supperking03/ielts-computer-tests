@@ -151,9 +151,9 @@ function ReadingPassage() {
                     </div>
                 )}
                 <div className="passage-navigation">
-                    <button disabled={currentPassage === 0} onClick={() => changePassage("prev")}>Previous Passage</button>
+                    <button style={{color: "black"}} disabled={currentPassage === 0} onClick={() => changePassage("prev")}>Previous Passage</button>
                     <span>Passage {currentPassage + 1} of 3</span>
-                    <button onClick={handleNextAction}>
+                    <button style={{color: "black"}} onClick={handleNextAction}>
                         {currentPassage < 2 ? "Next Passage" : "View Result"}
                     </button>
                 </div>

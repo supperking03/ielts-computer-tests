@@ -163,9 +163,9 @@ function ListeningPassage() {
                     </div>
                 )}
                 <div className="passage-navigation">
-                    <button disabled={currentPassage === 0} onClick={() => changePassage("prev")}>Previous Section</button>
+                    <button style={{color: "black"}} disabled={currentPassage === 0} onClick={() => changePassage("prev")}>Previous Section</button>
                     <span>Section {currentPassage + 1} of 4</span>
-                    <button onClick={handleNextAction}>
+                    <button style={{color: "black"}} onClick={handleNextAction}>
                         {currentPassage < 3 ? "Next Section" : "View Result"}
                     </button>
                 </div>

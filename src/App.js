@@ -9,11 +9,16 @@ import ListeningPassage from './components/ListeningPassage';
 import './Menu.css';
 import './App.css';
 import { Helmet } from 'react-helmet';
+import sampleImage1 from './components/1.png';
+import sampleImage2 from './components/2.png';
+import sampleImage3 from './components/3.png';
+import sampleImage4 from './components/4.png';
 
 
 
 function Header() {
   const [isPopupVisible, setPopupVisible] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(1);
 
   return (
     <div>
@@ -30,8 +35,16 @@ function Header() {
 
       {isPopupVisible && (
         <div className="popup-container">
-            <button onClick={() => setPopupVisible(false)}>Close</button>
-            <img src="https://genk.mediacdn.vn/k:thumb_w/640/2015/screen-shot-2015-07-30-at-2-31-57-pm-1438334096188/cau-chuyen-ve-nguoi-tao-ra-chu-ech-xanh-than-thanh.png" alt="Highlight pen sample" />
+            {currentSlide === 4 && 
+            <button style={{fontSize: "20px"}} onClick={() => {
+                setPopupVisible(false)
+                setCurrentSlide(1)
+              }}>Close</button>}
+            {currentSlide === 1 && <img style={{width: "80vh", height: "80vh"}} src={sampleImage1} alt="Highlight pen sample" />}
+            {currentSlide === 2 && <img style={{width: "80vh", height: "80vh"}} src={sampleImage2} alt="Highlight pen sample" />}
+            {currentSlide === 3 && <img style={{width: "80vh", height: "80vh"}} src={sampleImage3} alt="Highlight pen sample" />}
+            {currentSlide === 4 && <img style={{width: "80vh", height: "80vh"}} src={sampleImage4} alt="Highlight pen sample" />}
+            {currentSlide != 4 && <button style={{fontSize: "20px"}} onClick={() => setCurrentSlide(currentSlide + 1)}>Next slide</button>}
         </div>
       )}
     </div>
