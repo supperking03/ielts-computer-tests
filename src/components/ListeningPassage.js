@@ -153,13 +153,13 @@ function ListeningPassage() {
                             position: 'absolute', 
                             top: `${contextMenu.y}px`, 
                             left: `${contextMenu.x}px`, 
-                            backgroundColor: 'white', 
+                            backgroundColor: "white" ,
                             border: '1px solid black', 
                             zIndex: 1000 
                         }}
                     >
-                        <button onClick={highlightText}>Highlight</button>
-                        <button onClick={removeHighlight}>Remove Highlight</button>
+                        <button style={{color:'black', padding:'0px', paddingLeft: '10px', paddingRight:'10px'}} onClick={highlightText}>Highlight</button>
+                        <button style={{color:'black', padding:'0px', paddingLeft: '10px',paddingRight:'10px'}} onClick={removeHighlight}>Remove Highlight</button>
                     </div>
                 )}
                 <div className="passage-navigation">
