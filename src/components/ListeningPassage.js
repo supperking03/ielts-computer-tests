@@ -177,7 +177,14 @@ function ListeningPassage() {
                                 <div key={idx} className="result-item">Q{idx + 1}: {results[idx]}</div>
                             ))}
                         </div>
-                        <button onClick={() => setShowResults(false)}>Close</button>
+                        <div>
+                            <button style={{color:'white', padding:'10px', margin:'0px', textDecoration:'none', backgroundColor:"grey"}} onClick={() => setShowResults(false)}>Close</button>
+                            <button style={{color:'white', padding:'10px', margin:'0px', textDecoration:'none', backgroundColor:"blue", marginLeft:"10px"}} 
+                            onClick={()=> {window.open(
+                            selectedTest.explanation,
+                            '_blank' // <- This is what makes it open in a new window.
+                            );}}>View Explaination</button>
+                        </div>
                     </div>
                 )}
             </div>        
