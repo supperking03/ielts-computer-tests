@@ -193,13 +193,16 @@ function ListeningPassage() {
             <div className="answer-section">
                 <h4>Fill Answers</h4>
                 {answers.map((answer, idx) => (
-                    <input 
-                        key={idx} 
-                        type="text" 
-                        value={answer}
-                        onChange={e => handleAnswerChange(idx, e.target.value)}
-                        placeholder={`${idx + 1}`}
-                    />
+                    <div style={{display:'flex', flexDirection: 'row', justifyContent:'center', alignContent:'center'}} >
+                        <a style={{color:'grey', fontSize:'15px', marginTop:'5px', marginRight:'5px'}} >{`${idx + 1}`}</a>
+                        <input 
+                            key={idx} 
+                            type="text" 
+                            value={answer}
+                            onChange={e => handleAnswerChange(idx, e.target.value)}
+                            // placeholder={`${idx + 1}`}
+                        />
+                    </div>
                 ))}
             </div>
         </div>
