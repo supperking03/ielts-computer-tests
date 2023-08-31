@@ -9,6 +9,7 @@ import ListeningPassage from './components/ListeningPassage';
 import './Menu.css';
 import './App.css';
 import { Helmet } from 'react-helmet';
+import WritingPassage from './components/WritingPassage'
 
 
 
@@ -55,15 +56,17 @@ function AppContent() {
 
   return (
     <div className="App">
-      {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/listening/')) && <Header />}
-      {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/listening/')) && <div className="menu">
+      {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/listening/')) && (!location.pathname.startsWith('/writing/')) && <Header />}
+      {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/listening/')) && (!location.pathname.startsWith('/writing/')) && <div className="menu">
           <Link className="Navigator" onClick={()=>{setCurrentPage(0)}}>Reading</Link>
           <Link className="Navigator" onClick={()=>{setCurrentPage(1)}}>Listening</Link>
+          <Link className="Navigator" style={{textDecoration:'none'}}>Writing 👑 (beta)</Link>
       </div>}
       <Routes>
           <Route path="/" element={<Home tests={currentPage==0 ? tests : tests2} />} />
           <Route path="/reading/:id/:title" element={<ReadingPassage/>} />
           <Route path="/listening/:id/:title" element={<ListeningPassage />} />
+          <Route path="/writing/" element={<WritingPassage />} />
           {/* ... other routes */}
       </Routes>
     </div>
