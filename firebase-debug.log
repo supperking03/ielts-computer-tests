@@ -1,0 +1,91 @@
+[debug] [2023-09-04T03:00:58.665Z] ----------------------------------------------------------------------
+[debug] [2023-09-04T03:00:58.666Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy
+[debug] [2023-09-04T03:00:58.666Z] CLI Version:   12.4.8
+[debug] [2023-09-04T03:00:58.667Z] Platform:      darwin
+[debug] [2023-09-04T03:00:58.667Z] Node Version:  v18.17.1
+[debug] [2023-09-04T03:00:58.667Z] Time:          Mon Sep 04 2023 10:00:58 GMT+0700 (Indochina Time)
+[debug] [2023-09-04T03:00:58.667Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2023-09-04T03:00:58.704Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2023-09-04T03:00:58.704Z] > authorizing via signed-in user (kiengo.uit@gmail.com)
+[debug] [2023-09-04T03:00:58.704Z] [iam] checking project ielts-practice-93845 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2023-09-04T03:00:58.705Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/ielts-practice-93845:testIamPermissions [none]
+[debug] [2023-09-04T03:00:58.705Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/ielts-practice-93845:testIamPermissions x-goog-quota-user=projects/ielts-practice-93845
+[debug] [2023-09-04T03:00:58.705Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ielts-practice-93845:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-09-04T03:00:59.872Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/ielts-practice-93845:testIamPermissions 200
+[debug] [2023-09-04T03:00:59.872Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/ielts-practice-93845:testIamPermissions {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2023-09-04T03:00:59.874Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/ielts-practice-93845 [none]
+[debug] [2023-09-04T03:01:00.266Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/ielts-practice-93845 200
+[debug] [2023-09-04T03:01:00.266Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/ielts-practice-93845 {"projectId":"ielts-practice-93845","projectNumber":"1047126740579","displayName":"Ielts Practice","name":"projects/ielts-practice-93845","resources":{"hostingSite":"ielts-practice-93845"},"state":"ACTIVE","etag":"1_4976f2d8-e8a3-4462-9ee1-4b5d56a1fcd1"}
+[info] 
+[info] === Deploying to 'ielts-practice-93845'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2023-09-04T03:01:00.274Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ielts-practice-93845/versions [none]
+[debug] [2023-09-04T03:01:00.274Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ielts-practice-93845/versions {"status":"CREATED","labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2023-09-04T03:01:01.091Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ielts-practice-93845/versions 200
+[debug] [2023-09-04T03:01:01.092Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ielts-practice-93845/versions {"name":"projects/1047126740579/sites/ielts-practice-93845/versions/c45eb5edaed35eb2","status":"CREATED","config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[info] i  hosting[ielts-practice-93845]: beginning deploy... 
+[info] i  hosting[ielts-practice-93845]: found 20 files in build 
+[debug] [2023-09-04T03:02:15.304Z] [hosting] uploading with 200 concurrency
+[debug] [2023-09-04T03:02:15.467Z] [hosting] hash cache [YnVpbGQ] stored for 20 files
+[debug] [2023-09-04T03:02:15.467Z] [hosting][hash queue][FINAL] {"max":152,"min":15,"avg":33.65,"active":0,"complete":20,"success":20,"errored":0,"retried":0,"total":20,"elapsed":158}
+[debug] [2023-09-04T03:02:15.468Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/1047126740579/sites/ielts-practice-93845/versions/c45eb5edaed35eb2:populateFiles [none]
+[debug] [2023-09-04T03:02:15.468Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/1047126740579/sites/ielts-practice-93845/versions/c45eb5edaed35eb2:populateFiles {"files":{"/asset-manifest.json":"bd5df5d8e0e6749f946d430c1b98f8ce13598251398243e01e5b98a4c38de3c7","/index.html":"4bd6c54e32caaa2b0d96ecc3a05e23fdc40d8349f58d4072cfba9175adc25916","/manifest.json":"341d52628782f8ac9290bbfc43298afccb47b7cbfcee146ae30cf0f46bc30900","/robots.txt":"391d14b3c2f8c9143a27a28c7399585142228d4d1bdbe2c87ac946de411fa9a2","/static/js/787.66aee157.chunk.js":"502e0af617fdb2198983eea575be55f76c4fb9ac10398173cab8b2ea83e5dcd4","/static/js/main.527658f0.js.LICENSE.txt":"c1136afa72b075ec5235131a235fb18f229dbd447b8f751a6feb90a772be9ea7","/static/js/787.66aee157.chunk.js.map":"f921a554f7841df01e5deaa20bd0dbe689839b4275a40ba3df60b3bcfcfd8a78","/static/css/main.d572c250.css":"961ec8c8ef2373669fdfb1a86a6f865923e34e1883ba7c2bbf64ec68a410681a","/static/css/main.d572c250.css.map":"25304a3a20ba9a2e44401aa320023ef9e09b487fa9a319bdcfa5000d89f0c506","/logo192.png":"02d89d83efa65be3f4f1ca8ed8694a62866001bab11ba723dbe46035322c8ce4","/localImage.jpg":"54c68301f01c4667ce9f7816eee17f9e238598ea41789763ec2b10a0bd8d331c","/static/media/fontawesome-webfont.20fd1704ea223900efa9.woff2":"156e171dae6239bcd8304d42163d8b1e6bfd029759d46be88a4e446a51249ba2","/logo512.png":"284e51e2ca5bca21cd2a6b93812d1b34c082a72af2017ab8906b4ddd5ab5ebdb","/static/media/fontawesome-webfont.f691f37e57f04c152e23.woff":"9cb84ef5f51a04cf0dd3a9aec98c43ad4d44df442b7454c6b448913e36fb0c43","/favicon.ico":"01338ffebed12a4b749f2deb240d6f22e4ea69b8d05721ac0ea8aefc02055b4f","/static/media/fontawesome-webfont.1e59d2330b4c6deb84b3.ttf":"225dc03087123b26cb71296d418705ec2e89e826acd04bfe6fc6353a0f5220c8","/static/media/fontawesome-webfont.8b43027f47b20503057d.eot":"9acdf34fe486fad3cfa8ef4aa925ebbe9e955c8a8d127bff4d427620b0eeb643","/static/media/fontawesome-webfont.c1e38fd9e0e74ba58f7a.svg":"303fc405939cc4d296906102b8047b71a4ec14a7b51aa7a2abfaad416ec8fb3c","/static/js/main.527658f0.js":"79735e9ae8a67b3e5667b842fbd5cc4027dbd5738e739eb08f033076fac9bed2","/static/js/main.527658f0.js.map":"8f639fd335ba2aa8f1f1668efa8c4016fe7298cd6d0a8a56d9e9f79ac461fad5"}}
+[debug] [2023-09-04T03:02:16.090Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/1047126740579/sites/ielts-practice-93845/versions/c45eb5edaed35eb2:populateFiles 200
+[debug] [2023-09-04T03:02:16.090Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/1047126740579/sites/ielts-practice-93845/versions/c45eb5edaed35eb2:populateFiles {"uploadRequiredHashes":["8f639fd335ba2aa8f1f1668efa8c4016fe7298cd6d0a8a56d9e9f79ac461fad5","79735e9ae8a67b3e5667b842fbd5cc4027dbd5738e739eb08f033076fac9bed2","bd5df5d8e0e6749f946d430c1b98f8ce13598251398243e01e5b98a4c38de3c7","4bd6c54e32caaa2b0d96ecc3a05e23fdc40d8349f58d4072cfba9175adc25916"],"uploadUrl":"https://upload-firebasehosting.googleapis.com/upload/sites/ielts-practice-93845/versions/c45eb5edaed35eb2/files"}
+[debug] [2023-09-04T03:02:16.092Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/ielts-practice-93845/versions/c45eb5edaed35eb2/files/8f639fd335ba2aa8f1f1668efa8c4016fe7298cd6d0a8a56d9e9f79ac461fad5 [none]
+[debug] [2023-09-04T03:02:16.092Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ielts-practice-93845/versions/c45eb5edaed35eb2/files/8f639fd335ba2aa8f1f1668efa8c4016fe7298cd6d0a8a56d9e9f79ac461fad5 [stream]
+[debug] [2023-09-04T03:02:16.094Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/ielts-practice-93845/versions/c45eb5edaed35eb2/files/79735e9ae8a67b3e5667b842fbd5cc4027dbd5738e739eb08f033076fac9bed2 [none]
+[debug] [2023-09-04T03:02:16.094Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ielts-practice-93845/versions/c45eb5edaed35eb2/files/79735e9ae8a67b3e5667b842fbd5cc4027dbd5738e739eb08f033076fac9bed2 [stream]
+[debug] [2023-09-04T03:02:16.095Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/ielts-practice-93845/versions/c45eb5edaed35eb2/files/bd5df5d8e0e6749f946d430c1b98f8ce13598251398243e01e5b98a4c38de3c7 [none]
+[debug] [2023-09-04T03:02:16.095Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ielts-practice-93845/versions/c45eb5edaed35eb2/files/bd5df5d8e0e6749f946d430c1b98f8ce13598251398243e01e5b98a4c38de3c7 [stream]
+[debug] [2023-09-04T03:02:16.096Z] >>> [apiv2][query] POST https://upload-firebasehosting.googleapis.com/upload/sites/ielts-practice-93845/versions/c45eb5edaed35eb2/files/4bd6c54e32caaa2b0d96ecc3a05e23fdc40d8349f58d4072cfba9175adc25916 [none]
+[debug] [2023-09-04T03:02:16.096Z] >>> [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ielts-practice-93845/versions/c45eb5edaed35eb2/files/4bd6c54e32caaa2b0d96ecc3a05e23fdc40d8349f58d4072cfba9175adc25916 [stream]
+[debug] [2023-09-04T03:02:16.097Z] [hosting][populate queue][FINAL] {"max":626,"min":626,"avg":626,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":631}
+[debug] [2023-09-04T03:02:16.097Z] [hosting] uploads queued: 4
+[debug] [2023-09-04T03:02:17.274Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/ielts-practice-93845/versions/c45eb5edaed35eb2/files/bd5df5d8e0e6749f946d430c1b98f8ce13598251398243e01e5b98a4c38de3c7 200
+[debug] [2023-09-04T03:02:17.274Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ielts-practice-93845/versions/c45eb5edaed35eb2/files/bd5df5d8e0e6749f946d430c1b98f8ce13598251398243e01e5b98a4c38de3c7 [stream]
+[debug] [2023-09-04T03:02:17.319Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/ielts-practice-93845/versions/c45eb5edaed35eb2/files/4bd6c54e32caaa2b0d96ecc3a05e23fdc40d8349f58d4072cfba9175adc25916 200
+[debug] [2023-09-04T03:02:17.320Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ielts-practice-93845/versions/c45eb5edaed35eb2/files/4bd6c54e32caaa2b0d96ecc3a05e23fdc40d8349f58d4072cfba9175adc25916 [stream]
+[debug] [2023-09-04T03:02:17.374Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/ielts-practice-93845/versions/c45eb5edaed35eb2/files/8f639fd335ba2aa8f1f1668efa8c4016fe7298cd6d0a8a56d9e9f79ac461fad5 200
+[debug] [2023-09-04T03:02:17.374Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ielts-practice-93845/versions/c45eb5edaed35eb2/files/8f639fd335ba2aa8f1f1668efa8c4016fe7298cd6d0a8a56d9e9f79ac461fad5 [stream]
+[debug] [2023-09-04T03:02:17.435Z] <<< [apiv2][status] POST https://upload-firebasehosting.googleapis.com/upload/sites/ielts-practice-93845/versions/c45eb5edaed35eb2/files/79735e9ae8a67b3e5667b842fbd5cc4027dbd5738e739eb08f033076fac9bed2 200
+[debug] [2023-09-04T03:02:17.436Z] <<< [apiv2][body] POST https://upload-firebasehosting.googleapis.com/upload/sites/ielts-practice-93845/versions/c45eb5edaed35eb2/files/79735e9ae8a67b3e5667b842fbd5cc4027dbd5738e739eb08f033076fac9bed2 [stream]
+[debug] [2023-09-04T03:02:17.436Z] [hosting][upload queue][FINAL] {"max":1345,"min":1183,"avg":1260.75,"active":0,"complete":4,"success":4,"errored":0,"retried":0,"total":4,"elapsed":1346}
+[info] ✔  hosting[ielts-practice-93845]: file upload complete 
+[debug] [2023-09-04T03:02:17.438Z] [hosting] deploy completed after 2146ms
+[debug] [2023-09-04T03:02:17.438Z] [
+  {
+    "config": {
+      "public": "build",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ],
+      "site": "ielts-practice-93845"
+    },
+    "version": "projects/1047126740579/sites/ielts-practice-93845/versions/c45eb5edaed35eb2"
+  }
+]
+[info] i  hosting[ielts-practice-93845]: finalizing version... 
+[debug] [2023-09-04T03:02:17.442Z] >>> [apiv2][query] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ielts-practice-93845/versions/c45eb5edaed35eb2 updateMask=status%2Cconfig
+[debug] [2023-09-04T03:02:17.442Z] >>> [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ielts-practice-93845/versions/c45eb5edaed35eb2 {"status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]}}
+[debug] [2023-09-04T03:02:18.095Z] <<< [apiv2][status] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ielts-practice-93845/versions/c45eb5edaed35eb2 200
+[debug] [2023-09-04T03:02:18.096Z] <<< [apiv2][body] PATCH https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ielts-practice-93845/versions/c45eb5edaed35eb2 {"name":"projects/1047126740579/sites/ielts-practice-93845/versions/c45eb5edaed35eb2","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2023-09-04T03:01:00.740726Z","createUser":{"email":"kiengo.uit@gmail.com"},"finalizeTime":"2023-09-04T03:02:17.990363Z","finalizeUser":{"email":"kiengo.uit@gmail.com"}}
+[debug] [2023-09-04T03:02:18.096Z] [hosting] finalized version for ielts-practice-93845:[object Object]
+[info] ✔  hosting[ielts-practice-93845]: version finalized 
+[info] i  hosting[ielts-practice-93845]: releasing new version... 
+[debug] [2023-09-04T03:02:18.097Z] >>> [apiv2][query] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ielts-practice-93845/channels/live/releases versionName=projects%2F1047126740579%2Fsites%2Fielts-practice-93845%2Fversions%2Fc45eb5edaed35eb2
+[debug] [2023-09-04T03:02:18.097Z] >>> [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ielts-practice-93845/channels/live/releases {}
+[debug] [2023-09-04T03:02:18.812Z] <<< [apiv2][status] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ielts-practice-93845/channels/live/releases 200
+[debug] [2023-09-04T03:02:18.813Z] <<< [apiv2][body] POST https://firebasehosting.googleapis.com/v1beta1/projects/-/sites/ielts-practice-93845/channels/live/releases {"name":"projects/1047126740579/sites/ielts-practice-93845/channels/live/releases/1693796538154000","version":{"name":"projects/1047126740579/sites/ielts-practice-93845/versions/c45eb5edaed35eb2","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2023-09-04T03:01:00.740726Z","createUser":{"email":"kiengo.uit@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AAcHTtcTZcfw7k0pnVGb0bzQbPfqdiisOQuS2_fVYVI8gUwx=mo"},"finalizeTime":"2023-09-04T03:02:17.990363Z","finalizeUser":{"email":"kiengo.uit@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AAcHTtcTZcfw7k0pnVGb0bzQbPfqdiisOQuS2_fVYVI8gUwx=mo"}},"type":"DEPLOY","releaseTime":"2023-09-04T03:02:18.154Z","releaseUser":{"email":"kiengo.uit@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AAcHTtcTZcfw7k0pnVGb0bzQbPfqdiisOQuS2_fVYVI8gUwx=mo"}}
+[debug] [2023-09-04T03:02:18.813Z] [hosting] release: {"name":"projects/1047126740579/sites/ielts-practice-93845/channels/live/releases/1693796538154000","version":{"name":"projects/1047126740579/sites/ielts-practice-93845/versions/c45eb5edaed35eb2","status":"FINALIZED","config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2023-09-04T03:01:00.740726Z","createUser":{"email":"kiengo.uit@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AAcHTtcTZcfw7k0pnVGb0bzQbPfqdiisOQuS2_fVYVI8gUwx=mo"},"finalizeTime":"2023-09-04T03:02:17.990363Z","finalizeUser":{"email":"kiengo.uit@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AAcHTtcTZcfw7k0pnVGb0bzQbPfqdiisOQuS2_fVYVI8gUwx=mo"}},"type":"DEPLOY","releaseTime":"2023-09-04T03:02:18.154Z","releaseUser":{"email":"kiengo.uit@gmail.com","imageUrl":"https://lh3.googleusercontent.com/a/AAcHTtcTZcfw7k0pnVGb0bzQbPfqdiisOQuS2_fVYVI8gUwx=mo"}}
+[info] ✔  hosting[ielts-practice-93845]: release complete 
