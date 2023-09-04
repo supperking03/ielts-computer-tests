@@ -181,3 +181,46 @@ div[style*="absolute"] button:hover {
     left: 10px;
     padding: 5px 10px;
 }
+
+/* Base button style */
+.audio-control-btn {
+    padding: 8px 5px;
+    border: none;
+    border-radius: 5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin: 0 0px; 
+}
+
+/* Forward button style */
+.audio-control-btn.forward {
+    color: grey;
+    position: absolute;
+    top: 50px;
+    left: 350px;
+    z-index: 1000;
+    font-size: 12px;
+    text-decoration: none;
+    font-weight:500
+}
+
+.audio-control-btn.forward:hover {
+
+}
+
+/* Backward button style */
+.audio-control-btn.backward {
+    color: grey;
+    position: absolute;
+    top: 50px;
+    left: 320px;
+    z-index: 1000;
+    font-size: 12px;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.audio-control-btn.backward:hover {
+
+}

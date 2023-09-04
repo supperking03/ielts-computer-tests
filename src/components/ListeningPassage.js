@@ -30,7 +30,7 @@ function ListeningPassage() {
 
     const navigate = useNavigate();  // <-- Use the useNavigate hook
 
-    const [renderedContent, setRenderedContent] = useState({ passages: {}});
+    const [renderedContent, setRenderedContent] = useState({ passages: {} });
 
     const navigateBackToHome = () => {
         navigate('/');
@@ -55,6 +55,26 @@ function ListeningPassage() {
             });
         }
     };
+
+    const forward10s = () => {
+        if (audioRef.current) {
+            audioRef.current.currentTime += 5; // move forward by 10 seconds
+            if (!isPlaying) {
+                audioRef.current.play(); // if it was paused, play the audio
+            }
+        }
+    };
+
+    const backward10s = () => {
+        if (audioRef.current) {
+            audioRef.current.currentTime -= 5; // move back by 10 seconds
+            if (audioRef.current.currentTime < 0) audioRef.current.currentTime = 0; // prevent negative values
+            if (!isPlaying) {
+                audioRef.current.play(); // if it was paused, play the audio
+            }
+        }
+    };
+
 
     const highlightText = () => {
         const selection = window.getSelection();
@@ -146,6 +166,10 @@ function ListeningPassage() {
                 <div className="main-section">
                     <a className="back-button" onClick={navigateBackToHome}>{`< Back to Home`}</a>
                     {/* Audio Section */}
+                    <button className="audio-control-btn backward" onClick={backward10s}>-5s</button>
+                    <button className="audio-control-btn forward" onClick={forward10s}>+5s</button>
+
+
                     <audio
                         className="audio-section"
                         type="audio/mp3"
