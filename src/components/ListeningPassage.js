@@ -212,7 +212,7 @@ function ListeningPassage() {
                 </div>
 
                 {/* New Answer Section */}
-                <div style={{flexBasis: showResults ? '15%' : '10%'}} className="answer-section">
+                <div style={{flexBasis: showResults ? '20%' : '10%'}} className="answer-section">
                     {showResults && <button style={{ color: "black", marginTop: '0px', marginBottom: '0px' }} onClick={() => {
                         setShowResults(false)
                     }}>
