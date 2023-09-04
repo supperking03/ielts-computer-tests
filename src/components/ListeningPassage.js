@@ -161,7 +161,7 @@ function ListeningPassage() {
                 <title>IELTS Listening Practice</title>
                 <meta name="description" content="Tune in to our listening practice tests and improve your IELTS listening skills." />
             </Helmet>
-            <a className="fullscreen-button" onClick={toggleFullScreen} aria-hidden="true">Full screen</a>
+            {!showResults && <a className="fullscreen-button" onClick={toggleFullScreen} aria-hidden="true">Full screen</a>}
             <div className="reading-passage" onContextMenu={handleRightClick}>
                 <div className="main-section">
                     <a className="back-button" onClick={navigateBackToHome}>{`< Back to Home`}</a>
@@ -209,7 +209,7 @@ function ListeningPassage() {
                             {currentPassage < 3 ? "Next Section" : "View Result"}
                         </button>
                     </div>
-                    {showResults && (
+                    {/* {showResults && (
                         <div className="results-popup">
                             <h3>Results</h3>
                             <div className="results-grid">
@@ -228,7 +228,7 @@ function ListeningPassage() {
                                     }}>View Explaination</button>
                             </div>
                         </div>
-                    )}
+                    )} */}
                 </div>
 
                 {/* New Answer Section */}
@@ -247,6 +247,25 @@ function ListeningPassage() {
                         </div>
                     ))}
                 </div>
+                {showResults && <div className="answer-section">
+                    <button style={{ color: "black", marginTop:'0px', marginBottom:'0px' }} onClick={()=>{
+                        setShowResults(false)
+                    }}>
+                       Close
+                    </button>
+                    <button style={{ color: 'black'}}
+                                    onClick={() => {
+                                        window.open(
+                                            selectedTest.explanation,
+                                            '_blank' // <- This is what makes it open in a new window.
+                                        );
+                                    }}>View Explaination</button>
+                    {results.map((result, idx) => (
+                        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignContent: 'center' }} >
+                            <a style={{ color: 'grey', fontSize: '15px', marginTop: '5px', marginRight: '5px' }} >{`${idx + 1}.`} {result}</a>
+                        </div>
+                    ))}
+                </div>}
             </div>
         </div>
     );
