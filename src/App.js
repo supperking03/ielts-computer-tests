@@ -60,7 +60,7 @@ function AppContent() {
       {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/listening/')) && (!location.pathname.startsWith('/writing/')) && <div className="menu">
           <Link className="Navigator" onClick={()=>{setCurrentPage(0)}}>Reading</Link>
           <Link className="Navigator" onClick={()=>{setCurrentPage(1)}}>Listening</Link>
-          <Link className="Navigator" style={{textDecoration:'none'}}>Writing 👑 (beta)</Link>
+          <Link className="Navigator" style={{textDecoration:'none'}}>Writing 👑 (developing)</Link>
       </div>}
       <Routes>
           <Route path="/" element={<Home tests={currentPage==0 ? tests : tests2} />} />
