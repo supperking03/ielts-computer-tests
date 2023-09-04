@@ -182,33 +182,27 @@ function ReadingPassage() {
                             {currentPassage < 2 ? "Next Passage" : "View Result"}
                         </button>
                     </div>
-                    {/* {showResults && (
-                        <div className="results-popup">
-                            <h3>Results</h3>
-                            <div className="results-grid">
-                                {results.map((_, idx) => (
-                                    <div key={idx} className="result-item">Q{idx + 1}: {results[idx]}</div>
-                                ))}
-                            </div>
-                            <div>
-                                <button style={{ color: 'white', padding: '10px', margin: '0px', textDecoration: 'none', backgroundColor: "grey" }} onClick={() => setShowResults(false)}>Close</button>
-                                <button style={{ color: 'white', padding: '10px', margin: '0px', textDecoration: 'none', backgroundColor: "blue", marginLeft: "10px" }}
-                                    onClick={() => {
-                                        window.open(
-                                            selectedTest.explanation,
-                                            '_blank' // <- This is what makes it open in a new window.
-                                        );
-                                    }}>View Explaination</button>
-                            </div>
-                        </div>
-                    )} */}
                 </div>
 
                 {/* New Answer Section */}
-                <div className="answer-section">
+                <div style={{ flexBasis: showResults ? '20%' : '10%' }} className="answer-section">
+                    {showResults && <button style={{ color: "black", marginTop: '0px', marginBottom: '0px' }} onClick={() => {
+                        setShowResults(false)
+                    }}>
+                        Close
+                    </button>}
+                    {
+                        showResults && <button style={{ color: 'black' }}
+                            onClick={() => {
+                                window.open(
+                                    selectedTest.explanation,
+                                    '_blank' // <- This is what makes it open in a new window.
+                                );
+                            }}>View Explaination</button>
+                    }
                     <h4>Fill Answers</h4>
                     {answers.map((answer, idx) => (
-                        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignContent: 'center' }} >
+                        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: showResults ? '' : 'center' }} >
                             <a style={{ color: 'grey', fontSize: '15px', marginTop: '5px', marginRight: '5px' }} >{`${idx + 1}`}</a>
                             <input
                                 key={idx}
@@ -217,29 +211,10 @@ function ReadingPassage() {
                                 onChange={e => handleAnswerChange(idx, e.target.value)}
                             // placeholder={`${idx + 1}`}
                             />
+                            {showResults && <a style={{ color: 'grey', fontSize: '15px', marginTop: '5px', marginRight: '5px', marginLeft: '10px' }} >{`${results[idx]}`}</a>}
                         </div>
                     ))}
                 </div>
-
-                {showResults && <div className="answer-section">
-                    <button style={{ color: "black", marginTop:'0px', marginBottom:'0px' }} onClick={()=>{
-                        setShowResults(false)
-                    }}>
-                       Close
-                    </button>
-                    <button style={{ color: 'black'}}
-                                    onClick={() => {
-                                        window.open(
-                                            selectedTest.explanation,
-                                            '_blank' // <- This is what makes it open in a new window.
-                                        );
-                                    }}>View Explaination</button>
-                    {results.map((result, idx) => (
-                        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'center', alignContent: 'center' }} >
-                            <a style={{ color: 'grey', fontSize: '15px', marginTop: '5px', marginRight: '5px' }} >{`${idx + 1}.`} {result}</a>
-                        </div>
-                    ))}
-                </div>}
             </div>
         </div>
     );
