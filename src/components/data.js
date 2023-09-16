@@ -26,7 +26,7 @@ export const tests = [
                 <p><span style="font-size: large;"><em>Choose <strong>NO MORE THAN TWO WORDS ANDIOR A NUMBER</strong> from the passage for each answer.</em></span></p>
                 <p><span style="font-size: large;"><em>Write your answers in boxes 1-3 on your answer sheet.</em></span></p>
                 <h3 style="text-align: center;"><span style="font-size: x-large;"><strong>Urban farming in Paris</strong></span></h3>
-                <p><span style="font-size: large;"><strong>2</strong>&nbsp; &nbsp;There will eventually be a daily harvest of as much as …………………… in weight of fruit and vegetables.</span></p>
+                <p><span style="font-size: large;"><strong>1</strong>&nbsp; &nbsp;Vertical tubes are used to grow strawberries, …………………… and herbs.</span></p>
                 <p><span style="font-size: large;"><strong>2</strong>&nbsp; &nbsp;There will eventually be a daily harvest of as much as …………………… in weight of fruit and vegetables.</span></p>
                 <p><span style="font-size: large;"><strong>3</strong>&nbsp; &nbsp;It may be possible that the farm’s produce will account for as much as 10% of the city’s …………………… overall.</span></p>
                 <p><span style="font-size: large;"><strong></strong></span></p>

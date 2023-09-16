@@ -42,18 +42,13 @@
     border-radius: 4px;
 }
 
-.main-section {
-    flex: 1;
-    padding: 20px;
-    overflow-y: auto;
-}
-
 .content-section {
     display: flex;
     gap: 20px;
     overflow: hidden;
     color: #333;  /* dark gray color */
     background-color: #ffffff;  /* white background */
+    flex:1;
 }
 
 .passage-section,
