@@ -1186,7 +1186,7 @@ export const tests = [
     },
     {
         "id": 6,
-        "title": "Readig CAM 17 Test 2",
+        "title": "Reading CAM 17 Test 2",
         "explanation": "https://drive.google.com/file/d/14eGTicPpKveeYijOMggj2bKMQK7OY3AM/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2022/06/cam-17-test-2.jpg",
         "results": [
@@ -1251,7 +1251,7 @@ export const tests = [
     },
     {
         "id": 7,
-        "title": "Readig CAM 17 Test 3",
+        "title": "Reading CAM 17 Test 3",
         "explanation": "https://drive.google.com/file/d/14eGTicPpKveeYijOMggj2bKMQK7OY3AM/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2022/06/cam-17-test-3.jpg",
         "results": [
@@ -1316,7 +1316,7 @@ export const tests = [
     },
     {
         "id": 8,
-        "title": "Readig CAM 17 Test 4",
+        "title": "Reading CAM 17 Test 4",
         "explanation": "https://drive.google.com/file/d/14eGTicPpKveeYijOMggj2bKMQK7OY3AM/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2022/06/cam-17-test-4.jpg",
         "results": [
@@ -1381,7 +1381,7 @@ export const tests = [
     },
     {
         "id": 9,
-        "title": "Readig CAM 16 Test 1",
+        "title": "Reading CAM 16 Test 1",
         "explanation": "https://drive.google.com/file/d/1o-aAPp0dF1AcWe8I-k7YR78AqtikVKd-/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2021/07/cam-16-test-1.jpg",
         "results": [
@@ -1446,7 +1446,7 @@ export const tests = [
     },
     {
         "id": 10,
-        "title": "Readig CAM 16 Test 2",
+        "title": "Reading CAM 16 Test 2",
         "explanation": "https://drive.google.com/file/d/1o-aAPp0dF1AcWe8I-k7YR78AqtikVKd-/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2021/07/cam-16-test-2.jpg",
         "results": [
@@ -1511,7 +1511,7 @@ export const tests = [
     },
     {
         "id": 11,
-        "title": "Readig CAM 16 Test 3",
+        "title": "Reading CAM 16 Test 3",
         "explanation": "https://drive.google.com/file/d/1o-aAPp0dF1AcWe8I-k7YR78AqtikVKd-/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2021/07/cam-16-test-3.jpg",
         "results": [
@@ -1576,7 +1576,7 @@ export const tests = [
     },
     {
         "id": 12,
-        "title": "Readig CAM 16 Test 4",
+        "title": "Reading CAM 16 Test 4",
         "explanation": "https://drive.google.com/file/d/1o-aAPp0dF1AcWe8I-k7YR78AqtikVKd-/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2021/07/cam-16-test-4.jpg",
         "results": [
@@ -1641,7 +1641,7 @@ export const tests = [
     },
     {
         "id": 13,
-        "title": "Readig CAM 15 Test 1",
+        "title": "Reading CAM 15 Test 1",
         "explanation": "https://drive.google.com/file/d/1PDLB2BVAP7id5W8vHN1afSluF_jZlVSw/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2020/07/cam-15-test-01.jpg",
         "results": [
@@ -1706,7 +1706,7 @@ export const tests = [
     },
     {
         "id": 14,
-        "title": "Readig CAM 15 Test 2",
+        "title": "Reading CAM 15 Test 2",
         "explanation": "https://drive.google.com/file/d/1PDLB2BVAP7id5W8vHN1afSluF_jZlVSw/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2020/07/cam-15-test-02.jpg",
         "results": [
@@ -1771,7 +1771,7 @@ export const tests = [
     },
     {
         "id": 15,
-        "title": "Readig CAM 15 Test 3",
+        "title": "Reading CAM 15 Test 3",
         "explanation": "https://drive.google.com/file/d/1PDLB2BVAP7id5W8vHN1afSluF_jZlVSw/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2020/07/cam-15-test-03.jpg",
         "results": [
@@ -1836,7 +1836,7 @@ export const tests = [
     },
     {
         "id": 16,
-        "title": "Readig CAM 15 Test 4",
+        "title": "Reading CAM 15 Test 4",
         "explanation": "https://drive.google.com/file/d/1PDLB2BVAP7id5W8vHN1afSluF_jZlVSw/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2020/07/cam-15-test-04.jpg",
         "results": [
@@ -1901,7 +1901,7 @@ export const tests = [
     },
     {
         "id": 17,
-        "title": "Readig CAM 14 Test 1",
+        "title": "Reading CAM 14 Test 1",
         "explanation": "https://drive.google.com/file/d/1g23-izrhK9oYlf0Ys4BSZrHntCIstlo3/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2019/07/cam-14-test-01.jpg",
         "results": [
@@ -1966,7 +1966,7 @@ export const tests = [
     },
     {
         "id": 18,
-        "title": "Readig CAM 14 Test 2",
+        "title": "Reading CAM 14 Test 2",
         "explanation": "https://drive.google.com/file/d/1g23-izrhK9oYlf0Ys4BSZrHntCIstlo3/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2019/07/cam-14-test-02.jpg",
         "results": [
@@ -2031,7 +2031,7 @@ export const tests = [
     },
     {
         "id": 19,
-        "title": "Readig CAM 14 Test 3",
+        "title": "Reading CAM 14 Test 3",
         "explanation": "https://drive.google.com/file/d/1g23-izrhK9oYlf0Ys4BSZrHntCIstlo3/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2019/07/cam-14-test-03.jpg",
         "results": [
@@ -2096,7 +2096,7 @@ export const tests = [
     },
     {
         "id": 20,
-        "title": "Readig CAM 14 Test 4",
+        "title": "Reading CAM 14 Test 4",
         "explanation": "https://drive.google.com/file/d/1g23-izrhK9oYlf0Ys4BSZrHntCIstlo3/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2019/07/cam-14-test-04.jpg",
         "results": [
@@ -2161,7 +2161,7 @@ export const tests = [
     },
     {
         "id": 21,
-        "title": "Readig CAM 13 Test 1",
+        "title": "Reading CAM 13 Test 1",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2019/07/cam-13-test-1.jpg",
         "results": [
             "1. update",
@@ -2225,7 +2225,7 @@ export const tests = [
     },
     {
         "id": 22,
-        "title": "Readig CAM 13 Test 2",
+        "title": "Reading CAM 13 Test 2",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2019/07/cam-13-test-2.jpg",
         "results": [
             "1. oils",
@@ -2289,7 +2289,7 @@ export const tests = [
     },
     {
         "id": 23,
-        "title": "Readig CAM 13 Test 3",
+        "title": "Reading CAM 13 Test 3",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2019/07/cam-13-test-3.jpg",
         "results": [
             "1. furniture",
@@ -2353,7 +2353,7 @@ export const tests = [
     },
     {
         "id": 24,
-        "title": "Readig CAM 13 Test 4",
+        "title": "Reading CAM 13 Test 4",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2019/07/cam-13-test-4.jpg",
         "results": [
             "1. FALSE",
