@@ -12,16 +12,46 @@ const WritingPassage = () => {
     const [statusMessage, setStatusMessage] = useState('');
     const [isSuccess, setIsSuccess] = useState(false);
     const [submissionCount, setSubmissionCount] = useState(0);
+    const [userQuestionError, setUserQuestionError] = useState('');
+    const [userAnswerError, setUserAnswerError] = useState('');
+    const [recipientIELTSError, setRecipientIELTSError] = useState('');
     const navigate = useNavigate();
 
     const navigateBackToHome = () => {
         navigate('/');
     };
 
+    const validateFields = () => {
+        let isValid = true;
+        if (!userQuestion.trim()) {
+            setUserQuestionError('Writing Task 2 question is required.');
+            isValid = false;
+        } else {
+            setUserQuestionError('');
+        }
+        if (!userAnswer.trim()) {
+            setUserAnswerError('Answer is required.');
+            isValid = false;
+        } else {
+            setUserAnswerError('');
+        }
+        if (!recipientIELTS.trim()) {
+            setRecipientIELTSError('Email is required.');
+            isValid = false;
+        } else {
+            setRecipientIELTSError('');
+        }
+        return isValid;
+    };
+
     // ... handleImageChange, resizeImage, convertToBase64 functions ...
 
     const sendEmail = (e) => {
         e.preventDefault();
+
+        if (!validateFields()) {
+            return;
+        }        
 
         if (submissionCount >= 4) {
             setStatusMessage('Submission limit reached. You cannot submit more than 5 times.');
@@ -48,7 +78,6 @@ const WritingPassage = () => {
 
     return (
         <div className="writing-passage-container">
-            {/* <a className="back-button" onClick={navigateBackToHome}>{`< Back to Home`}</a> */}
             <h3>Submit your Writing Task 2 and receive a score along with detailed feedback within 1-2 working days.</h3> {/* Description */}
 
             <form className="input-container" onSubmit={sendEmail}>
@@ -59,6 +88,7 @@ const WritingPassage = () => {
                     onChange={(e) => setUserQuestion(e.target.value)}
                     placeholder="Enter Writing Task 2 question"
                 />
+                 {userQuestionError && <div className="error-message">{userQuestionError}</div>}
                 <textarea
                     name="userAnswer"
                     className="input-field"
@@ -66,6 +96,7 @@ const WritingPassage = () => {
                     onChange={(e) => setUserAnswer(e.target.value)}
                     placeholder="Enter your answer"
                 />
+                 {userAnswerError && <div className="error-message">{userAnswerError}</div>}
                 <textarea
                     name="recipientIELTS"
                     className="input-field"
@@ -73,6 +104,7 @@ const WritingPassage = () => {
                     onChange={(e) => setRecipientIELTS(e.target.value)}
                     placeholder="Enter your Email to get result"
                 />
+                {recipientIELTSError && <div className="error-message">{recipientIELTSError}</div>}
                 <button 
                     className="submit-button"
                     type="submit"
