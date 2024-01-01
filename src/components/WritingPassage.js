@@ -49,6 +49,8 @@ const WritingPassage = () => {
     return (
         <div className="writing-passage-container">
             {/* <a className="back-button" onClick={navigateBackToHome}>{`< Back to Home`}</a> */}
+            <h3>Submit your Writing Task 2 and receive a score along with detailed feedback within 1-2 working days.</h3> {/* Description */}
+
             <form className="input-container" onSubmit={sendEmail}>
                 <textarea
                     name="userQuestion"
