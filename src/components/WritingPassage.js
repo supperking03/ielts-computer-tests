@@ -48,7 +48,7 @@ const WritingPassage = () => {
 
     return (
         <div className="writing-passage-container">
-            <a className="back-button" onClick={navigateBackToHome}>{`< Back to Home`}</a>
+            {/* <a className="back-button" onClick={navigateBackToHome}>{`< Back to Home`}</a> */}
             <form className="input-container" onSubmit={sendEmail}>
                 <textarea
                     name="userQuestion"
