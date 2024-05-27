@@ -158,7 +158,7 @@ function ListeningPassage() {
     return (
         <div>
             <Helmet>
-                <title>IELTS Listening Practice</title>
+                <title>IELTS Listening Practice + {selectedTest.title}</title>
                 <meta name="description" content="Tune in to our listening practice tests and improve your IELTS listening skills." />
             </Helmet>
             {!showResults && <a className="fullscreen-button" onClick={toggleFullScreen} aria-hidden="true">Full screen</a>}
@@ -168,7 +168,6 @@ function ListeningPassage() {
                     {/* Audio Section */}
                     <button className="audio-control-btn backward" onClick={backward10s}>-5s</button>
                     <button className="audio-control-btn forward" onClick={forward10s}>+5s</button>
-
 
                     <audio
                         className="audio-section"
@@ -212,7 +211,7 @@ function ListeningPassage() {
                 </div>
 
                 {/* New Answer Section */}
-                <div style={{flexBasis: showResults ? '20%' : '10%'}} className="answer-section">
+                <div style={{ flexBasis: showResults ? '20%' : '10%' }} className="answer-section">
                     {showResults && <button style={{ color: "black", marginTop: '0px', marginBottom: '0px' }} onClick={() => {
                         setShowResults(false)
                     }}>

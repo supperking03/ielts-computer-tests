@@ -4,7 +4,7 @@ export const tests = [
         title: 'Listening CAM 18 Test 1',
         explanation: "https://drive.google.com/file/d/1uTgGk6K3tP8pmojyWCQA0K_BOA3AgR9w/view?usp=sharing",
         image: 'https://ieltstrainingonline.com/wp-content/uploads/2023/06/cam-18-test-1.jpg',
-        audioSource:'https://docs.google.com/uc?export=open&id=1HuKNcL0d6MWM7lhVNnJ_mUZ1vrzyB5Qx',
+        audioSource:'https://firebasestorage.googleapis.com/v0/b/myapplication-e6fc6.appspot.com/o/18_test1.mp3?alt=media&token=37ae33bc-d735-488a-853e-595104c68ad6',
         results:[
             'DW30 7YZ', '24(th) April', 'dentist', 'parking', 'Claxby', 'late', 'evening', 'supermarket', 'pollution', 'storage',
             'C', 'A', 'A', 'B', 'E', 'B', 'G', 'D', 'A', 'F','A', 'B', 'A', 'C', 'B', 'A', 'B/E', 'B/E', 'A/C', 'A/C', 'fences',
@@ -203,7 +203,7 @@ export const tests = [
         title: 'Listening CAM 18 Test 2',
         explanation: "https://drive.google.com/file/d/1uTgGk6K3tP8pmojyWCQA0K_BOA3AgR9w/view?usp=sharing",
         image: 'https://ieltstrainingonline.com/wp-content/uploads/2023/06/cam-18-test-2.jpg',
-        audioSource:'https://docs.google.com/uc?export=open&id=1hbLCSUqaG5AnrcFRVkuj73PnQcOf9vUx',
+        audioSource:'https://firebasestorage.googleapis.com/v0/b/myapplication-e6fc6.appspot.com/o/18_test2.mp3?alt=media&token=21ed160c-9b96-4ce3-8d0e-fceded16dd84',
         results:[
             'training', 'discount', 'taxi', 'service', 'English', 'Wivenhoe', 'equipment', '9.75', 'deliveries', 'Sunday',
             'B, E', 'B, E', 'B, C', 'B, C', 'G', 'C', 'D', 'B', 'H', 'A', 'C', 'A', 'B', 'B', 'A, B', 'A, B', 'D', 'A', 'C', 'F',
@@ -423,7 +423,7 @@ export const tests = [
         title: 'Listening CAM 18 Test 3',
         explanation: "https://drive.google.com/file/d/1uTgGk6K3tP8pmojyWCQA0K_BOA3AgR9w/view?usp=sharing",
         image: 'https://ieltstrainingonline.com/wp-content/uploads/2023/06/cam-18-test-3.jpg',
-        audioSource:'https://docs.google.com/uc?export=open&id=1-XzdTErXqJNcn-_DZKhprEUkSumi5AB_',
+        audioSource:'https://firebasestorage.googleapis.com/v0/b/myapplication-e6fc6.appspot.com/o/18_test3.mp3?alt=media&token=648e8e33-d08b-405f-9a93-ce569167c653',
         results:[
             'Marrowfield', 'relative', 'socialise / socialize', 'full', 'Domestic Life', 'clouds', 'timing', 'Animal Magic', '(animal) movement',
             'dark', 'B, C', 'B, C', 'B, D', 'B, D', 'C', 'B', 'B', 'C', 'A', 'A', 'A, E', 'A, E', 'B, D', 'B, D', 'G', 'E', 'B', 'C', 'F', 'A',
@@ -649,7 +649,7 @@ export const tests = [
         "title": "Listening CAM 18 Test 4",
         explanation: "https://drive.google.com/file/d/1uTgGk6K3tP8pmojyWCQA0K_BOA3AgR9w/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2023/06/cam-18-test-4.jpg",
-        "audioSource": "https://docs.google.com/uc?export=open&id=1ftGMlK4l1nH6H23ZlMXb9ExeItdQn9K_",
+        "audioSource": "https://firebasestorage.googleapis.com/v0/b/myapplication-e6fc6.appspot.com/o/18_test4.mp3?alt=media&token=c85251af-b39e-4d3f-8e60-11fb2e308ff8",
         "results": [
             "receptionist",
             "Medical",
@@ -716,7 +716,7 @@ export const tests = [
         "title": "Listening CAM 17 Test 1",
         "explanation": "https://drive.google.com/file/d/14eGTicPpKveeYijOMggj2bKMQK7OY3AM/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2022/06/cam-17-test-1.jpg",
-        "audioSource": "https://docs.google.com/uc?export=open&id=1czlxCx7hbsfG_JFbzQKj4_LF1zzB8P4V",
+        "audioSource": "https://firebasestorage.googleapis.com/v0/b/myapplication-e6fc6.appspot.com/o/17_test1.mp3?alt=media&token=d60e76b7-df80-48de-88dc-88a413566bf4",
         "results": [
             "litter",
             "dogs",
@@ -783,7 +783,7 @@ export const tests = [
         "title": "Listening CAM 17 Test 2",
         "explanation": "https://drive.google.com/file/d/14eGTicPpKveeYijOMggj2bKMQK7OY3AM/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2022/06/cam-17-test-2.jpg",
-        "audioSource": "https://docs.google.com/uc?export=open&id=1tFCcbZ4TyWqMbffkvVZIq3cGkqM7AkIr",
+        "audioSource": "https://firebasestorage.googleapis.com/v0/b/myapplication-e6fc6.appspot.com/o/17_test2.mp3?alt=media&token=9aa0b313-63ef-45a5-a3f5-01aca3ff8868",
         "results": [
             "collecting",
             "records",
@@ -850,7 +850,7 @@ export const tests = [
         "title": "Listening CAM 17 Test 3",
         "explanation": "https://drive.google.com/file/d/14eGTicPpKveeYijOMggj2bKMQK7OY3AM/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2022/06/cam-17-test-3.jpg",
-        "audioSource": "https://docs.google.com/uc?export=open&id=15TX60yXBJVJIWH0stYHoEnCmHT7ZPL2F",
+        "audioSource": "https://firebasestorage.googleapis.com/v0/b/myapplication-e6fc6.appspot.com/o/17_test3.mp3?alt=media&token=16980ab6-65c6-4f99-9ac2-5cfa8e9572c1",
         "results": [
             "family",
             "fit",
@@ -917,7 +917,7 @@ export const tests = [
         "title": "Listening CAM 17 Test 4",
         "explanation": "https://drive.google.com/file/d/14eGTicPpKveeYijOMggj2bKMQK7OY3AM/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2022/06/cam-17-test-4.jpg",
-        "audioSource": "https://docs.google.com/uc?export=open&id=1NAVPHdNnxUrmiepwE59mMCt9zf2gLXzH",
+        "audioSource": "https://firebasestorage.googleapis.com/v0/b/myapplication-e6fc6.appspot.com/o/17_test4.mp3?alt=media&token=fbd7cc55-177a-4d88-a7de-626983522fa7",
         "results": [
             "floor(s)",
             "fridge",
@@ -984,7 +984,7 @@ export const tests = [
         "title": "Listening CAM 16 Test 1",
         "explanation": "https://drive.google.com/file/d/1o-aAPp0dF1AcWe8I-k7YR78AqtikVKd-/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2021/07/cam-16-test-1.jpg",
-        "audioSource": "https://docs.google.com/uc?export=open&id=1WE1UAAVICjuc8PamRf26MxGvNC3tATKq",
+        "audioSource": "https://firebasestorage.googleapis.com/v0/b/myapplication-e6fc6.appspot.com/o/16_test1.mp3?alt=media&token=c7de5005-c6ed-401e-b5b8-fb1a85190446",
         "results": [
             "egg",
             "tower",
@@ -1051,7 +1051,7 @@ export const tests = [
         "title": "Listening CAM 16 Test 2",
         "explanation": "https://drive.google.com/file/d/1o-aAPp0dF1AcWe8I-k7YR78AqtikVKd-/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2021/07/cam-16-test-2.jpg",
-        "audioSource": "https://docs.google.com/uc?export=open&id=1sNHrPBzyaq1fOFp-OXCSD_5t5NkSNuEl",
+        "audioSource": "https://firebasestorage.googleapis.com/v0/b/myapplication-e6fc6.appspot.com/o/16_test2.mp3?alt=media&token=b7266ce2-5ffa-4262-9934-a42742c73891",
         "results": [
             "frame",
             "195",
@@ -1118,7 +1118,7 @@ export const tests = [
         "title": "Listening CAM 16 Test 3",
         "explanation": "https://drive.google.com/file/d/1o-aAPp0dF1AcWe8I-k7YR78AqtikVKd-/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2021/07/cam-16-test-3.jpg",
-        "audioSource": "https://docs.google.com/uc?export=open&id=1SgLCXkNByVKHh0J_k2b2SV22ruLWmsXb",
+        "audioSource": "https://firebasestorage.googleapis.com/v0/b/myapplication-e6fc6.appspot.com/o/16_test3.mp3?alt=media&token=43899dc5-fa75-497f-b4c2-447d03423d78",
         "results": [
             "park",
             "blue",
@@ -1185,7 +1185,7 @@ export const tests = [
         "title": "Listening CAM 16 Test 4",
         "explanation": "https://drive.google.com/file/d/1o-aAPp0dF1AcWe8I-k7YR78AqtikVKd-/view?usp=sharing",
         "image": "https://ieltstrainingonline.com/wp-content/uploads/2021/07/cam-16-test-4.jpg",
-        "audioSource": "https://docs.google.com/uc?export=open&id=1QoJpQr20-TL-1FWhruagHSmt5VAO9rKs",
+        "audioSource": "https://firebasestorage.googleapis.com/v0/b/myapplication-e6fc6.appspot.com/o/16_test4.mp3?alt=media&token=4abd4f46-0adc-44d0-9ba4-b1d3db70460e",
         "results": [
             "28th",
             "550",

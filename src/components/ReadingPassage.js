@@ -140,7 +140,7 @@ function ReadingPassage() {
     return (
         <div>
             <Helmet>
-                <title>IELTS Reading Practice</title>
+                <title>IELTS Reading Practice + {selectedTest.title}</title>
                 <meta name="description" content="Engage with our reading practice tests to get a real feel of the IELTS exam." />
             </Helmet>
             {!showResults && <a className="fullscreen-button" onClick={toggleFullScreen} aria-hidden="true">Full screen</a>}
