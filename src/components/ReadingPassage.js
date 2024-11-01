@@ -1,18 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import CountdownTimer from './CountdownTimer';
 import './ReadingPassage.css';
-import { useParams, useNavigate } from 'react-router-dom';
 import { tests } from './data';
 import { Helmet } from 'react-helmet';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 
 
 function ReadingPassage() {
     const { id } = useParams();
-    // For navigating passages with titles
-    const [currentPassage, setCurrentPassage] = useState(0);
+    const location = useLocation();
+    const navigate = useNavigate();
 
     // Use the 'id' to fetch or display the data for this specific test.
     // For example, you can find the test using the id from your `tests` array.
+
+    // Set the initial passage from the URL query parameter
+    const initialPassage = parseInt(new URLSearchParams(location.search).get('passage')) || 0;
+    const [currentPassage, setCurrentPassage] = useState(initialPassage);
+
+    // Update the URL when `currentPassage` changes
+    useEffect(() => {
+        navigate(`?passage=${currentPassage}`, { replace: true });
+    }, [currentPassage, navigate]);
 
     const selectedTest = tests.find(test => test.id === parseInt(id));
 
@@ -23,7 +32,8 @@ function ReadingPassage() {
     const [answers, setAnswers] = useState(Array(40).fill(""));
     const results = selectedTest.results;
 
-    const navigate = useNavigate();  // <-- Use the useNavigate hook
+
+    
 
 
     const [renderedContent, setRenderedContent] = useState({ passages: {}, questions: {} });
@@ -137,6 +147,41 @@ function ReadingPassage() {
         setAnswers(newAnswers);
     };
 
+    const normalizeAnswer = (answer) => {
+        const normalized = answer.trim().toLowerCase();
+        switch (normalized) {
+            case 't': return 'true';
+            case 'f': return 'false';
+            case 'ng': return 'not given';
+            case 'y': return 'yes';
+            case 'n': return 'no';
+            default: return normalized;
+        }
+    };
+
+    const cleanResult = (result) => result.split(". ")[1]?.toLowerCase() || result.toLowerCase();
+
+    // Expand answers with optional plural forms like "string(s)"
+    const expandOptionalPlural = (text) => {
+        const match = text.match(/(.+)\(s\)$/);
+        if (match) {
+            return [match[1], `${match[1]}s`];
+        }
+        return [text];
+    };
+
+    // Check if user answer matches any acceptable answer
+    const isAnswerCorrect = (userAnswer, result) => {
+        // Split by '/' or ',' and normalize each answer
+        const acceptableAnswers = cleanResult(result)
+            .split(/[/,]/)
+            .flatMap(ans => expandOptionalPlural(normalizeAnswer(ans.trim()))); // Expand optional plurals
+
+        return acceptableAnswers.includes(normalizeAnswer(userAnswer));
+    };
+    
+
+
     return (
         <div>
             <Helmet>
@@ -200,20 +245,28 @@ function ReadingPassage() {
                                 );
                             }}>View Explaination</button>
                     }
-                    <h4>Fill Answers</h4>
-                    {answers.map((answer, idx) => (
-                        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: showResults ? '' : 'center' }} >
-                            <a style={{ color: 'grey', fontSize: '15px', marginTop: '5px', marginRight: '5px' }} >{`${idx + 1}`}</a>
-                            <input
-                                key={idx}
-                                type="text"
-                                value={answer}
-                                onChange={e => handleAnswerChange(idx, e.target.value)}
-                            // placeholder={`${idx + 1}`}
-                            />
-                            {showResults && <a style={{ color: 'grey', fontSize: '15px', marginTop: '5px', marginRight: '5px', marginLeft: '10px' }} >{`${results[idx]}`}</a>}
-                        </div>
-                    ))}
+                    <h4>
+                        {showResults ? `${answers.filter((answer, idx) => isAnswerCorrect(answer, results[idx])).length}/40 correct answers` : "Fill Answers"}
+                    </h4>
+                    {answers.map((answer, idx) => {
+                        const isCorrect = isAnswerCorrect(answer, results[idx]);
+
+                        // Debugging logs
+                        //console.log(`Answer ${idx + 1}: User Answer - ${normalizedUserAnswer}, Expected - ${normalizedResult}, Match - ${isCorrect}`);
+                        return (
+                            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: showResults ? '' : 'center' }} >
+                                <a style={{ color: 'grey', fontSize: '15px', marginTop: '5px', marginRight: '5px' }} >{`${idx + 1}`}</a>
+                                <input
+                                    key={idx}
+                                    type="text"
+                                    value={answer}
+                                    onChange={e => handleAnswerChange(idx, e.target.value)}
+                                // placeholder={`${idx + 1}`}
+                                />
+                                {showResults && <a style={{ color: isCorrect ? 'grey' : 'red', fontSize: '15px', marginTop: '5px', marginRight: '5px', marginLeft: '10px' }} >{`${results[idx]}`}</a>}
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
         </div>

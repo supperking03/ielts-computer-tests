@@ -154,6 +154,40 @@ function ListeningPassage() {
         }
     }
 
+    const normalizeAnswer = (answer) => {
+        const normalized = answer.trim().toLowerCase();
+        switch (normalized) {
+            case 't': return 'true';
+            case 'f': return 'false';
+            case 'ng': return 'not given';
+            case 'y': return 'yes';
+            case 'n': return 'no';
+            default: return normalized;
+        }
+    };
+
+    const cleanResult = (result) => result.split(". ")[1]?.toLowerCase() || result.toLowerCase();
+
+    // Expand answers with optional plural forms like "string(s)"
+    const expandOptionalPlural = (text) => {
+        const match = text.match(/(.+)\(s\)$/);
+        if (match) {
+            return [match[1], `${match[1]}s`];
+        }
+        return [text];
+    };
+
+    // Check if user answer matches any acceptable answer
+    const isAnswerCorrect = (userAnswer, result) => {
+        // Split by '/' or ',' and normalize each answer
+        const acceptableAnswers = cleanResult(result)
+            .split(/[/,]/)
+            .flatMap(ans => expandOptionalPlural(normalizeAnswer(ans.trim()))); // Expand optional plurals
+
+        return acceptableAnswers.includes(normalizeAnswer(userAnswer));
+    };
+
+
 
     return (
         <div>
@@ -226,21 +260,26 @@ function ListeningPassage() {
                                 );
                             }}>View Explaination</button>
                     }
-                    <h4>Fill Answers</h4>
-                    {answers.map((answer, idx) => (
-                        <div style={{ display: 'flex', flexDirection: 'row', justifyContent: showResults ? '' : 'center' }} >
-                            <a style={{ color: 'grey', fontSize: '15px', marginTop: '5px', marginRight: '5px' }} >{`${idx + 1}`}</a>
-                            <input
-                                key={idx}
-                                type="text"
-                                value={answer}
-                                onChange={e => handleAnswerChange(idx, e.target.value)}
-                            // placeholder={`${idx + 1}`}
-                            />
+                    <h4>
+                        {showResults ? `${answers.filter((answer, idx) => isAnswerCorrect(answer, results[idx])).length}/40 correct answers` : "Fill Answers"}
+                    </h4>
+                    {answers.map((answer, idx) => {
+                        const isCorrect = isAnswerCorrect(answer, results[idx]);
+                        return (
+                            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: showResults ? '' : 'center' }} >
+                                <a style={{ color: 'grey', fontSize: '15px', marginTop: '5px', marginRight: '5px' }} >{`${idx + 1}`}</a>
+                                <input
+                                    key={idx}
+                                    type="text"
+                                    value={answer}
+                                    onChange={e => handleAnswerChange(idx, e.target.value)}
+                                // placeholder={`${idx + 1}`}
+                                />
 
-                            {showResults && <a style={{ color: 'grey', fontSize: '15px', marginTop: '5px', marginRight: '5px', marginLeft: '10px' }} >{`${results[idx]}`}</a>}
-                        </div>
-                    ))}
+                                {showResults && <a style={{ color: isCorrect ? 'grey' : 'red', fontSize: '15px', marginTop: '5px', marginRight: '5px', marginLeft: '10px' }} >{`${results[idx]}`}</a>}
+                            </div>
+                        )
+                    })}
                 </div>
             </div>
         </div>
