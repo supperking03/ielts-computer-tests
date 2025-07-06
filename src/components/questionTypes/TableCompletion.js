@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TableCompletion = ({ question, startQuestionNumber, answers, onAnswerChange }) => {
+const TableCompletion = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
     const { title, instruction, wordLimit, table } = question;
 
     const handleInputChange = (questionNumber, value) => {
@@ -13,11 +13,15 @@ const TableCompletion = ({ question, startQuestionNumber, answers, onAnswerChang
             const answerIndex = questionNumber - 1;
             
             return (
-                <td key={`${rowIndex}-${colIndex}`} style={{ 
-                    border: '1px solid #ddd', 
-                    padding: '8px',
-                    textAlign: cell.align || 'left'
-                }}>
+                <td 
+                    key={`${rowIndex}-${colIndex}`} 
+                    id={`question-${questionNumber}`}
+                    style={{ 
+                        border: '1px solid #ddd', 
+                        padding: '8px',
+                        textAlign: cell.align || 'left'
+                    }}
+                >
                     {cell.prefix && <span>{cell.prefix}</span>}
                     <input
                         type="text"
@@ -30,7 +34,7 @@ const TableCompletion = ({ question, startQuestionNumber, answers, onAnswerChang
                             width: '100px',
                             padding: '2px 6px',
                             margin: '0 2px',
-                            border: '1px solid #007BFF',
+                            border: '1px solid #333',
                             borderRadius: '3px',
                             fontSize: '13px',
                             backgroundColor: '#f8f9fa',

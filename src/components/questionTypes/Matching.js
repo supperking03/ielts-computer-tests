@@ -1,10 +1,18 @@
 import React from 'react';
 
-const Matching = ({ question, startQuestionNumber, answers, onAnswerChange }) => {
+const Matching = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
     const { title, instruction, options, items, note } = question;
 
     const handleAnswerSelect = (questionNumber, value) => {
         onAnswerChange(questionNumber, value);
+    };
+
+    const isAnswerCorrect = (questionNumber) => {
+        if (!hasViewedResults || !correctAnswers) return null;
+        const answerIndex = questionNumber - 1;
+        const userAnswer = answers[answerIndex]?.trim().toLowerCase() || '';
+        const correctAnswer = correctAnswers[answerIndex]?.toLowerCase() || '';
+        return userAnswer === correctAnswer;
     };
 
     return (
@@ -20,12 +28,30 @@ const Matching = ({ question, startQuestionNumber, answers, onAnswerChange }) =>
                     const questionNumber = startQuestionNumber + index;
                     const answerIndex = questionNumber - 1;
                     const currentAnswer = answers[answerIndex] || '';
+                    const isCorrect = isAnswerCorrect(questionNumber);
                     
                     return (
-                        <div key={questionNumber} className="question-item">
+                        <div 
+                            key={questionNumber} 
+                            id={`question-${questionNumber}`}
+                            className="question-item" 
+                            style={{
+                                backgroundColor: '#fafafa',
+                                border: hasViewedResults && isCorrect === false ? 
+                                    '2px solid #dc3545' : '1px solid #e9ecef',
+                                borderRadius: '6px',
+                                padding: '12px',
+                                margin: hasViewedResults ? '8px 0' : '0'
+                            }}
+                        >
                             <div className="question-header">
                                 <span className="question-number"><strong>{questionNumber}</strong></span>
                                 <span className="question-text">{item.description}</span>
+                                {hasViewedResults && isCorrect === false && (
+                                    <span style={{ marginLeft: '8px', fontSize: '16px', color: '#dc3545' }}>
+                                        ✗
+                                    </span>
+                                )}
                             </div>
                             <div className="answer-options">
                                 <select
@@ -34,10 +60,12 @@ const Matching = ({ question, startQuestionNumber, answers, onAnswerChange }) =>
                                     style={{
                                         padding: '4px 8px',
                                         margin: '4px',
-                                        border: '1px solid #007BFF',
+                                        border: hasViewedResults && isCorrect === false ? 
+                                            '2px solid #dc3545' : '1px solid #333',
                                         borderRadius: '3px',
                                         fontSize: '14px',
-                                        backgroundColor: '#f8f9fa',
+                                        backgroundColor: hasViewedResults && isCorrect === false ? 
+                                            '#ffe6e6' : '#f8f9fa',
                                         minWidth: '100px'
                                     }}
                                 >
@@ -49,6 +77,16 @@ const Matching = ({ question, startQuestionNumber, answers, onAnswerChange }) =>
                                     ))}
                                 </select>
                             </div>
+                            {hasViewedResults && isCorrect === false && correctAnswers && (
+                                <div style={{ 
+                                    fontSize: '12px', 
+                                    color: '#721c24', 
+                                    marginTop: '4px',
+                                    fontStyle: 'italic'
+                                }}>
+                                    {correctAnswers[answerIndex]}
+                                </div>
+                            )}
                         </div>
                     );
                 })}

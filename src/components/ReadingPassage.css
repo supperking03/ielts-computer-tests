@@ -116,7 +116,7 @@
     color: #333;
     margin-bottom: 15px;
     font-size: 1.2em;
-    border-bottom: 2px solid #007BFF;
+    border-bottom: 2px solid #333;
     padding-bottom: 8px;
 }
 
@@ -124,7 +124,7 @@
     margin-bottom: 20px;
     padding: 15px;
     background-color: #f8f9fa;
-    border-left: 4px solid #007BFF;
+    border-left: 4px solid #333;
     border-radius: 4px;
 }
 
@@ -134,7 +134,7 @@
 }
 
 .instruction strong {
-    color: #007BFF;
+    color: #333;
 }
 
 .questions-list {
@@ -151,7 +151,7 @@
 
 .question-number {
     font-weight: bold;
-    color: #007BFF;
+    color: #333;
     margin-right: 8px;
 }
 
@@ -186,7 +186,7 @@
 }
 
 .option-label:hover {
-    color: #007BFF;
+    color: #333;
 }
 
 .paragraph-options {
@@ -216,7 +216,7 @@
 }
 
 .table-input {
-    border: 1px solid #007BFF;
+    border: 1px solid #333;
     border-radius: 3px;
     padding: 2px 6px;
     font-size: 13px;
@@ -225,12 +225,12 @@
 
 .table-input:focus {
     outline: none;
-    border-color: #0056b3;
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    border-color: #333;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.25);
 }
 
 .inline-answer-input {
-    border: 1px solid #007BFF;
+    border: 1px solid #333;
     border-radius: 3px;
     padding: 2px 8px;
     font-size: 14px;
@@ -239,12 +239,12 @@
 
 .inline-answer-input:focus {
     outline: none;
-    border-color: #0056b3;
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+    border-color: #333;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.25);
 }
 
 .inline-answer-input:hover {
-    border-color: #0056b3;
+    border-color: #333;
 }
 
 .question-group {
@@ -288,7 +288,7 @@
 
 .progress-fill {
     height: 100%;
-    background-color: #007BFF;
+    background-color: #333;
     transition: width 0.3s ease;
 }
 
@@ -322,8 +322,8 @@
 }
 
 .passage-indicator.active {
-    border-color: #007BFF;
-    background-color: #e7f3ff;
+    border-color: #333;
+    background-color: #f0f0f0;
 }
 
 .passage-number {
@@ -342,7 +342,7 @@
 
 .mini-progress-fill {
     height: 100%;
-    background-color: #007BFF;
+    background-color: #333;
     transition: width 0.3s ease;
 }
 

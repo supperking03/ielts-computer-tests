@@ -5,7 +5,7 @@ import Matching from './questionTypes/Matching';
 import ParagraphMatching from './questionTypes/ParagraphMatching';
 import TableCompletion from './questionTypes/TableCompletion';
 
-const QuestionRenderer = ({ questionsData, answers, onAnswerChange }) => {
+const QuestionRenderer = ({ questionsData, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
     const renderQuestion = (questionGroup, index) => {
         const { type, startQuestionNumber, ...questionProps } = questionGroup;
         
@@ -13,7 +13,9 @@ const QuestionRenderer = ({ questionsData, answers, onAnswerChange }) => {
             question: questionProps,
             startQuestionNumber,
             answers,
-            onAnswerChange
+            onAnswerChange,
+            hasViewedResults,
+            correctAnswers
         };
 
         switch (type) {

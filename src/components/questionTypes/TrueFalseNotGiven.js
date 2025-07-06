@@ -1,10 +1,18 @@
 import React from 'react';
 
-const TrueFalseNotGiven = ({ question, startQuestionNumber, answers, onAnswerChange }) => {
+const TrueFalseNotGiven = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
     const { title, instruction, options, items } = question;
 
     const handleAnswerSelect = (questionNumber, value) => {
         onAnswerChange(questionNumber, value);
+    };
+
+    const isAnswerCorrect = (questionNumber) => {
+        if (!hasViewedResults || !correctAnswers) return null;
+        const answerIndex = questionNumber - 1;
+        const userAnswer = answers[answerIndex]?.trim().toLowerCase() || '';
+        const correctAnswer = correctAnswers[answerIndex]?.toLowerCase() || '';
+        return userAnswer === correctAnswer;
     };
 
     return (
@@ -26,12 +34,30 @@ const TrueFalseNotGiven = ({ question, startQuestionNumber, answers, onAnswerCha
                     const questionNumber = startQuestionNumber + index;
                     const answerIndex = questionNumber - 1;
                     const currentAnswer = answers[answerIndex] || '';
+                    const isCorrect = isAnswerCorrect(questionNumber);
                     
                     return (
-                        <div key={questionNumber} className="question-item">
+                        <div 
+                            key={questionNumber} 
+                            id={`question-${questionNumber}`}
+                            className="question-item" 
+                            style={{
+                                backgroundColor: '#fafafa',
+                                border: hasViewedResults && isCorrect === false ? 
+                                    '2px solid #dc3545' : '1px solid #e9ecef',
+                                borderRadius: '6px',
+                                padding: '12px',
+                                margin: hasViewedResults ? '8px 0' : '0'
+                            }}
+                        >
                             <div className="question-header">
                                 <span className="question-number"><strong>{questionNumber}</strong></span>
                                 <span className="question-text">{item.statement}</span>
+                                {hasViewedResults && isCorrect === false && (
+                                    <span style={{ marginLeft: '8px', fontSize: '16px', color: '#dc3545' }}>
+                                        ✗
+                                    </span>
+                                )}
                             </div>
                             <div className="answer-options">
                                 {options.map(option => (
@@ -48,6 +74,16 @@ const TrueFalseNotGiven = ({ question, startQuestionNumber, answers, onAnswerCha
                                     </label>
                                 ))}
                             </div>
+                            {hasViewedResults && isCorrect === false && correctAnswers && (
+                                <div style={{ 
+                                    fontSize: '12px', 
+                                    color: '#721c24', 
+                                    marginTop: '4px',
+                                    fontStyle: 'italic'
+                                }}>
+                                    {correctAnswers[answerIndex]}
+                                </div>
+                            )}
                         </div>
                     );
                 })}

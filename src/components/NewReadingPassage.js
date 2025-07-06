@@ -3,8 +3,6 @@ import CountdownTimer from './CountdownTimer';
 import './ReadingPassage.css';
 import { newTests } from './newData';
 import QuestionRenderer from './QuestionRenderer';
-import ProgressIndicator from './ProgressIndicator';
-import QuickTips from './QuickTips';
 import { Helmet } from 'react-helmet';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 
@@ -26,8 +24,8 @@ function NewReadingPassage() {
 
     // For right-click highlighting
     const [contextMenu, setContextMenu] = useState({ visible: false, x: 0, y: 0 });
-    const [showResults, setShowResults] = useState(false);
     const [answers, setAnswers] = useState(Array(40).fill(""));
+    const [hasViewedResults, setHasViewedResults] = useState(false);
 
     const navigateBackToHome = () => {
         navigate('/');
@@ -104,7 +102,7 @@ function NewReadingPassage() {
         if (currentPassage < passages.length - 1) {
             changePassage('next');
         } else {
-            setShowResults(true);
+            setHasViewedResults(true);
         }
     };
 
@@ -116,6 +114,106 @@ function NewReadingPassage() {
             return newAnswers;
         });
     };
+
+    const isAnswerCorrect = (questionIndex) => {
+        if (!hasViewedResults || !selectedTest.correctAnswers) return null;
+        const userAnswer = answers[questionIndex].trim().toLowerCase();
+        const correctAnswer = selectedTest.correctAnswers[questionIndex].toLowerCase();
+        return userAnswer === correctAnswer;
+    };
+
+    const getPassageForQuestion = (questionNumber) => {
+        let currentQuestionNumber = 1;
+        
+        for (let passageIndex = 0; passageIndex < passages.length; passageIndex++) {
+            const passage = passages[passageIndex];
+            
+            // Calculate total questions in this passage
+            let totalQuestionsInPassage = 0;
+            passage.questions.forEach(questionGroup => {
+                totalQuestionsInPassage += questionGroup.items.length;
+            });
+            
+            // Check if the question number falls within this passage's range
+            if (questionNumber >= currentQuestionNumber && 
+                questionNumber < currentQuestionNumber + totalQuestionsInPassage) {
+                return passageIndex;
+            }
+            
+            currentQuestionNumber += totalQuestionsInPassage;
+        }
+        
+        return 0; // Default to passage 1 if not found
+    };
+
+    const scrollToQuestion = (questionNumber) => {
+        const targetPassage = getPassageForQuestion(questionNumber);
+        
+        // Navigate to the correct passage first if needed
+        if (currentPassage !== targetPassage) {
+            setCurrentPassage(targetPassage);
+            // Wait for the passage to load before scrolling
+            setTimeout(() => {
+                scrollToQuestionElement(questionNumber);
+            }, 100);
+        } else {
+            scrollToQuestionElement(questionNumber);
+        }
+    };
+
+    const scrollToQuestionElement = (questionNumber) => {
+        const questionElement = document.getElementById(`question-${questionNumber}`);
+        if (questionElement) {
+            questionElement.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'center' 
+            });
+            // Highlight the question temporarily
+            questionElement.style.backgroundColor = '#fff3cd';
+            setTimeout(() => {
+                questionElement.style.backgroundColor = '';
+            }, 2000);
+        }
+    };
+
+    const calculateScore = () => {
+        const correctAnswers = selectedTest.correctAnswers;
+        let score = 0;
+        
+        for (let i = 0; i < correctAnswers.length; i++) {
+            const userAnswer = answers[i].trim().toLowerCase();
+            const correctAnswer = correctAnswers[i].toLowerCase();
+            
+            if (userAnswer === correctAnswer) {
+                score++;
+            }
+        }
+        
+        return score;
+    };
+
+    const getBandScore = (score) => {
+        if (score >= 39) return 9.0;
+        if (score >= 37) return 8.5;
+        if (score >= 35) return 8.0;
+        if (score >= 33) return 7.5;
+        if (score >= 30) return 7.0;
+        if (score >= 27) return 6.5;
+        if (score >= 23) return 6.0;
+        if (score >= 19) return 5.5;
+        if (score >= 15) return 5.0;
+        if (score >= 13) return 4.5;
+        if (score >= 10) return 4.0;
+        if (score >= 8) return 3.5;
+        if (score >= 6) return 3.0;
+        if (score >= 4) return 2.5;
+        if (score >= 3) return 2.0;
+        if (score >= 2) return 1.5;
+        if (score >= 1) return 1.0;
+        return 0.0;
+    };
+
+
 
     return (
         <div>
@@ -142,6 +240,8 @@ function NewReadingPassage() {
                                 questionsData={passages[currentPassage].questions}
                                 answers={answers}
                                 onAnswerChange={handleAnswerChange}
+                                hasViewedResults={hasViewedResults}
+                                correctAnswers={selectedTest.correctAnswers}
                             />
                         </div>
                     </div>
@@ -168,32 +268,87 @@ function NewReadingPassage() {
                         </button>
                         <span>Passage {currentPassage + 1} of 3</span>
                         <button style={{ color: "black" }} onClick={handleNextAction}>
-                            {currentPassage < passages.length - 1 ? "Next Passage" : "View Result"}
+                            {currentPassage < passages.length - 1 ? "Next Passage" : "Check Answers"}
                         </button>
                     </div>
                 </div>
 
                 <div className="answer-section">
-                    <QuickTips />
-                    
-                    <ProgressIndicator 
-                        answers={answers}
-                        currentPassage={currentPassage}
-                        passages={passages}
-                    />
+                    {hasViewedResults && (
+                        <div style={{ 
+                            marginBottom: '20px', 
+                            padding: '15px', 
+                            backgroundColor: '#f8f9fa', 
+                            borderRadius: '8px',
+                            textAlign: 'center',
+                            border: '2px solid #333'
+                        }}>
+                            <div style={{ fontSize: '16px', color: '#333', marginBottom: '5px' }}>
+                                <strong>Your Score</strong>
+                            </div>
+                            <div style={{ fontSize: '18px', fontWeight: 'bold', color: '#333' }}>
+                                {calculateScore()}/40 ({((calculateScore()/40)*100).toFixed(1)}%)
+                            </div>
+                            <div style={{ fontSize: '20px', fontWeight: 'bold', color: '#333', marginTop: '5px' }}>
+                                Band Score: {getBandScore(calculateScore())}
+                            </div>
+                        </div>
+                    )}
                     
                     <h4>Fill Answers</h4>
-                    {answers.map((answer, index) => (
-                        <div key={index} className="answer-row">
-                            <span className="answer-number">{index + 1}</span>
-                            <input
-                                type="text"
-                                value={answer}
-                                onChange={(e) => handleAnswerChange(index + 1, e.target.value)}
-                                className="answer-input-classic"
-                            />
-                        </div>
-                    ))}
+                    {answers.map((answer, index) => {
+                        const isCorrect = isAnswerCorrect(index);
+                        const questionNumber = index + 1;
+                        return (
+                            <div 
+                                key={index} 
+                                className="answer-row" 
+                                style={{
+                                    backgroundColor: hasViewedResults ? (isCorrect ? '#d4edda' : '#f8d7da') : 'transparent',
+                                    border: hasViewedResults ? `1px solid ${isCorrect ? '#c3e6cb' : '#f5c6cb'}` : 'none',
+                                    borderRadius: hasViewedResults ? '4px' : '0',
+                                    padding: hasViewedResults ? '8px' : '0',
+                                    margin: hasViewedResults ? '2px 0' : '0',
+                                    cursor: hasViewedResults ? 'pointer' : 'default',
+                                    transition: 'all 0.2s ease'
+                                }}
+                                onClick={() => hasViewedResults && scrollToQuestion(questionNumber)}
+                            >
+                                {!hasViewedResults ? (
+                                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                                        <span className="answer-number">{questionNumber}</span>
+                                        <input
+                                            type="text"
+                                            value={answer}
+                                            onChange={(e) => handleAnswerChange(questionNumber, e.target.value)}
+                                            className="answer-input-classic"
+                                        />
+                                    </div>
+                                ) : (
+                                    <div style={{ display: 'flex', alignItems: 'center' }}>
+                                        <span className="answer-number" style={{ 
+                                            minWidth: '30px',
+                                            fontSize: '15px',
+                                            color: '#666',
+                                            fontWeight: '500'
+                                        }}>
+                                            {questionNumber}
+                                        </span>
+                                        <span style={{ 
+                                            marginLeft: '12px',
+                                            fontSize: '14px',
+                                            fontWeight: '400',
+                                            color: isCorrect ? '#2d5a41' : '#8b1e3f',
+                                            fontFamily: "'Segoe UI', 'Roboto', 'Arial', sans-serif",
+                                            letterSpacing: '0.2px'
+                                        }}>
+                                            {selectedTest.correctAnswers[index]}
+                                        </span>
+                                    </div>
+                                )}
+                            </div>
+                        );
+                    })}
                 </div>
             </div>
         </div>

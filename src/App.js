@@ -58,8 +58,8 @@ function AppContent() {
 
   return (
     <div className="App">
-      {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/listening/')) && (!location.pathname.startsWith('/writing/')) && <Header />}
-      {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/listening/')) && (!location.pathname.startsWith('/writing/')) && <div className="menu">
+      {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/new-reading/') && !location.pathname.startsWith('/listening/')) && (!location.pathname.startsWith('/writing/')) && <Header />}
+      {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/new-reading/') && !location.pathname.startsWith('/listening/')) && (!location.pathname.startsWith('/writing/')) && <div className="menu">
         <Link className="Navigator" onClick={() => { setCurrentPage(0) }}>Reading</Link>
         <Link className="Navigator" onClick={() => { setCurrentPage(1) }}>Listening</Link>
         <Link className="Navigator" onClick={() => { setCurrentPage(2) }} style={{  }}>Writing Task 2 👑 (beta)</Link>
@@ -77,7 +77,7 @@ function AppContent() {
       {currentPage == 2 && <WritingPassage />}
 
 
-      {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/listening/')) && (!location.pathname.startsWith('/writing/')) && <div>
+      {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/new-reading/') && !location.pathname.startsWith('/listening/')) && (!location.pathname.startsWith('/writing/')) && <div>
         <h3 style={{ color: 'InfoText' }}>
           If you find this website useful, leave a good comment. Thanks !!!!
         </h3>

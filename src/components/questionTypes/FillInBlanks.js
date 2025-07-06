@@ -1,10 +1,18 @@
 import React from 'react';
 
-const FillInBlanks = ({ question, startQuestionNumber, answers, onAnswerChange }) => {
+const FillInBlanks = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
     const { title, instruction, wordLimit, items } = question;
 
     const handleInputChange = (questionNumber, value) => {
         onAnswerChange(questionNumber, value);
+    };
+
+    const isAnswerCorrect = (questionNumber) => {
+        if (!hasViewedResults || !correctAnswers) return null;
+        const answerIndex = questionNumber - 1;
+        const userAnswer = answers[answerIndex]?.trim().toLowerCase() || '';
+        const correctAnswer = correctAnswers[answerIndex]?.toLowerCase() || '';
+        return userAnswer === correctAnswer;
     };
 
     return (
@@ -19,9 +27,22 @@ const FillInBlanks = ({ question, startQuestionNumber, answers, onAnswerChange }
                 {items.map((item, index) => {
                     const questionNumber = startQuestionNumber + index;
                     const answerIndex = questionNumber - 1;
+                    const isCorrect = isAnswerCorrect(questionNumber);
                     
                     return (
-                        <div key={questionNumber} className="question-item">
+                        <div 
+                            key={questionNumber} 
+                            id={`question-${questionNumber}`}
+                            className="question-item" 
+                            style={{
+                                backgroundColor: '#fafafa',
+                                border: hasViewedResults && isCorrect === false ? 
+                                    '2px solid #dc3545' : '1px solid #e9ecef',
+                                borderRadius: '6px',
+                                padding: '12px',
+                                margin: hasViewedResults ? '8px 0' : '0'
+                            }}
+                        >
                             <span className="question-number"><strong>{questionNumber}</strong></span>
                             <span className="question-text">{item.prefix}</span>
                             <input
@@ -35,14 +56,31 @@ const FillInBlanks = ({ question, startQuestionNumber, answers, onAnswerChange }
                                     width: '120px',
                                     padding: '2px 8px',
                                     margin: '0 4px',
-                                    border: '1px solid #007BFF',
+                                    border: hasViewedResults && isCorrect === false ? 
+                                        '2px solid #dc3545' : '1px solid #333',
                                     borderRadius: '3px',
                                     fontSize: '14px',
-                                    backgroundColor: '#f8f9fa',
+                                    backgroundColor: hasViewedResults && isCorrect === false ? 
+                                        '#ffe6e6' : '#f8f9fa',
                                     verticalAlign: 'baseline',
                                 }}
                             />
                             <span className="question-text">{item.suffix}</span>
+                            {hasViewedResults && isCorrect === false && (
+                                <span style={{ marginLeft: '8px', fontSize: '16px', color: '#dc3545' }}>
+                                    ✗
+                                </span>
+                            )}
+                            {hasViewedResults && isCorrect === false && correctAnswers && (
+                                <div style={{ 
+                                    fontSize: '12px', 
+                                    color: '#721c24', 
+                                    marginTop: '4px',
+                                    fontStyle: 'italic'
+                                }}>
+                                    {correctAnswers[answerIndex]}
+                                </div>
+                            )}
                         </div>
                     );
                 })}

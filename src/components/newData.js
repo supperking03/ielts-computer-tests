@@ -4,6 +4,26 @@ export const newTests = [
         explanation: "https://drive.google.com/file/d/1uTgGk6K3tP8pmojyWCQA0K_BOA3AgR9w/view?usp=sharing",
         title: 'Reading CAM 18 Test 1',
         image: 'https://ieltstrainingonline.com/wp-content/uploads/2023/06/cam-18-test-1.jpg',
+        correctAnswers: [
+            // Q1-3: fill-in-blanks
+            "lettuces", "1000 kg", "consumption",
+            // Q4-7: fill-in-blanks table
+            "pesticides", "journeys", "producers", "flavour",
+            // Q8-13: true-false-not-given
+            "TRUE", "NOT GIVEN", "FALSE", "FALSE", "FALSE", "NOT GIVEN",
+            // Q14-18: paragraph-matching
+            "B", "A", "C", "E", "B",
+            // Q19-21: matching
+            "B", "C", "C",
+            // Q22-26: sentence-completion
+            "fire", "nutrients", "cavities", "hawthorn", "rare",
+            // Q27-31: paragraph-matching
+            "A", "B", "C", "D", "F",
+            // Q32-36: true-false-not-given
+            "TRUE", "FALSE", "NOT GIVEN", "TRUE", "FALSE",
+            // Q37-40: fill-in-blanks
+            "precision", "metre", "databases", "cross-correlate"
+        ],
         passages: [
             {
                 title: "Reading Passage 1",
