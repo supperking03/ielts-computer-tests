@@ -30,3 +30,7 @@
     width: 50px;
     height: auto;
 }
+
+.new-system-link:hover {
+    background-color: #0056b3 !important;
+}

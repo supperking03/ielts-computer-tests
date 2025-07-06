@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import CountdownTimer from './CountdownTimer';
 import './ReadingPassage.css';
 import { tests } from './data';
@@ -32,13 +32,97 @@ function ReadingPassage() {
     const [answers, setAnswers] = useState(Array(40).fill(""));
     const results = selectedTest.results;
 
-
-    
-
-
     const [renderedContent, setRenderedContent] = useState({ passages: {}, questions: {} });
 
+    // Handle input changes from inline inputs
+    const handleInlineInputChange = useCallback((questionNumber, value) => {
+        const answerIndex = questionNumber - 1;
+        setAnswers(prevAnswers => {
+            const newAnswers = [...prevAnswers];
+            newAnswers[answerIndex] = value;
+            return newAnswers;
+        });
+    }, []);
 
+    // Questions container component - mounted once per passage
+    const QuestionsContainer = ({ questionHTML, currentPassage, onAnswerChange }) => {
+        const containerRef = useRef(null);
+        
+        useEffect(() => {
+            if (!containerRef.current || !questionHTML) return;
+            
+            // Set HTML content
+            containerRef.current.innerHTML = questionHTML;
+            
+            // Find and replace all dots with input fields
+            const walker = document.createTreeWalker(
+                containerRef.current,
+                NodeFilter.SHOW_TEXT,
+                null,
+                false
+            );
+            
+            const textNodes = [];
+            let node;
+            while (node = walker.nextNode()) {
+                if (node.textContent.includes('…')) {
+                    textNodes.push(node);
+                }
+            }
+            
+            // Process each text node
+            let inputCounter = 0;
+            textNodes.forEach(textNode => {
+                const text = textNode.textContent;
+                if (text.includes('…')) {
+                    const parts = text.split(/…+/);
+                    if (parts.length > 1) {
+                        const parent = textNode.parentNode;
+                        const fragment = document.createDocumentFragment();
+                        
+                        for (let i = 0; i < parts.length; i++) {
+                            if (parts[i]) {
+                                fragment.appendChild(document.createTextNode(parts[i]));
+                            }
+                            
+                            if (i < parts.length - 1) {
+                                const startIndex = currentPassage === 0 ? 1 : currentPassage === 1 ? 14 : 27;
+                                const questionNumber = startIndex + inputCounter;
+                                
+                                const input = document.createElement('input');
+                                input.type = 'text';
+                                input.className = 'inline-answer-input';
+                                input.placeholder = `Q${questionNumber}`;
+                                input.style.cssText = `
+                                    display: inline-block;
+                                    width: 120px;
+                                    padding: 2px 8px;
+                                    margin: 0 2px;
+                                    border: 1px solid #007BFF;
+                                    border-radius: 3px;
+                                    font-size: 14px;
+                                    background-color: #f8f9fa;
+                                    vertical-align: baseline;
+                                `;
+                                
+                                // Event listener
+                                input.addEventListener('input', (e) => {
+                                    onAnswerChange(questionNumber, e.target.value);
+                                });
+                                
+                                fragment.appendChild(input);
+                                inputCounter++;
+                            }
+                        }
+                        
+                        parent.replaceChild(fragment, textNode);
+                    }
+                }
+            });
+        }, []); // Empty dependencies - only run once on mount
+        
+        return <div ref={containerRef}></div>;
+    };
 
     const navigateBackToHome = () => {
         navigate('/');
@@ -94,9 +178,6 @@ function ReadingPassage() {
 
         setContextMenu({ visible: false });
     };
-
-
-
 
     const removeHighlight = () => {
         const selection = window.getSelection();
@@ -180,8 +261,6 @@ function ReadingPassage() {
         return acceptableAnswers.includes(normalizeAnswer(userAnswer));
     };
     
-
-
     return (
         <div>
             <Helmet>
@@ -202,7 +281,12 @@ function ReadingPassage() {
                         </div>
 
                         <div className="questions-section">
-                            <div dangerouslySetInnerHTML={{ __html: renderedContent.questions[currentPassage] || passages[currentPassage].question }}></div>
+                            <QuestionsContainer 
+                                key={`questions-${currentPassage}`} // Force remount when passage changes
+                                questionHTML={passages[currentPassage].question}
+                                currentPassage={currentPassage}
+                                onAnswerChange={handleInlineInputChange}
+                            />
                         </div>
                     </div>
                     {contextMenu.visible && (
@@ -254,7 +338,7 @@ function ReadingPassage() {
                         // Debugging logs
                         //console.log(`Answer ${idx + 1}: User Answer - ${normalizedUserAnswer}, Expected - ${normalizedResult}, Match - ${isCorrect}`);
                         return (
-                            <div style={{ display: 'flex', flexDirection: 'row', justifyContent: showResults ? '' : 'center' }} >
+                            <div key={idx} style={{ display: 'flex', flexDirection: 'row', justifyContent: showResults ? '' : 'center' }} >
                                 <a style={{ color: 'grey', fontSize: '15px', marginTop: '5px', marginRight: '5px' }} >{`${idx + 1}`}</a>
                                 <input
                                     key={idx}

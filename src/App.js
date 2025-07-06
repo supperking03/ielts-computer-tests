@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import Home from './components/Home';
 import ReadingPassage from './components/ReadingPassage';
+import NewReadingPassage from './components/NewReadingPassage';
 import { tests } from './components/data';
 import { tests as tests2 } from './components/dataLis';
 import ListeningPassage from './components/ListeningPassage';
@@ -67,6 +68,7 @@ function AppContent() {
         <Routes>
           <Route path="/" element={<Home tests={currentPage == 0 ? tests : tests2} />} />
           <Route path="/reading/:id/:title" element={<ReadingPassage />} />
+          <Route path="/new-reading/:id/:title" element={<NewReadingPassage />} />
           <Route path="/listening/:id/:title" element={<ListeningPassage />} />
           {/* <Route path="/writing/" element={<WritingPassage />} /> */}
           {/* ... other routes */}

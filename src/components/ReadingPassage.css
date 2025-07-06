@@ -1,5 +1,4 @@
-@import "~font-awesome/css/font-awesome.min.css";
-
+/* Original Layout CSS */
 .reading-passage {
     font-family: 'Arial', sans-serif;
     display: flex;
@@ -13,19 +12,34 @@
     overflow-y: auto;
 }
 
-.timer-container {
+.content-section {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    gap: 20px;
+    overflow: hidden;
+    color: #333;
+    background-color: #ffffff;
 }
 
+.passage-section,
+.questions-section {
+    flex: 1;
+    overflow-y: auto;
+    height: 73vh; 
+    padding: 20px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+}
 
 .answer-section {
     flex-basis: 10%; 
     border-left: 1px solid #ccc;
     padding: 20px;
     box-shadow: -2px 0px 6px rgba(0, 0, 0, 0.1);
-    overflow-y: auto
+    overflow-y: auto;  
 }
 
 .answer-section h4 {
@@ -33,35 +47,32 @@
     margin-bottom: 10px;
 }
 
-.answer-section input {
+.answer-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.answer-row .answer-number {
+    color: grey;
+    font-size: 15px;
+    margin-right: 5px;
+    min-width: 20px;
+}
+
+.answer-input-classic {
     display: block;
     width: 100%;
     padding: 5px;
-    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    max-width: 100px;
 }
 
-.content-section {
+.timer-container {
     display: flex;
-    gap: 20px;
-    overflow: hidden;
-    color: #333;  /* dark gray color */
-    background-color: #ffffff;  /* white background */
-    flex:1;
-}
-
-.passage-section,
-.questions-section {
-    flex: 1;
-    overflow-y: auto;
-    height: 70vh; 
-    padding: 20px;
-    border: 1px solid #ccc;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
-    font-family: 'Arial', sans-serif; /* Use Arial font */
-    font-size: 16px; /* Adjust as per your requirement */
-    line-height: 1.6; /* Providing spacing between lines for better readability */
+    justify-content: center;
+    align-items: center;
 }
 
 .passage-navigation {
@@ -71,93 +82,11 @@
     margin-top: 20px;
 }
 
-.results-popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 72%; /* Adjusted to be 20% smaller than the original 90% */
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 4px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
-    z-index: 1001;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.results-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns now */
-    gap: 10px;
-    width: 100%;
-    margin-bottom: 20px;
-}
-
-.result-item {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 40px; /* Given a specific height to fit all results without scrolling */
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-
-.results-popup button {
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-/* Context Menu styles */
-
-div[style*="absolute"] {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow: hidden;
-    z-index: 1002; /* Ensure it appears above everything */
-}
-
-div[style*="absolute"] button {
-    display: block;
-    background-color: #f5f5f5;
-    border: none;
-    padding: 8px 12px;
-    width: 100%;
-    text-align: left;
-    cursor: pointer;
-}
-
-div[style*="absolute"] button:hover {
-    background-color: #e9e9e9;
-}
-
-
-.passage-title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-
-.passage-section div {
-    text-align: left;
-}
-
-.questions-section div {
-    text-align: left;
-}
-
 .fullscreen-button {
     position: absolute;
     top: 10px;
     right: 200px;
-    z-index: 1000; /* ensures it's above other content */
+    z-index: 1000;
     padding: 5px 10px;
     cursor: pointer;
     font-size: smaller;
@@ -170,7 +99,331 @@ div[style*="absolute"] button:hover {
     color: grey;
     position: absolute;
     top: 10px;
-    left: 10;
+    left: 10px;
     padding: 5px 10px;
 }
 
+/* New Question Components Styles */
+.question-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.question-section h3 {
+    color: #333;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    border-bottom: 2px solid #007BFF;
+    padding-bottom: 8px;
+}
+
+.instruction {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-left: 4px solid #007BFF;
+    border-radius: 4px;
+}
+
+.instruction p {
+    margin: 8px 0;
+    color: #555;
+}
+
+.instruction strong {
+    color: #007BFF;
+}
+
+.questions-list {
+    margin-top: 20px;
+}
+
+.question-item {
+    margin-bottom: 15px;
+    padding: 12px;
+    background-color: #fafafa;
+    border-radius: 6px;
+    border: 1px solid #e9ecef;
+}
+
+.question-number {
+    font-weight: bold;
+    color: #007BFF;
+    margin-right: 8px;
+}
+
+.question-text {
+    margin: 0 4px;
+    line-height: 1.5;
+}
+
+.question-header {
+    margin-bottom: 12px;
+}
+
+.answer-options {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.option-label {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    color: #555;
+}
+
+.option-label input[type="radio"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.option-label:hover {
+    color: #007BFF;
+}
+
+.paragraph-options {
+    font-size: 12px;
+    color: #666;
+    margin-top: 8px;
+}
+
+.options-list {
+    margin-top: 20px;
+    padding-left: 20px;
+}
+
+.options-list h4 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.options-list p {
+    margin: 8px 0;
+    color: #555;
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+.table-input {
+    border: 1px solid #007BFF;
+    border-radius: 3px;
+    padding: 2px 6px;
+    font-size: 13px;
+    background-color: #f8f9fa;
+}
+
+.table-input:focus {
+    outline: none;
+    border-color: #0056b3;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.inline-answer-input {
+    border: 1px solid #007BFF;
+    border-radius: 3px;
+    padding: 2px 8px;
+    font-size: 14px;
+    background-color: #f8f9fa;
+}
+
+.inline-answer-input:focus {
+    outline: none;
+    border-color: #0056b3;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.inline-answer-input:hover {
+    border-color: #0056b3;
+}
+
+.question-group {
+    margin-bottom: 20px;
+}
+
+.unknown-type {
+    background-color: #fff3cd;
+    border: 1px solid #ffeaa7;
+    color: #856404;
+}
+
+/* Progress Indicator Styles */
+.progress-indicator {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.progress-section {
+    margin-bottom: 15px;
+}
+
+.progress-section h4 {
+    margin: 0 0 8px 0;
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #007BFF;
+    transition: width 0.3s ease;
+}
+
+.progress-fill.overall {
+    background-color: #28a745;
+}
+
+.progress-text {
+    font-size: 12px;
+    color: #666;
+}
+
+.passage-indicators {
+    display: flex;
+    gap: 15px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #e9ecef;
+}
+
+.passage-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 8px;
+    border-radius: 6px;
+    background-color: #fff;
+    border: 1px solid #e9ecef;
+    transition: all 0.2s ease;
+}
+
+.passage-indicator.active {
+    border-color: #007BFF;
+    background-color: #e7f3ff;
+}
+
+.passage-number {
+    font-size: 12px;
+    font-weight: 600;
+    color: #333;
+}
+
+.mini-progress {
+    width: 40px;
+    height: 4px;
+    background-color: #e9ecef;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.mini-progress-fill {
+    height: 100%;
+    background-color: #007BFF;
+    transition: width 0.3s ease;
+}
+
+.mini-text {
+    font-size: 10px;
+    color: #666;
+}
+
+/* Quick Tips Styles */
+.quick-tips {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.tips-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.tips-header h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.close-tips-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.close-tips-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.tips-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.tip-item {
+    padding: 6px 0;
+    font-size: 13px;
+    line-height: 1.4;
+    opacity: 0.9;
+}
+
+.tip-item:hover {
+    opacity: 1;
+}
+
+.show-tips-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.show-tips-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
