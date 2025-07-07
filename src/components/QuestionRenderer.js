@@ -4,6 +4,10 @@ import TrueFalseNotGiven from './questionTypes/TrueFalseNotGiven';
 import Matching from './questionTypes/Matching';
 import ParagraphMatching from './questionTypes/ParagraphMatching';
 import TableCompletion from './questionTypes/TableCompletion';
+import MultipleChoice from './questionTypes/MultipleChoice';
+import YesNoNotGiven from './questionTypes/YesNoNotGiven';
+import SummaryCompletion from './questionTypes/SummaryCompletion';
+import ParagraphHeadings from './questionTypes/ParagraphHeadings';
 
 const QuestionRenderer = ({ questionsData, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
     const renderQuestion = (questionGroup, index) => {
@@ -36,6 +40,18 @@ const QuestionRenderer = ({ questionsData, answers, onAnswerChange, hasViewedRes
             
             case 'sentence-completion':
                 return <FillInBlanks key={index} {...commonProps} />; // Same as fill-in-blanks
+            
+            case 'multiple-choice':
+                return <MultipleChoice key={index} {...commonProps} />;
+            
+            case 'yes-no-not-given':
+                return <YesNoNotGiven key={index} {...commonProps} />;
+            
+            case 'summary-completion':
+                return <SummaryCompletion key={index} {...commonProps} />;
+            
+            case 'paragraph-headings':
+                return <ParagraphHeadings key={index} {...commonProps} />;
             
             default:
                 console.warn(`Unknown question type: ${type}`);

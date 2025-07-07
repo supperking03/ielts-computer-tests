@@ -280,5 +280,662 @@ export const newTests = [
                 ]
             }
         ]
+    },
+    {
+        id: 2,
+        explanation: "https://drive.google.com/file/d/1uTgGk6K3tP8pmojyWCQA0K_BOA3AgR9w/view?usp=sharing",
+        title: 'Reading CAM 18 Test 2',
+        image: 'https://ieltstrainingonline.com/wp-content/uploads/2023/06/cam-18-test-2.jpg',
+        correctAnswers: [
+            // Q1-8: fill-in-blanks (Stonehenge notes)
+            "(deer) antlers", "(timber) posts", "tree trunks", "oxen", "glaciers", "druids", "burial", "calendar",
+            // Q9-13: true-false-not-given
+            "TRUE", "FALSE", "FALSE", "TRUE", "NOT GIVEN",
+            // Q14-19: multiple choice
+            "C", "A", "B", "D", "C", "D",
+            // Q20-23: yes-no-not-given
+            "YES", "NOT GIVEN", "NO", "YES",
+            // Q24-26: summary completion
+            "C", "A", "E",
+            // Q27-33: true-false-not-given
+            "NOT GIVEN", "NOT GIVEN", "TRUE", "FALSE", "TRUE", "NOT GIVEN", "FALSE",
+            // Q34-40: summary completion
+            "transport", "staircases", "engineering", "rule", "Roman", "Paris", "outwards"
+        ],
+        passages: [
+            {
+                title: "Reading Passage 1",
+                content: `
+                <p><span style="font-size: large;">You should spend about 20 minutes on </span><strong style="font-size: large;">Questions</strong><span style="font-size: large;"> </span><strong style="font-size: large;">1-13</strong><span style="font-size: large;">&nbsp;which are&nbsp;based on Reading Passage 1 below.</span><span style="font-size: 14px; text-align: left; color: #353535;"></span></p>
+                <h2 style="text-align: center;"><span style="font-size: x-large;"><strong>Stonehenge</strong></span></h2>
+                <p><span style="font-size: large;">For centuries, historians and archaeologists have puzzled over the many mysteries of Stonehenge, a prehistoric monument that took an estimated 1,500 years to erect. Located on Salisbury Plain in southern England, it is comprised of roughly 100 massive upright stones placed in a circular layout.</span></p>
+                <p><span style="font-size: large;">Archaeologists believe England's most iconic prehistoric ruin was built in several stages with the earliest constructed 5,000 or more years ago. First, Neolithic* Britons used primitive tools, which may have been fashioned out of deer antlers, to dig a massive circular ditch and bank, or henge. Deep pits dating back to that era and located within the circle may have once held a ring of timber posts, according to some scholars.</span></p>
+                <p><span style="font-size: large;">Several hundred years later, it is thought, Stonehenge's builders hoisted an estimated 80 bluestones, 43 of which remain today, into standing positions and placed them in either a horseshoe or circular formation. These stones have been traced all the way to the Preseli Hills in Wales, some 300 kilometres from Stonehenge. How, then, did prehistoric builders without sophisticated tools or engineering haul these boulders, which weigh up to four tons, over such a great distance?</span></p>
+                <p><span style="font-size: large;">According to one long-standing theory among archaeologists, Stonehenge's builders fashioned sledges and rollers out of tree trunks to lug the bluestones from the Preseli Hills. They then transferred the boulders onto rafts and floated them first along the Welsh coast and then up the River Avon toward Salisbury Plain; alternatively, they may have towed each stone with a fleet of vessels. More recent archaeological hypotheses have them transporting the bluestones with supersized wicker baskets on a combination of ball bearings and long grooved planks, hauled by oxen.</span></p>
+                <p><span style="font-size: large;">As early as the 1970s, geologists have been adding their voices to the debate over how Stonehenge came into being. Challenging the classic image of industrious builders pushing, carting, rolling or hauling giant stones from faraway Wales, some scientists have suggested that it was glaciers, not humans, that carried the bluestones to Salisbury Plain. Most archaeologists have remained sceptical about this theory, however, wondering how the forces of nature could possibly have delivered the exact number of stones needed to complete the circle.</span></p>
+                <p><span style="font-size: large;">The third phase of construction took place around 2000 BCE. At this point, sandstone slabs – known as 'sarsens' – were arranged into an outer crescent or ring; some were assembled into the iconic three-pieced structures called trilithons that stand tall in the centre of Stonehenge. Some 50 of these stones are now visible on the site, which may once have contained many more. Radiocarbon dating has revealed that work continued at Stonehenge until roughly 1600 BCE, with the bluestones in particular being repositioned multiple times.</span></p>
+                <p><span style="font-size: large;">But who were the builders of Stonehenge? In the 17th century, archaeologist John Aubrey made the claim that Stonehenge was the work of druids, who had important religious, judicial and political roles in Celtic** society. This theory was widely popularized by the antiquarian William Stukeley, who had unearthed primitive graves at the site. Even today, people who identify as modern druids continue to gather at Stonehenge for the summer solstice. However, in the mid-20th century, radiocarbon dating demonstrated that Stonehenge stood more than 1,000 years before the Celts inhabited the region.</span></p>
+                <p><span style="font-size: large;">Many modern historians and archaeologists now agree that several distinct tribes of people contributed to Stonehenge, each undertaking a different phase of its construction. Bones, tools and other artefacts found on the site seem to support this hypothesis. The first stage was achieved by Neolithic agrarians who were likely to have been indigenous to the British Isles. Later, it is believed, groups with advanced tools and a more communal way of life left their mark on the site. Some believe that they were immigrants from the European continent, while others maintain that they were probably native Britons, descended from the original builders.</span></p>
+                <p><span style="font-size: large;">If the facts surrounding the architects and construction of Stonehenge remain shadowy at best, the purpose of the striking monument is even more of a mystery. While there is consensus among the majority of modern scholars that Stonehenge once served the function of burial ground, they have yet to determine what other purposes it had.</span></p>
+                <p><span style="font-size: large;">In the 1960s, the astronomer Gerald Hawkins suggested that the cluster of megalithic stones operated as a form of calendar, with different points corresponding to astrological phenomena such as solstices, equinoxes and eclipses occurring at different times of the year. While his theory has received a considerable amount of attention over the decades, critics maintain that Stonehenge's builders probably lacked the knowledge necessary to predict such events or that England's dense cloud cover would have obscured their view of the skies.</span></p>
+                <p><span style="font-size: large;">More recently, signs of illness and injury in the human remains unearthed at Stonehenge led a group of British archaeologists to speculate that it was considered a place of healing, perhaps because bluestones were thought to have curative powers.</span></p>
+                <p><span style="font-size: large;">—–</span></p>
+                <p><span style="font-size: medium;">* Neolithic – The era, also known as the New Stone Age, which began around 12,000 years ago and ended around 3500 BCE</span></p>
+                <p><span style="font-size: medium;">** Celtic – The Celts were people who lived in Britain and northwest Europe during the Iron Age from 600 BCE to 43 CE</span></p>
+                `,
+                questions: [
+                    {
+                        type: 'fill-in-blanks',
+                        startQuestionNumber: 1,
+                        title: 'Questions 1-8',
+                        instruction: 'Complete the notes below.',
+                        wordLimit: 'Choose NO MORE THAN TWO WORDS from the passage for each answer.',
+                        sectionTitle: 'Stonehenge',
+                        items: [
+                            {
+                                prefix: 'Stage 1: the ditch and henge were dug, possibly using tools made from',
+                                suffix: '.'
+                            },
+                            {
+                                prefix: 'Stage 1:',
+                                suffix: 'may have been arranged in deep pits inside the circle.'
+                            },
+                            {
+                                prefix: 'Stage 2: archaeological theory - builders used',
+                                suffix: 'to make sledges and rollers.'
+                            },
+                            {
+                                prefix: 'Stage 2: archaeological theory -',
+                                suffix: 'pulled them on giant baskets.'
+                            },
+                            {
+                                prefix: 'Stage 2: geological theory - they were brought from Wales by',
+                                suffix: '.'
+                            },
+                            {
+                                prefix: 'Builders: a theory arose in the 17th century that its builders were Celtic',
+                                suffix: '.'
+                            },
+                            {
+                                prefix: 'Purpose: many experts agree it has been used as a',
+                                suffix: 'site.'
+                            },
+                            {
+                                prefix: 'Purpose: in the 1960s, it was suggested that it worked as a kind of',
+                                suffix: '.'
+                            }
+                        ]
+                    },
+                    {
+                        type: 'true-false-not-given',
+                        startQuestionNumber: 9,
+                        title: 'Questions 9-13',
+                        instruction: 'Do the following statements agree with the information given in Reading Passage 1?',
+                        options: [
+                            { value: 'TRUE', description: 'if the statement agrees with the information' },
+                            { value: 'FALSE', description: 'if the statement contradicts the information' },
+                            { value: 'NOT GIVEN', description: 'if there is no information on this' }
+                        ],
+                        items: [
+                            { statement: 'During the third phase of construction, sandstone slabs were placed in both the outer areas and the middle of the Stonehenge site.' },
+                            { statement: 'There is scientific proof that the bluestones stood in the same spot until approximately 1600 BCE.' },
+                            { statement: 'John Aubrey\'s claim about Stonehenge was supported by 20th-century findings.' },
+                            { statement: 'Objects discovered at Stonehenge seem to indicate that it was constructed by a number of different groups of people.' },
+                            { statement: 'Criticism of Gerald Hawkins\' theory about Stonehenge has come mainly from other astronomers.' }
+                        ]
+                    }
+                ]
+            },
+            {
+                title: "Reading Passage 2",
+                content: `
+                <p><span style="font-size: large;">You should spend about 20 minutes on <strong>Questions 14-26</strong>&nbsp;which are based on Reading Passage 2 below.</span><span style="font-size: 14px;">&nbsp;</span></p>
+                <h2 style="text-align: center;"><span style="font-size: x-large;"><strong>Living with artificial intelligence</strong></span></h2>
+                <p style="text-align: center;"><span style="font-size: large;"><em>Powerful artificial intelligence (AI) needs to be reliably aligned with human values, but<br>does this mean AI will eventually have to<br>police those values?</em></span></p>
+                <p><span style="font-size: large;">This has been the decade of AI, with one astonishing feat after another. A chess-playing AI that can defeat not only all human chess players, but also all previous human-programmed chess machines, after learning the game in just four hours? That's yesterday's news, what's next? True, these prodigious accomplishments are all in so-called narrow AI, where machines perform highly specialised tasks. But many experts believe this restriction is very temporary. By mid-century, we may have artificial general intelligence (AGI) – machines that can achieve human-level performance on the full range of tasks that we ourselves can tackle.</span></p>
+                <p><span style="font-size: large;">If so, there's little reason to think it will stop there. Machines will be free of many of the physical constraints on human intelligence. Our brains run at slow biochemical processing speeds on the power of a light bulb, and their size is restricted by the dimensions of the human birth canal. It is remarkable what they accomplish, given these handicaps. But they may be as far from the physical limits of thought as our eyes are from the incredibly powerful Webb Space Telescope.</span></p>
+                <p><span style="font-size: large;">Once machines are better than us at designing even smarter machines, progress towards these limits could accelerate. What would this mean for us? Could we ensure a safe and worthwhile coexistence with such machines? On the plus side, AI is already useful and profitable for many things, and super AI might be expected to be super useful and super profitable. But the more powerful AI becomes, the more important it will be to specify its goals with great care. Folklore is full of tales of people who ask for the wrong thing, with disastrous consequences- King Midas, for example, might have wished that everything he touched turned to gold, but didn't really intend this to apply to his breakfast.</span></p>
+                <p><span style="font-size: large;">So we need to create powerful AI machines that are 'human-friendly'- that have goals reliably aligned with our own values. One thing that makes this task difficult is that we are far from reliably human-friendly ourselves. We do many terrible things to each other and to many other creatures with whom we share the planet. If superintendent machines don't do a lot better than us, we'll be in deep trouble. We'll have powerful new intelligence amplifying the dark sides of our own fallible natures.</span></p>
+                <p><span style="font-size: large;">For safety's sake, then, we want the machines to be ethically as well as cognitively superhuman. We want them to aim for the moral high ground, not for the troughs in which many of us spend some of our time. Luckily they'll be smart enough for the job. If there are routes to the moral high ground, they'll be better than us at finding them, and steering us in the right direction.</span></p>
+                <p><span style="font-size: large;">However, there are two big problems with this utopian vision. One is how we get the machines started on the journey, the other is what it would mean to reach this destination. The 'getting started' problem is that we need to tell the machines what they're looking for with sufficient clarity that we can be confident they will find it – whatever 'it' actually turns out to be. This won't be easy, given that we are tribal creatures and conflicted about the ideals ourselves. We often ignore the suffering of strangers, and even contribute to it, at least indirectly. How then, do we point machines in the direction of something better?</span></p>
+                <p><span style="font-size: large;">As for the 'destination' problem, we might, by putting ourselves in the hands of these moral guides and gatekeepers, be sacrificing our own autonomy – an important part of what makes us human. Machines who are better than us at sticking to the moral high ground may be expected to discourage some of the lapses we presently take for granted. We might lose our freedom to discriminate in favour of our own communities, for example.</span></p>
+                <p><span style="font-size: large;">Loss of freedom to behave badly isn't always a bad thing, of course: denying ourselves the freedom to put children to work in factories, or to smoke in restaurants are signs of progress. But are we ready for ethical silicon police limiting our options? They might be so good at doing it that we won't notice them; but few of us are likely to welcome such a future.</span></p>
+                <p><span style="font-size: large;">These issues might seem far-fetched, but they are to some extent already here. AI already has some input into how resources are used in our National Health Service (NHS) here in the UK, for example. If it was given a greater role, it might do so much more efficiently than humans can manage, and act in the interests of taxpayers and those who use the health system. However, we'd be depriving some humans (e.g. senior doctors) of the control they presently enjoy. Since we'd want to ensure that people are treated equally and that policies are fair, the goals of AI would need to be specified correctly.</span></p>
+                <p><span style="font-size: large;">We have a new powerful technology to deal with- itself, literally, a new way of thinking. For our own safety, we need to point these new thinkers in the right direction, and get them to act well for us. It is not yet clear whether this is possible, but if it is, it will require a cooperative spirit, and a willingness to set aside self-interest.</span></p>
+                <p><span style="font-size: large;">Both general intelligence and moral reasoning are often thought to be uniquely human capacities. But safety seems to require that we think of them as a package: if we are to give general intelligence to machines, we'll need to give them moral authority, too. And where exactly would that leave human beings? All the more reason to think about the destination now, and to be careful about what we wish for.</span></p>
+                `,
+                questions: [
+                    {
+                        type: 'multiple-choice',
+                        startQuestionNumber: 14,
+                        title: 'Questions 14-19',
+                        instruction: 'Choose the correct letter, A, B, C or D.',
+                        items: [
+                            {
+                                question: 'What point does the writer make about AI in the first paragraph?',
+                                options: [
+                                    { value: 'A', text: 'It is difficult to predict how quickly AI will progress.' },
+                                    { value: 'B', text: 'Much can be learned about the use of AI in chess machines.' },
+                                    { value: 'C', text: 'The future is unlikely to see limitations on the capabilities of AI.' },
+                                    { value: 'D', text: 'Experts disagree on which specialised tasks AI will be able to perform.' }
+                                ]
+                            },
+                            {
+                                question: 'What is the writer doing in the second paragraph?',
+                                options: [
+                                    { value: 'A', text: 'explaining why machines will be able to outperform humans' },
+                                    { value: 'B', text: 'describing the characteristics that humans and machines share' },
+                                    { value: 'C', text: 'giving information about the development of machine intelligence' },
+                                    { value: 'D', text: 'indicating which aspects of humans are the most advanced' }
+                                ]
+                            },
+                            {
+                                question: 'Why does the writer mention the story of King Midas?',
+                                options: [
+                                    { value: 'A', text: 'to compare different visions of progress' },
+                                    { value: 'B', text: 'to illustrate that poorly defined objectives can go wrong' },
+                                    { value: 'C', text: 'to emphasise the need for cooperation' },
+                                    { value: 'D', text: 'to point out the financial advantages of a course of action' }
+                                ]
+                            },
+                            {
+                                question: 'What challenge does the writer refer to in the fourth paragraph?',
+                                options: [
+                                    { value: 'A', text: 'encouraging humans to behave in a more principled way' },
+                                    { value: 'B', text: 'deciding which values we want AI to share with us' },
+                                    { value: 'C', text: 'creating a better world for all creatures on the planet' },
+                                    { value: 'D', text: 'ensuring AI is more human-friendly than we are ourselves' }
+                                ]
+                            },
+                            {
+                                question: 'What does the writer suggest about the future of AI in the fifth paragraph?',
+                                options: [
+                                    { value: 'A', text: 'The safety of machines will become a key issue.' },
+                                    { value: 'B', text: 'It is hard to know what impact machines will have on the world.' },
+                                    { value: 'C', text: 'Machines will be superior to humans in certain respects.' },
+                                    { value: 'D', text: 'Many humans will oppose machines having a wider role.' }
+                                ]
+                            },
+                            {
+                                question: 'Which of the following best summarises the writer\'s argument in the sixth paragraph?',
+                                options: [
+                                    { value: 'A', text: 'More intelligent machines will result in greater abuses of power.' },
+                                    { value: 'B', text: 'Machine learning will share very few features with human learning.' },
+                                    { value: 'C', text: 'There are a limited number of people with the knowledge to program machines.' },
+                                    { value: 'D', text: 'Human shortcomings will make creating the machines we need more difficult.' }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        type: 'yes-no-not-given',
+                        startQuestionNumber: 20,
+                        title: 'Questions 20-23',
+                        instruction: 'Do the following statements agree with the claims of the writer in Reading Passage 2?',
+                        options: [
+                            { value: 'YES', description: 'if the statement agrees with the claims of the writer' },
+                            { value: 'NO', description: 'if the statement contradicts the claims of the writer' },
+                            { value: 'NOT GIVEN', description: 'if it is impossible to say what the writer thinks about this' }
+                        ],
+                        items: [
+                            { statement: 'Machines with the ability to make moral decisions may prevent us from promoting the interests of our communities.' },
+                            { statement: 'Silicon police would need to exist in large numbers in order to be effective.' },
+                            { statement: 'Many people are comfortable with the prospect of their independence being restricted by machines.' },
+                            { statement: 'If we want to ensure that machines act in our best interests, we all need to work together.' }
+                        ]
+                    },
+                    {
+                        type: 'summary-completion',
+                        startQuestionNumber: 24,
+                        title: 'Questions 24-26',
+                        instruction: 'Complete the summary using the list of phrases, A-F, below.',
+                        sectionTitle: 'Using AI in the UK health system',
+                        options: [
+                            { value: 'A', text: 'medical practitioners' },
+                            { value: 'B', text: 'specialised tasks' },
+                            { value: 'C', text: 'available resources' },
+                            { value: 'D', text: 'reduced illness' },
+                            { value: 'E', text: 'professional authority' },
+                            { value: 'F', text: 'technology experts' }
+                        ],
+                        items: [
+                            {
+                                prefix: 'AI currently has a limited role in the way',
+                                suffix: 'are allocated in the health service.'
+                            },
+                            {
+                                prefix: 'However, such a change would result, for example, in certain',
+                                suffix: 'not having their current level of'
+                            },
+                            {
+                                prefix: '',
+                                suffix: '. It is therefore important that AI goals are appropriate so that discriminatory practices could be avoided.'
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                title: "Reading Passage 3",
+                content: `
+                <p><span style="font-size: large;">You should spend about 20 minutes on <strong>Questions 27-40</strong> which are based on Reading Passage 3 below.</span></p>
+                <h2 style="text-align: center;"><span style="font-size: x-large;"><strong>An ideal city</strong></span></h2>
+                <p style="text-align: center;"><span style="font-size: large;"><em>Leonardo da Vinci's ideal city was centuries ahead of its time</em></span></p>
+                <p><span style="font-size: large;">The word 'genius' is universally associated with the name of Leonardo da Vinci. A true Renaissance man, he embodied scientific spirit, artistic talent and humanist sensibilities. Five hundred years have passed since Leonardo died in his home at Chateau du Clos Luce, outside Tours, France. Yet far from fading into insignificance, his thinking has carried down the centuries and still surprises today.</span></p>
+                <p><span style="font-size: large;">The Renaissance marked the transition from the 15th century to modernity and took place after the spread of the plague in the 14th century, which caused a global crisis resulting in some 200 million deaths across Europe and Asia. Today, the world is on the cusp of a climate crisis, which is predicted to cause widespread displacement, extinctions and death, if left unaddressed. Then, as now, radical solutions were called for to revolutionise the way people lived and safeguard humanity against catastrophe.</span></p>
+                <p><span style="font-size: large;">Around 1486 – after a pestilence that killed half the population in Milan, Italy – Leonardo turned his thoughts to urban planning problems. Following a typical Renaissance trend, he began to work on an 'ideal city' project, which – due to its excessive costs – would remain unfulfilled. Yet given that unsustainable urban models are a key cause of global climate change today, it's only natural to wonder how Leonardo might have changed the shape of modem cities.</span></p>
+                <p><span style="font-size: large;">Although the Renaissance is renowned as an era of incredible progress in art and architecture, it is rarely noted that the 15th century also marked the birth of urbanism as a true academic discipline. The rigour and method behind the conscious conception of a city had been largely missing in Western thought until the moment when prominent Renaissance men pushed forward large-scale urban projects in Italy, such as the reconfiguration of the town of Pienza and the expansion of the city of Ferrara. These works surely inspired Leonardo's decision to rethink the design of medieval cities, with their winding and overcrowded streets and with houses piled against one another.</span></p>
+                <p><span style="font-size: large;">It is not easy to identify a coordinated vision of Leonardo's ideal city because of his disordered way of working with notes and sketches. But from the largest collection of Leonardo's papers ever assembled, a series of innovative thoughts can be reconstructed regarding the foundation of a new city along the Ticino River, which runs from Switzerland into Italy and is 248 kilometres long. He designed the city for the easy transport of goods and clean urban spaces, and he wanted a comfortable and spacious city, with well-ordered streets and architecture. He recommended 'high, strong walls', with 'towers and battlements of all necessary and pleasant beauty'.</span></p>
+                <p><span style="font-size: large;">His plans for a modem and 'rational' city were consistent with Renaissance ideals. But, in keeping with his personality, Leonardo included several innovations in his urban design. Leonardo wanted the city to be built on several levels, linked with vertical outdoor staircases. This design can be seen in some of today's high-rise buildings but was unconventional at the time. Indeed, this idea of taking full advantage of the interior spaces wasn't implemented until the 1920s and 1930s, with the birth of the Modernist movement.</span></p>
+                <p><span style="font-size: large;">While in the upper layers of the city, people could walk undisturbed between elegant palaces and streets, the lower layer was the place for services, trade, transport and industry. But the true originality of Leonardo's vision was its fusion of architecture and engineering. Leonardo designed extensive hydraulic plants to create artificial canals throughout the city. The canals, regulated by clocks and basins, were supposed to make it easier for boats to navigate inland. Leonardo also thought that the width of the streets ought to match the average height of the adjacent houses: a rule still followed in many contemporary cities across Italy, to allow access to sun and reduce the risk of damage from earthquakes.</span></p>
+                <p><span style="font-size: large;">Although some of these features existed in Roman cities, before Leonardo's drawings there had never been a multi-level, compact modem city which was thoroughly technically conceived. Indeed, it wasn't until the 19th century that some of his ideas were applied. For example, the subdivision of the city by function- with services and infrastructures located in the lower levels and wide and well-ventilated boulevards and walkways above for residents – is an idea that can be found in Georges-Eugene Haussmann's renovation of Paris under Emperor Napoleon III between 1853 and 1870.</span></p>
+                <p><span style="font-size: large;">Today, Leonardo's ideas are not simply valid, they actually suggest a way forward for urban planning. Many scholars think that the compact city, built upwards instead of outwards, integrated with nature (especially water systems), with efficient transport infrastructure, could help modem cities become more efficient and sustainable. This is yet another reason why Leonardo was aligned so closely with modem urban planning and centuries ahead of his time.</span></p>
+                `,
+                questions: [
+                    {
+                        type: 'true-false-not-given',
+                        startQuestionNumber: 27,
+                        title: 'Questions 27-33',
+                        instruction: 'Do the following statements agree with the information given in Reading Passage 3?',
+                        options: [
+                            { value: 'TRUE', description: 'if the statement agrees with the information' },
+                            { value: 'FALSE', description: 'if the statement contradicts the information' },
+                            { value: 'NOT GIVEN', description: 'if there is no information on this' }
+                        ],
+                        items: [
+                            { statement: 'People first referred to Leonardo da Vinci as a genius 500 years ago.' },
+                            { statement: 'The current climate crisis is predicted to cause more deaths than the plague.' },
+                            { statement: 'Some of the challenges we face today can be compared to those of earlier times.' },
+                            { statement: 'Leonardo da Vinci\'s \'ideal city\' was constructed in the 15th century.' },
+                            { statement: 'Poor town planning is a major contributor to climate change.' },
+                            { statement: 'In Renaissance times, local people fought against the changes to Pienza and Ferrara.' },
+                            { statement: 'Leonardo da Vinci kept a neat, organised record of his designs.' }
+                        ]
+                    },
+                    {
+                        type: 'fill-in-blanks',
+                        startQuestionNumber: 34,
+                        title: 'Questions 34-40',
+                        instruction: 'Complete the summary below.',
+                        wordLimit: 'Choose ONE WORD ONLY from the passage for each answer.',
+                        sectionTitle: 'Leonardo da Vinci\'s ideal city',
+                        items: [
+                            {
+                                prefix: 'A collection of Leonardo da Vinci\'s paperwork reveals his design of a new city beside the Ticino River. This was to provide better',
+                                suffix: 'for trade and a less polluted environment.'
+                            },
+                            {
+                                prefix: 'They included features that can be seen in some tower blocks today, such as',
+                                suffix: 'on the exterior of a building.'
+                            },
+                            {
+                                prefix: 'Leonardo da Vinci wasn\'t only an architect. His expertise in',
+                                suffix: 'was evident in his plans for artificial canals within his ideal city.'
+                            },
+                            {
+                                prefix: 'The design of many cities in Italy today follows this',
+                                suffix: '.'
+                            },
+                            {
+                                prefix: 'While some cities from',
+                                suffix: 'times have aspects that can also be found in Leonardo\'s designs, his ideas weren\'t put into practice until long after his death.'
+                            },
+                            {
+                                prefix: '',
+                                suffix: 'is one example of a city that was redesigned in the 19th century in the way that Leonardo had envisaged.'
+                            },
+                            {
+                                prefix: 'His ideas are also relevant to today\'s world, where building',
+                                suffix: 'no longer seems to be the best approach.'
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 3,
+        explanation: "https://drive.google.com/file/d/1uTgGk6K3tP8pmojyWCQA0K_BOA3AgR9w/view?usp=sharing",
+        title: 'Reading CAM 18 Test 3',
+        image: 'https://ieltstrainingonline.com/wp-content/uploads/2023/06/cam-18-test-3.jpg',
+        correctAnswers: [
+            // Q1-4: paragraph matching
+            'G', 'D', 'C', 'F',
+            // Q5-8: summary completion
+            'architects', 'moisture', 'layers', 'speed',
+            // Q9-13: matching statements to people
+            'C', 'A', 'B', 'D', 'A',
+            // Q14-20: paragraph headings
+            'iii', 'viii', 'vi', 'v', 'vii', 'i', 'iv',
+            // Q21-23: multiple choice
+            'A', 'C', 'B',
+            // Q24-26: summary completion
+            'speed', 'fifty / 50', 'strict',
+            // Q27-30: multiple choice
+            'B', 'A', 'C', 'C',
+            // Q31-35: summary completion with options
+            'H', 'D', 'F', 'E', 'B',
+            // Q36-40: yes-no-not-given
+            'NO', 'NOT GIVEN', 'YES', 'NO', 'NOT GIVEN'
+        ],
+        passages: [
+            {
+                title: "Reading Passage 1",
+                content: `
+                <p><span style="font-size: large;">You should spend about 20 minutes on </span><strong style="font-size: large;">Questions</strong><span style="font-size: large;"> </span><strong style="font-size: large;">1-13</strong><span style="font-size: large;">&nbsp;which are&nbsp;based on Reading Passage 1 below.</span><span style="font-size: 14px; text-align: left; color: #353535;"></span></p>
+                <h2 style="text-align: center;"><span style="font-size: x-large;"><strong>Materials to take us beyond concrete</strong></span></h2>
+                <p style="text-align: center;"><span style="font-size: large;"><em>Concrete is everywhere, but it's bad for the planet, generating large amounts of carbon dioxide – alternatives are being developed</em></span></p>
+                <p><span style="font-size: large;"><strong>A</strong></span></p>
+                <p><span style="font-size: large;">Concrete is the second most used substance in the global economy, after water – and one of the world's biggest single sources of greenhouse gas emissions. The chemical process by which cement, the key ingredient of concrete, is created results in large quantities of carbon dioxide. The UN estimates that there will be 9.8 billion people living on the planet by mid-century. They will need somewhere to live. If concrete is the only answer to the construction of new cities, then carbon emissions will soar, aggravating global warming. And so scientists have started innovating with other materials, in a scramble for alternatives to a universal commodity that has underpinned our modem life for many years.</span></p>
+                <p><span style="font-size: large;"><strong>B</strong></span></p>
+                <p><span style="font-size: large;">The problem with replacing concrete is that it is so very good at what it does. Chris Cheeseman, an engineering professor at Imperial College London, says the key thing to consider is the extent to which concrete is used around the world, and is likely to continue to be used. 'Concrete is not a high-carbon product. Cement is high carbon, but concrete is not. But it is the scale on which it is used that makes it high carbon. The sheer scale of manufacture is so huge, that is the issue.'</span></p>
+                <p><span style="font-size: large;"><strong>C</strong></span></p>
+                <p><span style="font-size: large;">Not only are the ingredients of concrete relatively cheap and found in abundance in most places around the globe, the stuff itself has marvellous properties: Portland cement, the vital component of concrete, is mouldable and pourable, but quickly sets hard. Cheeseman also notes another advantage: concrete and steel have similar thermal expansion properties, so steel can be used to reinforce concrete, making it far stronger and more flexible as a building material than it could be on its own. According to Cheeseman, all these factors together make concrete hard to beat. 'Concrete is amazing stuff. Making anything with similar properties is going to be very difficult.'</span></p>
+                <p><span style="font-size: large;"><strong>D </strong></span></p>
+                <p><span style="font-size: large;">A possible alternative to concrete is wood. Making buildings from wood may seem like a rather medieval idea, but climate change is driving architects to turn to treated timber as a possible resource. Recent years have seen the emergence of tall buildings constructed almost entirely from timber. Vancouver, Vienna and Brumunddal in Norway are all home to constructed tall, wooden buildings.</span></p>
+                <p><span style="font-size: large;"><strong>E</strong></span></p>
+                <p><span style="font-size: large;">Using wood to construct buildings, however, is not straightforward. Wood expands as it absorbs moisture from the air and is susceptible to pests, not to mention fire. But treating wood and combining it with other materials can improve its properties. Cross-laminated timber is engineered wood. An adhesive is used to stick layers of solid-sawn timber together, crosswise, to form building blocks. This material is light but has the strength of concrete and steel. Construction experts say that wooden buildings can be constructed at a greater speed than ones of concrete and steel and the process, it seems, is quieter.</span></p>
+                <p><span style="font-size: large;"><strong>F</strong></span></p>
+                <p><span style="font-size: large;">Stora Enso is Europe's biggest supplier of cross-laminated timber, and its vice-president Markus Mannstrom reports that the company is seeing increasing demand globally for building in wood, with climate change concerns the key driver. Finland, with its large forests, where Stora Enso is based, has been leading the way, but the company is seeing a rise in demand for its timber products across the world, including in Asia. Of course, using timber in a building also locks away the carbon that it absorbed as it grew. But even treated wood has its limitations and only when a wider range of construction projects has been proven in practice will it be possible to see wood as a real alternative to concrete in constructing tall buildings.</span></p>
+                <p><span style="font-size: large;"><strong>G</strong></span></p>
+                <p><span style="font-size: large;">Fly ash and slag from iron ore are possible alternatives to cement in a concrete mix. Fly ash, a byproduct of coal-burning power plants, can be incorporated into concrete mixes to make up as much as 15 to 30% of the cement, without harming the strength or durability of the resulting mix. Iron-ore slag, a byproduct of the iron-ore smelting process, can be used in a similar way. Their incorporation into concrete mixes has the potential to reduce greenhouse gas emissions.</span></p>
+                <p><span style="font-size: large;">But Anna Surgenor, of the UK's Green Building Council, notes that although these waste products can save carbon in the concrete mix, their use is not always straightforward. 'It's possible to replace the cement content in concrete with waste products to lower the overall carbon impact. But there are several calculations that need to be considered across the entire life cycle of the building- these include factoring in where these materials are being shipped from. If they are transported over long distances, using fossil fuels, the use of alternative materials might not make sense from an overall carbon reduction perspective.'</span></p>
+                <p><span style="font-size: large;"><strong>H </strong></span></p>
+                <p><span style="font-size: large;">While these technologies are all promising ideas, they are either unproven or based on materials that are not abundant. In their overview of innovation in the concrete industry, Felix Preston and Johanna Lehne of the UK's Royal Institute of International Affairs reached the conclusion that, 'Some novel cements have been discussed for more than a decade within the research community, without breaking through. At present, these alternatives are rarely as cost-effective as conventional cement, and they face raw-material shortages and resistance from customers.'</span></p>
+                `,
+                questions: [
+                    {
+                        type: 'paragraph-matching',
+                        startQuestionNumber: 1,
+                        title: 'Questions 1-4',
+                        instruction: 'Reading Passage 1 has eight sections, A-H. Which section contains the following information?',
+                        paragraphRange: 'A-H',
+                        note: 'Write the correct letter, A-H, in boxes 1-4 on your answer sheet.',
+                        items: [
+                            { description: 'an explanation of the industrial processes that create potential raw materials for concrete' },
+                            { description: 'a reference to the various locations where high-rise wooden buildings can be found' },
+                            { description: 'an indication of how widely available the raw materials of concrete are' },
+                            { description: 'the belief that more high-rise wooden buildings are needed before wood can be regarded as a viable construction material' }
+                        ]
+                    },
+                    {
+                        type: 'fill-in-blanks',
+                        startQuestionNumber: 5,
+                        title: 'Questions 5-8',
+                        instruction: 'Complete the summary below.',
+                        wordLimit: 'Choose ONE WORD ONLY from the passage for each answer.',
+                        sectionTitle: 'Making buildings with wood',
+                        items: [
+                            {
+                                prefix: 'Wood is a traditional building material, but current environmental concerns are encouraging',
+                                suffix: 'to use wood in modern construction projects.'
+                            },
+                            {
+                                prefix: 'Using wood, however, has its challenges. For example, as',
+                                suffix: 'in the atmosphere enters wood, it increases in size.'
+                            },
+                            {
+                                prefix: 'However, wood can be turned into a better construction material if it is treated and combined with other materials. In one process,',
+                                suffix: 'of solid wood are glued together to create building blocks.'
+                            },
+                            {
+                                prefix: 'Experts say that wooden buildings are an improvement on those made of concrete and steel in terms of the',
+                                suffix: 'with which they can be constructed and how much noise is generated by the process.'
+                            }
+                        ]
+                    },
+                    {
+                        type: 'matching',
+                        startQuestionNumber: 9,
+                        title: 'Questions 9-13',
+                        instruction: 'Look at the following statements (Questions 9-13) and the list of people below. Match each statement with the correct person, A, B, C or D.',
+                        note: 'You may use any letter more than once.',
+                        options: [
+                            { value: 'A', label: 'Chris Cheeseman' },
+                            { value: 'B', label: 'Markus Mannstrom' },
+                            { value: 'C', label: 'Anna Surgenor' },
+                            { value: 'D', label: 'Felix Preston and Johanna Lehne' }
+                        ],
+                        items: [
+                            { description: 'The environmental advantage of cement alternatives may not be as great as initially assumed.' },
+                            { description: 'It would be hard to create a construction alternative to concrete that offers so many comparable benefits.' },
+                            { description: 'Worries about the environment have led to increased interest in wood as a construction material.' },
+                            { description: 'Expense has been a factor in the negative response to the development of new cements.' },
+                            { description: 'The environmental damage caused by concrete is due to it being produced in large quantities.' }
+                        ]
+                    }
+                ]
+            },
+            {
+                title: "Reading Passage 2",
+                content: `
+                <p><span style="font-size: large;">You should spend about 20 minutes on <strong>Questions 14-26</strong>&nbsp;which are based on Reading Passage 2 below.</span><span style="font-size: 14px;">&nbsp;</span></p>
+                <h2 style="text-align: center;"><span style="font-size: x-large;"><strong>The steam car</strong></span></h2>
+                <p style="text-align: center;"><span style="font-size: large;"><em>The successes and failures of the Doble brothers and their steam cars</em></span></p>
+                <p><span style="font-size: large;"><strong>A</strong></span></p>
+                <p><span style="font-size: large;">When primitive automobiles first began to appear in the 1800s, their engines were based on steam power. Steam had already enjoyed a long and successful career in the railways, so it was only natural that the technology evolved into a miniaturized version which was separate from the trains. But these early cars inherited steam's weaknesses along with its strengths. The boilers had to be lit by hand, and they required about twenty minutes to build up pressure before they could be driven. Furthermore, their water reservoirs only lasted for about thirty miles before needing replenishment. Despite such shortcomings, these newly designed self-propelled carriages offered quick transportation, and by the early 1900s it was not uncommon to see such machines shuttling wealthy citizens around town.</span></p>
+                <p><span style="font-size: large;"><strong>B</strong></span></p>
+                <p><span style="font-size: large;">But the glory days of steam cars were few. A new technology called the Internal Combustion Engine soon appeared, which offered the ability to drive down the road just moments after starting up. At first, these noisy gasoline cars were unpopular because they were more complicated to operate and they had difficult hand-crank starters, which were known to break arms when the engines backfired. But in 1912 General Motors introduced the electric starter, and over the following few years steam power was gradually phased out.</span></p>
+                <p><span style="font-size: large;"><strong>C </strong></span></p>
+                <p><span style="font-size: large;">Even as the market was declining, four brothers made one last effort to rekindle the technology. Between 1906 and 1909, while still attending high school, Abner Doble and his three brothers built their first steam car in their parents' basement. It comprised parts taken from a wrecked early steam car but reconfigured to drive an engine of their own design. Though it did not run well, the Doble brothers went on to build a second and third prototype in the following years. Though the Doble boys' third prototype, nicknamed the Model B, still lacked the convenience of an internal combustion engine, it drew the attention of automobile trade magazines due to its numerous improvements over previous steam cars. The Model B proved to be superior to gasoline automobiles in many ways. Its high-pressure steam drove the engine pistons in virtual silence, in contrast to clattering gas engines which emitted the aroma of burned hydrocarbons. Perhaps most impressively, the Model B was amazingly swift. It could accelerate from zero to sixty miles per hour in just fifteen seconds, a feat described as 'remarkable acceleration' by <em>Automobile</em> magazine in 1914.</span></p>
+                <p><span style="font-size: large;"><strong>D </strong></span></p>
+                <p><span style="font-size: large;">The following year Abner Doble drove the Model B from Massachusetts to Detroit in order to seek investment in his automobile design, which he used to open the General Engineering Company. He and his brothers immediately began working on the Model C, which was intended to expand upon the innovations of the Model B. The brothers added features such as a key-based ignition in the cabin, eliminating the need for the operator to manually ignite the boiler. With these enhancements, the Dobles' new car company promised a steam vehicle which would provide all of the convenience of a gasoline car, but with much greater speed, much simpler driving controls, and a virtually silent powerplant. By the following April, the General Engineering Company had received 5,390 deposits for Doble Detroits, which were scheduled for delivery in early 1918.</span></p>
+                <p><span style="font-size: large;"><strong>E </strong></span></p>
+                <p><span style="font-size: large;">Later that year Abner Doble delivered unhappy news to those eagerly awaiting the delivery of their modem new cars. Those buyers who received the handful of completed cars complained that the vehicles were sluggish and erratic, sometimes going in reverse when they should go forward. The new engine design, though innovative, was still plagued with serious glitches.</span></p>
+                <p><span style="font-size: large;"><strong>F</strong></span></p>
+                <p><span style="font-size: large;">The brothers made one final attempt to produce a viable steam automobile. In early 1924, the Doble brothers shipped a Model E to New York City to be road-tested by the Automobile Club of America. After sitting overnight in freezing temperatures, the car was pushed out into the road and left to sit for over an hour in the frosty morning air. At the turn of the key, the boiler lit and reached its operating pressure inside of forty seconds. As they drove the test vehicle further, they found that its evenly distributed weight lent it surprisingly good handling, even though it was so heavy. As the new Doble steamer was further developed and tested, its maximum speed was pushed to over a hundred miles per hour, and it achieved about fifteen miles per gallon of kerosene with negligible emissions.</span></p>
+                <p><span style="font-size: large;"><strong>G</strong></span></p>
+                <p><span style="font-size: large;">Sadly, the Dobles' brilliant steam car never was a financial success. Priced at around $18,000 in 1924, it was popular only among the very wealthy. Plus, it is said that no two Model Es were quite the same, because Abner Doble tinkered endlessly with the design. By the time the company folded in 1931, fewer than fifty of the amazing Model E steam cars had been produced. For his whole career, until his death in 1961, Abner Doble remained adamant that steam-powered automobiles were at least equal to gasoline cars, if not superior. Given the evidence, he may have been right. Many of the Model E Dobles which have survived are still in good working condition, some having been driven over half a million miles with only normal maintenance. Astonishingly, an unmodified Doble Model E runs clean enough to pass the emissions laws in California today, and they are pretty strict. It is true that the technology poses some difficult problems, but you cannot help but wonder how efficient a steam car might be with the benefit of modem materials and computers. Under the current pressure to improve automotive performance and reduce emissions, it is not unthinkable that the steam car may rise again.</span></p>
+                `,
+                questions: [
+                    {
+                        type: 'paragraph-headings',
+                        startQuestionNumber: 14,
+                        title: 'Questions 14-20',
+                        instruction: 'Reading Passage 2 has seven paragraphs, A-G. Choose the correct heading for each paragraph from the list of headings below.',
+                        paragraphRange: 'A-G',
+                        options: [
+                            { value: 'i', text: 'A period in cold conditions before the technology is assessed' },
+                            { value: 'ii', text: 'Marketing issues lead to failure' },
+                            { value: 'iii', text: 'Good and bad aspects of steam technology are passed on' },
+                            { value: 'iv', text: 'A possible solution to the issues of today' },
+                            { value: 'v', text: 'Further improvements lead to commercial orders' },
+                            { value: 'vi', text: 'Positive publicity at last for this quiet, clean, fast vehicle' },
+                            { value: 'vii', text: 'A disappointing outcome for customers' },
+                            { value: 'viii', text: 'A better option than the steam car arises' }
+                        ],
+                        items: [
+                            { paragraph: 'A' },
+                            { paragraph: 'B' },
+                            { paragraph: 'C' },
+                            { paragraph: 'D' },
+                            { paragraph: 'E' },
+                            { paragraph: 'F' },
+                            { paragraph: 'G' }
+                        ]
+                    },
+                    {
+                        type: 'multiple-choice',
+                        startQuestionNumber: 21,
+                        title: 'Questions 21-23',
+                        instruction: 'Choose the correct letter, A, B, C or D.',
+                        items: [
+                            {
+                                question: 'What point does the writer make about the steam car in Paragraph B?',
+                                options: [
+                                    { value: 'A', text: 'Its success was short-lived.' },
+                                    { value: 'B', text: 'Not enough cars were made.' },
+                                    { value: 'C', text: 'Car companies found them hard to sell.' },
+                                    { value: 'D', text: 'People found them hard to drive.' }
+                                ]
+                            },
+                            {
+                                question: 'When building their first steam car, the Doble brothers',
+                                options: [
+                                    { value: 'A', text: 'constructed all the parts themselves.' },
+                                    { value: 'B', text: 'made written notes at each stage of the construction.' },
+                                    { value: 'C', text: 'used some existing parts from another car.' },
+                                    { value: 'D', text: 'sought the advice of experienced people in the car industry.' }
+                                ]
+                            },
+                            {
+                                question: 'In order to produce the Model C, the Doble brothers',
+                                options: [
+                                    { value: 'A', text: 'moved production to a different city.' },
+                                    { value: 'B', text: 'raised financial capital.' },
+                                    { value: 'C', text: 'employed an additional worker.' },
+                                    { value: 'D', text: 'abandoned their earlier designs.' }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        type: 'fill-in-blanks',
+                        startQuestionNumber: 24,
+                        title: 'Questions 24-26',
+                        instruction: 'Complete the summary below.',
+                        wordLimit: 'Choose ONE WORD AND/OR A NUMBER from the passage for each answer.',
+                        sectionTitle: 'The Model E',
+                        items: [
+                            {
+                                prefix: 'The Model E was road-tested in 1924 by the Automobile Club of America. They found it easy to drive, despite its weight, and it impressed the spectators. A later version of the Model E raised its',
+                                suffix: ', while keeping its emissions extremely low.'
+                            },
+                            {
+                                prefix: 'The steam car was too expensive for many people and its design was constantly being altered. Under',
+                                suffix: 'cars were produced before the company went out of business.'
+                            },
+                            {
+                                prefix: 'However, even today, there are Model Es on the road in the US. They are straightforward to maintain, and they satisfy California\'s',
+                                suffix: 'emissions laws.'
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                title: "Reading Passage 3",
+                content: `
+                <p><span style="font-size: large;">You should spend about 20 minutes on <strong>Questions 27-40</strong> which are based on Reading Passage 3 below.</span></p>
+                <h2 style="text-align: center;"><span style="font-size: x-large;"><strong>The case for mixed-ability classes</strong></span></h2>
+                <p><span style="font-size: large;">Picture this scene. It's an English literature lesson in a UK school, and the teacher has just read an extract from Shakespeare's <em>Romeo</em> <em>and</em> <em>Juliet</em> with a class of 15-year-olds. He's given some of the students copies of <em>No</em> <em>Fear</em> <em>Shakespeare</em>, a kid-friendly translation of the original. For three students, even these literacy demands are beyond them. Another girl simply can't focus and he gives her pens and paper to draw with. The teacher can ask the <em>No</em> <em>Fear</em> group to identify the key characters and maybe provide a tentative plot summary. He can ask most of the class about character development, and five of them might be able to support their statements with textual evidence. Now two curious students are wondering whether Shakespeare advocates living a life of moderation or one of passionate engagement.</span></p>
+                <p><span style="font-size: large;">As a teacher myself, I'd think my lesson would be going rather well if the discussion went as described above. But wouldn't this kind of class work better if there weren't such a huge gap between the top and the bottom? If we put all the kids who needed literacy support into one class, and all the students who want to discuss the virtue of moderation into another?</span></p>
+                <p><span style="font-size: large;">The practice of 'streaming', or 'tracking', involves separating students into classes depending on their diagnosed levels of attainment. At a macro level, it requires the establishment of academically selective schools for the brightest students, and comprehensive schools for the rest. Within schools, it means selecting students into a 'stream' of general ability, or 'sets' of subject-specific ability. The practice is intuitively appealing to almost every stakeholder.</span></p>
+                <p><span style="font-size: large;">I have heard the mixed-ability model attacked by way of analogy: a group hike. The fittest in the group take the lead and set a brisk pace, only to have to stop and wait every 20 minutes. This is frustrating, and their enthusiasm wanes. Meanwhile, the slowest ones are not only embarrassed but physically struggling to keep up. What's worse, they never get a long enough break. They honestly just want to quit. Hiking, they feel, is not for them.</span></p>
+                <p><span style="font-size: large;">Mixed-ability classes bore students, frustrate parents and bum out teachers. The brightest ones will never summit Mount Qomolangma, and the stragglers won't enjoy the lovely stroll in the park they are perhaps more suited to. Individuals suffer at the demands of the collective, mediocrity prevails. So: is learning like hiking?</span></p>
+                <p><span style="font-size: large;">The current pedagogical paradigm is arguably that of constructivism, which emerged out of the work of psychologist Lev Vygotsky. In the 1930s, Vygotsky emphasised the importance of targeting a student's specific 'zone of proximal development' (ZPD). This is the gap between what they can achieve only with support – teachers, textbooks, worked examples, parents and so on – and what they can achieve independently. The purpose of teaching is to provide and then gradually remove this 'scaffolding' until they are autonomous. If we accept this model, it follows that streaming students with similar ZPDs would be an efficient and effective solution. And that forcing everyone on the same hike – regardless of aptitude – would be madness.</span></p>
+                <p><span style="font-size: large;">Despite all this, there is limited empirical evidence to suggest that streaming results in better outcomes for students. Professor John Hattie, director of the Melbourne Education Research Institute, notes that 'tracking has minimal effects on learning outcomes'. What is more, streaming appears to significantly – and negatively – affect those students assigned to the lowest sets. These students tend to have much higher representation of low socioeconomic class. Less significant is the small benefit for those lucky clever students in the higher sets. The overall result is that the smart stay smart and the dumb get dumber, further entrenching the social divide.</span></p>
+                <p><span style="font-size: large;">In the latest update of Hattie's influential meta-analysis of factors influencing student achievement, one of the most significant factors is the teachers' estimate of achievement. Streaming students by diagnosed achievement automatically limits what the teacher feels the student is capable of. Meanwhile, in a mixed environment, teachers' estimates need to be more diverse and flexible.</span></p>
+                <p><span style="font-size: large;">While streaming might seem to help teachers effectively target a student's ZPD, it can underestimate the importance of peer-to-peer learning. A crucial aspect of constructivist theory is the role of the MKO – 'more knowledgeable other' – in knowledge construction. While teachers are traditionally the MKOs in classrooms, the value of knowledgeable student peers must not go unrecognised either.</span></p>
+                <p><span style="font-size: large;">I find it amazing to watch students get over an idea to their peers in ways that I would never think of. They operate with different language tools and different social tools from teachers and, having just learnt it themselves, they possess similar cognitive structures to their struggling classmates. There is also something exciting about passing on skills and knowledge that you yourself have just mastered – a certain pride and zeal, a certain freshness to the interaction between 'teacher' and 'learner' that is often lost by the expert for whom the steps are obvious and the joy of discovery forgotten.</span></p>
+                <p><span style="font-size: large;">Having a variety of different abilities in a collaborative learning environment provides valuable resources for helping students meet their learning needs, not to mention improving their communication and social skills. And today, more than ever, we need the many to flourish – not suffer at the expense of a few bright stars. Once a year, I go on a hike with my class, a mixed bunch of students. It is challenging. The fittest students realise they need to encourage the reluctant. There are lookouts who report back, and extra items to carry for others. We make it – together.</span></p>
+                `,
+                questions: [
+                    {
+                        type: 'multiple-choice',
+                        startQuestionNumber: 27,
+                        title: 'Questions 27-30',
+                        instruction: 'Choose the correct letter, A, B, C or D.',
+                        items: [
+                            {
+                                question: 'The writer describes the Romeo and Juliet lesson in order to demonstrate',
+                                options: [
+                                    { value: 'A', text: 'how few students are interested in literature.' },
+                                    { value: 'B', text: 'how a teacher handles a range of learning needs.' },
+                                    { value: 'C', text: 'how unsuitable Shakespeare is for most teenagers.' },
+                                    { value: 'D', text: 'how weaker students can disrupt their classmates\' learning.' }
+                                ]
+                            },
+                            {
+                                question: 'What does the writer say about streaming in the third paragraph?',
+                                options: [
+                                    { value: 'A', text: 'It has a very broad appeal.' },
+                                    { value: 'B', text: 'It favours cleverer students.' },
+                                    { value: 'C', text: 'It is relatively simple to implement.' },
+                                    { value: 'D', text: 'It works better in some schools than others.' }
+                                ]
+                            },
+                            {
+                                question: 'What idea is suggested by the reference to Mount Qomolangma in the fifth paragraph?',
+                                options: [
+                                    { value: 'A', text: 'students following unsuitable paths' },
+                                    { value: 'B', text: 'students attempting interesting tasks' },
+                                    { value: 'C', text: 'students not achieving their full potential' },
+                                    { value: 'D', text: 'students not being aware of their limitations' }
+                                ]
+                            },
+                            {
+                                question: 'What does the word \'scaffolding\' in the sixth paragraph refer to?',
+                                options: [
+                                    { value: 'A', text: 'the factors which prevent a student from learning effectively' },
+                                    { value: 'B', text: 'the environment where most of a student\'s learning takes place' },
+                                    { value: 'C', text: 'the assistance given to a student in their initial stages of learning' },
+                                    { value: 'D', text: 'the setting of appropriate learning targets for a student\'s aptitude' }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        type: 'summary-completion',
+                        startQuestionNumber: 31,
+                        title: 'Questions 31-35',
+                        instruction: 'Complete the summary using the list of phrases, A-I, below.',
+                        sectionTitle: 'Is streaming effective?',
+                        options: [
+                            { value: 'A', text: 'wrong classes' },
+                            { value: 'B', text: 'lower expectations' },
+                            { value: 'C', text: 'average learners' },
+                            { value: 'D', text: 'bottom sets' },
+                            { value: 'E', text: 'brightest pupils' },
+                            { value: 'F', text: 'disadvantaged backgrounds' },
+                            { value: 'G', text: 'weaker students' },
+                            { value: 'H', text: 'higher achievements' },
+                            { value: 'I', text: 'positive impressions' }
+                        ],
+                        items: [
+                            {
+                                prefix: 'According to Professor John Hattie of the Melbourne Education Research Institute there is very little indication that streaming leads to',
+                                suffix: '. He points out that, in schools which use streaming, the most significant impact is on those students placed in the'
+                            },
+                            {
+                                prefix: '',
+                                suffix: ', especially where a large proportion of them have'
+                            },
+                            {
+                                prefix: '',
+                                suffix: '. Meanwhile, for the'
+                            },
+                            {
+                                prefix: '',
+                                suffix: ', there appears to be only minimal advantage. A further issue is that teachers tend to have'
+                            },
+                            {
+                                prefix: '',
+                                suffix: 'of students in streamed groups.'
+                            }
+                        ]
+                    },
+                    {
+                        type: 'yes-no-not-given',
+                        startQuestionNumber: 36,
+                        title: 'Questions 36-40',
+                        instruction: 'Do the following statements agree with the views of the writer in Reading Passage 3?',
+                        options: [
+                            { value: 'YES', description: 'if the statement agrees with the views of the writer' },
+                            { value: 'NO', description: 'if the statement contradicts the views of the writer' },
+                            { value: 'NOT GIVEN', description: 'if it is impossible to say what the writer thinks about this' }
+                        ],
+                        items: [
+                            { statement: 'The Vygotsky model of education supports the concept of a mixed-ability class.' },
+                            { statement: 'Some teachers are uncertain about allowing students to take on MKO roles in the classroom.' },
+                            { statement: 'It can be rewarding to teach knowledge which you have only recently acquired.' },
+                            { statement: 'The priority should be to ensure that the highest-achieving students attain their goals.' },
+                            { statement: 'Taking part in collaborative outdoor activities with teachers and classmates can improve student outcomes in the classroom.' }
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 ];
