@@ -16,19 +16,27 @@ const ParagraphMatching = ({ question, startQuestionNumber, answers, onAnswerCha
     };
 
     // Generate paragraph options (A, B, C, etc.)
-    const generateParagraphOptions = (range) => {
-        const start = range.charCodeAt(0);
-        const end = range.charCodeAt(2); // Assuming format like "A-G"
-        const options = [];
-        
-        for (let i = start; i <= end; i++) {
-            options.push(String.fromCharCode(i));
+    const getParagraphOptions = () => {
+        // Ưu tiên lấy từ question.options nếu có
+        if (question.options && Array.isArray(question.options) && question.options.length > 0) {
+            // options có thể là array of string hoặc object
+            return question.options.map(opt => typeof opt === 'string' ? opt : opt.value);
         }
-        
-        return options;
+        // Nếu không có, fallback về range cũ
+        if (paragraphRange && paragraphRange.length === 3 && paragraphRange[1] === '-') {
+            const start = paragraphRange.charCodeAt(0);
+            const end = paragraphRange.charCodeAt(2);
+            const options = [];
+            for (let i = start; i <= end; i++) {
+                options.push(String.fromCharCode(i));
+            }
+            return options;
+        }
+        // fallback cuối cùng: A-H
+        return ['A','B','C','D','E','F','G','H'];
     };
 
-    const paragraphOptions = generateParagraphOptions(paragraphRange);
+    const paragraphOptions = getParagraphOptions();
 
     return (
         <div className="question-section paragraph-matching">
@@ -74,7 +82,7 @@ const ParagraphMatching = ({ question, startQuestionNumber, answers, onAnswerCha
                                     type="text"
                                     value={currentAnswer}
                                     onChange={(e) => handleAnswerChange(questionNumber, e.target.value)}
-                                    placeholder="A-G"
+                                    placeholder={paragraphOptions.length > 1 ? `${paragraphOptions[0]}-${paragraphOptions[paragraphOptions.length-1]}` : ''}
                                     maxLength="1"
                                     style={{
                                         display: 'inline-block',
