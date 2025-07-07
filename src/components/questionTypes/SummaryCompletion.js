@@ -32,9 +32,11 @@ const SummaryCompletion = ({ question, startQuestionNumber, answers, onAnswerCha
             <div className="summary-text" style={{ 
                 marginBottom: '20px',
                 backgroundColor: '#f8f9fa',
-                padding: '15px',
+                padding: '20px',
                 borderRadius: '6px',
-                border: '1px solid #e9ecef'
+                border: '1px solid #e9ecef',
+                lineHeight: '1.8',
+                fontSize: '16px'
             }}>
                 {items.map((item, index) => {
                     const questionNumber = startQuestionNumber + index;
@@ -44,18 +46,25 @@ const SummaryCompletion = ({ question, startQuestionNumber, answers, onAnswerCha
                     return (
                         <span key={questionNumber}>
                             {item.prefix}
-                            <strong style={{ fontSize: '16px', color: '#007bff' }}>{questionNumber}</strong>
+                            <strong style={{ 
+                                fontSize: '16px', 
+                                color: '#000', 
+                                marginLeft: '8px', 
+                                marginRight: '8px',
+                                padding: '2px 4px'
+                            }}>{questionNumber}</strong>
                             <select
                                 value={answers[answerIndex] || ''}
                                 onChange={(e) => handleAnswerChange(questionNumber, e.target.value)}
                                 style={{
-                                    marginLeft: '5px',
-                                    marginRight: '5px',
-                                    padding: '2px 5px',
-                                    borderRadius: '3px',
+                                    marginLeft: '8px',
+                                    marginRight: '8px',
+                                    padding: '4px 8px',
+                                    borderRadius: '4px',
                                     border: hasViewedResults && isCorrect === false ? 
                                         '2px solid #dc3545' : '1px solid #ccc',
-                                    backgroundColor: 'white'
+                                    backgroundColor: 'white',
+                                    fontSize: '14px'
                                 }}
                             >
                                 <option value="">Select</option>
@@ -71,7 +80,7 @@ const SummaryCompletion = ({ question, startQuestionNumber, answers, onAnswerCha
                                 </span>
                             )}
                             {item.suffix}
-                            {index < items.length - 1 && ' '}
+                            {index < items.length - 1 && <span style={{ marginRight: '10px' }}> </span>}
                         </span>
                     );
                 })}
