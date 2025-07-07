@@ -92,16 +92,7 @@ const Matching = ({ question, startQuestionNumber, answers, onAnswerChange, hasV
                 })}
             </div>
 
-            {options && (
-                <div className="options-list" style={{ marginTop: '20px', paddingLeft: '40px' }}>
-                    <h4>Options:</h4>
-                    {options.map(option => (
-                        <p key={option.value}>
-                            <strong>{option.value}</strong> - {option.label}
-                        </p>
-                    ))}
-                </div>
-            )}
+
         </div>
     );
 };
