@@ -1,7 +1,7 @@
 import React from 'react';
 
 const FillInBlanks = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
-    const { title, instruction, wordLimit, items } = question;
+    const { title, instruction, wordLimit, items, tableView, sectionTitle } = question;
 
     const handleInputChange = (questionNumber, value) => {
         onAnswerChange(questionNumber, value);
@@ -15,6 +15,193 @@ const FillInBlanks = ({ question, startQuestionNumber, answers, onAnswerChange, 
         return userAnswer === correctAnswer;
     };
 
+    // If this is a table view, render as a table
+    if (tableView) {
+        return (
+            <div className="question-section fill-in-blanks">
+                <h3>{title}</h3>
+                <div className="instruction">
+                    <p>{instruction}</p>
+                    {wordLimit && <p><strong>{wordLimit}</strong></p>}
+                    <p>Write your answers in boxes {startQuestionNumber}-{startQuestionNumber + items.length - 1} on your answer sheet.</p>
+                </div>
+                
+                {sectionTitle && (
+                    <h3 style={{ textAlign: 'center', marginBottom: '20px' }}>
+                        {sectionTitle}
+                    </h3>
+                )}
+                
+                <div className="table-container" style={{ overflowX: 'auto', marginTop: '20px' }}>
+                    <table style={{ 
+                        borderCollapse: 'collapse', 
+                        width: '100%',
+                        border: '1px solid #ddd'
+                    }}>
+                        <thead>
+                            <tr>
+                                <th style={{ 
+                                    border: '1px solid #ddd', 
+                                    padding: '8px',
+                                    backgroundColor: '#f5f5f5',
+                                    textAlign: 'left'
+                                }}></th>
+                                <th style={{ 
+                                    border: '1px solid #ddd', 
+                                    padding: '8px',
+                                    backgroundColor: '#f5f5f5',
+                                    textAlign: 'center'
+                                }}>Growth</th>
+                                <th style={{ 
+                                    border: '1px solid #ddd', 
+                                    padding: '8px',
+                                    backgroundColor: '#f5f5f5',
+                                    textAlign: 'center'
+                                }}>Selection</th>
+                                <th style={{ 
+                                    border: '1px solid #ddd', 
+                                    padding: '8px',
+                                    backgroundColor: '#f5f5f5',
+                                    textAlign: 'center'
+                                }}>Sale</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style={{ 
+                                    border: '1px solid #ddd', 
+                                    padding: '8px',
+                                    fontWeight: 'bold'
+                                }}>Intensive farming</td>
+                                <td style={{ 
+                                    border: '1px solid #ddd', 
+                                    padding: '8px'
+                                }}>
+                                    <div>• wide range of 
+                                        <input
+                                            type="text"
+                                            className="inline-answer-input"
+                                            value={answers[3] || ''}
+                                            onChange={(e) => handleInputChange(4, e.target.value)}
+                                            placeholder="Q4"
+                                            style={{
+                                                display: 'inline-block',
+                                                width: '80px',
+                                                padding: '2px 6px',
+                                                margin: '0 2px',
+                                                border: '1px solid #333',
+                                                borderRadius: '3px',
+                                                fontSize: '13px',
+                                                backgroundColor: '#f8f9fa',
+                                            }}
+                                        />
+                                        used
+                                    </div>
+                                    <div>• techniques pollute air</div>
+                                </td>
+                                <td style={{ 
+                                    border: '1px solid #ddd', 
+                                    padding: '8px'
+                                }}>
+                                    <div>• quality not good</div>
+                                    <div>• varieties of fruit and vegetables chosen that can survive long 
+                                        <input
+                                            type="text"
+                                            className="inline-answer-input"
+                                            value={answers[4] || ''}
+                                            onChange={(e) => handleInputChange(5, e.target.value)}
+                                            placeholder="Q5"
+                                            style={{
+                                                display: 'inline-block',
+                                                width: '80px',
+                                                padding: '2px 6px',
+                                                margin: '0 2px',
+                                                border: '1px solid #333',
+                                                borderRadius: '3px',
+                                                fontSize: '13px',
+                                                backgroundColor: '#f8f9fa',
+                                            }}
+                                        />
+                                    </div>
+                                </td>
+                                <td style={{ 
+                                    border: '1px solid #ddd', 
+                                    padding: '8px'
+                                }}>
+                                    <div>• 
+                                        <input
+                                            type="text"
+                                            className="inline-answer-input"
+                                            value={answers[5] || ''}
+                                            onChange={(e) => handleInputChange(6, e.target.value)}
+                                            placeholder="Q6"
+                                            style={{
+                                                display: 'inline-block',
+                                                width: '80px',
+                                                padding: '2px 6px',
+                                                margin: '0 2px',
+                                                border: '1px solid #333',
+                                                borderRadius: '3px',
+                                                fontSize: '13px',
+                                                backgroundColor: '#f8f9fa',
+                                            }}
+                                        />
+                                        receive very little of overall income
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style={{ 
+                                    border: '1px solid #ddd', 
+                                    padding: '8px',
+                                    fontWeight: 'bold'
+                                }}>Aeroponic urban farming</td>
+                                <td style={{ 
+                                    border: '1px solid #ddd', 
+                                    padding: '8px'
+                                }}>
+                                    <div>• no soil used</div>
+                                    <div>• nutrients added to water, which is recycled</div>
+                                </td>
+                                <td style={{ 
+                                    border: '1px solid #ddd', 
+                                    padding: '8px'
+                                }}>
+                                    <div>• produce chosen because of its 
+                                        <input
+                                            type="text"
+                                            className="inline-answer-input"
+                                            value={answers[6] || ''}
+                                            onChange={(e) => handleInputChange(7, e.target.value)}
+                                            placeholder="Q7"
+                                            style={{
+                                                display: 'inline-block',
+                                                width: '80px',
+                                                padding: '2px 6px',
+                                                margin: '0 2px',
+                                                border: '1px solid #333',
+                                                borderRadius: '3px',
+                                                fontSize: '13px',
+                                                backgroundColor: '#f8f9fa',
+                                            }}
+                                        />
+                                    </div>
+                                </td>
+                                <td style={{ 
+                                    border: '1px solid #ddd', 
+                                    padding: '8px'
+                                }}>
+                                    &nbsp;
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        );
+    }
+
+    // Regular list view for non-table questions
     return (
         <div className="question-section fill-in-blanks">
             <h3>{title}</h3>
@@ -22,6 +209,12 @@ const FillInBlanks = ({ question, startQuestionNumber, answers, onAnswerChange, 
                 <p>{instruction}</p>
                 {wordLimit && <p><strong>{wordLimit}</strong></p>}
             </div>
+            
+            {sectionTitle && (
+                <h3 style={{ textAlign: 'center', marginBottom: '20px' }}>
+                    {sectionTitle}
+                </h3>
+            )}
             
             <div className="questions-list">
                 {items.map((item, index) => {
