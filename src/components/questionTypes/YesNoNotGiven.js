@@ -3,6 +3,19 @@ import React from 'react';
 const YesNoNotGiven = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
     const { title, instruction, options, items } = question;
 
+    // Default options for YES/NO/NOT GIVEN if not provided
+    const defaultOptions = [
+        { value: 'YES', description: 'if the statement agrees with the claims of the writer' },
+        { value: 'NO', description: 'if the statement contradicts the claims of the writer' },
+        { value: 'NOT GIVEN', description: 'if it is impossible to say what the writer thinks about this' }
+    ];
+
+    // Use provided options or default options
+    const questionOptions = options || defaultOptions;
+    
+    // Safety check for items
+    const questionItems = items || [];
+
     const handleAnswerChange = (questionNumber, value) => {
         onAnswerChange(questionNumber, value);
     };
@@ -20,9 +33,9 @@ const YesNoNotGiven = ({ question, startQuestionNumber, answers, onAnswerChange,
             <h3>{title}</h3>
             <div className="instruction">
                 <p>{instruction}</p>
-                <p>In boxes {startQuestionNumber}-{startQuestionNumber + items.length - 1} on your answer sheet, write</p>
+                <p>In boxes {startQuestionNumber}-{startQuestionNumber + questionItems.length - 1} on your answer sheet, write</p>
                 <div style={{ paddingLeft: '20px', marginTop: '10px' }}>
-                    {options.map((option) => (
+                    {questionOptions.map((option) => (
                         <p key={option.value} style={{ marginBottom: '5px' }}>
                             <strong>{option.value}</strong> {option.description}
                         </p>
@@ -31,7 +44,7 @@ const YesNoNotGiven = ({ question, startQuestionNumber, answers, onAnswerChange,
             </div>
             
             <div className="questions-list">
-                {items.map((item, index) => {
+                {questionItems.map((item, index) => {
                     const questionNumber = startQuestionNumber + index;
                     const answerIndex = questionNumber - 1;
                     const isCorrect = isAnswerCorrect(questionNumber);
@@ -61,7 +74,7 @@ const YesNoNotGiven = ({ question, startQuestionNumber, answers, onAnswerChange,
                             </div>
                             
                             <div className="answer-options" style={{ marginTop: '12px', paddingLeft: '20px' }}>
-                                {options.map((option) => (
+                                {questionOptions.map((option) => (
                                     <label key={option.value} className="option-label" style={{
                                         display: 'block',
                                         marginBottom: '8px',

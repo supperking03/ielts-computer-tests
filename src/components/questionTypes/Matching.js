@@ -3,6 +3,10 @@ import React from 'react';
 const Matching = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
     const { title, instruction, options, items, note } = question;
 
+    // Safety checks for items and options
+    const questionItems = items || [];
+    const questionOptions = options || [];
+
     const handleAnswerSelect = (questionNumber, value) => {
         onAnswerChange(questionNumber, value);
     };
@@ -24,7 +28,7 @@ const Matching = ({ question, startQuestionNumber, answers, onAnswerChange, hasV
             </div>
             
             <div className="questions-list">
-                {items.map((item, index) => {
+                {questionItems.map((item, index) => {
                     const questionNumber = startQuestionNumber + index;
                     const answerIndex = questionNumber - 1;
                     const currentAnswer = answers[answerIndex] || '';
@@ -70,7 +74,7 @@ const Matching = ({ question, startQuestionNumber, answers, onAnswerChange, hasV
                                     }}
                                 >
                                     <option value="">Select...</option>
-                                    {options.map(option => (
+                                    {questionOptions.map(option => (
                                         <option key={option.value} value={option.value}>
                                             {option.value} - {option.label}
                                         </option>

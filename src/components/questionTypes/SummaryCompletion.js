@@ -3,6 +3,10 @@ import React from 'react';
 const SummaryCompletion = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
     const { title, instruction, sectionTitle, options, items } = question;
 
+    // Safety checks for items and options
+    const questionItems = items || [];
+    const questionOptions = options || [];
+
     const handleAnswerChange = (questionNumber, value) => {
         onAnswerChange(questionNumber, value);
     };
@@ -20,7 +24,7 @@ const SummaryCompletion = ({ question, startQuestionNumber, answers, onAnswerCha
             <h3>{title}</h3>
             <div className="instruction">
                 <p>{instruction}</p>
-                <p>Write the correct letter, A-F, in boxes {startQuestionNumber}-{startQuestionNumber + items.length - 1} on your answer sheet.</p>
+                <p>Write the correct letter, A-F, in boxes {startQuestionNumber}-{startQuestionNumber + questionItems.length - 1} on your answer sheet.</p>
             </div>
             
             {sectionTitle && (
@@ -38,7 +42,7 @@ const SummaryCompletion = ({ question, startQuestionNumber, answers, onAnswerCha
                 lineHeight: '1.8',
                 fontSize: '16px'
             }}>
-                {items.map((item, index) => {
+                {questionItems.map((item, index) => {
                     const questionNumber = startQuestionNumber + index;
                     const answerIndex = questionNumber - 1;
                     const isCorrect = isAnswerCorrect(questionNumber);
@@ -68,7 +72,7 @@ const SummaryCompletion = ({ question, startQuestionNumber, answers, onAnswerCha
                                 }}
                             >
                                 <option value="">Select</option>
-                                {options.map((option) => (
+                                {questionOptions.map((option) => (
                                     <option key={option.value} value={option.value}>
                                         {option.value}
                                     </option>
@@ -80,7 +84,7 @@ const SummaryCompletion = ({ question, startQuestionNumber, answers, onAnswerCha
                                 </span>
                             )}
                             {item.suffix}
-                            {index < items.length - 1 && <span style={{ marginRight: '10px' }}> </span>}
+                            {index < questionItems.length - 1 && <span style={{ marginRight: '10px' }}> </span>}
                         </span>
                     );
                 })}
@@ -89,7 +93,7 @@ const SummaryCompletion = ({ question, startQuestionNumber, answers, onAnswerCha
             <div className="options-list" style={{ marginTop: '20px' }}>
                 <h4>Options:</h4>
                 <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '10px' }}>
-                    {options.map((option) => (
+                    {questionOptions.map((option) => (
                         <div key={option.value} style={{
                             padding: '8px',
                             border: '1px solid #e9ecef',
@@ -105,7 +109,7 @@ const SummaryCompletion = ({ question, startQuestionNumber, answers, onAnswerCha
             {hasViewedResults && (
                 <div style={{ marginTop: '20px' }}>
                     <h4>Correct Answers:</h4>
-                    {items.map((item, index) => {
+                    {questionItems.map((item, index) => {
                         const questionNumber = startQuestionNumber + index;
                         const answerIndex = questionNumber - 1;
                         const isCorrect = isAnswerCorrect(questionNumber);

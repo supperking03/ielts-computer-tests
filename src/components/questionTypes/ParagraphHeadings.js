@@ -3,6 +3,10 @@ import React from 'react';
 const ParagraphHeadings = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
     const { title, instruction, paragraphRange, options, items } = question;
 
+    // Safety checks for items and options
+    const questionItems = items || [];
+    const questionOptions = options || [];
+
     const handleAnswerChange = (questionNumber, value) => {
         onAnswerChange(questionNumber, value);
     };
@@ -20,7 +24,7 @@ const ParagraphHeadings = ({ question, startQuestionNumber, answers, onAnswerCha
             <h3>{title}</h3>
             <div className="instruction">
                 <p>{instruction}</p>
-                <p>Write the correct number, i-viii, in boxes {startQuestionNumber}-{startQuestionNumber + items.length - 1} on your answer sheet.</p>
+                <p>Write the correct number, i-viii, in boxes {startQuestionNumber}-{startQuestionNumber + questionItems.length - 1} on your answer sheet.</p>
             </div>
             
             <div className="headings-list" style={{ 
@@ -32,7 +36,7 @@ const ParagraphHeadings = ({ question, startQuestionNumber, answers, onAnswerCha
             }}>
                 <h4>List of Headings</h4>
                 <div style={{ paddingLeft: '20px' }}>
-                    {options.map((option) => (
+                    {questionOptions.map((option) => (
                         <p key={option.value} style={{ marginBottom: '8px' }}>
                             <strong>{option.value}</strong> {option.text}
                         </p>
@@ -41,7 +45,7 @@ const ParagraphHeadings = ({ question, startQuestionNumber, answers, onAnswerCha
             </div>
             
             <div className="questions-list">
-                {items.map((item, index) => {
+                {questionItems.map((item, index) => {
                     const questionNumber = startQuestionNumber + index;
                     const answerIndex = questionNumber - 1;
                     const isCorrect = isAnswerCorrect(questionNumber);
@@ -91,7 +95,7 @@ const ParagraphHeadings = ({ question, startQuestionNumber, answers, onAnswerCha
                                     }}
                                 >
                                     <option value="">Select</option>
-                                    {options.map((option) => (
+                                    {questionOptions.map((option) => (
                                         <option key={option.value} value={option.value}>
                                             {option.value}
                                         </option>

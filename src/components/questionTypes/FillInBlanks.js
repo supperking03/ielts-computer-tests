@@ -3,6 +3,9 @@ import React from 'react';
 const FillInBlanks = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
     const { title, instruction, wordLimit, items, tableView, sectionTitle } = question;
 
+    // Safety check for items
+    const questionItems = items || [];
+
     const handleInputChange = (questionNumber, value) => {
         onAnswerChange(questionNumber, value);
     };
@@ -23,7 +26,7 @@ const FillInBlanks = ({ question, startQuestionNumber, answers, onAnswerChange, 
                 <div className="instruction">
                     <p>{instruction}</p>
                     {wordLimit && <p><strong>{wordLimit}</strong></p>}
-                    <p>Write your answers in boxes {startQuestionNumber}-{startQuestionNumber + items.length - 1} on your answer sheet.</p>
+                    <p>Write your answers in boxes {startQuestionNumber}-{startQuestionNumber + questionItems.length - 1} on your answer sheet.</p>
                 </div>
                 
                 {sectionTitle && (
@@ -201,23 +204,24 @@ const FillInBlanks = ({ question, startQuestionNumber, answers, onAnswerChange, 
         );
     }
 
-    // Regular list view for non-table questions
+    // Regular fill-in-blanks view
     return (
         <div className="question-section fill-in-blanks">
             <h3>{title}</h3>
             <div className="instruction">
                 <p>{instruction}</p>
                 {wordLimit && <p><strong>{wordLimit}</strong></p>}
+                <p>Write your answers in boxes {startQuestionNumber}-{startQuestionNumber + questionItems.length - 1} on your answer sheet.</p>
             </div>
             
             {sectionTitle && (
-                <h3 style={{ textAlign: 'center', marginBottom: '20px' }}>
+                <h4 style={{ textAlign: 'center', marginTop: '20px', marginBottom: '20px' }}>
                     {sectionTitle}
-                </h3>
+                </h4>
             )}
             
             <div className="questions-list">
-                {items.map((item, index) => {
+                {questionItems.map((item, index) => {
                     const questionNumber = startQuestionNumber + index;
                     const answerIndex = questionNumber - 1;
                     const isCorrect = isAnswerCorrect(questionNumber);
@@ -236,34 +240,37 @@ const FillInBlanks = ({ question, startQuestionNumber, answers, onAnswerChange, 
                                 margin: hasViewedResults ? '8px 0' : '0'
                             }}
                         >
-                            <span className="question-number"><strong>{questionNumber}</strong></span>
-                            <span className="question-text">{item.prefix}</span>
-                            <input
-                                type="text"
-                                className="inline-answer-input"
-                                value={answers[answerIndex] || ''}
-                                onChange={(e) => handleInputChange(questionNumber, e.target.value)}
-                                placeholder={`Q${questionNumber}`}
-                                style={{
-                                    display: 'inline-block',
-                                    width: '120px',
-                                    padding: '2px 8px',
-                                    margin: '0 4px',
-                                    border: hasViewedResults && isCorrect === false ? 
-                                        '2px solid #dc3545' : '1px solid #333',
-                                    borderRadius: '3px',
-                                    fontSize: '14px',
-                                    backgroundColor: hasViewedResults && isCorrect === false ? 
-                                        '#ffe6e6' : '#f8f9fa',
-                                    verticalAlign: 'baseline',
-                                }}
-                            />
-                            <span className="question-text">{item.suffix}</span>
-                            {hasViewedResults && isCorrect === false && (
-                                <span style={{ marginLeft: '8px', fontSize: '16px', color: '#dc3545' }}>
-                                    ✗
+                            <div className="question-header">
+                                <span className="question-number"><strong>{questionNumber}</strong></span>
+                                <span className="question-text">
+                                    {item.prefix}
+                                    <input
+                                        type="text"
+                                        className="inline-answer-input"
+                                        value={answers[answerIndex] || ''}
+                                        onChange={(e) => handleInputChange(questionNumber, e.target.value)}
+                                        placeholder={`Q${questionNumber}`}
+                                        style={{
+                                            display: 'inline-block',
+                                            width: '100px',
+                                            padding: '2px 6px',
+                                            margin: '0 2px',
+                                            border: hasViewedResults && isCorrect === false ? 
+                                                '2px solid #dc3545' : '1px solid #333',
+                                            borderRadius: '3px',
+                                            fontSize: '13px',
+                                            backgroundColor: hasViewedResults && isCorrect === false ? 
+                                                '#ffe6e6' : '#f8f9fa',
+                                        }}
+                                    />
+                                    {item.suffix}
                                 </span>
-                            )}
+                                {hasViewedResults && isCorrect === false && (
+                                    <span style={{ marginLeft: '8px', fontSize: '16px', color: '#dc3545' }}>
+                                        ✗
+                                    </span>
+                                )}
+                            </div>
                             {hasViewedResults && isCorrect === false && correctAnswers && (
                                 <div style={{ 
                                     fontSize: '12px', 

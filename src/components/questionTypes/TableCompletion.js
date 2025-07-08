@@ -3,6 +3,9 @@ import React from 'react';
 const TableCompletion = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
     const { title, instruction, wordLimit, table } = question;
 
+    // Safety check for table
+    const questionTable = table || { rows: [] };
+
     const handleInputChange = (questionNumber, value) => {
         onAnswerChange(questionNumber, value);
     };
@@ -74,7 +77,7 @@ const TableCompletion = ({ question, startQuestionNumber, answers, onAnswerChang
                     border: '1px solid #ddd'
                 }}>
                     <tbody>
-                        {table.rows.map((row, rowIndex) => (
+                        {questionTable.rows.map((row, rowIndex) => (
                             <tr key={rowIndex}>
                                 {row.cells.map((cell, colIndex) => 
                                     renderCell(cell, rowIndex, colIndex)

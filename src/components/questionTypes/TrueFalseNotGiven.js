@@ -3,6 +3,19 @@ import React from 'react';
 const TrueFalseNotGiven = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
     const { title, instruction, options, items } = question;
 
+    // Default options for TRUE/FALSE/NOT GIVEN if not provided
+    const defaultOptions = [
+        { value: 'TRUE', description: 'if the statement agrees with the information' },
+        { value: 'FALSE', description: 'if the statement contradicts the information' },
+        { value: 'NOT GIVEN', description: 'if there is no information on this' }
+    ];
+
+    // Use provided options or default options
+    const questionOptions = options || defaultOptions;
+    
+    // Safety check for items
+    const questionItems = items || [];
+
     const handleAnswerSelect = (questionNumber, value) => {
         onAnswerChange(questionNumber, value);
     };
@@ -21,7 +34,7 @@ const TrueFalseNotGiven = ({ question, startQuestionNumber, answers, onAnswerCha
             <div className="instruction">
                 <p>{instruction}</p>
                 <div className="options-explanation">
-                    {options.map((option, index) => (
+                    {questionOptions.map((option, index) => (
                         <p key={index} style={{ paddingLeft: '40px' }}>
                             <strong>{option.value}</strong> - {option.description}
                         </p>
@@ -30,7 +43,7 @@ const TrueFalseNotGiven = ({ question, startQuestionNumber, answers, onAnswerCha
             </div>
             
             <div className="questions-list">
-                {items.map((item, index) => {
+                {questionItems.map((item, index) => {
                     const questionNumber = startQuestionNumber + index;
                     const answerIndex = questionNumber - 1;
                     const currentAnswer = answers[answerIndex] || '';
@@ -60,7 +73,7 @@ const TrueFalseNotGiven = ({ question, startQuestionNumber, answers, onAnswerCha
                                 )}
                             </div>
                             <div className="answer-options">
-                                {options.map(option => (
+                                {questionOptions.map(option => (
                                     <label key={option.value} className="option-label">
                                         <input
                                             type="radio"

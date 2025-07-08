@@ -3,6 +3,9 @@ import React from 'react';
 const ParagraphMatching = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
     const { title, instruction, paragraphRange, items, note } = question;
 
+    // Safety check for items
+    const questionItems = items || [];
+
     const handleAnswerChange = (questionNumber, value) => {
         onAnswerChange(questionNumber, value.toUpperCase());
     };
@@ -43,12 +46,12 @@ const ParagraphMatching = ({ question, startQuestionNumber, answers, onAnswerCha
             <h3>{title}</h3>
             <div className="instruction">
                 <p>{instruction}</p>
-                <p>Write the correct letter, <strong>{paragraphRange}</strong>, in boxes {startQuestionNumber}-{startQuestionNumber + items.length - 1} on your answer sheet.</p>
+                <p>Write the correct letter, <strong>{paragraphRange}</strong>, in boxes {startQuestionNumber}-{startQuestionNumber + questionItems.length - 1} on your answer sheet.</p>
                 {note && <p><strong>{note}</strong></p>}
             </div>
             
             <div className="questions-list">
-                {items.map((item, index) => {
+                {questionItems.map((item, index) => {
                     const questionNumber = startQuestionNumber + index;
                     const answerIndex = questionNumber - 1;
                     const currentAnswer = answers[answerIndex] || '';
