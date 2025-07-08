@@ -117,8 +117,8 @@ function NewReadingPassage() {
 
     const isAnswerCorrect = (questionIndex) => {
         if (!hasViewedResults || !selectedTest.correctAnswers) return null;
-        const userAnswer = answers[questionIndex].trim().toLowerCase();
-        const correctAnswer = selectedTest.correctAnswers[questionIndex].toLowerCase();
+        const userAnswer = answers[questionIndex] ? answers[questionIndex].trim().toLowerCase() : '';
+        const correctAnswer = selectedTest.correctAnswers[questionIndex] ? selectedTest.correctAnswers[questionIndex].toLowerCase() : '';
         return userAnswer === correctAnswer;
     };
 
@@ -181,8 +181,8 @@ function NewReadingPassage() {
         let score = 0;
         
         for (let i = 0; i < correctAnswers.length; i++) {
-            const userAnswer = answers[i].trim().toLowerCase();
-            const correctAnswer = correctAnswers[i].toLowerCase();
+            const userAnswer = answers[i] ? answers[i].trim().toLowerCase() : '';
+            const correctAnswer = correctAnswers[i] ? correctAnswers[i].toLowerCase() : '';
             
             if (userAnswer === correctAnswer) {
                 score++;

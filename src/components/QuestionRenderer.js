@@ -8,6 +8,7 @@ import MultipleChoice from './questionTypes/MultipleChoice';
 import YesNoNotGiven from './questionTypes/YesNoNotGiven';
 import SummaryCompletion from './questionTypes/SummaryCompletion';
 import ParagraphHeadings from './questionTypes/ParagraphHeadings';
+import MultipleSelect from './questionTypes/MultipleSelect';
 
 const QuestionRenderer = ({ questionsData, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
     const renderQuestion = (questionGroup, index) => {
@@ -52,6 +53,9 @@ const QuestionRenderer = ({ questionsData, answers, onAnswerChange, hasViewedRes
             
             case 'paragraph-headings':
                 return <ParagraphHeadings key={index} {...commonProps} />;
+            
+            case 'multiple-select':
+                return <MultipleSelect key={index} {...commonProps} />;
             
             default:
                 console.warn(`Unknown question type: ${type}`);

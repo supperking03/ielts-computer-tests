@@ -3529,5 +3529,670 @@ export const newTests = [
                 ]
             }
         ]
+    },
+    {
+        id: 12,
+        title: "Reading CAM 16 Test 4",
+        explanation: "https://drive.google.com/file/d/1o-aAPp0dF1AcWe8I-k7YR78AqtikVKd-/view?usp=sharing",
+        image: "https://ieltstrainingonline.com/wp-content/uploads/2021/07/cam-16-test-4.jpg",
+        correctAnswers: [
+            // Q1-6: fill-in-blanks (diagram labeling)
+            "posts", "canal", "ventilation", "lid", "weight", "climbing",
+            // Q7-10: true-false-not-given
+            "FALSE", "NOT GIVEN", "FALSE", "TRUE",
+            // Q11-13: fill-in-blanks
+            "gold", "(the) architect('s) (name)", "(the) harbour / harbor",
+            // Q14-17: multiple-choice
+            "A", "B", "D", "B",
+            // Q18-22: summary-completion
+            "D", "H", "F", "B", "C",
+            // Q23-26: yes-no-not-given
+            "YES", "NO", "NOT GIVEN", "YES",
+            // Q27-32: paragraph-headings
+            "iii", "vi", "ii", "i", "vii", "v",
+            // Q33-35: multiple-choice
+            "C", "B", "A",
+            // Q36-40: yes-no-not-given
+            "NO", "NOT GIVEN", "YES", "NO", "YES"
+        ],
+        passages: [
+            {
+                title: "Reading Passage 1",
+                content: `<div class="et_pb_text_inner" style="height: auto !important;"><!-- divi:paragraph --><p></p>
+
+<p><span style="font-size: large;">You should spend about 20 minutes on </span><strong style="font-size: large;">Questions</strong><span style="font-size: large;"> </span><strong style="font-size: large;">1-13</strong><span style="font-size: large;"> which are&nbsp;based on Reading Passage 1 below.&nbsp;</span></p>
+<h2 style="text-align: center;"><span style="font-size: xx-large;"><strong>Roman tunnels</strong></span></h2>
+<p><span style="font-size: large;"><em>The Romans, who once controlled areas of Europe, North Africa and Asia Minor, adopted the construction techniques of other civilizations to build tunnels in their territories</em></span></p>
+<p><span style="font-size: large;">The Persians, who lived in present-day Iran, were one of the first civilizations to build tunnels that provided a reliable supply of water to human settlements in dry areas. In the early first millennium BCE, they introduced the <em>qanat </em>method of tunnel construction, which consisted of placing posts over a hill in a straight line, to ensure that the tunnel kept to its route, and then digging vertical shafts down into the ground at regular intervals. Underground, workers removed the earth from between the ends of the shafts, creating a tunnel. The excavated soil was taken up to the surface using the shafts, which also provided ventilation during the work. Once the tunnel was completed, it allowed water to flow from the top of a hillside down towards a canal, which supplied water for human use. Remarkably, some <em>qanats </em>built by the Persians 2,700 years ago are still in use today.</span></p>
+<p><span style="font-size: large;">They later passed on their knowledge to the Romans, who also used the <em>qanat</em> method to construct water-supply tunnels for agriculture. Roma <em>qanat </em>tunnels were constructed with vertical shafts dug at intervals of between 30 and 60 meters. The shafts were equipped with handholds and footholds to help those climbing in and out of them and were covered with a wooden or stone lid. To ensure that the shafts were vertical, Romans hung a plumb line from a rod placed across the top of each shaft and made sure that the weight at the end of it hung in the center of the shaft. Plumb lines were also used to measure the depth of the shaft and to determine the slope of the tunnel. The 5.6-kilometer-long Claudius tunnel, built in 41 CE to drain the Fucine Lake in central Italy, had shafts that were up to 122 meters deep, took 11 years to build and involved approximately 30,000 workers.</span></p>
+<p><span style="font-size: large;">By the 6th century BCE, a second method of tunnel construction appeared called the <em>counter-excavation </em>method, in which the tunnel was constructed from both ends. It was used to cut through high mountains when the <em>qanat </em>method was not a practical alternative. This method required greater planning and advanced knowledge of surveying, mathematics and geometry as both ends of a tunnel had to meet correctly at the center of the mountain. Adjustments to the direction of the tunnel also had to be made whenever builders encountered geological problems or when it deviated from its set path. They constantly checked the tunnel's advancing direction, for example, by looking back at the light that penetrated through the tunnel mouth, and made corrections whenever necessary. Large deviations could happen, and they could result in one end of the tunnel not being usable. An inscription written on the side of a 428-meter tunnel, built by the Romans as part of the Saldae aqueduct system in modern-day Algeria, describes how the two teams of builders missed each other in the mountain and how the later construction of a lateral link between both corridors corrected the initial error.</span></p>
+<p><span style="font-size: large;">The Romans dug tunnels for their roads using the counter-excavation method, whenever they encountered obstacles such as hills or mountains that were too high for roads to pass over. An example is the 37-meter-long, 6-meter-high, Furlo Pass Tunnel built in Italy in 69-79 CE. Remarkably, a modern road still uses this tunnel today. Tunnels were also built for mineral extraction. Miners would locate a mineral vein and then pursue it with shafts and tunnels underground. Traces of such tunnels used to mine gold can still be found at the Dolaucothi mines in Wales. When the sole purpose of a tunnel was mineral extraction, construction required less planning, as the tunnel route was determined by the mineral vein.</span></p>
+<p><span style="font-size: large;">Roman tunnel projects were carefully planned and carried out. The length of time it took to construct a tunnel depended on the method being used and the type of rock being excavated. The <em>qanat </em>construction method was usually faster than the counter-excavation method as it was more straightforward. This was because the mountain could be excavated not only from the tunnel mouths but also from shafts. The type of rock could also influence construction times. When the rock was hard, the Romans employed a technique called fire quenching which consisted of heating the rock with fire, and then suddenly cooling it with cold water so that it would crack. Progress through hard rock could be very slow, and it was not uncommon for tunnels to take years, if not decades, to be built. Construction marks left on a Roman tunnel in Bologna show that the rate of advance through solid rock was 30 centimeters per day. In contrast, the rate of advance of the Claudius tunnel can be calculated at 1.4 meters per day. Most tunnels had inscriptions showing the names of patrons who ordered construction and sometimes the name of the architect. For example, the 1.4-kilometer Çevlik tunnel in Turkey, built to divert the floodwater threatening the harbor of the ancient city of Seleuceia Pieria, had inscriptions on the entrance, still visible today, that also indicate that the tunnel was started in 69 CE and was completed in 81 CE.</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p>`,
+                questions: [
+                    {
+                        type: 'fill-in-blanks',
+                        startQuestionNumber: 1,
+                        title: 'Questions 1-6',
+                        instruction: 'Label the diagrams below.',
+                        wordLimit: 'Choose ONE WORD ONLY from the passage for each answer.',
+                        note: 'Write your answers in boxes 1-6 on your answer sheet.',
+                        items: [
+                            { prefix: '', suffix: '' },
+                            { prefix: '', suffix: '' },
+                            { prefix: '', suffix: '' },
+                            { prefix: '', suffix: '' },
+                            { prefix: '', suffix: '' },
+                            { prefix: '', suffix: '' }
+                        ]
+                    },
+                    {
+                        type: 'true-false-not-given',
+                        startQuestionNumber: 7,
+                        title: 'Questions 7-10',
+                        instruction: 'Do the following statements agree with the information given in Reading Passage 1?',
+                        note: 'In boxes 7-10 on your answer sheet, write',
+                        options: [
+                            { value: 'TRUE', description: 'if the statement agrees with the information' },
+                            { value: 'FALSE', description: 'if the statement contradicts the information' },
+                            { value: 'NOT GIVEN', description: 'if there is no information on this' }
+                        ],
+                        items: [
+                            { statement: 'The counter-excavation method completely replaced the qanat method in the 6th century BCE.' },
+                            { statement: 'Only experienced builders were employed to construct a tunnel using the counter-excavation method.' },
+                            { statement: 'The information about a problem that occurred during the construction of the Saldae aqueduct system was found in an ancient book.' },
+                            { statement: 'The mistake made by the builders of the Saldae aqueduct system was that the two parts of the tunnel failed to meet.' }
+                        ]
+                    },
+                    {
+                        type: 'fill-in-blanks',
+                        startQuestionNumber: 11,
+                        title: 'Questions 11-13',
+                        instruction: 'Answer the questions below.',
+                        wordLimit: 'Choose NO MORE THAN TWO WORDS from the passage for each answer.',
+                        note: 'Write your answers in boxes 11-13 on your answer sheet.',
+                        items: [
+                            { prefix: 'What type of mineral were the Dolaucothi mines in Wales built to extract?', suffix: '' },
+                            { prefix: 'In addition to the patron, whose name might be carved onto a tunnel?', suffix: '' },
+                            { prefix: 'What part of Seleuceia Pieria was the Çevlik tunnel built to protect?', suffix: '' }
+                        ]
+                    }
+                ]
+            },
+            {
+                title: "Reading Passage 2",
+                content: `<div class="et_pb_text_inner"><h3><strong style="font-size: x-large; color: #333333;"></strong></h3>
+<h3><strong style="font-size: x-large; color: #333333;"></strong></h3>
+<h3><strong style="font-size: x-large; color: #333333;"></strong></h3>
+
+<p><span style="font-size: large;">You should spend about 20 minutes on <strong>Questions 14-26</strong>&nbsp;which are based on Reading Passage 2 below.</span><span style="font-size: 14px;">&nbsp;</span></p>
+<h2 style="text-align: center;"><span style="font-size: xx-large;"><strong>Changes in reading habits</strong></span></h2>
+<p><span style="font-size: large;"><em>What are the implications of the way we read today?</em></span></p>
+<p><span style="font-size: large;">Look around on your next plane trip. The iPad is the new pacifier for babies and toddlers. Younger school-aged children read stories on smartphones; older kids don't read at all, but hunch over video games. Parents and other passengers read on tablets or skim a flotilla of email and news feeds. Unbeknown to most of us, an invisible, game-changing transformation links everyone in this picture: the neuronal circuit that underlies the brain's ability to read is subtly, rapidly changing and this has implications for everyone from the pre-reading toddler to the expert adult.</span></p>
+<p><span style="font-size: large;">As work in neurosciences indicates, the acquisition of literacy necessitated a new circuit in our species' brain more than 6,000 years ago. That circuit evolved from a very simple mechanism for decoding basic information, like the number of goats in one's herd, to the present, highly elaborated reading brain. My research depicts how the present reading brain enables the development of some of our most important intellectual and affective processes: internalized knowledge, analogical reasoning, and inference; perspective-taking and empathy; critical analysis and the generation of insight. Research surfacing in many parts of the world now cautions that each of these essential 'deep reading' processes may be under threat as we move into digital-based modes of reading.</span></p>
+<p><span style="font-size: large;">This is not a simple, binary issue of print versus digital reading and technological innovations. As MIT scholar Sherry Turkle has written, we do not err as a society when we innovate but when we ignore what we disrupt or diminish while innovating. In this hinge moment between print and digital cultures, society needs to confront what is diminishing in the expert reading circuit, what our children and older students are not developing, and what we can do about it.</span></p>
+<p><span style="font-size: large;">We know from research that the reading circuit is not given to human beings through a genetic blueprint like vision or language; it needs an environment to develop. Further, it will adapt to that environment's requirements – from different writing systems to the characteristics of whatever medium is used. If the dominant medium advantages processes that are fast, multi-task oriented and well-suited for large volumes of information, like the current digital medium, so will the reading circuit. As UCLA psychologist Patricia Greenfield writes, the result is that less attention and time will be allocated to slower, time-demanding deep reading processes.</span></p>
+<p><span style="font-size: large;">Increasing reports from educators and from researchers in psychology and the humanities bear this out. English literature scholar and teacher Mark Edmundson describes how many college students actively avoid the classic literature of the 19th and 20th centuries in favour of something simpler as they no longer have the patience to read longer, denser, more difficult texts. We should be less concerned with students' 'cognitive impatience', however, than by what may underlie it: the potential inability of large numbers of students to read with a level of critical analysis sufficient to comprehend the complexity of thought and argument found in more demanding texts.</span></p>
+<p><span style="font-size: large;">Multiple studies show that digital screen use may be causing a variety of troubling downstream effects on reading comprehension in older high school and college students. In Stavanger, Norway, psychologist Anne Mangen and colleagues studied how high school students comprehend the same material in different mediums. Mangen's group asked subjects questions about a short story whose plot had universal student appeal; half of the students read the story on a tablet, the other half in paperback. Results indicated that students who read on print were superior in their comprehension to screen-reading peers, particularly in their ability to sequence detail and reconstruct the plot in chronological order.</span></p>
+<p><span style="font-size: large;">Ziming Liu from San Jose State University has conducted a series of studies which indicate that the 'new norm' in reading is skimming, involving word-spotting and browsing through the text. Many readers now use a pattern when reading in which they sample the first line and then word-spot through the rest of the text. When the reading brain skims like this, it reduces time allocated to deep reading processes. In other words, we don't have time to grasp complexity, to understand another's feelings, to perceive beauty, and to create thoughts of the reader's own.</span></p>
+<p><span style="font-size: large;">The possibility that critical analysis, empathy and other deep reading processes could become the unintended 'collateral damage' of our digital culture is not a straightforward binary issue about print versus digital reading. It is about how we all have begun to read o various mediums and how that changes not only what we read, but also the purposes for which we read. Nor is it only about the young. The subtle atrophy of critical analysis and empathy affects us all equally. It affects our ability to navigate a constant bombardment of information. It incentivizes a retreat to the most familiar stores of unchecked information, which require and receive no analysis, leaving us susceptible to false information and irrational ideas.</span></p>
+<p><span style="font-size: large;">There's an old rule in neuroscience that does not alter with age: use it or lose it. It is a very hopeful principle when applied to critical thought in the reading brain because it implies choice. The story of the changing reading brain is hardly finished. We possess both the science and the technology to identify and redress the changes in how we read before they become entrenched. If we work to understand exactly what we will lose, alongside the extraordinary new capacities that the digital world has brought us, there is as much reason for excitement as caution.</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<h4>`,
+                questions: [
+                    {
+                        type: 'multiple-choice',
+                        startQuestionNumber: 14,
+                        title: 'Questions 14-17',
+                        instruction: 'Choose the correct letter, A, B, C or D.',
+                        note: 'Write the correct letter in boxes 14-17 on your answer sheet.',
+                        items: [
+                            {
+                                question: 'What is the writer\'s main point in the first paragraph?',
+                                options: [
+                                    { value: 'A', text: 'Our use of technology is having a hidden effect on us.' },
+                                    { value: 'B', text: 'Technology can be used to help youngsters to read.' },
+                                    { value: 'C', text: 'Travellers should be encouraged to use technology on planes.' },
+                                    { value: 'D', text: 'Playing games is a more popular use of technology than reading.' }
+                                ]
+                            },
+                            {
+                                question: 'What main point does Sherry Turkle make about innovation?',
+                                options: [
+                                    { value: 'A', text: 'Technological innovation has led to a reduction in print reading.' },
+                                    { value: 'B', text: 'We should pay attention to what might be lost when innovation occurs.' },
+                                    { value: 'C', text: 'We should encourage more young people to become involved in innovation.' },
+                                    { value: 'D', text: 'There is a difference between developing products and developing ideas.' }
+                                ]
+                            },
+                            {
+                                question: 'What point is the writer making in the fourth paragraph?',
+                                options: [
+                                    { value: 'A', text: 'Humans have an inborn ability to read and write.' },
+                                    { value: 'B', text: 'Reading can be done using many different mediums.' },
+                                    { value: 'C', text: 'Writing systems make unexpected demands on the brain.' },
+                                    { value: 'D', text: 'Some brain circuits adjust to whatever is required of them.' }
+                                ]
+                            },
+                            {
+                                question: 'According to Mark Edmundson, the attitude of college students',
+                                options: [
+                                    { value: 'A', text: 'has changed the way he teaches.' },
+                                    { value: 'B', text: 'has influenced what they select to read.' },
+                                    { value: 'C', text: 'does not worry him as much as it does others.' },
+                                    { value: 'D', text: 'does not match the views of the general public.' }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        type: 'summary-completion',
+                        startQuestionNumber: 18,
+                        title: 'Questions 18-22',
+                        instruction: 'Complete the summary using the list of words, A-H, below.',
+                        note: 'Write the correct letter, A-H, in boxes 18-22 on your answer sheet.',
+                        sectionTitle: 'Studies on digital screen use',
+                        items: [
+                            {
+                                prefix: 'There have been many studies on digital screen use, showing some',
+                                suffix: 'trends. Psychologist Anne Mangen gave high-school students a short story to read, half using digital and half using print mediums. Her team then used a question-and-answer technique to find out how',
+                                suffix2: 'each group\'s understanding of the plot was. The findings showed a clear pattern in the responses, with those who read screens finding the order of information',
+                                suffix3: 'to recall.'
+                            },
+                            {
+                                prefix: 'Studies by Ziming Liu show that students are tending to read',
+                                suffix: 'words and phrases in a text to save time. This approach, she says, gives the reader a superficial understanding of the',
+                                suffix2: 'content of material, leaving no time for thought.'
+                            }
+                        ],
+                        options: [
+                            { value: 'A', text: 'fast' },
+                            { value: 'B', text: 'isolated' },
+                            { value: 'C', text: 'emotional' },
+                            { value: 'D', text: 'worrying' },
+                            { value: 'E', text: 'many' },
+                            { value: 'F', text: 'hard' },
+                            { value: 'G', text: 'combined' },
+                            { value: 'H', text: 'thorough' }
+                        ]
+                    },
+                    {
+                        type: 'yes-no-not-given',
+                        startQuestionNumber: 23,
+                        title: 'Questions 23-26',
+                        instruction: 'Do the following statements agree with the views of the writer in Reading Passage 2?',
+                        note: 'In boxes 23-26 on your answer sheet, write',
+                        options: [
+                            { value: 'YES', description: 'if the statement agrees with the views of the writer' },
+                            { value: 'NO', description: 'if the statement contradicts the views of the writer' },
+                            { value: 'NOT GIVEN', description: 'if it is impossible to say what the writer thinks about this' }
+                        ],
+                        items: [
+                            { statement: 'The medium we use to read can affect our choice of reading content.' },
+                            { statement: 'Some age groups are more likely to lose their complex reading skills than others.' },
+                            { statement: 'False information has become more widespread in today\'s digital era.' },
+                            { statement: 'We still have opportunities to rectify the problems that technology is presenting.' }
+                        ]
+                    }
+                ]
+            },
+            {
+                title: "Reading Passage 3",
+                content: `<div class="et_pb_text_inner"><h3><span style="font-size: x-large;"><strong></strong></span></h3>
+<h3><span style="font-size: x-large;"><strong></strong></span></h3>
+<h3><span style="font-size: x-large;"><strong></strong></span></h3>
+
+<p><span style="font-size: large;">You should spend about 20 minutes on <strong>Questions 27-40</strong> which are based on Reading Passage 3 below.</span></p>
+<h2 style="text-align: center;"><span style="font-size: x-large;"><strong>Attitudes towards Artificial Intelligence</strong></span></h2>
+<p><span style="font-size: large;"><strong>A</strong></span></p>
+<p><span style="font-size: large;">Artificial intelligence (AI) can already predict the future. Police forces are using it to map when and where crime is likely to occur. Doctors can use it to predict when a patient is most likely to have a heart attack or stroke. Researchers are even trying to give AI imagination so it can plan for unexpected consequences.</span></p>
+<p><span style="font-size: large;">Many decisions in our lives require a good forecast, and AI is almost always better at forecasting than we are. Yet for all these technological advances, we still seem to deeply lack confidence in AI predictions. Recent cases show that people don't like relying on AI and prefer to trust human experts, even if these experts are wrong.</span></p>
+<p><span style="font-size: large;">If we want AI to really benefit people, we need to find a way to get people to trust it. To do that, we need to understand why people are so reluctant to trust AI in the first place.</span></p>
+<p><span style="font-size: large;"><strong>B</strong></span></p>
+<p><span style="font-size: large;">Take the case of Watson for Oncology, one of technology giant IBM's supercomputer programs. Their attempt to promote this program to cancer doctors was a PR disaster. The AI promised to deliver top-quality recommendations on the treatment of 12 cancers that accounted for 80% of the world's cases. But when doctors first interacted with Watson, they found themselves in a rather difficult situation. On the one hand, if Watson provided guidance about a treatment that coincided with their own opinions, physicians did not see much point in Watson's recommendations. The supercomputer was simply telling them what they already knew, and these recommendations did not change the actual treatment.</span></p>
+<p><span style="font-size: large;">On the other hand, if Watson generated a recommendation that contradicted the experts' opinion, doctors would typically conclude that Watson wasn't competent. And the machine wouldn't be able to explain why its treatment was plausible because its machine-learning algorithms were simply too complex to be fully understood by humans. Consequently, this has caused even more suspicion and disbelief, leading many doctors to ignore the seemingly outlandish AI recommendations and stick to their own expertise.</span></p>
+<p><span style="font-size: large;"><strong>C</strong></span></p>
+<p><span style="font-size: large;">This is just one example of people's lack of confidence in AI and their reluctance to accept what AI has to offer. Trust in other people is often based on our understanding of how others think and having experience of their reliability. This helps create a psychological feeling of safety. AI, on the other hand, is still fairly new and unfamiliar to most people. Even if it can be technically explained (and that's not always the case), AI's decision-making process is usually too difficult for most people to comprehend. And interacting with something we don't understand can cause anxiety and give us a sense that we're losing control.</span></p>
+<p><span style="font-size: large;">Many people are also simply not familiar with many instances of AI actually working, because it often happens in the background. Instead, they are acutely aware of instances where AI goes wrong. Embarrassing AI failures receive a disproportionate amount of media attention, emphasising the message that we cannot rely on technology. Machine learning is not foolproof, in part because the humans who design it aren't.</span></p>
+<p><span style="font-size: large;"><strong>D</strong></span></p>
+<p><span style="font-size: large;">Feelings about AI run deep. In a recent experiment, people from a range of backgrounds were given various sci-fi films about AI to watch and then asked questions about automation in everyday life. It was found that, regardless of whether the film they watched depicted AI in a positive or negative light, simply watching a cinematic vision of our technological future polarised the participants' attitudes. Optimists became more extreme in their enthusiasm for AI and sceptics became even more guarded.</span></p>
+<p><span style="font-size: large;">This suggests people use relevant evidence about AI in a biased manner to support their existing attitudes, a deep-rooted human tendency known as "confirmation bias". As AI is represented more and more in media and entertainment, it could lead to a society split between those who benefit from AI and those who reject it. More pertinently, refusing to accept the advantages offered by AI could place a large group of people at a serious disadvantage.</span></p>
+<p><span style="font-size: large;"><strong>E</strong></span></p>
+<p><span style="font-size: large;">Fortunately, we already have some ideas about how to improve trust in AI. Simply having previous experience with AI can significantly improve people's opinions about the technology, as was found in the study mentioned above. Evidence also suggests the more you use other technologies such as the internet, the more you trust them.</span></p>
+<p><span style="font-size: large;">Another solution may be to reveal more about the algorithms which AI uses and the purposes they serve. Several high-profile social media companies and online marketplaces already release transparency reports about government requests and surveillance disclosures. A similar practice for AI could help people have a better understanding of the way algorithmic decisions are made.</span></p>
+<p><span style="font-size: large;"><strong>F</strong></span></p>
+<p><span style="font-size: large;">Research suggests that allowing people some control over AI decision-making could also improve trust and enable AI to learn from human experience. For example, one study showed that when people were allowed the freedom to slightly modify an algorithm, they felt more satisfied with its decisions, more likely to believe it was superior and more likely to use it in the future.</span></p>
+<p><span style="font-size: large;">We don't need to understand the intricate inner workings of AI systems, but if people are given a degree of responsibility for how they are implemented, they will be more willing to accept AI into their lives.</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<h4>`,
+                questions: [
+                    {
+                        type: 'paragraph-headings',
+                        startQuestionNumber: 27,
+                        title: 'Questions 27-32',
+                        instruction: 'Reading Passage 3 has six sections, A-F.',
+                        note: 'Choose the correct heading for each section from the list of headings below.',
+                        note2: 'Write the correct number, i-viii, in boxes 27-32 on your answer sheet.',
+                        paragraphRange: 'A-F',
+                        items: [
+                            { description: 'Section A' },
+                            { description: 'Section B' },
+                            { description: 'Section C' },
+                            { description: 'Section D' },
+                            { description: 'Section E' },
+                            { description: 'Section F' }
+                        ],
+                        options: [
+                            { value: 'i', text: 'An increasing divergence of attitudes towards AI' },
+                            { value: 'ii', text: 'Reasons why we have more faith in human judgement than in AI' },
+                            { value: 'iii', text: 'The superiority of AI projections over those made by humans' },
+                            { value: 'iv', text: 'The process by which AI can help us make good decisions' },
+                            { value: 'v', text: 'The advantages of involving users in AI processes' },
+                            { value: 'vi', text: 'Widespread distrust of an AI innovation' },
+                            { value: 'vii', text: 'Encouraging openness about how AI functions' },
+                            { value: 'viii', text: 'A surprisingly successful AI application' }
+                        ]
+                    },
+                    {
+                        type: 'multiple-choice',
+                        startQuestionNumber: 33,
+                        title: 'Question 33-35',
+                        instruction: 'Choose the correct letter, A, B, C or D.',
+                        note: 'Write the correct letter in boxes 33-35 on your answer sheet.',
+                        items: [
+                            {
+                                question: 'What is the writer doing in Section A?',
+                                options: [
+                                    { value: 'A', text: 'providing a solution to a concern' },
+                                    { value: 'B', text: 'justifying an opinion about an issue' },
+                                    { value: 'C', text: 'highlighting the existence of a problem' },
+                                    { value: 'D', text: 'explaining the reasons for a phenomenon' }
+                                ]
+                            },
+                            {
+                                question: 'According to Section C, why might some people be reluctant to accept AI?',
+                                options: [
+                                    { value: 'A', text: 'They are afraid it will replace humans in decision-making jobs.' },
+                                    { value: 'B', text: 'Its complexity makes them feel that they are at a disadvantage.' },
+                                    { value: 'C', text: 'They would rather wait for the technology to be tested over a period of time.' },
+                                    { value: 'D', text: 'Misunderstandings about how it works make it seem more challenging than it is.' }
+                                ]
+                            },
+                            {
+                                question: 'What does the writer say about the media in Section C of the text?',
+                                options: [
+                                    { value: 'A', text: 'It leads the public to be mistrustful of AI.' },
+                                    { value: 'B', text: 'It devotes an excessive amount of attention to AI.' },
+                                    { value: 'C', text: 'Its reports of incidents involving AI are often inaccurate.' },
+                                    { value: 'D', text: 'It gives the impression that AI failures are due to designer error.' }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        type: 'yes-no-not-given',
+                        startQuestionNumber: 36,
+                        title: 'Questions 36-40',
+                        instruction: 'Do the following statements agree with the claims of the writer in Reading Passage 3?',
+                        note: 'In boxes 36-40 on your answer sheet, write',
+                        options: [
+                            { value: 'YES', description: 'if the statement agrees with the claims of the writer' },
+                            { value: 'NO', description: 'if the statement contradicts the claims of the writer' },
+                            { value: 'NOT GIVEN', description: 'if it is impossible to say what the writer thinks about this' }
+                        ],
+                        items: [
+                            { statement: 'Subjective depictions of AI in sci-fi films make people change their opinions about automation.' },
+                            { statement: 'Portrayals of AI in media and entertainment are likely to become more positive.' },
+                            { statement: 'Rejection of the possibilities of AI may have a negative effect on many people\'s lives.' },
+                            { statement: 'Familiarity with AI has very little impact on people\'s attitudes to the technology.' },
+                            { statement: 'AI applications which users are able to modify are more likely to gain consumer approval.' }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 13,
+        title: "Reading CAM 15 Test 1",
+        explanation: "https://drive.google.com/file/d/1PDLB2BVAP7id5W8vHN1afSluF_jZlVSw/view?usp=sharing",
+        image: "https://ieltstrainingonline.com/wp-content/uploads/2020/07/cam-15-test-01.jpg",
+        correctAnswers: [
+            // Q1-4: fill-in-blanks
+            "oval", "husk", "seed", "mace",
+            // Q5-7: true-false-not-given
+            "FALSE", "NOT GIVEN", "TRUE",
+            // Q8-13: table-completion
+            "Arabs", "plague", "lime", "Run", "Mauritius", "tsunami",
+            // Q14-18: paragraph-matching
+            "C", "B", "E", "G", "D",
+            // Q19-22: summary-completion
+            "human error", "car (-) sharing", "ownership", "mileage",
+            // Q23: multiple-select (can be C or D)
+            "C/D",
+            // Q24: multiple-select (can be C or D)
+            "C/D",
+            // Q25: multiple-select (can be A or E)
+            "A/E",
+            // Q26: multiple-select (can be A or E)
+            "A/E",
+            // Q27-32: multiple-choice
+            "A", "C", "C", "D", "A", "B",
+            // Q33-37: matching
+            "E", "A", "D", "E", "B",
+            // Q38-40: fill-in-blanks
+            "(unique) expeditions", "uncontacted / isolated", "(land) surface"
+        ],
+        passages: [
+            {
+                title: "Reading Passage 1",
+                content: `<div class="et_pb_text_inner" style="height: auto !important;"><!-- divi:paragraph --><p></p>
+
+<p><span style="font-size: large;">You should spend about 20 minutes on </span><strong style="font-size: large;">Questions</strong><span style="font-size: large;"> </span><strong style="font-size: large;">1-13</strong><span style="font-size: large;">&nbsp;which are&nbsp;based on Reading Passage 1 below.</span></p>
+<p style="text-align: justify;"><span style="font-size: large;"><strong></strong></span></p>
+<h2 style="text-align: center;"><span style="font-size: xx-large;"><strong>Nutmeg – a valuable spice</strong></span></h2>
+<p><span style="font-size: large;">The nutmeg tree, <em>Myristica fragrans</em>, is a large evergreen tree native to Southeast Asia. Until the late 18th century, it only grew in one place in the world: a small group of islands in the Banda Sea, part of the Moluccas – or Spice Islands – in northeastern Indonesia. The tree is thickly branched with dense foliage of tough, dark green oval leaves, and produces small, yellow, bell-shaped flowers and pale yellow pear-shaped fruits. The fruit is encased in a flesh husk. When the fruit is ripe, this husk splits into two halves along a ridge running the length of the fruit. Inside is a purple-brown shiny seed, 2-3 cm long by about 2 cm across, surrounded by a lacy red or crimson covering called an 'aril'. These are the sources of the two spices nutmeg and mace, the former being produced from the dried seed and the latter from the aril.</span></p>
+<p><span style="font-size: large;">Nutmeg was a highly prized and costly ingredient in European cuisine in the Middle Ages, and was used as a flavouring, medicinal, and preservative agent. Throughout this period, the Arabs were the exclusive importers of the spice to Europe. They sold nutmeg for high prices to merchants based in Venice, but they never revealed the exact location of the source of this extremely valuable commodity. The Arab-Venetian dominance of the trade finally ended in 1512, when the Portuguese reached the Banda Islands and began exploiting its precious resources.</span></p>
+<p><span style="font-size: large;">Always in danger of competition from neighbouring Spain, the Portuguese began subcontracting their spice distribution to Dutch traders. Profits began to flow into the Netherlands, and the Dutch commercial fleet swiftly grew into one of the largest in the world. The Dutch quietly gained control of most of the shipping and trading of spices in Northern Europe. Then, in 1580, Portugal fell under Spanish rule, and by the end of the 16th century the Dutch found themselves locked out of the market. As prices for pepper, nutmeg, and other spices soared across Europe, they decided to fight back.</span></p>
+<p><span style="font-size: large;">In 1602, Dutch merchants founded the VOC, a trading corporation better known as the Dutch East India Company. By 1617, the VOC was the richest commercial operation in the world. The company had 50,000 employees worldwide, with a private army of 30,000 men and a fleet of 200 ships. At the same time, thousands of people across Europe were dying of the plague, a highly contagious and deadly disease. Doctors were desperate for a way to stop the spread of this disease, and they decided nutmeg held the cure. Everybody wanted nutmeg, and many were willing to spare no expense to have it. Nutmeg bought for a few pennies in Indonesia could be sold for 68,000 times its original cost on the streets of London. The only problem was the short supply. And that's where the Dutch found their opportunity.</span></p>
+<p><span style="font-size: large;">The Banda Islands were ruled by local sultans who insisted on maintaining a neutral trading policy towards foreign powers. This allowed them to avoid the presence of Portuguese or Spanish troops on their soil, but it also left them unprotected from other invaders. In 1621, the Dutch arrived and took over. Once securely in control of the Bandas, the Dutch went to work protecting their new investment. They concentrated all nutmeg production into a few easily guarded areas, uprooting and destroying any trees outside the plantation zones. Anyone caught growing a nutmeg seedling or carrying seeds without the proper authority was severely punished. In addition, all exported nutmeg was covered with lime to make sure there was no chance a fertile seed which could be grown elsewhere would leave the islands. There was only one obstacle to Dutch domination. One of the Banda Islands, a sliver of land called Run, only 3 km long by less than 1 km wide, was under the control of the British. After decades of fighting for control of this tiny island, the Dutch and British arrived at a compromise settlement, the Treaty of Breda, in 1667. Intent on securing their hold over every nutmeg-producing island, the Dutch offered a trade: if the British would give them the island of Run, they would in turn give Britain a distant and much less valuable island in North America. The British agreed. That other island was Manhattan, which is how New Amsterdam became New York. The Dutch now had a monopoly over the nutmeg trade which would last for another century.</span></p>
+<p><span style="font-size: large;">Then, in 1770, a Frenchman named Pierre Poivre successfully smuggled nutmeg plants to safety in Mauritius, an island off the coast of Africa. Some of these were later exported to the Caribbean where they thrived, especially on the island of Grenada. Next, in 1778, a volcanic eruption in the Banda region caused a tsunami that wiped out half the nutmeg groves. Finally, in 1809, the British returned to Indonesia and seized the Banda Islands by force. They returned the islands to the Dutch in 1817, but not before transplanting hundreds of nutmeg seedlings to plantations in several locations across southern Asia. The Dutch nutmeg monopoly was over.</span></p>
+<p><span style="font-size: large;">Today, nutmeg is grown in Indonesia, the Caribbean, India, Malaysia, Papua New Guinea and Sri Lanka, and world nutmeg production is estimated to average between 10,000 and 12,000 tonnes per year.</span></p>
+<p><span style="font-size: large;">&nbsp;</span></p>
+<h4>`,
+                questions: [
+                    {
+                        type: 'fill-in-blanks',
+                        startQuestionNumber: 1,
+                        title: 'Questions 1-4',
+                        instruction: 'Complete the notes below.',
+                        wordLimit: 'Choose ONE WORD ONLY from the passage for each answer.',
+                        note: 'Write your answers in boxes 1-8 on your answer sheet.',
+                        sectionTitle: 'The nutmeg tree and fruit',
+                        items: [
+                            { prefix: 'the leaves of the tree are', suffix: 'in shape' },
+                            { prefix: 'the', suffix: 'surrounds the fruit and breaks open when the fruit is ripe' },
+                            { prefix: 'the', suffix: 'is used to produce the spice nutmeg' },
+                            { prefix: 'the covering known as the aril is used to produce', suffix: '' }
+                        ]
+                    },
+                    {
+                        type: 'true-false-not-given',
+                        startQuestionNumber: 5,
+                        title: 'Questions 5-7',
+                        instruction: 'Do the following statements agree with the information given in Reading Passage 1?',
+                        note: 'In boxes 5-7 on your answer sheet, write',
+                        options: [
+                            { value: 'TRUE', description: 'if the statement agrees with the information' },
+                            { value: 'FALSE', description: 'if the statement contradicts the information' },
+                            { value: 'NOT GIVEN', description: 'if there is no information on this' }
+                        ],
+                        items: [
+                            { statement: 'In the Middle Ages, most Europeans knew where nutmeg was grown.' },
+                            { statement: 'The VOC was the world\'s first major trading company.' },
+                            { statement: 'Following the Treaty of Breda, the Dutch had control of all the islands where nutmeg grew.' }
+                        ]
+                    },
+                    {
+                        type: 'table-completion',
+                        startQuestionNumber: 8,
+                        title: 'Questions 8-13',
+                        instruction: 'Complete the table below.',
+                        wordLimit: 'Choose ONE WORD ONLY from the passage for each answer.',
+                        note: 'Write your answers in boxes 8-13 on your answer sheet.',
+                        items: [
+                            { prefix: 'Middle Ages', suffix: 'Nutmeg was brought to Europe by the' },
+                            { prefix: '17th century', suffix: 'Demand for nutmeg grew, as it was believed to be effective against the disease known as the' },
+                            { prefix: '17th century', suffix: 'The Dutch put', suffix2: 'on nutmeg to avoid it being cultivated outside the islands' },
+                            { prefix: '17th century', suffix: 'The Dutch finally obtained the island of', suffix2: 'from the British' },
+                            { prefix: 'Late 18th century', suffix: '1770 – nutmeg plants were secretly taken to' },
+                            { prefix: 'Late 18th century', suffix: '1778 – half the Banda Islands\' nutmeg plantations were destroyed by a' }
+                        ]
+                    }
+                ]
+            },
+            {
+                title: "Reading Passage 2",
+                content: `<div class="et_pb_text_inner"><h3><strong style="font-size: x-large; color: #333333;"></strong></h3>
+<h3><strong style="font-size: x-large; color: #333333;"></strong></h3>
+<h3><strong style="font-size: x-large; color: #333333;"></strong></h3>
+
+<p><span style="font-size: large;">You should spend about 20 minutes on <strong>Questions 14-26</strong>&nbsp;which are based on Reading Passage 2 below.</span><span style="font-size: 14px;">&nbsp;</span></p>
+<h2 style="text-align: center;"><span style="font-size: xx-large;"><strong>Driverless cars</strong></span></h2>
+<p><span style="font-size: x-large;"><strong>A</strong></span></p>
+<p><span style="font-size: large;">The automotive sector is well used to adapting to automation in manufacturing. The implementation of robotic car manufacture from the 1970s onwards led to significant cost savings and improvements in the reliability and flexibility of vehicle mass production. A new challenge to vehicle production is now on the horizon and, again, it comes from automation. However, this time it is not to do with the manufacturing process, but with the vehicles themselves.</span></p>
+<p><span style="font-size: large;">Research projects on vehicle automation are not new. Vehicles with limited self-driving capabilities have been around for more than 50 years, resulting in significant contributions towards driver assistance systems. But since Google announced in 2010 that it had been trialling self-driving cars on the streets of California, progress in this field has quickly gathered pace.</span></p>
+<p><span style="font-size: x-large;"><strong>B</strong></span></p>
+<p><span style="font-size: large;">There are many reasons why technology is advancing so fast. One frequently cited motive is safety; indeed, research at the UK's Transport Research Laboratory has demonstrated that more than 90 percent of road collisions involve human error as a contributory factor, and it is the primary cause in the vast majority. Automation may help to reduce the incidence of this.</span></p>
+<p><span style="font-size: large;">Another aim is to free the time people spend driving for other purposes. If the vehicle can do some or all of the driving, it may be possible to be productive, to socialise or simply to relax while automation systems have responsibility for safe control of the vehicle. If the vehicle can do the driving, those who are challenged by existing mobility models – such as older or disabled travellers – may be able to enjoy significantly greater travel autonomy.</span></p>
+<p><span style="font-size: x-large;"><strong>C</strong></span></p>
+<p><span style="font-size: large;">Beyond these direct benefits, we can consider the wider implications for transport and society, and how manufacturing processes might need to respond as a result. At present, the average car spends more than 90 percent of its life parked. Automation means that initiatives for car-sharing become much more viable, particularly in urban areas with significant travel demand. If a significant proportion of the population choose to use shared automated vehicles, mobility demand can be met by far fewer vehicles.</span></p>
+<p><span style="font-size: x-large;"><strong>D</strong></span></p>
+<p><span style="font-size: large;">The Massachusetts Institute of Technology investigated automated mobility in Singapore, finding that fewer than 30 percent of the vehicles currently used would be required if fully automated car sharing could be implemented. If this is the case, it might mean that we need to manufacture far fewer vehicles to meet demand. However, the number of trips being taken would probably increase, partly because empty vehicles would have to be moved from one customer to the next.</span></p>
+<p><span style="font-size: large;">Modelling work by the University of Michigan Transportation Research Institute suggests automated vehicles might reduce vehicle ownership by 43 percent, but that vehicles' average annual mileage double as a result. As a consequence, each vehicle would be used more intensively, and might need replacing sooner. This faster rate of turnover may mean that vehicle production will not necessarily decrease</span></p>
+<p><span style="font-size: x-large;"><strong>E</strong></span></p>
+<p><span style="font-size: large;">Automation may prompt other changes in vehicle manufacture. If we move to a model where consumers are tending not to own a single vehicle but to purchase access to a range of vehicle through a mobility provider, drivers will have the freedom to select one that best suits their needs for a particular journey, rather than making a compromise across all their requirements.</span></p>
+<p><span style="font-size: large;">Since, for most of the time, most of the seats in most cars are unoccupied, this may boost production of a smaller, more efficient range of vehicles that suit the needs of individuals. Specialised vehicles may then be available for exceptional journeys, such as going on a family camping trip or helping a son or daughter move to university.</span></p>
+<p><span style="font-size: x-large;"><strong>F</strong></span></p>
+<p><span style="font-size: large;">There are a number of hurdles to overcome in delivering automated vehicles to our roads. These include the technical difficulties in ensuring that the vehicle works reliably in the infinite range of traffic, weather and road situations it might encounter; the regulatory challenges in understanding how liability and enforcement might change when drivers are no longer essential for vehicle operation; and the societal changes that may be required for communities to trust and accept automated vehicles as being a valuable part of the mobility landscape.</span></p>
+<p><span style="font-size: x-large;"><strong>G</strong></span></p>
+<p><span style="font-size: large;">It's clear that there are many challenges that need to be addressed but, through robust and targeted research, these can most probably be conquered within the next 10 years. Mobility will change in such potentially significant ways and in association with so many other technological developments, such as telepresence and virtual reality, that it is hard to make concrete predictions about the future. However, one thing is certain: change is coming, and the need to be flexible in response to this will be vital for those involved in manufacturing the vehicles that will deliver future mobility.</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<h4>`,
+                questions: [
+                    {
+                        type: 'paragraph-matching',
+                        startQuestionNumber: 14,
+                        title: 'Questions 14-18',
+                        instruction: 'Reading Passage 2 has seven paragraphs, A-G.',
+                        note: 'Which section contains the following information?',
+                        note2: 'Write the correct letter, A-G, in boxes 14-18 on your answer sheet.',
+                        paragraphRange: 'A-G',
+                        items: [
+                            { description: 'reference to the amount of time when a car is not in use' },
+                            { description: 'mention of several advantages of driverless vehicles for individual road-users' },
+                            { description: 'reference to the opportunity of choosing the most appropriate vehicle for each trip' },
+                            { description: 'an estimate of how long it will take to overcome a number of problems' },
+                            { description: 'a suggestion that the use of driverless cars may have no effect on the number of vehicles manufactured' }
+                        ]
+                    },
+                    {
+                        type: 'summary-completion',
+                        startQuestionNumber: 19,
+                        title: 'Questions 19-22',
+                        instruction: 'Complete the summary below.',
+                        wordLimit: 'Choose NO MORE THAN TWO WORDS from the passage for each answer.',
+                        note: 'Write your answers in boxes 19-22 on your answer sheet.',
+                        sectionTitle: 'The impact of driverless cars',
+                        items: [
+                            {
+                                prefix: 'Figures from the Transport Research Laboratory indicate that most motor accidents are partly due to',
+                                suffix: ', so the introduction of driverless vehicles will result in greater safety. In addition to the direct benefits of automation, it may bring other advantages. For example, schemes for',
+                                suffix2: 'will be more workable, especially in towns and cities, resulting in fewer cars on the road.'
+                            },
+                            {
+                                prefix: 'According to the University of Michigan Transportation Research Institute, there could be a 43 percent drop in',
+                                suffix: 'of cars. However, this would mean that the yearly',
+                                suffix2: 'of each car would, on average, be twice as high as it currently is. this would lead to a higher turnover of vehicles, and therefore no reduction in automotive manufacturing.'
+                            }
+                        ]
+                    },
+                    {
+                        type: 'multiple-select',
+                        startQuestionNumber: 23,
+                        title: 'Questions 23 and 24',
+                        instruction: 'Choose TWO letters, A-E.',
+                        selectCount: 2,
+                        items: [
+                            {
+                                question: 'Which TWO benefits of automated vehicles does the writer mention?',
+                                options: [
+                                    { value: 'A', text: 'Car travellers could enjoy considerable cost savings.' },
+                                    { value: 'B', text: 'It would be easier to find parking spaces in urban areas.' },
+                                    { value: 'C', text: 'Travellers could spend journeys doing something other than driving.' },
+                                    { value: 'D', text: 'People who find driving physically difficult could travel independently.' },
+                                    { value: 'E', text: 'A reduction in the number of cars would mean a reduction in pollution.' }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        type: 'multiple-select',
+                        startQuestionNumber: 25,
+                        title: 'Questions 25 and 26',
+                        instruction: 'Choose TWO letters, A-E.',
+                        selectCount: 2,
+                        items: [
+                            {
+                                question: 'Which TWO challenges to automated vehicle development does the writer mention?',
+                                options: [
+                                    { value: 'A', text: 'making sure the general public has confidence in automated vehicles' },
+                                    { value: 'B', text: 'managing the pace of transition from conventional to automated vehicles' },
+                                    { value: 'C', text: 'deciding how to compensate professional drivers who become redundant' },
+                                    { value: 'D', text: 'setting up the infrastructure to make roads suitable for automated vehicles' },
+                                    { value: 'E', text: 'getting automated vehicles to adapt to various different driving conditions' }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                title: "Reading Passage 3",
+                content: `<div class="et_pb_text_inner"><h3><span style="font-size: x-large;"><strong></strong></span></h3>
+<h3><span style="font-size: x-large;"><strong></strong></span></h3>
+<h3><span style="font-size: x-large;"><strong></strong></span></h3>
+
+<p><span style="font-size: large;">You should spend about 20 minutes on <strong>Questions 27-40</strong> which are based on Reading Passage 3 below.</span></p>
+<h2 style="text-align: center;"><span style="font-size: xx-large;"><strong>What is exploration?</strong></span></h2>
+<p><span style="font-size: large;"></span></p>
+<p><span style="font-size: large;">We are all explores. Our desire to discover, and then share that new-found knowledge, is part of what makes us human – indeed, this has played an important part in our success as a species. Long before the first caveman slumped down beside the fire and grunted news that there were plenty of wildebeest over yonder, our ancestors had learnt the value of sending out scouts to investigate the unknown. This questing nature of ours undoubtedly helped our species spread around the globe, just as it nowadays no doubt helps the last nomadic Penan maintain their existence in the depleted forests of Borneo, and a visitor negotiate the subways of New York.</span></p>
+<p><span style="font-size: large;">Over the years, we've come to think of explorers as a peculiar breed – different from the rest of us, different from those of us who are merely 'well travelled', even; and perhaps there <em>is</em> a type of person more suited to seeking out the new, a type of caveman more inclined to risk venturing out. That, however, doesn't take away from the fact that we all have this enquiring instinct, even today; and that in all sorts of professions – whether artist, marine biologist or astronomer – borders of the unknown are being tested each day.</span></p>
+<p><span style="font-size: large;">Thomas Hardy set some of his novels in Egdon Heath, a fictional area of uncultivated land, and used the landscape to suggest the desires and fears of his characters. He is delving into matters we all recognise because they are common to humanity. This is surely an act of exploration, and into a world as remote as the author chooses. Explorer and travel writer Peter Fleming talks of the moment when the explorer returns to the existence he has left behind with his loved ones. The traveller 'who has for weeks or months seen himself only as a puny and irrelevant alien crawling laboriously over a country in which he has no roots and no background, suddenly encounters his other self, a relatively solid figure, with a place in the minds of certain people'.</span></p>
+<p><span style="font-size: large;">In this book about the exploration of the earth's surface, I have confined myself to those whose travels were real and who also aimed at more than personal discovery. But that still left me with another problem: the word 'explorer' has become associated with a past era. We think back to a golden age, as if exploration peaked somehow in the 19th century – as if the process of discovery is now on the decline, though the truth is that we have named only one and a half million of this planet's species, and there may be more than 10 million – and that's not including bacteria. We have studied only 5 per cent of the species we know. We have scarcely mapped the ocean floors, and know even less about ourselves; we fully understand the workings of only 10 per cent of our brains.</span></p>
+<p><span style="font-size: large;">Here is how some of today's 'explorers' define the word. Ran Fiennes, dubbed the 'greatest living explorer', said, 'An explorer is someone who has done something that no human has done before – and also done something scientifically useful.' Chris Bonington, a leading mountaineer, felt exploration was to be found in the act of physically touching the unknown: 'You have to have gone somewhere new.' Then Robin Hanbury-Tenison, a campaigner on behalf of remote so-called 'tribal' peoples, said, 'A traveller simply records information about some far-off world, and reports back; but an explorer <em>changes </em>the world.' Wilfred Thesiger, who crossed Arabia's Empty Quarter in 1946, and belongs to an era of unmechanised travel now lost to the rest of us, told me, 'If I'd gone across by camel when I could have gone by car, it would have been a stunt.' To him, exploration meant bringing back information from a remote place regardless of any great self-discovery.</span></p>
+<p><span style="font-size: large;">Each definition is slightly different – and tends to reflect the field of endeavour of each pioneer. It was the same whoever I asked: the prominent historian would say exploration was a thing of the past, the cutting-edge scientist would say it was of the present. And so on. They each set their own particular criteria; the common factor in their approach being that they all had, unlike many of us who simply enjoy travel or discovering new things, both a very definite objective from the outset and also a desire to record their findings.</span></p>
+<p><span style="font-size: large;">I'd best declare my own bias. As a writer, I'm interested in the exploration of ideas. I've done a great many expeditions and each one was unique. I've lived for months alone with isolated groups of people all around the world, even two 'uncontacted tribes'. But none of these things is of the slightest interest to anyone unless, through my books, I've found a new slant, explored a new idea. Why? Because the world has moved on. The time has long passed for the great continental voyages – another walk to the poles, another crossing of the Empty Quarter. We know how the land surface of our planet lies; exploration of it is now down to the details – the habits of microbes, say, or the grazing behaviour of buffalo. Aside from the deep sea and deep underground, it's the era of specialists. However, this is to disregard the role the human mind has in conveying remote places; and this is what interests me: how a fresh interpretation, even of a well-travelled route, can give its readers new insights.</span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<p><span style="font-size: large;"><strong></strong></span></p>
+<h4>`,
+                questions: [
+                    {
+                        type: 'multiple-choice',
+                        startQuestionNumber: 27,
+                        title: 'Questions 27-32',
+                        instruction: 'Choose the correct letter, A, B, C or D.',
+                        note: 'Write the correct letter in boxes 27-32 on your answer sheet.',
+                        items: [
+                            {
+                                question: 'The writer refers to visitors to New York to illustrate the point that',
+                                options: [
+                                    { value: 'A', text: 'exploration is an intrinsic element of being human.' },
+                                    { value: 'B', text: 'most people are enthusiastic about exploring.' },
+                                    { value: 'C', text: 'exploration can lead to surprising results.' },
+                                    { value: 'D', text: 'most people find exploration daunting.' }
+                                ]
+                            },
+                            {
+                                question: 'According to the second paragraph, what is the writer\'s view of explorers?',
+                                options: [
+                                    { value: 'A', text: 'Their discoveries have brought both benefits and disadvantages.' },
+                                    { value: 'B', text: 'Their main value is in teaching others.' },
+                                    { value: 'C', text: 'They act on an urge that is common to everyone.' },
+                                    { value: 'D', text: 'They tend to be more attracted to certain professions than to others.' }
+                                ]
+                            },
+                            {
+                                question: 'The writer refers to a description of Egdon Heath to suggest that',
+                                options: [
+                                    { value: 'A', text: 'Hardy was writing about his own experience of exploration.' },
+                                    { value: 'B', text: 'Hardy was mistaken about the nature of exploration.' },
+                                    { value: 'C', text: 'Hardy\'s aim was to investigate people\'s emotional states.' },
+                                    { value: 'D', text: 'Hardy\'s aim was to show the attraction of isolation.' }
+                                ]
+                            },
+                            {
+                                question: 'In the fourth paragraph, the writer refers to \'a golden age\' to suggest that',
+                                options: [
+                                    { value: 'A', text: 'the amount of useful information produced by exploration has decreased.' },
+                                    { value: 'B', text: 'fewer people are interested in exploring than in the 19th century.' },
+                                    { value: 'C', text: 'recent developments have made exploration less exciting.' },
+                                    { value: 'D', text: 'we are wrong to think that exploration is no longer necessary.' }
+                                ]
+                            },
+                            {
+                                question: 'In the sixth paragraph, when discussing the definition of exploration, the writer argues that',
+                                options: [
+                                    { value: 'A', text: 'people tend to relate exploration to their own professional interests.' },
+                                    { value: 'B', text: 'certain people are likely to misunderstand the nature of exploration.' },
+                                    { value: 'C', text: 'the generally accepted definition has changed over time.' },
+                                    { value: 'D', text: 'historians and scientists have more valid definitions than the general public.' }
+                                ]
+                            },
+                            {
+                                question: 'In the last paragraph, the writer explains that he is interested in',
+                                options: [
+                                    { value: 'A', text: 'how someone\'s personality is reflected in their choice of places to visit.' },
+                                    { value: 'B', text: 'the human ability to cast new light on places that may be familiar.' },
+                                    { value: 'C', text: 'how travel writing has evolved to meet changing demands.' },
+                                    { value: 'D', text: 'the feelings that writers develop about the places that they explore.' }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        type: 'matching',
+                        startQuestionNumber: 33,
+                        title: 'Questions 33-37',
+                        instruction: 'Look at the following statements (Questions 33-37) and the list of explorers below.',
+                        note: 'Match each statement with the correct explorer, A-E.',
+                        note2: 'Write the correct letter, A-E, in boxes 33-37 on your answer sheet.',
+                        note3: 'NB You may use any letter more than once.',
+                        items: [
+                            { description: 'He referred to the relevance of the form of transport used.' },
+                            { description: 'He described feelings on coming back home after a long journey.' },
+                            { description: 'He worked for the benefit of specific groups of people.' },
+                            { description: 'He did not consider learning about oneself an essential part of exploration.' },
+                            { description: 'He defined exploration as being both unique and of value to others.' }
+                        ],
+                        options: [
+                            { value: 'A', text: 'Peter Fleming' },
+                            { value: 'B', text: 'Ran Fiennes' },
+                            { value: 'C', text: 'Chris Bonington' },
+                            { value: 'D', text: 'Robin Hanbury-Tenison' },
+                            { value: 'E', text: 'Wilfred Thesiger' }
+                        ]
+                    },
+                    {
+                        type: 'fill-in-blanks',
+                        startQuestionNumber: 38,
+                        title: 'Questions 38-40',
+                        instruction: 'Complete the summary below.',
+                        wordLimit: 'Choose NO MORE THAN TWO WORDS from the passage for each answer.',
+                        note: 'Write your answers in boxes 38-40 on your answer sheet.',
+                        sectionTitle: 'The writer\'s own bias',
+                        items: [
+                            {
+                                prefix: 'The writer has experience of a large number of',
+                                suffix: ', and was the first stranger that certain previously'
+                            },
+                            {
+                                prefix: '',
+                                suffix: 'people had encountered. He believes there is no need for further exploration of Earth\'s'
+                            },
+                            {
+                                prefix: '',
+                                suffix: ', except to answer specific questions such as how buffalo eat.'
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
     }
 ];
