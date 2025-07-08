@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ParagraphHeadings = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
-    const { title, instruction, paragraphRange, options, items } = question;
+    const { title, instruction, options, items } = question;
 
     // Safety checks for items and options
     const questionItems = items || [];
