@@ -11,11 +11,17 @@ const MultipleChoice = ({ question, startQuestionNumber, answers, onAnswerChange
             // For multiple select, handle array of answers
             const currentAnswers = answers[questionNumber - 1] ? answers[questionNumber - 1].split(',').filter(a => a.trim()) : [];
             let newAnswers;
+            const maxSelections = selectCount || 2; // Giới hạn số lượng có thể chọn
             
             if (isChecked) {
-                // Add the value if not already present
+                // Add the value if not already present and under limit
                 if (!currentAnswers.includes(value)) {
-                    newAnswers = [...currentAnswers, value];
+                    if (currentAnswers.length < maxSelections) {
+                        newAnswers = [...currentAnswers, value];
+                    } else {
+                        // Đã đạt giới hạn, không thể chọn thêm
+                        return; // Không thực hiện thay đổi
+                    }
                 } else {
                     newAnswers = currentAnswers;
                 }
@@ -85,19 +91,28 @@ const MultipleChoice = ({ question, startQuestionNumber, answers, onAnswerChange
                         const isChecked = multipleSelect 
                             ? currentAnswer.split(',').map(a => a.trim()).includes(option.value)
                             : currentAnswer === option.value;
+                        
+                        // Kiểm tra xem có đạt giới hạn chọn chưa
+                        const currentSelections = multipleSelect 
+                            ? currentAnswer.split(',').filter(a => a.trim()).length 
+                            : 0;
+                        const maxSelections = selectCount || 2;
+                        const isAtLimit = multipleSelect && currentSelections >= maxSelections && !isChecked;
                             
                         return (
                             <label key={option.value} className="option-label" style={{
                                 display: 'block',
                                 marginBottom: '8px',
-                                cursor: 'pointer',
-                                color: '#555'
+                                cursor: isAtLimit ? 'not-allowed' : 'pointer',
+                                color: isAtLimit ? '#ccc' : '#555',
+                                opacity: isAtLimit ? 0.6 : 1
                             }}>
                                 <input
                                     type={multipleSelect ? "checkbox" : "radio"}
                                     name={multipleSelect ? `question-${questionNumber}-${option.value}` : `question-${questionNumber}`}
                                     value={option.value}
                                     checked={isChecked}
+                                    disabled={isAtLimit}
                                     onChange={(e) => handleAnswerChange(questionNumber, option.value, e.target.checked)}
                                     style={{ marginRight: '8px' }}
                                 />

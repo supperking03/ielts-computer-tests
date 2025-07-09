@@ -12,17 +12,27 @@ const MultipleSelect = ({ question, startQuestionNumber, answers, onAnswerChange
     // Khi chọn đáp án, sẽ gán vào câu đầu tiên chưa có đáp án, hoặc bỏ chọn thì xóa ở tất cả các câu trong nhóm
     const handleGroupAnswerChange = (value, isChecked) => {
         if (isChecked) {
+            // Kiểm tra số lượng đã chọn
+            const currentlySelected = groupAnswers.filter(ans => ans.trim() !== '').length;
+            const maxSelections = selectCount || 2;
+            
+            if (currentlySelected >= maxSelections) {
+                // Đã đạt giới hạn, không thể chọn thêm
+                return;
+            }
+            
             // Gán vào câu đầu tiên chưa có đáp án
             const emptyIndex = groupAnswers.findIndex(ans => ans === '');
             if (emptyIndex !== -1) {
-                onAnswerChange(questionNumbers[emptyIndex], value, true);
+                onAnswerChange(questionNumbers[emptyIndex], value);
             }
         } else {
             // Bỏ chọn thì xóa ở tất cả các câu trong nhóm
             questionNumbers.forEach(qNum => {
                 const current = answers[qNum - 1] || '';
-                if (current.split(',').map(a => a.trim()).includes(value)) {
-                    onAnswerChange(qNum, value, false);
+                if (current.trim() === value) {
+                    // Xóa đáp án bằng cách set thành empty string
+                    onAnswerChange(qNum, '');
                 }
             });
         }
@@ -76,19 +86,27 @@ const MultipleSelect = ({ question, startQuestionNumber, answers, onAnswerChange
                             <div className="answer-options" style={{ marginTop: '12px', paddingLeft: '20px' }}>
                                 {item.options.map((option) => {
                                     // Check nếu đáp án này đã được chọn ở bất kỳ câu nào trong nhóm
-                                    const isChecked = groupAnswers.some(ans => ans.split(',').map(a => a.trim()).includes(option.value));
+                                    const isChecked = groupAnswers.some(ans => ans.trim() === option.value);
+                                    
+                                    // Kiểm tra xem có đạt giới hạn chọn chưa
+                                    const currentlySelected = groupAnswers.filter(ans => ans.trim() !== '').length;
+                                    const maxSelections = selectCount || 2;
+                                    const isAtLimit = currentlySelected >= maxSelections && !isChecked;
+                                    
                                     return (
                                         <label key={option.value} className="option-label" style={{
                                             display: 'block',
                                             marginBottom: '8px',
-                                            cursor: 'pointer',
-                                            color: '#555'
+                                            cursor: isAtLimit ? 'not-allowed' : 'pointer',
+                                            color: isAtLimit ? '#ccc' : '#555',
+                                            opacity: isAtLimit ? 0.6 : 1
                                         }}>
                                             <input
                                                 type="checkbox"
                                                 name={`question-${questionRange}-${option.value}`}
                                                 value={option.value}
                                                 checked={isChecked}
+                                                disabled={isAtLimit}
                                                 onChange={(e) => handleGroupAnswerChange(option.value, e.target.checked)}
                                                 style={{ marginRight: '8px' }}
                                             />

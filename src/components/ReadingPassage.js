@@ -45,7 +45,7 @@ function ReadingPassage() {
     }, []);
 
     // Questions container component - mounted once per passage
-    const QuestionsContainer = ({ questionHTML, currentPassage, onAnswerChange }) => {
+    const QuestionsContainer = ({ questionHTML, currentPassage, onAnswerChange, answers }) => {
         const containerRef = useRef(null);
         
         useEffect(() => {
@@ -119,7 +119,68 @@ function ReadingPassage() {
                     }
                 }
             });
-        }, []); // Empty dependencies - only run once on mount
+
+            // Handle table completion questions - look for patterns like <strong>8<span>……………</span></strong> hoặc <strong>8-13<span>……………</span></strong>
+            const questionSpans = containerRef.current.querySelectorAll('strong > span');
+            questionSpans.forEach(span => {
+                const spanText = span.textContent;
+                // Check if span contains only dots (question placeholder)
+                if (/^…+$/.test(spanText.trim())) {
+                    const strongElement = span.parentNode;
+                    let questionNumberText = strongElement.textContent.replace(spanText, '').trim();
+                    // Lấy tất cả số trong text, ví dụ "8-13" => [8,13], "8" => [8]
+                    const rangeMatch = questionNumberText.match(/(\d+)(?:\s*-\s*(\d+))?/);
+                    if (rangeMatch) {
+                        let from = parseInt(rangeMatch[1]);
+                        let to = rangeMatch[2] ? parseInt(rangeMatch[2]) : from;
+                        // Tạo input cho từng số trong khoảng
+                        const fragment = document.createDocumentFragment();
+                        for (let q = from; q <= to; q++) {
+                            const input = document.createElement('input');
+                            input.type = 'text';
+                            input.className = 'inline-answer-input table-input';
+                            input.placeholder = `Q${q}`;
+                            input.id = `question-${q}`;
+                            // Set current value from answers state
+                            const answerIndex = q - 1;
+                            input.value = answers[answerIndex] || '';
+                            input.style.cssText = `
+                                display: inline-block;
+                                width: 100px;
+                                padding: 2px 6px;
+                                margin: 0 2px;
+                                border: 1px solid #333;
+                                border-radius: 3px;
+                                font-size: 13px;
+                                background-color: #f8f9fa;
+                                vertical-align: baseline;
+                            `;
+                            // Add event listener
+                            input.addEventListener('input', (e) => {
+                                onAnswerChange(q, e.target.value);
+                            });
+                            fragment.appendChild(input);
+                        }
+                        // Thay thế span bằng fragment chứa các input
+                        span.parentNode.replaceChild(fragment, span);
+                    }
+                }
+            });
+        }, [questionHTML]); // Re-run when questionHTML changes
+        
+        // Update input values when answers change
+        useEffect(() => {
+            if (!containerRef.current) return;
+            
+            const inputs = containerRef.current.querySelectorAll('.table-input');
+            inputs.forEach(input => {
+                const questionNumber = parseInt(input.placeholder.replace('Q', ''));
+                const answerIndex = questionNumber - 1;
+                if (input.value !== (answers[answerIndex] || '')) {
+                    input.value = answers[answerIndex] || '';
+                }
+            });
+        }, [answers]);
         
         return <div ref={containerRef}></div>;
     };
@@ -286,6 +347,7 @@ function ReadingPassage() {
                                 questionHTML={passages[currentPassage].question}
                                 currentPassage={currentPassage}
                                 onAnswerChange={handleInlineInputChange}
+                                answers={answers}
                             />
                         </div>
                     </div>
