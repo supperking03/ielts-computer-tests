@@ -17,7 +17,7 @@ const MultipleChoice = ({ question, startQuestionNumber, answers, onAnswerChange
                 // Add the value if not already present and under limit
                 if (!currentAnswers.includes(value)) {
                     if (currentAnswers.length < maxSelections) {
-                        newAnswers = [...currentAnswers, value];
+                    newAnswers = [...currentAnswers, value];
                     } else {
                         // Đã đạt giới hạn, không thể chọn thêm
                         return; // Không thực hiện thay đổi
