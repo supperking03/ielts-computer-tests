@@ -1,4 +1,5 @@
 import React from 'react';
+import { createAnswerChecker } from '../../utils/answerMatching';
 
 const YesNoNotGiven = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
     const { title, instruction, options, items } = question;
@@ -20,13 +21,7 @@ const YesNoNotGiven = ({ question, startQuestionNumber, answers, onAnswerChange,
         onAnswerChange(questionNumber, value);
     };
 
-    const isAnswerCorrect = (questionNumber) => {
-        if (!hasViewedResults || !correctAnswers) return null;
-        const answerIndex = questionNumber - 1;
-        const userAnswer = answers[answerIndex]?.trim().toUpperCase() || '';
-        const correctAnswer = correctAnswers[answerIndex]?.toUpperCase() || '';
-        return userAnswer === correctAnswer;
-    };
+    const isAnswerCorrect = createAnswerChecker(answers, correctAnswers, hasViewedResults);
 
     return (
         <div className="question-section yes-no-not-given">

@@ -1,4 +1,5 @@
 import React from 'react';
+import { createAnswerChecker } from '../../utils/answerMatching';
 
 const FillInBlanks = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
     const { title, instruction, wordLimit, items, tableView, sectionTitle } = question;
@@ -10,13 +11,7 @@ const FillInBlanks = ({ question, startQuestionNumber, answers, onAnswerChange, 
         onAnswerChange(questionNumber, value);
     };
 
-    const isAnswerCorrect = (questionNumber) => {
-        if (!hasViewedResults || !correctAnswers) return null;
-        const answerIndex = questionNumber - 1;
-        const userAnswer = answers[answerIndex]?.trim().toLowerCase() || '';
-        const correctAnswer = correctAnswers[answerIndex]?.toLowerCase() || '';
-        return userAnswer === correctAnswer;
-    };
+    const isAnswerCorrect = createAnswerChecker(answers, correctAnswers, hasViewedResults);
 
     // If this is a table view, render as a table
     if (tableView) {

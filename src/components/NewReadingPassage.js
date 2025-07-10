@@ -5,6 +5,7 @@ import { newTests } from './newData';
 import QuestionRenderer from './QuestionRenderer';
 import { Helmet } from 'react-helmet';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
+import { isAnswerMatch } from '../utils/answerMatching';
 
 function NewReadingPassage() {
     const { id } = useParams();
@@ -119,7 +120,7 @@ function NewReadingPassage() {
         if (!hasViewedResults || !selectedTest.correctAnswers) return null;
         const userAnswer = answers[questionIndex] ? answers[questionIndex].trim().toLowerCase() : '';
         const correctAnswer = selectedTest.correctAnswers[questionIndex] ? selectedTest.correctAnswers[questionIndex].toLowerCase() : '';
-        return userAnswer === correctAnswer;
+        return isAnswerMatch(userAnswer, correctAnswer);
     };
 
     const getPassageForQuestion = (questionNumber) => {
@@ -176,6 +177,8 @@ function NewReadingPassage() {
         }
     };
 
+
+
     const calculateScore = () => {
         const correctAnswers = selectedTest.correctAnswers;
         let score = 0;
@@ -184,7 +187,7 @@ function NewReadingPassage() {
             const userAnswer = answers[i] ? answers[i].trim().toLowerCase() : '';
             const correctAnswer = correctAnswers[i] ? correctAnswers[i].toLowerCase() : '';
             
-            if (userAnswer === correctAnswer) {
+            if (isAnswerMatch(userAnswer, correctAnswer)) {
                 score++;
             }
         }

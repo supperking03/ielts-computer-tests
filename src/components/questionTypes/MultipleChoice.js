@@ -1,4 +1,5 @@
 import React from 'react';
+import { isAnswerMatch } from '../../utils/answerMatching';
 
 const MultipleChoice = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
     const { title, instruction, items, multipleSelect, selectCount, question: questionText } = question;
@@ -40,17 +41,17 @@ const MultipleChoice = ({ question, startQuestionNumber, answers, onAnswerChange
     const isAnswerCorrect = (questionNumber) => {
         if (!hasViewedResults || !correctAnswers) return null;
         const answerIndex = questionNumber - 1;
-        const userAnswer = answers[answerIndex]?.trim().toUpperCase() || '';
-        const correctAnswer = correctAnswers[answerIndex]?.toUpperCase() || '';
+        const userAnswer = answers[answerIndex]?.trim() || '';
+        const correctAnswer = correctAnswers[answerIndex] || '';
         
         if (multipleSelect) {
             // For multiple select, compare arrays
             const userAnswers = userAnswer.split(',').map(a => a.trim().toUpperCase()).sort();
-            const correctAnswers = correctAnswer.split(',').map(a => a.trim().toUpperCase()).sort();
-            return JSON.stringify(userAnswers) === JSON.stringify(correctAnswers);
+            const correctAnswersList = correctAnswer.split(',').map(a => a.trim().toUpperCase()).sort();
+            return JSON.stringify(userAnswers) === JSON.stringify(correctAnswersList);
         } else {
-            // For single select, compare strings
-            return userAnswer === correctAnswer;
+            // For single select, use smart matching
+            return isAnswerMatch(userAnswer, correctAnswer);
         }
     };
 

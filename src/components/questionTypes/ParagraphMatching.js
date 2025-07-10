@@ -1,4 +1,5 @@
 import React from 'react';
+import { createAnswerChecker } from '../../utils/answerMatching';
 
 const ParagraphMatching = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
     const { title, instruction, paragraphRange, items, note } = question;
@@ -10,13 +11,7 @@ const ParagraphMatching = ({ question, startQuestionNumber, answers, onAnswerCha
         onAnswerChange(questionNumber, value.toUpperCase());
     };
 
-    const isAnswerCorrect = (questionNumber) => {
-        if (!hasViewedResults || !correctAnswers) return null;
-        const answerIndex = questionNumber - 1;
-        const userAnswer = answers[answerIndex]?.trim().toLowerCase() || '';
-        const correctAnswer = correctAnswers[answerIndex]?.toLowerCase() || '';
-        return userAnswer === correctAnswer;
-    };
+    const isAnswerCorrect = createAnswerChecker(answers, correctAnswers, hasViewedResults);
 
     // Generate paragraph options (A, B, C, etc.)
     const getParagraphOptions = () => {

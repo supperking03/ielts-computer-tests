@@ -1,4 +1,5 @@
 import React from 'react';
+import { createAnswerChecker } from '../../utils/answerMatching';
 
 const Matching = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
     const { title, instruction, options, items, note } = question;
@@ -11,13 +12,7 @@ const Matching = ({ question, startQuestionNumber, answers, onAnswerChange, hasV
         onAnswerChange(questionNumber, value);
     };
 
-    const isAnswerCorrect = (questionNumber) => {
-        if (!hasViewedResults || !correctAnswers) return null;
-        const answerIndex = questionNumber - 1;
-        const userAnswer = answers[answerIndex]?.trim().toLowerCase() || '';
-        const correctAnswer = correctAnswers[answerIndex]?.toLowerCase() || '';
-        return userAnswer === correctAnswer;
-    };
+    const isAnswerCorrect = createAnswerChecker(answers, correctAnswers, hasViewedResults);
 
     return (
         <div className="question-section matching">
