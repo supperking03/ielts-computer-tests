@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3:*)",
+      "Bash(npx react-scripts build --silent)",
+      "Bash(grep -n '\"\"id\"\":\\\\|id:' /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/dataLis.js)",
+      "Bash(node -e \":*)"
+    ]
+  }
+}
