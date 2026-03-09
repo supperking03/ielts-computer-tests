@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import { readAndCompressImage } from 'browser-image-resizer';
 import './WritingPassage.css';
 

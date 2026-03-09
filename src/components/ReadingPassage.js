@@ -6,46 +6,8 @@ import { Helmet } from 'react-helmet';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 
 
-function ReadingPassage() {
-    const { id } = useParams();
-    const location = useLocation();
-    const navigate = useNavigate();
-
-    // Use the 'id' to fetch or display the data for this specific test.
-    // For example, you can find the test using the id from your `tests` array.
-
-    // Set the initial passage from the URL query parameter
-    const initialPassage = parseInt(new URLSearchParams(location.search).get('passage')) || 0;
-    const [currentPassage, setCurrentPassage] = useState(initialPassage);
-
-    // Update the URL when `currentPassage` changes
-    useEffect(() => {
-        navigate(`?passage=${currentPassage}`, { replace: true });
-    }, [currentPassage, navigate]);
-
-    const selectedTest = tests.find(test => test.id === parseInt(id));
-
-    // For right-click highlighting
-    const [contextMenu, setContextMenu] = useState({ visible: false, x: 0, y: 0 });
-
-    const [showResults, setShowResults] = useState(false);
-    const [answers, setAnswers] = useState(Array(40).fill(""));
-    const results = selectedTest.results;
-
-    const [renderedContent, setRenderedContent] = useState({ passages: {}, questions: {} });
-
-    // Handle input changes from inline inputs
-    const handleInlineInputChange = useCallback((questionNumber, value) => {
-        const answerIndex = questionNumber - 1;
-        setAnswers(prevAnswers => {
-            const newAnswers = [...prevAnswers];
-            newAnswers[answerIndex] = value;
-            return newAnswers;
-        });
-    }, []);
-
-    // Questions container component - mounted once per passage
-    const QuestionsContainer = ({ questionHTML, currentPassage, onAnswerChange, answers }) => {
+// Questions container component - defined outside ReadingPassage to keep stable reference
+const QuestionsContainer = ({ questionHTML, currentPassage, onAnswerChange, answers }) => {
         const containerRef = useRef(null);
         
         useEffect(() => {
@@ -183,7 +145,35 @@ function ReadingPassage() {
         }, [answers]);
         
         return <div ref={containerRef}></div>;
-    };
+};
+
+function ReadingPassage() {
+    const { id } = useParams();
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const initialPassage = parseInt(new URLSearchParams(location.search).get('passage')) || 0;
+    const [currentPassage, setCurrentPassage] = useState(initialPassage);
+
+    useEffect(() => {
+        navigate(`?passage=${currentPassage}`, { replace: true });
+    }, [currentPassage, navigate]);
+
+    const selectedTest = tests.find(test => test.id === parseInt(id));
+
+    const [contextMenu, setContextMenu] = useState({ visible: false, x: 0, y: 0 });
+    const [showResults, setShowResults] = useState(false);
+    const [answers, setAnswers] = useState(Array(40).fill(""));
+    const [renderedContent, setRenderedContent] = useState({ passages: {}, questions: {} });
+
+    const handleInlineInputChange = useCallback((questionNumber, value) => {
+        const answerIndex = questionNumber - 1;
+        setAnswers(prevAnswers => {
+            const newAnswers = [...prevAnswers];
+            newAnswers[answerIndex] = value;
+            return newAnswers;
+        });
+    }, []);
 
     const navigateBackToHome = () => {
         navigate('/');
@@ -194,6 +184,7 @@ function ReadingPassage() {
     }
 
     const passages = selectedTest.passages;
+    const results = selectedTest.results;
 
     function toggleFullScreen() {
         if (!document.fullscreenElement) {
