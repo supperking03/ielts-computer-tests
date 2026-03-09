@@ -134,7 +134,7 @@ const QuestionsContainer = ({ questionHTML, currentPassage, onAnswerChange, answ
         useEffect(() => {
             if (!containerRef.current) return;
             
-            const inputs = containerRef.current.querySelectorAll('.table-input');
+            const inputs = containerRef.current.querySelectorAll('.inline-answer-input');
             inputs.forEach(input => {
                 const questionNumber = parseInt(input.placeholder.replace('Q', ''));
                 const answerIndex = questionNumber - 1;
