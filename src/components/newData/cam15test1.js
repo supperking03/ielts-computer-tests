@@ -59,20 +59,20 @@ export const cam15test1 = {
             "sectionTitle": "The nutmeg tree and fruit",
             "items": [
               {
-                "text": "the leaves of the tree are ___ in shape",
-                "questionNumber": 1
+                "prefix": "the leaves of the tree are",
+                "suffix": "in shape"
               },
               {
-                "text": "the ___ surrounds the fruit and breaks open when the fruit is ripe",
-                "questionNumber": 2
+                "prefix": "the",
+                "suffix": "surrounds the fruit and breaks open when the fruit is ripe"
               },
               {
-                "text": "the ___ is used to produce the spice nutmeg",
-                "questionNumber": 3
+                "prefix": "the",
+                "suffix": "is used to produce the spice nutmeg"
               },
               {
-                "text": "the covering known as the aril is used to produce ___",
-                "questionNumber": 4
+                "prefix": "the covering known as the aril is used to produce",
+                "suffix": ""
               }
             ]
           },
@@ -266,7 +266,7 @@ export const cam15test1 = {
             ]
           },
           {
-            "type": "summary-completion",
+            "type": "fill-in-blanks",
             "startQuestionNumber": 19,
             "title": "Questions 19-22",
             "instruction": "Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
@@ -274,20 +274,20 @@ export const cam15test1 = {
             "sectionTitle": "The impact of driverless cars",
             "items": [
               {
-                "text": "most motor accidents are partly due to ___",
-                "questionNumber": 19
+                "prefix": "most motor accidents are partly due to",
+                "suffix": ""
               },
               {
-                "text": "schemes for ___ will be more workable",
-                "questionNumber": 20
+                "prefix": "schemes for",
+                "suffix": "will be more workable"
               },
               {
-                "text": "43 percent drop in ___ of cars",
-                "questionNumber": 21
+                "prefix": "43 percent drop in",
+                "suffix": "of cars"
               },
               {
-                "text": "the yearly ___ of each car would double",
-                "questionNumber": 22
+                "prefix": "the yearly",
+                "suffix": "of each car would double"
               }
             ]
           },
@@ -546,7 +546,7 @@ export const cam15test1 = {
             ]
           },
           {
-            "type": "summary-completion",
+            "type": "fill-in-blanks",
             "startQuestionNumber": 38,
             "title": "Questions 38-40",
             "instruction": "Complete the summary below. Choose NO MORE THAN TWO WORDS from the passage for each answer.",
@@ -554,19 +554,19 @@ export const cam15test1 = {
             "sectionTitle": "The writer\u2019s own bias",
             "items": [
               {
-                "text": "The writer has experience of a large number of ___",
-                "questionNumber": 38
+                "prefix": "The writer has experience of a large number of",
+                "suffix": ""
               },
               {
-                "text": "certain previously ___ people had encountered him",
-                "questionNumber": 39
+                "prefix": "certain previously",
+                "suffix": "people had encountered him"
               },
               {
-                "text": "no need for further exploration of Earth\u2019s ___",
-                "questionNumber": 40
-                }
+                "prefix": "no need for further exploration of Earth\u2019s",
+                "suffix": ""
+              }
             ]
-        }
+          }
     ]
   }
 ]

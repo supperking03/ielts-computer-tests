@@ -4,7 +4,21 @@
       "Bash(python3:*)",
       "Bash(npx react-scripts build --silent)",
       "Bash(grep -n '\"\"id\"\":\\\\|id:' /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/dataLis.js)",
-      "Bash(node -e \":*)"
+      "Bash(node -e \":*)",
+      "Bash(grep -n \"title: ''Reading CAM\\\\|title: \\\\`Reading CAM\" /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/data.js)",
+      "WebFetch(domain:ieltstrainingonline.com)",
+      "WebSearch",
+      "WebFetch(domain:www.ielts-mentor.com)",
+      "WebFetch(domain:www.readingielts.com)",
+      "Bash(curl -s --max-time 30 \"https://ieltstrainingonline.com/ielts-reading/cambridge-ielts-13-reading-test-3/\")",
+      "WebFetch(domain:ieltsprogress.com)",
+      "Bash(curl -v --max-time 30 \"https://ieltstrainingonline.com/ielts-reading/cambridge-ielts-13-reading-test-3/\")",
+      "WebFetch(domain:ieltsonlinetests.com)",
+      "WebFetch(domain:banglayielts.com)",
+      "WebFetch(domain:www.ieltsbuddy.com)",
+      "WebFetch(domain:engnovate.com)",
+      "WebFetch(domain:ielts-up.com)",
+      "WebFetch(domain:azadenglish.com)"
     ]
   }
 }
