@@ -30,7 +30,10 @@
       "Bash(awk 'NR>=2291 && NR<=2354' /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/data.js)",
       "Bash(grep -l \"table-completion\" /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/newData/*.js)",
       "Bash(ls -la /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/newData/cam1*.js)",
-      "Bash(node -e \"require\\(''./src/components/newData/cam13test3.js''\\)\")"
+      "Bash(node -e \"require\\(''./src/components/newData/cam13test3.js''\\)\")",
+      "Bash(sed -i '' 's/import QuestionRenderer from .\\\\/QuestionRenderer./import ListeningQuestionRenderer from \"\".\\\\/ListeningQuestionRenderer\"\";/' /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/NewListeningPassage.js)",
+      "Bash(sed -i '' 's/<QuestionRenderer/<ListeningQuestionRenderer/g' /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/NewListeningPassage.js)",
+      "Bash(sed -i '' 's/<\\\\/QuestionRenderer>/<\\\\/ListeningQuestionRenderer>/g' /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/NewListeningPassage.js)"
     ]
   }
 }

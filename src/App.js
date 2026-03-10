@@ -7,6 +7,7 @@ import NewReadingPassage from './components/NewReadingPassage';
 import { tests } from './components/data';
 import { tests as tests2 } from './components/dataLis';
 import ListeningPassage from './components/ListeningPassage';
+import NewListeningPassage from './components/NewListeningPassage';
 import './Menu.css';
 import './App.css';
 import { Helmet } from 'react-helmet';
@@ -58,8 +59,8 @@ function AppContent() {
 
   return (
     <div className="App">
-      {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/new-reading/') && !location.pathname.startsWith('/listening/')) && (!location.pathname.startsWith('/writing/')) && <Header />}
-      {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/new-reading/') && !location.pathname.startsWith('/listening/')) && (!location.pathname.startsWith('/writing/')) && <div className="menu">
+      {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/new-reading/') && !location.pathname.startsWith('/listening/') && !location.pathname.startsWith('/new-listening/')) && (!location.pathname.startsWith('/writing/')) && <Header />}
+      {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/new-reading/') && !location.pathname.startsWith('/listening/') && !location.pathname.startsWith('/new-listening/')) && (!location.pathname.startsWith('/writing/')) && <div className="menu">
         <Link className="Navigator" onClick={() => { setCurrentPage(0) }}>Reading</Link>
         <Link className="Navigator" onClick={() => { setCurrentPage(1) }}>Listening</Link>
         <Link className="Navigator" onClick={() => { setCurrentPage(2) }} style={{  }}>Writing Task 2 👑 (beta)</Link>
@@ -70,6 +71,7 @@ function AppContent() {
           <Route path="/reading/:id/:title" element={<ReadingPassage />} />
           <Route path="/new-reading/:id/:title" element={<NewReadingPassage />} />
           <Route path="/listening/:id/:title" element={<ListeningPassage />} />
+          <Route path="/new-listening/:id/:title" element={<NewListeningPassage />} />
           {/* <Route path="/writing/" element={<WritingPassage />} /> */}
           {/* ... other routes */}
         </Routes>
@@ -77,7 +79,7 @@ function AppContent() {
       {currentPage == 2 && <WritingPassage />}
 
 
-      {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/new-reading/') && !location.pathname.startsWith('/listening/')) && (!location.pathname.startsWith('/writing/')) && <div>
+      {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/new-reading/') && !location.pathname.startsWith('/listening/') && !location.pathname.startsWith('/new-listening/')) && (!location.pathname.startsWith('/writing/')) && <div>
         <h3 style={{ color: 'InfoText' }}>
           If you find this website useful, leave a good comment. Thanks !!!!
         </h3>
