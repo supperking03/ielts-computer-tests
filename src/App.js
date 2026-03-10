@@ -6,6 +6,7 @@ import ReadingPassage from './components/ReadingPassage';
 import NewReadingPassage from './components/NewReadingPassage';
 import { tests } from './components/data';
 import { tests as tests2 } from './components/dataLis';
+import { tests as testsGeneral } from './components/dataGeneral';
 import ListeningPassage from './components/ListeningPassage';
 import NewListeningPassage from './components/NewListeningPassage';
 import './Menu.css';
@@ -61,13 +62,14 @@ function AppContent() {
     <div className="App">
       {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/new-reading/') && !location.pathname.startsWith('/listening/') && !location.pathname.startsWith('/new-listening/')) && (!location.pathname.startsWith('/writing/')) && <Header />}
       {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/new-reading/') && !location.pathname.startsWith('/listening/') && !location.pathname.startsWith('/new-listening/')) && (!location.pathname.startsWith('/writing/')) && <div className="menu">
-        <Link className="Navigator" onClick={() => { setCurrentPage(0) }}>Reading</Link>
-        <Link className="Navigator" onClick={() => { setCurrentPage(1) }}>Listening</Link>
-        <Link className="Navigator" onClick={() => { setCurrentPage(2) }} style={{  }}>Writing Task 2 👑 (beta)</Link>
+        <Link className={`Navigator${currentPage === 0 ? ' active' : ''}`} onClick={() => { setCurrentPage(0) }}>Reading</Link>
+        <Link className={`Navigator${currentPage === 1 ? ' active' : ''}`} onClick={() => { setCurrentPage(1) }}>Listening</Link>
+        <Link className={`Navigator${currentPage === 3 ? ' active' : ''}`} onClick={() => { setCurrentPage(3) }}>Reading (General)</Link>
+        <Link className={`Navigator${currentPage === 2 ? ' active' : ''}`} onClick={() => { setCurrentPage(2) }}>Writing Task 2 👑 (beta)</Link>
       </div>}
-      {(currentPage == 0 || currentPage == 1) &&
+      {(currentPage == 0 || currentPage == 1 || currentPage == 3) &&
         <Routes>
-          <Route path="/" element={<Home tests={currentPage == 0 ? tests : tests2} />} />
+          <Route path="/" element={<Home tests={currentPage == 0 ? tests : currentPage == 1 ? tests2 : testsGeneral} />} />
           <Route path="/reading/:id/:title" element={<ReadingPassage />} />
           <Route path="/new-reading/:id/:title" element={<NewReadingPassage />} />
           <Route path="/listening/:id/:title" element={<ListeningPassage />} />
