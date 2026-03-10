@@ -7,6 +7,15 @@ import { Helmet } from 'react-helmet';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { isAnswerMatch } from '../utils/answerMatching';
 
+// Extract only images from HTML content (tables handled via structured questions data)
+function extractImagesHtml(html) {
+    if (!html) return null;
+    const doc = new DOMParser().parseFromString(html, 'text/html');
+    const imgs = Array.from(doc.querySelectorAll('img'));
+    if (imgs.length === 0) return null;
+    return imgs.map(img => img.outerHTML).join('');
+}
+
 function NewListeningPassage() {
     const { id } = useParams();
     const location = useLocation();
@@ -183,13 +192,16 @@ function NewListeningPassage() {
 
                     <div className="content-section">
                         <div className="questions-section" style={{ flex: 1 }}>
-                            {passages[currentSection].content && (
-                                <div
-                                    className="passage-content"
-                                    style={{ marginBottom: '24px' }}
-                                    dangerouslySetInnerHTML={{ __html: passages[currentSection].content }}
-                                />
-                            )}
+                            {(() => {
+                                const imgsHtml = extractImagesHtml(passages[currentSection].content);
+                                return imgsHtml ? (
+                                    <div
+                                        className="passage-content"
+                                        style={{ marginBottom: '24px' }}
+                                        dangerouslySetInnerHTML={{ __html: imgsHtml }}
+                                    />
+                                ) : null;
+                            })()}
                             <ListeningQuestionRenderer
                                 questionsData={passages[currentSection].questions}
                                 answers={answers}
