@@ -18,7 +18,19 @@
       "WebFetch(domain:www.ieltsbuddy.com)",
       "WebFetch(domain:engnovate.com)",
       "WebFetch(domain:ielts-up.com)",
-      "WebFetch(domain:azadenglish.com)"
+      "WebFetch(domain:azadenglish.com)",
+      "Bash(awk 'NR>=1773 && NR<=1837' /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/data.js)",
+      "Bash(grep -h \"type:\" /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/newData/*.js)",
+      "Bash(grep -l \"type: ''matching''\" /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/newData/*.js)",
+      "Bash(awk 'NR>=1968 && NR<=2032' /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/data.js)",
+      "Bash(awk 'NR>=2033 && NR<=2097' /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/data.js)",
+      "Bash(awk 'NR>=2098 && NR<=2162' /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/data.js)",
+      "Bash(awk 'NR>=2163 && NR<=2226' /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/data.js)",
+      "Bash(awk 'NR>=2227 && NR<=2290' /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/data.js)",
+      "Bash(awk 'NR>=2291 && NR<=2354' /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/data.js)",
+      "Bash(grep -l \"table-completion\" /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/newData/*.js)",
+      "Bash(ls -la /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/newData/cam1*.js)",
+      "Bash(node -e \"require\\(''./src/components/newData/cam13test3.js''\\)\")"
     ]
   }
 }
