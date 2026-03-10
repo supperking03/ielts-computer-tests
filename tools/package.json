@@ -1,0 +1,9 @@
+{
+  "name": "ielts-import-tool",
+  "version": "1.0.0",
+  "description": "Convert IELTS HTML test files to JS data format",
+  "main": "import-test.js",
+  "dependencies": {
+    "openai": "^4.0.0"
+  }
+}

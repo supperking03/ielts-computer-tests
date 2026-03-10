@@ -21,3 +21,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Import tool — keep API key and node_modules private
+/tools/.env
+/tools/node_modules/

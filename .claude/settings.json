@@ -34,7 +34,8 @@
       "Bash(sed -i '' 's/import QuestionRenderer from .\\\\/QuestionRenderer./import ListeningQuestionRenderer from \"\".\\\\/ListeningQuestionRenderer\"\";/' /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/NewListeningPassage.js)",
       "Bash(sed -i '' 's/<QuestionRenderer/<ListeningQuestionRenderer/g' /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/NewListeningPassage.js)",
       "Bash(sed -i '' 's/<\\\\/QuestionRenderer>/<\\\\/ListeningQuestionRenderer>/g' /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/NewListeningPassage.js)",
-      "Bash(node -e \"const pkg = require\\(''./node_modules/react-facebook/package.json''\\); console.log\\(pkg.version, pkg.peerDependencies\\)\")"
+      "Bash(node -e \"const pkg = require\\(''./node_modules/react-facebook/package.json''\\); console.log\\(pkg.version, pkg.peerDependencies\\)\")",
+      "Bash(npm install:*)"
     ]
   }
 }

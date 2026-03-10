@@ -13,7 +13,7 @@ import './Menu.css';
 import './App.css';
 import { Helmet } from 'react-helmet';
 import WritingPassage from './components/WritingPassage'
-import { FacebookProvider, Comments } from 'react-facebook';
+import ImportTool from './components/ImportTool'
 
 
 
@@ -80,15 +80,7 @@ function AppContent() {
       }
       {currentPage == 2 && <WritingPassage />}
 
-
-      {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/new-reading/') && !location.pathname.startsWith('/listening/') && !location.pathname.startsWith('/new-listening/')) && (!location.pathname.startsWith('/writing/')) && <div>
-        <h3 style={{ color: 'InfoText' }}>
-          If you find this website useful, leave a good comment. Thanks !!!!
-        </h3>
-        <FacebookProvider appId="729594355859080">
-          <Comments href="https://ieltscomputertests.com/" />
-        </FacebookProvider>
-      </div>}
+      <ImportTool />
     </div>
   );
 }
