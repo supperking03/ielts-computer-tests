@@ -12,8 +12,6 @@ import NewListeningPassage from './components/NewListeningPassage';
 import './Menu.css';
 import './App.css';
 import { Helmet } from 'react-helmet';
-import WritingPassage from './components/WritingPassage'
-import ImportTool from './components/ImportTool'
 
 
 
@@ -65,7 +63,6 @@ function AppContent() {
         <Link className={`Navigator${currentPage === 0 ? ' active' : ''}`} onClick={() => { setCurrentPage(0) }}>Reading</Link>
         <Link className={`Navigator${currentPage === 1 ? ' active' : ''}`} onClick={() => { setCurrentPage(1) }}>Listening</Link>
         <Link className={`Navigator${currentPage === 3 ? ' active' : ''}`} onClick={() => { setCurrentPage(3) }}>Reading (General)</Link>
-        <Link className={`Navigator${currentPage === 2 ? ' active' : ''}`} onClick={() => { setCurrentPage(2) }}>Writing Task 2 👑 (beta)</Link>
       </div>}
       {(currentPage == 0 || currentPage == 1 || currentPage == 3) &&
         <Routes>
@@ -78,9 +75,6 @@ function AppContent() {
           {/* ... other routes */}
         </Routes>
       }
-      {currentPage == 2 && <WritingPassage />}
-
-      <ImportTool />
     </div>
   );
 }
