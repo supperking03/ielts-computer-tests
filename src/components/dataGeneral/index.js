@@ -1,5 +1,21 @@
 import { generalTest01 } from './generalTest01';
 import { generalTest02 } from './generalTest02';
 import { generalTest03 } from './generalTest03';
+import { generalTest04 } from './generalTest04';
+import { generalTest05 } from './generalTest05';
+import { generalTest06 } from './generalTest06';
+import { generalTest07 } from './generalTest07';
+import { generalTest08 } from './generalTest08';
+import { generalTest09 } from './generalTest09';
+import { generalTest10 } from './generalTest10';
+import { generalTest13 } from './generalTest13';
+import { generalTest11 } from './generalTest11';
+import { generalTest12 } from './generalTest12';
+import { generalTest14 } from './generalTest14';
+import { generalTest18 } from './generalTest18';
+import { generalTest15 } from './generalTest15';
+import { generalTest19 } from './generalTest19';
+import { generalTest16 } from './generalTest16';
+import { generalTest17 } from './generalTest17';
 
-export const tests = [generalTest01, generalTest02, generalTest03];
+export const tests = [generalTest01, generalTest02, generalTest03, generalTest04, generalTest05, generalTest06, generalTest07, generalTest08, generalTest09, generalTest10, generalTest11, generalTest12, generalTest13, generalTest14, generalTest15, generalTest16, generalTest17, generalTest18, generalTest19];
