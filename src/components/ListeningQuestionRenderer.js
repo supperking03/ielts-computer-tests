@@ -190,7 +190,14 @@ function MultipleSelect({ group, answers, onAnswerChange, hasViewedResults, corr
 // ── Matching (map / plan labeling / choose from list) ───────────────────────
 function Matching({ group, answers, onAnswerChange, hasViewedResults, correctAnswers }) {
     const { title, instruction, optionsTitle, options, questions, startQuestion, mapImage } = group;
-    const letters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+    const defaultLetters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'];
+    const rangeMatch = instruction?.match(/\b([A-Z])\s*-\s*([A-Z])\b/);
+    const choiceLetters = rangeMatch
+        ? Array.from(
+            { length: rangeMatch[2].charCodeAt(0) - rangeMatch[1].charCodeAt(0) + 1 },
+            (_, i) => String.fromCharCode(rangeMatch[1].charCodeAt(0) + i)
+        )
+        : (options?.length ? defaultLetters.slice(0, options.length) : defaultLetters);
 
     return (
         <div className="question-section matching">
@@ -200,14 +207,16 @@ function Matching({ group, answers, onAnswerChange, hasViewedResults, correctAns
             </div>
 
             {/* Options box */}
-            <div style={{ backgroundColor: '#f0f4f8', border: '1px solid #ccd', borderRadius: '6px', padding: '12px', marginBottom: '16px' }}>
-                {optionsTitle && <strong style={{ display: 'block', marginBottom: '6px' }}>{optionsTitle}</strong>}
-                {options.map((opt, i) => (
-                    <div key={i} style={{ marginBottom: '4px' }}>
-                        <strong>{letters[i]}</strong>&nbsp;&nbsp;{opt}
-                    </div>
-                ))}
-            </div>
+            {options?.length > 0 && (
+                <div style={{ backgroundColor: '#f0f4f8', border: '1px solid #ccd', borderRadius: '6px', padding: '12px', marginBottom: '16px' }}>
+                    {optionsTitle && <strong style={{ display: 'block', marginBottom: '6px' }}>{optionsTitle}</strong>}
+                    {options.map((opt, i) => (
+                        <div key={i} style={{ marginBottom: '4px' }}>
+                            <strong>{choiceLetters[i]}</strong>&nbsp;&nbsp;{opt}
+                        </div>
+                    ))}
+                </div>
+            )}
 
             {mapImage && (
                 <img src={mapImage} alt="Map" style={{ maxWidth: '100%', marginBottom: '16px', border: '1px solid #ddd' }} />
@@ -240,8 +249,8 @@ function Matching({ group, answers, onAnswerChange, hasViewedResults, correctAns
                             }}
                         >
                             <option value="">--</option>
-                            {options.map((opt, i) => (
-                                <option key={i} value={letters[i]}>{letters[i]}</option>
+                            {choiceLetters.map((letter) => (
+                                <option key={letter} value={letter}>{letter}</option>
                             ))}
                         </select>
                         {hasViewedResults && isCorrect === false && correct && (

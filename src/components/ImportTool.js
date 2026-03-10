@@ -9,8 +9,9 @@ CRITICAL OUTPUT RULES:
 2. Start your response with exactly: export const
    IMPORTANT: use EXACTLY the export name provided in the user message — do NOT derive it from the HTML title or filename
 3. Every question must have exactly ONE entry in correctAnswers[] in question order Q1 through the last question
-4. Keep passage HTML clean: preserve <p>, <strong>, <em>, <h2>, <h3>, <ul>, <ol>, <li>, <hr>, <table>, <tr>, <td> tags; strip scripts/nav/footer
+4. Keep passage HTML clean: preserve <p>, <strong>, <em>, <h2>, <h3>, <ul>, <ol>, <li>, <hr>, <table>, <tr>, <td>, <img> tags; strip scripts/nav/footer
 5. Passage content includes passage text + "Read the passage and answer Questions X–Y" lines, but NOT the question items
+6. NEVER remove diagrams, maps, plans, or other images that are required to answer questions. Preserve their <img> tags in the appropriate passage/question context.
 
 OUTPUT STRUCTURE:
 export const EXPORT_NAME = {
@@ -157,8 +158,9 @@ function extractContent(rawHtml) {
   // 3. Remove HTML comments
   s = s.replace(/<!--[\s\S]*?-->/g, '');
 
-  // 4. Remove self-closing tags that carry no text (img, input, br excess, etc.)
-  s = s.replace(/<(img|input|link|meta|source|track|wbr)\s*\/?>/gi, '');
+  // 4. Remove self-closing tags that carry no useful content.
+  //    Keep <img> because many IELTS diagram/map questions depend on it.
+  s = s.replace(/<(input|link|meta|source|track|wbr)\s*\/?>/gi, '');
 
   // 5. Collapse whitespace
   s = s.replace(/[ \t]{2,}/g, ' ');

@@ -183,6 +183,13 @@ function NewListeningPassage() {
 
                     <div className="content-section">
                         <div className="questions-section" style={{ flex: 1 }}>
+                            {passages[currentSection].content && (
+                                <div
+                                    className="passage-content"
+                                    style={{ marginBottom: '24px' }}
+                                    dangerouslySetInnerHTML={{ __html: passages[currentSection].content }}
+                                />
+                            )}
                             <ListeningQuestionRenderer
                                 questionsData={passages[currentSection].questions}
                                 answers={answers}
