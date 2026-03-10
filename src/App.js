@@ -13,78 +13,140 @@ import './Menu.css';
 import './App.css';
 import { Helmet } from 'react-helmet';
 
+const FEATURES = [
+    {
+        icon: '🖥️',
+        title: 'Real Computer-Based Experience',
+        desc: 'Our interface mirrors the official IELTS computer exam layout — same look, same feel. Practice in the exact environment you\'ll face on test day with no surprises.',
+    },
+    {
+        icon: '✅',
+        title: 'Instant Answer Checking',
+        desc: 'Get immediate feedback the moment you check answers. Correct answers light up green, incorrect ones red — making it easy to spot weaknesses and track progress.',
+    },
+    {
+        icon: '🖊️',
+        title: 'Text Highlighting Tool',
+        desc: 'Right-click any passage text to highlight key information, just like the real IELTS computer test. Build better reading strategies by marking evidence as you go.',
+    },
+    {
+        icon: '🎯',
+        title: 'Accurate Band Score Estimation',
+        desc: 'Your raw score is automatically converted to an IELTS band (1.0–9.0) using the official Cambridge conversion table, so you always know exactly where you stand.',
+    },
+];
 
-
-function Header() {
-  const [isPopupVisible, setPopupVisible] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(1);
-
-  return (
-    <div>
-      <Helmet>
-        <title>The Best IELTS Practice Test On Computer</title>
-        <meta name="description" content="Real practise, Real score" />
-      </Helmet>
-      <header className="App-header">
-        <img src={`https://genk.mediacdn.vn/k:thumb_w/640/2015/screen-shot-2015-07-30-at-2-31-57-pm-1438334096188/cau-chuyen-ve-nguoi-tao-ra-chu-ech-xanh-than-thanh.png`} alt="Website Logo" className="App-logo" />
-        <h1>The Best IELTS Practice Test On Computer</h1>
-        <a>Real practise, Real score</a>
-        <button onClick={() => setPopupVisible(true)}>Why We Are The Best?</button>
-      </header>
-
-      {isPopupVisible && (
-        <div className="popup-container">
-          {currentSlide === 4 &&
-            <button style={{ fontSize: "20px" }} onClick={() => {
-              setPopupVisible(false)
-              setCurrentSlide(1)
-            }}>Close</button>}
-          {currentSlide === 1 && <img style={{ width: "80vh", height: "80vh", marginBottom: "50px" }} src={"https://lh3.googleusercontent.com/pw/AIL4fc_cFU0zPVJFPuZ3j1r1des9XTFivxskR-6JjP1XIE1ji_seac3xJ86g3tAP8HVH3s8MochswwivS9-7R6zlKy_DtDmzdUFvZnmUc2xD300sxn_HHZzEKbdL6DGE_yTJa2fTH0KTd_zvZpN1qXGCBCyM=w1080-h1080-s-no"} alt="Highlight pen sample" />}
-          {currentSlide === 2 && <img style={{ width: "80vh", height: "80vh", marginBottom: "50px" }} src={"https://lh3.googleusercontent.com/pw/AIL4fc8HY0RRGI6EiXsMkXQiHUnD5zrFSnb9Y72czkxhPJOy6S4kndPyu2wV93bWj5hbCaz9taLq3jg1iU7yNim51ML4dhRWXSjFrvWnXFAK3efXnzu-VDAZfYnEGcq3WCGfDRlcOdyyP36T7uR6FFwo49HI=w1080-h1080-s-no"} alt="Highlight pen sample" />}
-          {currentSlide === 3 && <img style={{ width: "80vh", height: "80vh", marginBottom: "50px" }} src={"https://lh3.googleusercontent.com/pw/AIL4fc80-rjAWnpw8e2FYkO-ffdTAoCEL-nhh1sb4Qm2owC3gJjbUEyqjkxrAWKljVJfLx5p5u0CKSqHfrNsUy_2ZWq_hFlNmmd3l5FYulk2b9A6QKsJjua2xDCH300Vx4JEPexKgIQhwBbYZD9geGVFJElh=w1080-h1080-s-no"} alt="Highlight pen sample" />}
-          {currentSlide === 4 && <img style={{ width: "80vh", height: "80vh", marginBottom: "50px" }} src={"https://lh3.googleusercontent.com/pw/AIL4fc91eiz0X0DM22k0ZFik3ul3bpWtzCmc5vAhm91ofg_Z6o0BXLnd-RRb3ITw1hbHZUaM7lfUpXdkHaSrdw_PCStt4MJsfDH03NESIURzdp_2D4xn_7pf_PHEbEuB2xou-5L3Jt1IYqBR1MRuackweiaL=w1080-h1080-s-no"} alt="Highlight pen sample" />}
-          {currentSlide != 4 && <button style={{ fontSize: "20px" }} onClick={() => setCurrentSlide(currentSlide + 1)}>Next slide {' >'} </button>}
+function WhyModal({ onClose }) {
+    return (
+        <div className="modal-overlay" onClick={onClose}>
+            <div className="modal-box" onClick={e => e.stopPropagation()}>
+                <div className="modal-header">
+                    <h2>Why We Are The Best</h2>
+                    <button className="modal-close" onClick={onClose}>✕</button>
+                </div>
+                <div className="modal-features">
+                    {FEATURES.map((f, i) => (
+                        <div key={i} className="feature-card">
+                            <div className="feature-icon">{f.icon}</div>
+                            <div>
+                                <div className="feature-title">{f.title}</div>
+                                <div className="feature-desc">{f.desc}</div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
         </div>
-      )}
-    </div>
-  );
+    );
 }
 
+function Header() {
+    const [showModal, setShowModal] = useState(false);
+
+    return (
+        <>
+            <Helmet>
+                <title>The Best IELTS Practice Test On Computer</title>
+                <meta name="description" content="Real practice, real score — IELTS computer-based tests" />
+            </Helmet>
+            <header className="site-header">
+                <div className="site-header-inner">
+                    <div className="site-brand">
+                        <img
+                            src="https://genk.mediacdn.vn/k:thumb_w/640/2015/screen-shot-2015-07-30-at-2-31-57-pm-1438334096188/cau-chuyen-ve-nguoi-tao-ra-chu-ech-xanh-than-thanh.png"
+                            alt="Logo"
+                            className="site-logo"
+                        />
+                        <div>
+                            <div className="site-brand-title">The Best IELTS Practice Test On Computer</div>
+                            <div className="site-brand-sub">Real practice &nbsp;·&nbsp; Real score</div>
+                        </div>
+                    </div>
+                    <button className="why-best-btn" onClick={() => setShowModal(true)}>
+                        ★ Why We Are The Best?
+                    </button>
+                </div>
+            </header>
+            {showModal && <WhyModal onClose={() => setShowModal(false)} />}
+        </>
+    );
+}
 
 function AppContent() {
-  const location = useLocation();
+    const location = useLocation();
+    const [currentPage, setCurrentPage] = useState(0);
 
-  const [currentPage, setCurrentPage] = useState(0);
+    const isTestPage = (
+        location.pathname.startsWith('/reading/') ||
+        location.pathname.startsWith('/new-reading/') ||
+        location.pathname.startsWith('/listening/') ||
+        location.pathname.startsWith('/new-listening/')
+    );
 
-  return (
-    <div className="App">
-      {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/new-reading/') && !location.pathname.startsWith('/listening/') && !location.pathname.startsWith('/new-listening/')) && (!location.pathname.startsWith('/writing/')) && <Header />}
-      {(!location.pathname.startsWith('/reading/') && !location.pathname.startsWith('/new-reading/') && !location.pathname.startsWith('/listening/') && !location.pathname.startsWith('/new-listening/')) && (!location.pathname.startsWith('/writing/')) && <div className="menu">
-        <Link className={`Navigator${currentPage === 0 ? ' active' : ''}`} onClick={() => { setCurrentPage(0) }}>Reading</Link>
-        <Link className={`Navigator${currentPage === 1 ? ' active' : ''}`} onClick={() => { setCurrentPage(1) }}>Listening</Link>
-        <Link className={`Navigator${currentPage === 3 ? ' active' : ''}`} onClick={() => { setCurrentPage(3) }}>Reading (General)</Link>
-      </div>}
-      {(currentPage == 0 || currentPage == 1 || currentPage == 3) &&
-        <Routes>
-          <Route path="/" element={<Home tests={currentPage == 0 ? tests : currentPage == 1 ? tests2 : testsGeneral} />} />
-          <Route path="/reading/:id/:title" element={<ReadingPassage />} />
-          <Route path="/new-reading/:id/:title" element={<NewReadingPassage />} />
-          <Route path="/listening/:id/:title" element={<ListeningPassage />} />
-          <Route path="/new-listening/:id/:title" element={<NewListeningPassage />} />
-          {/* <Route path="/writing/" element={<WritingPassage />} /> */}
-          {/* ... other routes */}
-        </Routes>
-      }
-    </div>
-  );
+    return (
+        <div className="App">
+            {!isTestPage && <Header />}
+            {!isTestPage && (
+                <nav className="tab-nav">
+                    <button
+                        className={`tab-btn${currentPage === 0 ? ' active' : ''}`}
+                        onClick={() => setCurrentPage(0)}
+                    >
+                        Reading
+                    </button>
+                    <button
+                        className={`tab-btn${currentPage === 1 ? ' active' : ''}`}
+                        onClick={() => setCurrentPage(1)}
+                    >
+                        Listening
+                    </button>
+                    <button
+                        className={`tab-btn${currentPage === 3 ? ' active' : ''}`}
+                        onClick={() => setCurrentPage(3)}
+                    >
+                        Reading (General)
+                    </button>
+                </nav>
+            )}
+            <Routes>
+                <Route path="/" element={
+                    <Home tests={currentPage === 0 ? tests : currentPage === 1 ? tests2 : testsGeneral} />
+                } />
+                <Route path="/reading/:id/:title" element={<ReadingPassage />} />
+                <Route path="/new-reading/:id/:title" element={<NewReadingPassage />} />
+                <Route path="/listening/:id/:title" element={<ListeningPassage />} />
+                <Route path="/new-listening/:id/:title" element={<NewListeningPassage />} />
+            </Routes>
+        </div>
+    );
 }
 
 function App() {
-  return (
-    <Router>
-      <AppContent />
-    </Router>
-  );
+    return (
+        <Router>
+            <AppContent />
+        </Router>
+    );
 }
 
 export default App;
