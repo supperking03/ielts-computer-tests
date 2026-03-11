@@ -10,7 +10,18 @@ import SummaryCompletion from './questionTypes/SummaryCompletion';
 import ParagraphHeadings from './questionTypes/ParagraphHeadings';
 import MultipleSelect from './questionTypes/MultipleSelect';
 
-const QuestionRenderer = ({ questionsData, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
+const QuestionRenderer = ({
+    questionsData,
+    answers,
+    onAnswerChange,
+    hasViewedResults,
+    correctAnswers,
+    explanations,
+    loadingExplanations,
+    explanationErrors,
+    openExplanation,
+    onExplainAnswer
+}) => {
     const renderQuestion = (questionGroup, index) => {
         const { type, startQuestionNumber, ...questionProps } = questionGroup;
         
@@ -20,7 +31,12 @@ const QuestionRenderer = ({ questionsData, answers, onAnswerChange, hasViewedRes
             answers,
             onAnswerChange,
             hasViewedResults,
-            correctAnswers
+            correctAnswers,
+            explanations,
+            loadingExplanations,
+            explanationErrors,
+            openExplanation,
+            onExplainAnswer
         };
 
         switch (type) {

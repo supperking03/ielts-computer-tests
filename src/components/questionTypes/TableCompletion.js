@@ -1,6 +1,7 @@
 import React from 'react';
+import ReadingAnswerExplanation from '../ReadingAnswerExplanation';
 
-const TableCompletion = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
+const TableCompletion = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers, explanations, loadingExplanations, explanationErrors, openExplanation, onExplainAnswer }) => {
     const { title, instruction, wordLimit, table } = question;
 
     // Safety check for table
@@ -87,6 +88,21 @@ const TableCompletion = ({ question, startQuestionNumber, answers, onAnswerChang
                     </tbody>
                 </table>
             </div>
+            {hasViewedResults && Array.from({ length: question.totalQuestions || 0 }, (_, index) => {
+                const questionNumber = startQuestionNumber + index;
+                return (
+                    <ReadingAnswerExplanation
+                        key={questionNumber}
+                        questionNumber={questionNumber}
+                        hasViewedResults={hasViewedResults}
+                        isLoading={loadingExplanations?.[questionNumber]}
+                        isOpen={openExplanation?.[questionNumber]}
+                        explanation={explanations?.[questionNumber]}
+                        error={explanationErrors?.[questionNumber]}
+                        onToggle={() => onExplainAnswer(questionNumber)}
+                    />
+                );
+            })}
         </div>
     );
 };

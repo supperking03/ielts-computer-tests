@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import CountdownTimer from './CountdownTimer';
 import './ReadingPassage.css';
 import { newTests } from './newData';
@@ -7,6 +7,8 @@ import QuestionRenderer from './QuestionRenderer';
 import { Helmet } from 'react-helmet';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { isAnswerMatch } from '../utils/answerMatching';
+import { createReadingExplanationContext } from '../utils/readingExplanation';
+import { getReadingAnswerExplanation } from '../services/openai';
 
 function NewReadingPassage() {
     const { id } = useParams();
@@ -28,6 +30,31 @@ function NewReadingPassage() {
     const [contextMenu, setContextMenu] = useState({ visible: false, x: 0, y: 0 });
     const [answers, setAnswers] = useState(Array(40).fill(""));
     const [hasViewedResults, setHasViewedResults] = useState(false);
+    const [explanations, setExplanations] = useState({});
+    const [loadingExplanations, setLoadingExplanations] = useState({});
+    const [explanationErrors, setExplanationErrors] = useState({});
+    const [openExplanation, setOpenExplanation] = useState({});
+    const [pendingEvidenceFocus, setPendingEvidenceFocus] = useState(null);
+
+    const getExplanationContext = useMemo(
+        () => createReadingExplanationContext(selectedTest),
+        [selectedTest]
+    );
+
+    // `focusEvidenceSnippet` is intentionally used here to run after passage content updates.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    useEffect(() => {
+        if (!pendingEvidenceFocus || currentPassage !== pendingEvidenceFocus.passageIndex) {
+            return;
+        }
+
+        const timer = setTimeout(() => {
+            focusEvidenceSnippet(pendingEvidenceFocus.evidenceSnippet);
+            setPendingEvidenceFocus(null);
+        }, 120);
+
+        return () => clearTimeout(timer);
+    }, [currentPassage, pendingEvidenceFocus]);
 
     const navigateBackToHome = () => {
         navigate('/');
@@ -117,6 +144,58 @@ function NewReadingPassage() {
         });
     };
 
+    const handleExplainAnswer = async (questionNumber) => {
+        clearEvidenceHighlight();
+
+        const existingExplanation = explanations[questionNumber];
+        if (existingExplanation) {
+            setOpenExplanation((prev) => ({
+                [questionNumber]: !prev[questionNumber]
+            }));
+            const context = getExplanationContext(questionNumber);
+            if (!openExplanation[questionNumber] && existingExplanation.evidenceSnippet) {
+                jumpToEvidence(context?.passageIndex, existingExplanation.evidenceSnippet);
+            }
+            return;
+        }
+
+        const context = getExplanationContext(questionNumber);
+        if (!context) {
+            setExplanationErrors((prev) => ({
+                ...prev,
+                [questionNumber]: 'Không lấy được dữ liệu câu hỏi để giải thích.'
+            }));
+            setOpenExplanation((prev) => ({ ...prev, [questionNumber]: true }));
+            return;
+        }
+
+        setLoadingExplanations({ [questionNumber]: true });
+        setExplanationErrors((prev) => ({ ...prev, [questionNumber]: '' }));
+        setOpenExplanation({ [questionNumber]: true });
+
+        try {
+            const explanationResult = await getReadingAnswerExplanation({
+                ...context,
+                questionNumber,
+                userAnswer: answers[questionNumber - 1] || '',
+                correctAnswer: selectedTest.correctAnswers[questionNumber - 1] || ''
+            });
+
+            setExplanations((prev) => ({
+                ...prev,
+                [questionNumber]: explanationResult
+            }));
+            jumpToEvidence(context.passageIndex, explanationResult.evidenceSnippet);
+        } catch (error) {
+            setExplanationErrors((prev) => ({
+                ...prev,
+                [questionNumber]: error.message || 'Không thể tạo giải thích.'
+            }));
+        } finally {
+            setLoadingExplanations({});
+        }
+    };
+
     const isAnswerCorrect = (questionIndex) => {
         if (!hasViewedResults || !selectedTest.correctAnswers) return null;
         const userAnswer = answers[questionIndex] ? answers[questionIndex].trim().toLowerCase() : '';
@@ -133,7 +212,14 @@ function NewReadingPassage() {
             // Calculate total questions in this passage
             let totalQuestionsInPassage = 0;
             passage.questions.forEach(questionGroup => {
-                totalQuestionsInPassage += questionGroup.items.length;
+                if (typeof questionGroup.totalQuestions === 'number') {
+                    totalQuestionsInPassage += questionGroup.totalQuestions;
+                    return;
+                }
+
+                if (Array.isArray(questionGroup.items)) {
+                    totalQuestionsInPassage += questionGroup.items.length;
+                }
             });
             
             // Check if the question number falls within this passage's range
@@ -176,6 +262,181 @@ function NewReadingPassage() {
                 questionElement.style.backgroundColor = '';
             }, 2000);
         }
+    };
+
+    const clearEvidenceHighlight = () => {
+        document.querySelectorAll('.ai-evidence-highlight').forEach((node) => {
+            const parent = node.parentNode;
+            if (!parent) {
+                return;
+            }
+
+            while (node.firstChild) {
+                parent.insertBefore(node.firstChild, node);
+            }
+            parent.removeChild(node);
+            parent.normalize();
+        });
+    };
+
+    const findTextRange = (container, targetText) => {
+        if (!container || !targetText) {
+            return null;
+        }
+
+        const normalizeWithMap = (text) => {
+            let normalized = '';
+            const normalizedToRaw = [];
+            let previousWasSpace = true;
+
+            for (let i = 0; i < text.length; i++) {
+                const character = text[i];
+                const isSpace = /\s/.test(character);
+
+                if (isSpace) {
+                    if (!previousWasSpace) {
+                        normalized += ' ';
+                        normalizedToRaw.push(i);
+                    }
+                    previousWasSpace = true;
+                    continue;
+                }
+
+                normalized += character.toLowerCase();
+                normalizedToRaw.push(i);
+                previousWasSpace = false;
+            }
+
+            if (normalized.endsWith(' ')) {
+                normalized = normalized.slice(0, -1);
+                normalizedToRaw.pop();
+            }
+
+            return { normalized, normalizedToRaw };
+        };
+
+        const normalizedTarget = normalizeWithMap(targetText).normalized.trim();
+        if (!normalizedTarget) {
+            return null;
+        }
+
+        const walker = document.createTreeWalker(container, NodeFilter.SHOW_TEXT, null);
+        const textNodes = [];
+        let fullText = '';
+        let currentNode;
+
+        while ((currentNode = walker.nextNode())) {
+            const text = currentNode.textContent || '';
+            textNodes.push({
+                node: currentNode,
+                start: fullText.length,
+                end: fullText.length + text.length
+            });
+            fullText += text;
+        }
+
+        const { normalized: normalizedFullText, normalizedToRaw } = normalizeWithMap(fullText);
+        const startIndex = normalizedFullText.indexOf(normalizedTarget);
+        if (startIndex === -1) {
+            return null;
+        }
+
+        const normalizedEndIndex = startIndex + normalizedTarget.length - 1;
+        const rawStart = normalizedToRaw[startIndex];
+        const rawEnd = normalizedToRaw[normalizedEndIndex] + 1;
+
+        const startInfo = textNodes.find(({ start, end }) => rawStart >= start && rawStart < end);
+        const endInfo = textNodes.find(({ start, end }) => rawEnd > start && rawEnd <= end);
+
+        if (!startInfo || !endInfo) {
+            return null;
+        }
+
+        const range = document.createRange();
+        range.setStart(startInfo.node, Math.max(0, rawStart - startInfo.start));
+        range.setEnd(endInfo.node, Math.max(0, Math.min(endInfo.node.textContent.length, rawEnd - endInfo.start)));
+        return range;
+    };
+
+    const highlightEvidenceSnippet = (snippet) => {
+        const passageContainer = document.querySelector('.passage-section > div');
+        if (!passageContainer || !snippet) {
+            return false;
+        }
+
+        clearEvidenceHighlight();
+
+        const cleanedSnippet = snippet
+            .replace(/^```(?:json)?/i, '')
+            .replace(/```$/, '')
+            .replace(/^["'“”]/, '')
+            .replace(/["'“”]$/, '')
+            .trim();
+
+        const words = cleanedSnippet
+            .replace(/[()[\]{}]/g, ' ')
+            .replace(/\s+/g, ' ')
+            .trim()
+            .split(' ')
+            .filter(Boolean);
+
+        const slidingWindows = [];
+        for (let windowSize = Math.min(words.length, 12); windowSize >= 5; windowSize--) {
+            for (let start = 0; start <= words.length - windowSize; start++) {
+                slidingWindows.push(words.slice(start, start + windowSize).join(' '));
+            }
+        }
+
+        const candidateSnippets = [
+            cleanedSnippet,
+            cleanedSnippet.replace(/[.,;:!?]+$/g, '').trim(),
+            cleanedSnippet.split(/[,.;:!?]/).map((part) => part.trim()).filter(Boolean),
+            slidingWindows
+        ].flat().filter(Boolean);
+
+        for (const candidate of candidateSnippets) {
+            const range = findTextRange(passageContainer, candidate);
+            if (!range) {
+                continue;
+            }
+
+            const mark = document.createElement('mark');
+            mark.className = 'ai-evidence-highlight';
+            try {
+                range.surroundContents(mark);
+                mark.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return true;
+            } catch {
+                return false;
+            }
+        }
+
+        return false;
+    };
+
+    const focusEvidenceSnippet = (snippet) => {
+        if (!snippet) {
+            return;
+        }
+
+        highlightEvidenceSnippet(snippet);
+    };
+
+    const jumpToEvidence = (passageIndex, snippet) => {
+        if (!snippet) {
+            return;
+        }
+
+        if (typeof passageIndex === 'number' && passageIndex !== currentPassage) {
+            setPendingEvidenceFocus({
+                passageIndex,
+                evidenceSnippet: snippet
+            });
+            setCurrentPassage(passageIndex);
+            return;
+        }
+
+        focusEvidenceSnippet(snippet);
     };
 
 
@@ -246,6 +507,11 @@ function NewReadingPassage() {
                                 onAnswerChange={handleAnswerChange}
                                 hasViewedResults={hasViewedResults}
                                 correctAnswers={selectedTest.correctAnswers}
+                                explanations={explanations}
+                                loadingExplanations={loadingExplanations}
+                                explanationErrors={explanationErrors}
+                                openExplanation={openExplanation}
+                                onExplainAnswer={handleExplainAnswer}
                             />
                         </div>
                     </div>
@@ -344,7 +610,8 @@ function NewReadingPassage() {
                                             fontWeight: '400',
                                             color: isCorrect ? '#2d5a41' : '#8b1e3f',
                                             fontFamily: "'Segoe UI', 'Roboto', 'Arial', sans-serif",
-                                            letterSpacing: '0.2px'
+                                            letterSpacing: '0.2px',
+                                            wordBreak: 'break-word'
                                         }}>
                                             {selectedTest.correctAnswers[index]}
                                         </span>

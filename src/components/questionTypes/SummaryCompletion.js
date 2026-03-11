@@ -1,7 +1,8 @@
 import React from 'react';
 import { createAnswerChecker } from '../../utils/answerMatching';
+import ReadingAnswerExplanation from '../ReadingAnswerExplanation';
 
-const SummaryCompletion = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
+const SummaryCompletion = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers, explanations, loadingExplanations, explanationErrors, openExplanation, onExplainAnswer }) => {
     const { title, instruction, sectionTitle, options, items } = question;
 
     // Safety checks for items and options
@@ -121,6 +122,15 @@ const SummaryCompletion = ({ question, startQuestionNumber, answers, onAnswerCha
                                         (You answered: {answers[answerIndex] || 'No answer'})
                                     </span>
                                 )}
+                                <ReadingAnswerExplanation
+                                    questionNumber={questionNumber}
+                                    hasViewedResults={hasViewedResults}
+                                    isLoading={loadingExplanations?.[questionNumber]}
+                                    isOpen={openExplanation?.[questionNumber]}
+                                    explanation={explanations?.[questionNumber]}
+                                    error={explanationErrors?.[questionNumber]}
+                                    onToggle={() => onExplainAnswer(questionNumber)}
+                                />
                             </div>
                         );
                     })}

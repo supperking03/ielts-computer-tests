@@ -1,7 +1,8 @@
 import React from 'react';
 import { createAnswerChecker } from '../../utils/answerMatching';
+import ReadingAnswerExplanation from '../ReadingAnswerExplanation';
 
-const ParagraphHeadings = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
+const ParagraphHeadings = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers, explanations, loadingExplanations, explanationErrors, openExplanation, onExplainAnswer }) => {
     const { title, instruction, options, items } = question;
 
     // Safety checks for items and options
@@ -58,45 +59,57 @@ const ParagraphHeadings = ({ question, startQuestionNumber, answers, onAnswerCha
                                 padding: '15px',
                                 marginBottom: '15px',
                                 display: 'flex',
-                                alignItems: 'center',
+                                flexDirection: 'column',
+                                alignItems: 'stretch',
                                 justifyContent: 'space-between'
                             }}
                         >
-                            <div className="question-header" style={{ display: 'flex', alignItems: 'center' }}>
-                                <span className="question-number" style={{ marginRight: '10px' }}>
-                                    <strong>{questionNumber}</strong>
-                                </span>
-                                <span className="paragraph-label" style={{ fontSize: '16px' }}>
-                                    Paragraph <strong>{item.paragraph}</strong>
-                                </span>
-                                {hasViewedResults && isCorrect === false && (
-                                    <span style={{ marginLeft: '10px', fontSize: '16px', color: '#dc3545' }}>
-                                        ✗
+                            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: '12px' }}>
+                                <div className="question-header" style={{ display: 'flex', alignItems: 'center' }}>
+                                    <span className="question-number" style={{ marginRight: '10px' }}>
+                                        <strong>{questionNumber}</strong>
                                     </span>
-                                )}
+                                    <span className="paragraph-label" style={{ fontSize: '16px' }}>
+                                        Paragraph <strong>{item.paragraph}</strong>
+                                    </span>
+                                    {hasViewedResults && isCorrect === false && (
+                                        <span style={{ marginLeft: '10px', fontSize: '16px', color: '#dc3545' }}>
+                                            ✗
+                                        </span>
+                                    )}
+                                </div>
+                                
+                                <div className="answer-input" style={{ display: 'flex', alignItems: 'center' }}>
+                                    <select
+                                        value={answers[answerIndex] || ''}
+                                        onChange={(e) => handleAnswerChange(questionNumber, e.target.value)}
+                                        style={{
+                                            padding: '5px 10px',
+                                            borderRadius: '4px',
+                                            border: hasViewedResults && isCorrect === false ? 
+                                                '2px solid #dc3545' : '1px solid #ccc',
+                                            backgroundColor: 'white',
+                                            minWidth: '80px'
+                                        }}
+                                    >
+                                        <option value="">Select</option>
+                                        {questionOptions.map((option) => (
+                                            <option key={option.value} value={option.value}>
+                                                {option.value}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
                             </div>
-                            
-                            <div className="answer-input" style={{ display: 'flex', alignItems: 'center' }}>
-                                <select
-                                    value={answers[answerIndex] || ''}
-                                    onChange={(e) => handleAnswerChange(questionNumber, e.target.value)}
-                                    style={{
-                                        padding: '5px 10px',
-                                        borderRadius: '4px',
-                                        border: hasViewedResults && isCorrect === false ? 
-                                            '2px solid #dc3545' : '1px solid #ccc',
-                                        backgroundColor: 'white',
-                                        minWidth: '80px'
-                                    }}
-                                >
-                                    <option value="">Select</option>
-                                    {questionOptions.map((option) => (
-                                        <option key={option.value} value={option.value}>
-                                            {option.value}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
+                            <ReadingAnswerExplanation
+                                questionNumber={questionNumber}
+                                hasViewedResults={hasViewedResults}
+                                isLoading={loadingExplanations?.[questionNumber]}
+                                isOpen={openExplanation?.[questionNumber]}
+                                explanation={explanations?.[questionNumber]}
+                                error={explanationErrors?.[questionNumber]}
+                                onToggle={() => onExplainAnswer(questionNumber)}
+                            />
                             
                             {hasViewedResults && isCorrect === false && correctAnswers && (
                                 <div style={{ 

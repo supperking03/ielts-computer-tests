@@ -1,7 +1,8 @@
 import React from 'react';
 import { createAnswerChecker } from '../../utils/answerMatching';
+import ReadingAnswerExplanation from '../ReadingAnswerExplanation';
 
-const TrueFalseNotGiven = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
+const TrueFalseNotGiven = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers, explanations, loadingExplanations, explanationErrors, openExplanation, onExplainAnswer }) => {
     const { title, instruction, options, items } = question;
 
     // Default options for TRUE/FALSE/NOT GIVEN if not provided
@@ -82,6 +83,15 @@ const TrueFalseNotGiven = ({ question, startQuestionNumber, answers, onAnswerCha
                                     </label>
                                 ))}
                             </div>
+                            <ReadingAnswerExplanation
+                                questionNumber={questionNumber}
+                                hasViewedResults={hasViewedResults}
+                                isLoading={loadingExplanations?.[questionNumber]}
+                                isOpen={openExplanation?.[questionNumber]}
+                                explanation={explanations?.[questionNumber]}
+                                error={explanationErrors?.[questionNumber]}
+                                onToggle={() => onExplainAnswer(questionNumber)}
+                            />
                             {hasViewedResults && isCorrect === false && correctAnswers && (
                                 <div style={{ 
                                     fontSize: '12px', 

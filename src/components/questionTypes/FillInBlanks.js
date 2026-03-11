@@ -1,7 +1,8 @@
 import React from 'react';
 import { createAnswerChecker } from '../../utils/answerMatching';
+import ReadingAnswerExplanation from '../ReadingAnswerExplanation';
 
-const FillInBlanks = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
+const FillInBlanks = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers, explanations, loadingExplanations, explanationErrors, openExplanation, onExplainAnswer }) => {
     const { title, instruction, wordLimit, items, tableView, sectionTitle } = question;
 
     // Safety check for items
@@ -195,6 +196,21 @@ const FillInBlanks = ({ question, startQuestionNumber, answers, onAnswerChange, 
                         </tbody>
                     </table>
                 </div>
+                {hasViewedResults && questionItems.map((_, index) => {
+                    const questionNumber = startQuestionNumber + index;
+                    return (
+                        <ReadingAnswerExplanation
+                            key={questionNumber}
+                            questionNumber={questionNumber}
+                            hasViewedResults={hasViewedResults}
+                            isLoading={loadingExplanations?.[questionNumber]}
+                            isOpen={openExplanation?.[questionNumber]}
+                            explanation={explanations?.[questionNumber]}
+                            error={explanationErrors?.[questionNumber]}
+                            onToggle={() => onExplainAnswer(questionNumber)}
+                        />
+                    );
+                })}
             </div>
         );
     }
@@ -266,6 +282,15 @@ const FillInBlanks = ({ question, startQuestionNumber, answers, onAnswerChange, 
                                     </span>
                                 )}
                             </div>
+                            <ReadingAnswerExplanation
+                                questionNumber={questionNumber}
+                                hasViewedResults={hasViewedResults}
+                                isLoading={loadingExplanations?.[questionNumber]}
+                                isOpen={openExplanation?.[questionNumber]}
+                                explanation={explanations?.[questionNumber]}
+                                error={explanationErrors?.[questionNumber]}
+                                onToggle={() => onExplainAnswer(questionNumber)}
+                            />
                             {hasViewedResults && isCorrect === false && correctAnswers && (
                                 <div style={{ 
                                     fontSize: '12px', 

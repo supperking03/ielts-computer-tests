@@ -1,7 +1,8 @@
 import React from 'react';
 import { isAnswerMatch } from '../../utils/answerMatching';
+import ReadingAnswerExplanation from '../ReadingAnswerExplanation';
 
-const MultipleChoice = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
+const MultipleChoice = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers, explanations, loadingExplanations, explanationErrors, openExplanation, onExplainAnswer }) => {
     const { title, instruction, items, multipleSelect, selectCount, question: questionText } = question;
 
     // Safety check for items
@@ -134,6 +135,15 @@ const MultipleChoice = ({ question, startQuestionNumber, answers, onAnswerChange
                         Choose {selectCount || 2} letters
                     </div>
                 )}
+                <ReadingAnswerExplanation
+                    questionNumber={questionNumber}
+                    hasViewedResults={hasViewedResults}
+                    isLoading={loadingExplanations?.[questionNumber]}
+                    isOpen={openExplanation?.[questionNumber]}
+                    explanation={explanations?.[questionNumber]}
+                    error={explanationErrors?.[questionNumber]}
+                    onToggle={() => onExplainAnswer(questionNumber)}
+                />
                 
                 {hasViewedResults && isCorrect === false && correctAnswers && (
                     <div style={{ 

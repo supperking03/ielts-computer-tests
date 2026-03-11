@@ -53,6 +53,53 @@
     margin-bottom: 8px;
 }
 
+.explain-answer-button {
+    border: 1px solid #333;
+    background: #fff;
+    color: #222;
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.explain-answer-button:hover {
+    background: #f3f3f3;
+}
+
+.answer-explanation-panel {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.answer-explanation-text,
+.answer-explanation-loading,
+.answer-explanation-error {
+    font-size: 13px;
+    line-height: 1.5;
+    color: #333;
+    white-space: pre-wrap;
+}
+
+.answer-explanation-error {
+    color: #8b1e3f;
+}
+
+.reading-explanation-block {
+    margin-top: 10px;
+}
+
+.ai-evidence-highlight {
+    background: #ffe58f;
+    color: #111;
+    padding: 0 2px;
+    border-radius: 3px;
+    box-shadow: 0 0 0 2px rgba(255, 196, 0, 0.18);
+}
+
 .answer-row .answer-number {
     color: grey;
     font-size: 15px;

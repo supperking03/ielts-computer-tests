@@ -1,6 +1,7 @@
 import React from 'react';
+import ReadingAnswerExplanation from '../ReadingAnswerExplanation';
 
-const MultipleSelect = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers }) => {
+const MultipleSelect = ({ question, startQuestionNumber, answers, onAnswerChange, hasViewedResults, correctAnswers, explanations, loadingExplanations, explanationErrors, openExplanation, onExplainAnswer }) => {
     const { title, instruction, items, selectCount } = question;
     const questionItems = items || [];
     // Tính toán các chỉ số câu hỏi thuộc nhóm này
@@ -124,6 +125,18 @@ const MultipleSelect = ({ question, startQuestionNumber, answers, onAnswerChange
                             }}>
                                 Choose {selectCount || 2} letters
                             </div>
+                            {questionNumbers.map((questionNumber) => (
+                                <ReadingAnswerExplanation
+                                    key={questionNumber}
+                                    questionNumber={questionNumber}
+                                    hasViewedResults={hasViewedResults}
+                                    isLoading={loadingExplanations?.[questionNumber]}
+                                    isOpen={openExplanation?.[questionNumber]}
+                                    explanation={explanations?.[questionNumber]}
+                                    error={explanationErrors?.[questionNumber]}
+                                    onToggle={() => onExplainAnswer(questionNumber)}
+                                />
+                            ))}
                         </div>
                     );
                 })}
