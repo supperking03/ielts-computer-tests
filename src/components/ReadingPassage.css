@@ -1,4 +1,18 @@
 /* Original Layout CSS */
+
+.text-label {
+    display: inline-block;
+    background-color: #1a1a4e;
+    color: #fff;
+    font-size: 0.75em;
+    font-weight: bold;
+    padding: 1px 7px;
+    border-radius: 3px;
+    margin-right: 6px;
+    vertical-align: middle;
+    letter-spacing: 0.03em;
+}
+
 .reading-passage {
     font-family: 'Arial', sans-serif;
     display: flex;

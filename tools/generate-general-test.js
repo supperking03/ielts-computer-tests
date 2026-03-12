@@ -49,7 +49,7 @@ const SECTION_BLUEPRINTS = [
     totalQuestions: 14,
     textCount: 3,
     groups: [
-      { type: 'matching-information', count: 7 },  // which text (T1/T2/T3) contains info
+      { type: 'matching-information', count: 7 },  // which text (1/2/3) contains info
       { type: 'true-false-not-given', count: 4 },
       { type: 'sentence-completion', count: 3 },
     ],
@@ -132,9 +132,13 @@ function serializeAsModule(exportName, obj) {
   return `export const ${exportName} = ${JSON.stringify(obj, null, 2)};\n`;
 }
 
-// Remove "<hN>Text N: anything</hN>" labels — actual title is in the <h3> below
+// Replace "Text N: Title" → keep "Text N" as a visible label so students know which text is which
+// e.g. <h2>Text 1: Library Opening Hours</h2> → <h2><span class="text-label">Text 1</span> Library Opening Hours</h2>
 function stripTextLabels(html) {
-  return (html || '').replace(/<h[1-4][^>]*>Text \d+:[^<]*<\/h[1-4]>/gi, '');
+  return (html || '').replace(
+    /<(h[1-4])([^>]*)>Text (\d+):\s*([^<]*)<\/(h[1-4])>/gi,
+    "<$1$2><span class='text-label'>Text $3</span> $4</$5>",
+  );
 }
 
 // ─── Registry helpers ─────────────────────────────────────────────────────────
@@ -422,10 +426,11 @@ function buildGeneralQuestionTypeInstructions(blueprint) {
       case 'matching-information':
         return `matching-information (${g.count} items):
   - Use type "paragraph-matching" in the output JSON.
-  - title: "The passage has several texts, T1–T3. Which text contains the following information?"
-  - instruction: "Write the correct text number, T1–T3, in boxes [START]–[END] on your answer sheet. NB You may use any letter more than once."
+  - title: "The passage has several texts. Which text (1, 2 or 3) contains the following information?"
+  - instruction: "Write the correct number, 1, 2 or 3, in boxes [START]–[END] on your answer sheet. NB You may use any number more than once."
+  - paragraphRange: "1-3"
   - items: [{ "description": "..." }] — descriptions that paraphrase specific info in one text.
-  - answers: T1, T2, or T3.
+  - answers: "1", "2", or "3" (plain digit strings — NOT "T1", "T2", "T3").
   - Each description must clearly map to exactly one text. Focus on scanning/locating details.`;
 
       case 'true-false-not-given':

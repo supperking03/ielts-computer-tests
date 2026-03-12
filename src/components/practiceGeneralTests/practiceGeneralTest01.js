@@ -2,13 +2,13 @@ export const practiceGeneralTest01 = {
   "id": 6000,
   "title": "Practice General Test 01",
   "correctAnswers": [
-    "T1",
-    "T2",
-    "T3",
-    "T1",
-    "T2",
-    "T3",
-    "T2",
+    "1",
+    "2",
+    "3",
+    "1",
+    "2",
+    "3",
+    "2",
     "FALSE",
     "FALSE",
     "FALSE",
@@ -46,13 +46,14 @@ export const practiceGeneralTest01 = {
   "passages": [
     {
       "title": "Section 1",
-      "content": "<p><em>Questions 1–14 refer to the texts below.</em></p><div><h3>Library Opening Hours</h3><p>The City Library is open to all members. Our hours are as follows: Monday to Friday: 9:00 AM - 8:00 PM, Saturday: 10:00 AM - 6:00 PM, Sunday: Closed. Please note that the library will be closed on public holidays. For more information, visit our website or call us at (555) 123-4567.</p></div><hr/><div><h3>Join Our Yoga Classes</h3><p>Looking to improve your flexibility and reduce stress? Join our yoga classes at Harmony Studio. Classes are available for all levels, from beginners to advanced practitioners. Sessions are held every Monday and Wednesday at 6:30 PM. First class is free! Monthly membership is $50. For more details, contact us at info@harmonystudio.com or call (555) 987-6543.</p></div><hr/><div><h3>Community Clean-Up Day</h3><p>Join us for the annual Community Clean-Up Day on Saturday, April 15th. Meet at the Town Hall at 9:00 AM. All equipment will be provided. This is a great opportunity to meet your neighbors and help keep our community clean. Refreshments will be served. For more information, please contact the Community Office at (555) 321-6789.</p></div>",
+      "content": "<p><em>Questions 1–14 refer to the texts below.</em></p><div><h3><span class='text-label'>Text 1</span> Library Opening Hours</h3><p>The City Library is open to all members. Our hours are as follows: Monday to Friday: 9:00 AM - 8:00 PM, Saturday: 10:00 AM - 6:00 PM, Sunday: Closed. Please note that the library will be closed on public holidays. For more information, visit our website or call us at (555) 123-4567.</p></div><hr/><div><h3><span class='text-label'>Text 2</span> Join Our Yoga Classes</h3><p>Looking to improve your flexibility and reduce stress? Join our yoga classes at Harmony Studio. Classes are available for all levels, from beginners to advanced practitioners. Sessions are held every Monday and Wednesday at 6:30 PM. First class is free! Monthly membership is $50. For more details, contact us at info@harmonystudio.com or call (555) 987-6543.</p></div><hr/><div><h3><span class='text-label'>Text 3</span> Community Clean-Up Day</h3><p>Join us for the annual Community Clean-Up Day on Saturday, April 15th. Meet at the Town Hall at 9:00 AM. All equipment will be provided. This is a great opportunity to meet your neighbors and help keep our community clean. Refreshments will be served. For more information, please contact the Community Office at (555) 321-6789.</p></div>",
       "questions": [
         {
           "type": "paragraph-matching",
           "startQuestionNumber": 1,
-          "title": "The passage has several texts, T1–T3. Which text contains the following information?",
-          "instruction": "Write the correct text number, T1–T3, in boxes 1–7 on your answer sheet. NB You may use any letter more than once.",
+          "paragraphRange": "1-3",
+          "title": "The passage has several texts. Which text (1, 2 or 3) contains the following information?",
+          "instruction": "Write the correct number, 1, 2 or 3, in boxes 1–7 on your answer sheet. NB You may use any number more than once.",
           "items": [
             {
               "description": "The library is not open on Sundays."
