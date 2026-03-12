@@ -23,7 +23,8 @@
     "start": "react-scripts start",
     "build": "CI=false react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "generate:practice-test": "node tools/generate-practice-test.js"
   },
   "eslintConfig": {
     "extends": [

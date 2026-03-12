@@ -1,0 +1,136 @@
+{
+  "id": 906,
+  "title": "How_to_see_110_deep_sky_wonders_in_one_night",
+  "correctAnswers": [
+    "C",
+    "D",
+    "E",
+    "F",
+    "FALSE",
+    "FALSE",
+    "FALSE",
+    "TRUE",
+    "B",
+    "A",
+    "B",
+    "new moon",
+    "local astronomy groups"
+  ],
+  "passages": [
+    {
+      "title": "Reading Passage 1",
+      "content": "<p><strong>A</strong> Each spring, amateur astronomers embark on an ambitious stargazing challenge known as the Messier Marathon. This overnight quest involves spotting all 110 deep-sky objects cataloged by Charles Messier, ranging from galaxies to nebulae and star clusters, between dusk and dawn.</p><p><strong>B</strong> The marathon is only feasible for a brief period in late March or early April, when Earth's position allows all the catalog's objects to appear in the night sky over a single night. In 2026, this window spans from March 14-22. For dedicated stargazers, it represents both a test of endurance and a celebration of the night sky's most spectacular sights.</p><p><strong>C</strong> Charles Messier, a French astronomer, compiled his catalog over two centuries ago. His 1774 Catalogue des Nébuleuses et des Amas d'Étoiles was initially a list of 110 objects that could be mistaken for comets, which he was actually hunting. Today, this catalog serves as the ultimate scavenger hunt for amateur astronomers.</p><p><strong>D</strong> The Messier catalog includes some of the most famous deep-sky objects visible from Earth, such as the Andromeda Galaxy (M31), the Orion Nebula (M42), and the Pleiades (M45). Most of these objects can be observed with modest backyard telescopes or even binoculars under dark skies, with some bright enough to be seen with the naked eye.</p><p><strong>E</strong> Completing the Messier Marathon used to be significantly more challenging before the advent of digital sky maps and GoTo telescopes, which automatically locate celestial targets. Despite these technological aids, the marathon still demands careful planning and stamina, as observers must adapt to real-time complications like cloud cover and changing sky conditions.</p><p><strong>F</strong> The best time for a Messier Marathon is during a new moon, when the absence of moonlight makes faint galaxies, nebulae, and star clusters easier to spot. Preparation is crucial, and joining local astronomy groups can provide valuable support and camaraderie. Observers must choose sites with unobstructed views and minimal light pollution to maximize their chances of success.</p><p><strong>G</strong> Planning the order of observations is essential, as not all Messier objects are visible all night. Observers should prioritize objects in the west before they set and start their observations early, setting up before sunset to capture the first targets at twilight. This strategic approach increases the likelihood of completing the marathon successfully.</p>",
+      "questions": [
+        {
+          "type": "paragraph-headings",
+          "items": [
+            {
+              "paragraph": "C"
+            },
+            {
+              "paragraph": "D"
+            },
+            {
+              "paragraph": "E"
+            },
+            {
+              "paragraph": "F"
+            }
+          ],
+          "options": [
+            {
+              "value": "A",
+              "text": "A"
+            },
+            {
+              "value": "B",
+              "text": "B"
+            },
+            {
+              "value": "C",
+              "text": "C"
+            },
+            {
+              "value": "D",
+              "text": "D"
+            },
+            {
+              "value": "E",
+              "text": "E"
+            },
+            {
+              "value": "F",
+              "text": "F"
+            },
+            {
+              "value": "G",
+              "text": "G"
+            }
+          ]
+        },
+        {
+          "type": "true-false-not-given",
+          "items": [
+            {
+              "statement": "The Messier Marathon can be completed at any time of the year."
+            },
+            {
+              "statement": "Charles Messier's catalog was originally intended for amateur astronomers."
+            },
+            {
+              "statement": "All Messier objects are visible to the naked eye."
+            },
+            {
+              "statement": "Digital sky maps have made the Messier Marathon easier."
+            }
+          ]
+        },
+        {
+          "type": "multiple-choice",
+          "items": [
+            {
+              "question": "What is the primary challenge of the Messier Marathon?",
+              "options": [
+                "Finding the right equipment",
+                "Spotting all 110 objects in one night",
+                "Traveling to a location with clear skies",
+                "Understanding the catalog"
+              ]
+            },
+            {
+              "question": "What did Charles Messier originally intend his catalog for?",
+              "options": [
+                "To aid in comet hunting",
+                "To educate amateur astronomers",
+                "To document all visible stars",
+                "To create a celestial map"
+              ]
+            },
+            {
+              "question": "Why is the Messier Marathon considered a test of endurance?",
+              "options": [
+                "Due to the physical demands of setting up telescopes",
+                "Because it requires staying awake all night",
+                "Because it involves traveling long distances",
+                "Due to the complexity of the objects"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "fill-in-blanks",
+          "items": [
+            {
+              "prefix": "The best time for a Messier Marathon is during a ",
+              "suffix": " ."
+            },
+            {
+              "prefix": "Joining ",
+              "suffix": " can provide valuable support and camaraderie."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

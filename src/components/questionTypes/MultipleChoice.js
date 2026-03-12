@@ -61,6 +61,7 @@ const MultipleChoice = ({ question, startQuestionNumber, answers, onAnswerChange
         const answerIndex = questionNumber - 1;
         const isCorrect = isAnswerCorrect(questionNumber);
         const currentAnswer = answers[answerIndex] || '';
+        const questionOptions = item.options || [];
         
         return (
             <div 
@@ -89,7 +90,7 @@ const MultipleChoice = ({ question, startQuestionNumber, answers, onAnswerChange
                 </div>
                 
                 <div className="answer-options" style={{ marginTop: '12px', paddingLeft: '20px' }}>
-                    {item.options.map((option) => {
+                    {questionOptions.map((option) => {
                         const isChecked = multipleSelect 
                             ? currentAnswer.split(',').map(a => a.trim()).includes(option.value)
                             : currentAnswer === option.value;
@@ -122,6 +123,11 @@ const MultipleChoice = ({ question, startQuestionNumber, answers, onAnswerChange
                             </label>
                         );
                     })}
+                    {!questionOptions.length && (
+                        <div style={{ color: '#b45309', fontStyle: 'italic' }}>
+                            This question is missing answer options.
+                        </div>
+                    )}
                 </div>
                 
                 {multipleSelect && (

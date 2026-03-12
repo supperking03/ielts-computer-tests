@@ -14,6 +14,18 @@ const PLACEHOLDER_COLORS = [
 function Home({ tests }) {
     const isListening = Boolean(tests[0]?.audioSource);
 
+    if (!tests.length) {
+        return (
+            <div className="tests-empty-state">
+                <h2>No practice tests yet</h2>
+                <p>
+                    Add generated reading tests to <code>src/components/practiceTests/</code> and
+                    export them from <code>src/components/practiceTests/index.js</code>.
+                </p>
+            </div>
+        );
+    }
+
     return (
         <div className="tests-grid">
             {tests.map(test => {

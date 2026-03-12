@@ -1,12 +1,13 @@
 // App.js
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Home from './components/Home';
 import ReadingPassage from './components/ReadingPassage';
 import NewReadingPassage from './components/NewReadingPassage';
 import { tests } from './components/data';
 import { tests as tests2 } from './components/dataLis';
 import { tests as testsGeneral } from './components/dataGeneral';
+import { practiceTests } from './components/practiceTests';
 import ListeningPassage from './components/ListeningPassage';
 import NewListeningPassage from './components/NewListeningPassage';
 import './Menu.css';
@@ -95,6 +96,11 @@ function Header() {
 function AppContent() {
     const location = useLocation();
     const [currentPage, setCurrentPage] = useState(0);
+    const currentTests =
+        currentPage === 0 ? tests :
+        currentPage === 1 ? tests2 :
+        currentPage === 2 ? testsGeneral :
+        practiceTests;
 
     const isTestPage = (
         location.pathname.startsWith('/reading/') ||
@@ -112,25 +118,32 @@ function AppContent() {
                         className={`tab-btn${currentPage === 0 ? ' active' : ''}`}
                         onClick={() => setCurrentPage(0)}
                     >
-                        Reading
+                        CAM Reading (Academic)
                     </button>
                     <button
                         className={`tab-btn${currentPage === 1 ? ' active' : ''}`}
                         onClick={() => setCurrentPage(1)}
                     >
-                        Listening
+                        CAM Listening
+                    </button>
+                    <button
+                        className={`tab-btn${currentPage === 2 ? ' active' : ''}`}
+                        onClick={() => setCurrentPage(2)}
+                    >
+                        Reading (General)
                     </button>
                     <button
                         className={`tab-btn${currentPage === 3 ? ' active' : ''}`}
                         onClick={() => setCurrentPage(3)}
                     >
-                        Reading (General)
+                        <span>Reading (Practice)</span>
+                        <span className="tab-badge">newbie</span>
                     </button>
                 </nav>
             )}
             <Routes>
                 <Route path="/" element={
-                    <Home tests={currentPage === 0 ? tests : currentPage === 1 ? tests2 : testsGeneral} />
+                    <Home tests={currentTests} />
                 } />
                 <Route path="/reading/:id/:title" element={<ReadingPassage />} />
                 <Route path="/new-reading/:id/:title" element={<NewReadingPassage />} />

@@ -3,6 +3,7 @@ import CountdownTimer from './CountdownTimer';
 import './ReadingPassage.css';
 import { newTests } from './newData';
 import { tests as generalTests } from './dataGeneral';
+import { practiceTests } from './practiceTests';
 import QuestionRenderer from './QuestionRenderer';
 import { Helmet } from 'react-helmet';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
@@ -24,7 +25,7 @@ function NewReadingPassage() {
         navigate(`?passage=${currentPassage}`, { replace: true });
     }, [currentPassage, navigate]);
 
-    const selectedTest = [...newTests, ...generalTests].find(test => test.id === parseInt(id));
+    const selectedTest = [...newTests, ...generalTests, ...practiceTests].find(test => test.id === parseInt(id));
 
     // For right-click highlighting
     const [contextMenu, setContextMenu] = useState({ visible: false, x: 0, y: 0 });
