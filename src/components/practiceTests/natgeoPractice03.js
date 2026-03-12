@@ -2,11 +2,11 @@ export const natgeoPractice03 = {
   "id": 5003,
   "title": "Practice Test 03",
   "correctAnswers": [
-    "D",
-    "B",
-    "C",
-    "E",
-    "F",
+    "iv",
+    "ii",
+    "iii",
+    "v",
+    "vi",
     "TRUE",
     "NOT GIVEN",
     "TRUE",
@@ -72,31 +72,31 @@ export const natgeoPractice03 = {
           ],
           "options": [
             {
-              "value": "A",
+              "value": "i",
               "text": "A discovery that could change accepted history"
             },
             {
-              "value": "B",
+              "value": "ii",
               "text": "The object that first caught an archaeologist's attention"
             },
             {
-              "value": "C",
+              "value": "iii",
               "text": "Evidence pointing to the ship's likely identity"
             },
             {
-              "value": "D",
+              "value": "iv",
               "text": "A shipwreck as a perfect snapshot of daily life"
             },
             {
-              "value": "E",
+              "value": "v",
               "text": "A valuable collection revealed after years of work"
             },
             {
-              "value": "F",
+              "value": "vi",
               "text": "The physical difficulty of underwater excavation"
             },
             {
-              "value": "G",
+              "value": "vii",
               "text": "Questions historians are still unable to answer"
             }
           ]

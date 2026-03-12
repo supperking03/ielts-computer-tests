@@ -332,7 +332,7 @@ Rules:
 - Exactly 40 entries in correctAnswers, in question order.
 - Passage question counts must be 13, 13, and 14.
 - Follow this fixed blueprint exactly:
-  - Passage 1: paragraph-headings (5) + true-false-not-given OR yes-no-not-given (5) + fill-in-blanks OR sentence-completion (3)
+- Passage 1: paragraph-headings (5) + true-false-not-given OR yes-no-not-given (5) + fill-in-blanks OR sentence-completion (3)
   - Passage 2: paragraph-matching (5) + matching (4) + sentence-completion OR summary-completion (4)
   - Passage 3: multiple-choice (5) + true-false-not-given OR yes-no-not-given (5) + fill-in-blanks OR summary-completion OR table-completion (4)
 - Do not use multiple-select in this MVP.
@@ -348,6 +348,7 @@ Rules:
   summary-completion
   table-completion
 - Every group has type, startQuestionNumber, title, instruction.
+- For paragraph-headings, group-level options must use Roman numerals as values: i, ii, iii, iv, v, vi, vii, viii.
 - Most groups use items[].
 - table-completion uses totalQuestions and table.rows[].cells[] with input cells using questionIndex.
 - Every multiple-choice item must be an object like:
@@ -383,6 +384,7 @@ Use this exact blueprint:
 - Passage 1 total 13 = 5 + 5 + 3
 - Passage 2 total 13 = 5 + 4 + 4
 - Passage 3 total 14 = 5 + 5 + 4
+For paragraph-headings, use Roman numeral option values and Roman numeral correct answers.
 Every multiple-choice item must include its own options array with value/text.
 Every table-completion blank must use a cell object with type "input" and questionIndex.
 Do not use multiple-select.`;

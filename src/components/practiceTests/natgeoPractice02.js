@@ -2,11 +2,11 @@ export const natgeoPractice02 = {
   "id": 5002,
   "title": "Practice Test 02",
   "correctAnswers": [
-    "B",
-    "C",
-    "E",
-    "G",
-    "A",
+    "ii",
+    "iii",
+    "v",
+    "vii",
+    "i",
     "TRUE",
     "FALSE",
     "NOT GIVEN",
@@ -72,31 +72,31 @@ export const natgeoPractice02 = {
           ],
           "options": [
             {
-              "value": "A",
+              "value": "i",
               "text": "Brutus joins a plot against Caesar"
             },
             {
-              "value": "B",
+              "value": "ii",
               "text": "A shocking act of betrayal"
             },
             {
-              "value": "C",
+              "value": "iii",
               "text": "Brutus's family background and early life"
             },
             {
-              "value": "D",
+              "value": "iv",
               "text": "The conspiracy fails to achieve its aim"
             },
             {
-              "value": "E",
+              "value": "v",
               "text": "Brutus chooses Pompey over Caesar"
             },
             {
-              "value": "F",
+              "value": "vi",
               "text": "The conspirators hide after the killing"
             },
             {
-              "value": "G",
+              "value": "vii",
               "text": "Caesar rewards a former enemy"
             }
           ]

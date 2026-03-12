@@ -2,11 +2,11 @@ export const practiceTest01 = {
   "id": 5004,
   "title": "Practice Test 01",
   "correctAnswers": [
-    "D",
-    "B",
-    "C",
-    "F",
-    "A",
+    "iv",
+    "ii",
+    "iii",
+    "vi",
+    "i",
     "TRUE",
     "NOT GIVEN",
     "FALSE",
@@ -72,31 +72,31 @@ export const practiceTest01 = {
           ],
           "options": [
             {
-              "value": "A",
+              "value": "i",
               "text": "Gaudi's sudden death before completion"
             },
             {
-              "value": "B",
+              "value": "ii",
               "text": "Celebrations for a long-awaited milestone"
             },
             {
-              "value": "C",
+              "value": "iii",
               "text": "A building that follows an older tradition"
             },
             {
-              "value": "D",
+              "value": "iv",
               "text": "Modern tools help realize an old vision"
             },
             {
-              "value": "E",
+              "value": "v",
               "text": "The original funding plan for the basilica"
             },
             {
-              "value": "F",
+              "value": "vi",
               "text": "The meaning behind the planned towers"
             },
             {
-              "value": "G",
+              "value": "vii",
               "text": "Uncertainty over the final completion date"
             }
           ]
