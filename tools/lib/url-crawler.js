@@ -138,6 +138,23 @@ function absolutizeUrl(baseUrl, href) {
   }
 }
 
+function extractLeadImage($, pageUrl) {
+  const candidates = [
+    $('meta[property="og:image"]').attr('content'),
+    $('meta[name="twitter:image"]').attr('content'),
+    $('meta[property="twitter:image"]').attr('content'),
+    $('article img').first().attr('src'),
+    $('main img').first().attr('src'),
+  ].filter(Boolean);
+
+  for (const candidate of candidates) {
+    const absolute = absolutizeUrl(pageUrl, candidate);
+    if (absolute) return absolute;
+  }
+
+  return '';
+}
+
 async function discoverArticleUrls(homepageUrl, { limit = 30 } = {}) {
   const html = await fetchHtml(homepageUrl);
   const $ = cheerio.load(html);
@@ -182,6 +199,7 @@ async function crawlUrl(url) {
   const title = $('meta[property="og:title"]').attr('content') || $('title').text().trim();
   const description = $('meta[name="description"]').attr('content') || '';
   const canonical = $('link[rel="canonical"]').attr('href') || url;
+  const image = extractLeadImage($, canonical);
 
   const preloadedParagraphs = splitParagraphsFromBodies(collectBodies(preloaded));
   const visibleParagraphs = extractVisibleParagraphs($);
@@ -193,6 +211,7 @@ async function crawlUrl(url) {
     sourceUrl: canonical,
     title,
     description,
+    image,
     paragraphCount: paragraphs.length,
     textLength: paragraphs.join('\n\n').length,
     paragraphs,

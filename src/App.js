@@ -21,19 +21,14 @@ const FEATURES = [
         desc: 'Our interface mirrors the official IELTS computer exam layout — same look, same feel. Practice in the exact environment you\'ll face on test day with no surprises.',
     },
     {
-        icon: '✅',
-        title: 'Instant Answer Checking',
-        desc: 'Get immediate feedback the moment you check answers. Correct answers light up green, incorrect ones red — making it easy to spot weaknesses and track progress.',
+        icon: '🤖',
+        title: 'Instant AI Explanation',
+        desc: 'Do not stop at right or wrong. Get AI-powered explanations instantly so you can understand the evidence, fix weak logic, and learn faster after every test.',
     },
     {
-        icon: '🖊️',
-        title: 'Text Highlighting Tool',
-        desc: 'Right-click any passage text to highlight key information, just like the real IELTS computer test. Build better reading strategies by marking evidence as you go.',
-    },
-    {
-        icon: '🎯',
-        title: 'Accurate Band Score Estimation',
-        desc: 'Your raw score is automatically converted to an IELTS band (1.0–9.0) using the official Cambridge conversion table, so you always know exactly where you stand.',
+        icon: '📚',
+        title: 'Many Tests',
+        desc: 'Train with a large bank of Cambridge-style tests and extra practice sets in one place, so you always have enough material to build stamina and track improvement.',
     },
 ];
 

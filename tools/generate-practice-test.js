@@ -75,6 +75,7 @@ function buildSourcePayload(crawled) {
     sourceUrl: item.sourceUrl,
     sourceTitle: item.title,
     description: item.description,
+    image: item.image,
     paragraphCount: item.paragraphCount,
     paragraphs: item.paragraphs.slice(0, 20),
   }));
@@ -348,7 +349,7 @@ Rules:
   summary-completion
   table-completion
 - Every group has type, startQuestionNumber, title, instruction.
-- For paragraph-headings, group-level options must use Roman numerals as values: i, ii, iii, iv, v, vi, vii, viii.
+- For paragraph-headings, group-level options must have 8 entries (i–viii). Each option's "value" is the Roman numeral (i, ii, iii, …, viii) and "text" must be a short, meaningful IELTS-style heading title (NOT just the Roman numeral itself). Example: { "value": "i", "text": "A technological solution to personal grief" }.
 - Most groups use items[].
 - table-completion uses totalQuestions and table.rows[].cells[] with input cells using questionIndex.
 - Every multiple-choice item must be an object like:
@@ -384,7 +385,7 @@ Use this exact blueprint:
 - Passage 1 total 13 = 5 + 5 + 3
 - Passage 2 total 13 = 5 + 4 + 4
 - Passage 3 total 14 = 5 + 5 + 4
-For paragraph-headings, use Roman numeral option values and Roman numeral correct answers.
+For paragraph-headings, each option must have a Roman numeral "value" (i–viii) and a meaningful IELTS-style heading "text" (not just the numeral). Correct answers are Roman numerals.
 Every multiple-choice item must include its own options array with value/text.
 Every table-completion blank must use a cell object with type "input" and questionIndex.
 Do not use multiple-select.`;
@@ -449,6 +450,7 @@ async function main() {
     title: crawled[index].title,
     sourceTitle: crawled[index].title,
     sourceUrl: crawled[index].sourceUrl,
+    image: crawled[index].image,
   }));
 
   pack.passages.forEach((passage, index) => {
@@ -478,6 +480,7 @@ async function main() {
 
   generated.id = testId;
   generated.title = displayTitle;
+  generated.image = crawled.find((item) => item.image)?.image || '';
   generated.passages = generated.passages.map((passage, index) => ({
     ...passage,
     title: crawled[index].title,

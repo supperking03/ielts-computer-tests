@@ -20,7 +20,6 @@ const ParagraphHeadings = ({ question, startQuestionNumber, answers, onAnswerCha
             <h3>{title}</h3>
             <div className="instruction">
                 <p>{instruction}</p>
-                <p>Write the correct number, i-viii, in boxes {startQuestionNumber}-{startQuestionNumber + questionItems.length - 1} on your answer sheet.</p>
             </div>
             
             <div className="headings-list" style={{ 
