@@ -7,7 +7,8 @@ import NewReadingPassage from './components/NewReadingPassage';
 import { tests } from './components/data';
 import { tests as tests2 } from './components/dataLis';
 import { tests as testsGeneral } from './components/dataGeneral';
-import { practiceTests } from './components/practiceTests';
+import { practiceTests } from './components/practiceAcademicTests';
+import { practiceGeneralTests } from './components/practiceGeneralTests';
 import ListeningPassage from './components/ListeningPassage';
 import NewListeningPassage from './components/NewListeningPassage';
 import './Menu.css';
@@ -95,7 +96,8 @@ function AppContent() {
         currentPage === 0 ? tests :
         currentPage === 1 ? tests2 :
         currentPage === 2 ? testsGeneral :
-        practiceTests;
+        currentPage === 3 ? practiceTests :
+        practiceGeneralTests;
 
     const isTestPage = (
         location.pathname.startsWith('/reading/') ||
@@ -131,8 +133,15 @@ function AppContent() {
                         className={`tab-btn${currentPage === 3 ? ' active' : ''}`}
                         onClick={() => setCurrentPage(3)}
                     >
-                        <span>Reading (Practice)</span>
-                        <span className="tab-badge">newbie</span>
+                        <span>Practice Reading (Academic)</span>
+                        <span className="tab-badge">AI</span>
+                    </button>
+                    <button
+                        className={`tab-btn${currentPage === 4 ? ' active' : ''}`}
+                        onClick={() => setCurrentPage(4)}
+                    >
+                        <span>Practice Reading (General)</span>
+                        <span className="tab-badge">AI</span>
                     </button>
                 </nav>
             )}

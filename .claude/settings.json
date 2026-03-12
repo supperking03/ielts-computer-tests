@@ -37,7 +37,8 @@
       "Bash(node -e \"const pkg = require\\(''./node_modules/react-facebook/package.json''\\); console.log\\(pkg.version, pkg.peerDependencies\\)\")",
       "Bash(npm install:*)",
       "Bash(grep -E \"\\\\.\\(js|ts|jsx|tsx\\)$\")",
-      "Bash(ls -la /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/*.css)"
+      "Bash(ls -la /Users/kelvin/Downloads/ielts-computer-tests-1/src/components/*.css)",
+      "Bash(git mv:*)"
     ]
   }
 }

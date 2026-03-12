@@ -1,0 +1,60 @@
+{
+  "title": "Practice General Test 01",
+  "sections": [
+    {
+      "label": "Section 1",
+      "title": "Section 1 — Social Survival Texts",
+      "sectionType": "social_survival",
+      "contentHtml": "<p><em>Questions 1–14 refer to the texts below.</em></p><h2>Text 1: Library Opening Hours</h2><div><h3>Library Opening Hours</h3><p>The City Library is open to all members. Our hours are as follows: Monday to Friday: 9:00 AM - 8:00 PM, Saturday: 10:00 AM - 6:00 PM, Sunday: Closed. Please note that the library will be closed on public holidays. For more information, visit our website or call us at (555) 123-4567.</p></div><hr/><h2>Text 2: Yoga Class Advertisement</h2><div><h3>Join Our Yoga Classes</h3><p>Looking to improve your flexibility and reduce stress? Join our yoga classes at Harmony Studio. Classes are available for all levels, from beginners to advanced practitioners. Sessions are held every Monday and Wednesday at 6:30 PM. First class is free! Monthly membership is $50. For more details, contact us at info@harmonystudio.com or call (555) 987-6543.</p></div><hr/><h2>Text 3: Community Event Notice</h2><div><h3>Community Clean-Up Day</h3><p>Join us for the annual Community Clean-Up Day on Saturday, April 15th. Meet at the Town Hall at 9:00 AM. All equipment will be provided. This is a great opportunity to meet your neighbors and help keep our community clean. Refreshments will be served. For more information, please contact the Community Office at (555) 321-6789.</p></div>",
+      "texts": [
+        {
+          "id": "T1",
+          "title": "Library Opening Hours",
+          "wordCount": 120,
+          "contentHtml": "<h3>Library Opening Hours</h3><p>The City Library is open to all members. Our hours are as follows: Monday to Friday: 9:00 AM - 8:00 PM, Saturday: 10:00 AM - 6:00 PM, Sunday: Closed. Please note that the library will be closed on public holidays. For more information, visit our website or call us at (555) 123-4567.</p>"
+        },
+        {
+          "id": "T2",
+          "title": "Yoga Class Advertisement",
+          "wordCount": 160,
+          "contentHtml": "<h3>Join Our Yoga Classes</h3><p>Looking to improve your flexibility and reduce stress? Join our yoga classes at Harmony Studio. Classes are available for all levels, from beginners to advanced practitioners. Sessions are held every Monday and Wednesday at 6:30 PM. First class is free! Monthly membership is $50. For more details, contact us at info@harmonystudio.com or call (555) 987-6543.</p>"
+        },
+        {
+          "id": "T3",
+          "title": "Community Event Notice",
+          "wordCount": 140,
+          "contentHtml": "<h3>Community Clean-Up Day</h3><p>Join us for the annual Community Clean-Up Day on Saturday, April 15th. Meet at the Town Hall at 9:00 AM. All equipment will be provided. This is a great opportunity to meet your neighbors and help keep our community clean. Refreshments will be served. For more information, please contact the Community Office at (555) 321-6789.</p>"
+        }
+      ]
+    },
+    {
+      "label": "Section 2",
+      "title": "Section 2 — Workplace Texts",
+      "sectionType": "workplace",
+      "contentHtml": "<p><em>Questions 15–27 refer to the texts below.</em></p><h2>Text 1: Employee Handbook: Leave Policy</h2><p>Our company offers a comprehensive leave policy to support the work-life balance of our employees. The following types of leave are available:</p><ul><li><strong>Annual Leave:</strong> Employees are entitled to 20 days of paid annual leave per calendar year. Leave must be requested at least 2 weeks in advance and is subject to managerial approval.</li><li><strong>Sick Leave:</strong> Employees can take up to 10 days of paid sick leave per year. A medical certificate is required for absences exceeding 3 consecutive days.</li><li><strong>Maternity/Paternity Leave:</strong> Maternity leave is available for up to 16 weeks, while paternity leave is available for up to 2 weeks. Employees must notify their manager at least 8 weeks before the expected start date.</li><li><strong>Unpaid Leave:</strong> Employees may request unpaid leave for personal reasons. Approval is at the discretion of the department head and is not guaranteed.</li></ul><p>All leave requests should be submitted through the company’s online portal. For further details, please refer to the full leave policy document available on the intranet.</p><hr/><h2>Text 2: Workplace Safety Guidelines</h2><p>Ensuring a safe working environment is a top priority. All employees must adhere to the following safety guidelines:</p><ol><li><strong>Personal Protective Equipment (PPE):</strong> Employees must wear appropriate PPE, such as helmets, gloves, and safety glasses, in designated areas. PPE is provided by the company and must be maintained in good condition.</li><li><strong>Emergency Procedures:</strong> In case of an emergency, follow the evacuation plan posted on each floor. Familiarize yourself with the location of emergency exits and assembly points.</li><li><strong>Reporting Hazards:</strong> Any potential hazards or unsafe conditions should be reported immediately to the safety officer or your supervisor. Use the hazard report form available at the reception desk.</li><li><strong>First Aid:</strong> First aid kits are located in the break room and near the main entrance. Trained first aid personnel are available during all shifts.</li><li><strong>Fire Safety:</strong> Fire extinguishers are located throughout the building. Employees should only attempt to use them if trained and if it is safe to do so.</li></ol><p>Regular safety drills are conducted to ensure preparedness. Participation is mandatory for all staff. For more information, contact the safety department.</p>",
+      "texts": [
+        {
+          "id": "T1",
+          "title": "Employee Handbook: Leave Policy",
+          "wordCount": 300,
+          "contentHtml": "<h3>Employee Handbook: Leave Policy</h3><p>Our company offers a comprehensive leave policy to support the work-life balance of our employees. The following types of leave are available:</p><ul><li><strong>Annual Leave:</strong> Employees are entitled to 20 days of paid annual leave per calendar year. Leave must be requested at least 2 weeks in advance and is subject to managerial approval.</li><li><strong>Sick Leave:</strong> Employees can take up to 10 days of paid sick leave per year. A medical certificate is required for absences exceeding 3 consecutive days.</li><li><strong>Maternity/Paternity Leave:</strong> Maternity leave is available for up to 16 weeks, while paternity leave is available for up to 2 weeks. Employees must notify their manager at least 8 weeks before the expected start date.</li><li><strong>Unpaid Leave:</strong> Employees may request unpaid leave for personal reasons. Approval is at the discretion of the department head and is not guaranteed.</li></ul><p>All leave requests should be submitted through the company’s online portal. For further details, please refer to the full leave policy document available on the intranet.</p>"
+        },
+        {
+          "id": "T2",
+          "title": "Workplace Safety Guidelines",
+          "wordCount": 350,
+          "contentHtml": "<h3>Workplace Safety Guidelines</h3><p>Ensuring a safe working environment is a top priority. All employees must adhere to the following safety guidelines:</p><ol><li><strong>Personal Protective Equipment (PPE):</strong> Employees must wear appropriate PPE, such as helmets, gloves, and safety glasses, in designated areas. PPE is provided by the company and must be maintained in good condition.</li><li><strong>Emergency Procedures:</strong> In case of an emergency, follow the evacuation plan posted on each floor. Familiarize yourself with the location of emergency exits and assembly points.</li><li><strong>Reporting Hazards:</strong> Any potential hazards or unsafe conditions should be reported immediately to the safety officer or your supervisor. Use the hazard report form available at the reception desk.</li><li><strong>First Aid:</strong> First aid kits are located in the break room and near the main entrance. Trained first aid personnel are available during all shifts.</li><li><strong>Fire Safety:</strong> Fire extinguishers are located throughout the building. Employees should only attempt to use them if trained and if it is safe to do so.</li></ol><p>Regular safety drills are conducted to ensure preparedness. Participation is mandatory for all staff. For more information, contact the safety department.</p>"
+        }
+      ]
+    },
+    {
+      "label": "Section 3",
+      "title": "Et tu, Brute? The real story of Brutus’ betrayal of Caesar",
+      "sectionType": "general_article",
+      "contentHtml": "<p><strong>A</strong> Marcus Junius Brutus, a Roman politician and orator, is one of history's most notorious assassins due to his role in the conspiracy to kill Julius Caesar. Despite Caesar sparing his life, Brutus was part of the group that murdered him. Historians like Plutarch and Appian note that Caesar initially resisted his attackers but gave up upon seeing Brutus, highlighting the deep betrayal. Brutus later became a symbol of Republican values for his opposition to Caesar's supreme power.</p><p><strong>B</strong> Brutus was born to a patrician mother, Servilia, and a wealthy plebeian father. Servilia had a well-known romantic relationship with Caesar, leading some historians to speculate about Brutus's paternity, although this is unlikely given the timeline. Brutus's father was executed by Pompey the Great after a failed rebellion. Despite this, Brutus later supported Pompey against Caesar, driven by political conviction that Pompey was a better option against tyranny.</p><p><strong>C</strong> After Caesar defeated Pompey at the Battle of Pharsalus in 48 B.C., Brutus's life was spared by Caesar, who pardoned him. Brutus then enjoyed Caesar's favor, becoming governor of Cisalpine Gaul and later a praetor, thanks to Caesar's support. However, Brutus was drawn into a conspiracy against Caesar by his brother-in-law, Gaius Cassius Longinus. Plutarch suggests Brutus objected to Caesar's dictatorship, while Cassius harbored hatred for the ruler.</p><p><strong>D</strong> The conspiracy against Caesar was influenced by a climate of opinion among the Roman elite favoring insurrection. Brutus may have felt a sense of duty to act like his ancestor, Lucius Junius Brutus, who ended the Roman monarchy centuries earlier. This sense of responsibility, combined with his conservative senatorial beliefs, likely drove him to participate in the assassination, torn between loyalty to Caesar and the Republic.</p><p><strong>E</strong> On March 15, 44 B.C., Brutus was involved in the assassination of Caesar, which failed to restore the Roman Republic as intended. The aftermath was chaotic, with senators fleeing in panic and Mark Antony, Caesar's lieutenant, escaping. The conspirators, including Brutus, took refuge on Capitoline Hill. Cicero, a friend of Brutus, advised him to convene the Senate and condemn Caesar as a tyrant, but Brutus did not follow this advice.</p><p><strong>F</strong> Order was restored by troops loyal to Caesar, and Brutus addressed the citizens to explain the assassination, promising to honor Caesar's promises to his soldiers. However, tensions rose, leading to riots. Antony, meanwhile, sought reconciliation, convening the Senate to propose amnesty for the conspirators while ratifying Caesar's decisions. This proposal, supported by Cicero, was accepted, calming the situation temporarily. Brutus accepted the terms, although Cassius did not.</p>",
+      "sourceUrl": "https://www.nationalgeographic.com/history/article/caesar-brutus-murder-ides-of-march",
+      "sourceTitle": "Et tu, Brute? The real story of Brutus’ betrayal of Caesar",
+      "image": "https://i.natgeofe.com/n/822902f7-7e1e-43ba-8515-ce20e794010d/background_16x9.jpg?w=1200"
+    }
+  ]
+}

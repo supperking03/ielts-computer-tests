@@ -18,7 +18,7 @@ if (!OPENAI_API_KEY) {
 
 const ROOT_DIR = path.join(__dirname, '..');
 const GENERATED_DIR = path.join(__dirname, 'generated');
-const PRACTICE_DIR = path.join(ROOT_DIR, 'src', 'components', 'practiceTests');
+const PRACTICE_DIR = path.join(ROOT_DIR, 'src', 'components', 'practiceAcademicTests');
 const PRACTICE_INDEX_PATH = path.join(PRACTICE_DIR, 'index.js');
 
 // ─── Passage blueprints ───────────────────────────────────────────────────────
