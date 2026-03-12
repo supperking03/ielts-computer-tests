@@ -70,7 +70,36 @@ export const natgeoPractice03 = {
               "paragraph": "F"
             }
           ],
-          "options": []
+          "options": [
+            {
+              "value": "A",
+              "text": "A discovery that could change accepted history"
+            },
+            {
+              "value": "B",
+              "text": "The object that first caught an archaeologist's attention"
+            },
+            {
+              "value": "C",
+              "text": "Evidence pointing to the ship's likely identity"
+            },
+            {
+              "value": "D",
+              "text": "A shipwreck as a perfect snapshot of daily life"
+            },
+            {
+              "value": "E",
+              "text": "A valuable collection revealed after years of work"
+            },
+            {
+              "value": "F",
+              "text": "The physical difficulty of underwater excavation"
+            },
+            {
+              "value": "G",
+              "text": "Questions historians are still unable to answer"
+            }
+          ]
         },
         {
           "type": "true-false-not-given",
@@ -163,7 +192,24 @@ export const natgeoPractice03 = {
               "description": "Habitat zones"
             }
           ],
-          "options": []
+          "options": [
+            {
+              "value": "D",
+              "label": "summer wildflowers and heavy visitor crowds"
+            },
+            {
+              "value": "E",
+              "label": "Trail Ridge Road"
+            },
+            {
+              "value": "F",
+              "label": "Alpine Visitor Center"
+            },
+            {
+              "value": "G",
+              "label": "wildlife-rich habitat zones"
+            }
+          ]
         },
         {
           "type": "sentence-completion",

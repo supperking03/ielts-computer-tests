@@ -70,7 +70,36 @@ export const practiceTest01 = {
               "paragraph": "E"
             }
           ],
-          "options": []
+          "options": [
+            {
+              "value": "A",
+              "text": "Gaudi's sudden death before completion"
+            },
+            {
+              "value": "B",
+              "text": "Celebrations for a long-awaited milestone"
+            },
+            {
+              "value": "C",
+              "text": "A building that follows an older tradition"
+            },
+            {
+              "value": "D",
+              "text": "Modern tools help realize an old vision"
+            },
+            {
+              "value": "E",
+              "text": "The original funding plan for the basilica"
+            },
+            {
+              "value": "F",
+              "text": "The meaning behind the planned towers"
+            },
+            {
+              "value": "G",
+              "text": "Uncertainty over the final completion date"
+            }
+          ]
         },
         {
           "type": "true-false-not-given",
@@ -163,7 +192,24 @@ export const practiceTest01 = {
               "description": "Daffodils"
             }
           ],
-          "options": []
+          "options": [
+            {
+              "value": "G",
+              "label": "an example of an early spring flower"
+            },
+            {
+              "value": "F",
+              "label": "another flower commonly seen among the first blooms"
+            },
+            {
+              "value": "C",
+              "label": "a plant listed as one of the earliest to bloom"
+            },
+            {
+              "value": "E",
+              "label": "a spring flower often found in gardens"
+            }
+          ]
         },
         {
           "type": "sentence-completion",

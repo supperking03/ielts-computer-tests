@@ -70,7 +70,36 @@ export const natgeoPractice02 = {
               "paragraph": "E"
             }
           ],
-          "options": []
+          "options": [
+            {
+              "value": "A",
+              "text": "Brutus joins a plot against Caesar"
+            },
+            {
+              "value": "B",
+              "text": "A shocking act of betrayal"
+            },
+            {
+              "value": "C",
+              "text": "Brutus's family background and early life"
+            },
+            {
+              "value": "D",
+              "text": "The conspiracy fails to achieve its aim"
+            },
+            {
+              "value": "E",
+              "text": "Brutus chooses Pompey over Caesar"
+            },
+            {
+              "value": "F",
+              "text": "The conspirators hide after the killing"
+            },
+            {
+              "value": "G",
+              "text": "Caesar rewards a former enemy"
+            }
+          ]
         },
         {
           "type": "true-false-not-given",
@@ -163,7 +192,24 @@ export const natgeoPractice02 = {
               "description": "dehydration"
             }
           ],
-          "options": []
+          "options": [
+            {
+              "value": "A",
+              "label": "people who care for injured wild animals"
+            },
+            {
+              "value": "B",
+              "label": "the season when baby animals are most often found"
+            },
+            {
+              "value": "C",
+              "label": "a young deer"
+            },
+            {
+              "value": "D",
+              "label": "a dangerous lack of water in the body"
+            }
+          ]
         },
         {
           "type": "sentence-completion",

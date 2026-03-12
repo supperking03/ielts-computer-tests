@@ -70,7 +70,7 @@ function validateTestObject(test) {
       }
 
       if (group.type === 'paragraph-headings') {
-        if (!Array.isArray(group.options) || !group.options.every((option) => option && option.value && option.text)) {
+        if (!hasValidOptions(group.options)) {
           errors.push(`paragraph-headings group ${groupIndex + 1} in passage ${passageIndex + 1} needs group-level options with value/text.`);
         }
         if (!Array.isArray(group.items) || !group.items.every((item) => item && item.paragraph)) {
@@ -87,6 +87,9 @@ function validateTestObject(test) {
       if (group.type === 'matching' || group.type === 'paragraph-matching') {
         if (!Array.isArray(group.items) || !group.items.every((item) => item && item.description)) {
           errors.push(`${group.type} group ${groupIndex + 1} in passage ${passageIndex + 1} needs items[].description.`);
+        }
+        if (group.type === 'matching' && !hasValidOptions(group.options)) {
+          errors.push(`matching group ${groupIndex + 1} in passage ${passageIndex + 1} needs group-level options with value/label.`);
         }
       }
 
