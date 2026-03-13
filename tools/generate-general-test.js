@@ -40,45 +40,85 @@ const GENERAL_DIR = path.join(ROOT_DIR, 'src', 'components', 'practiceGeneralTes
 const GENERAL_INDEX_PATH = path.join(GENERAL_DIR, 'index.js');
 
 // ─── Blueprints ───────────────────────────────────────────────────────────────
-// Each section maps to one passage in the app (same format as Cambridge general tests).
-const SECTION_BLUEPRINTS = [
-  {
-    sectionNumber: 1,
-    sectionType: 'social_survival',
-    label: 'Section 1',
-    totalQuestions: 14,
-    textCount: 3,
-    groups: [
-      { type: 'matching-information', count: 7 },  // which text (1/2/3) contains info
-      { type: 'true-false-not-given', count: 4 },
-      { type: 'sentence-completion', count: 3 },
-    ],
-  },
-  {
-    sectionNumber: 2,
-    sectionType: 'workplace',
-    label: 'Section 2',
-    totalQuestions: 13,
-    textCount: 2,
-    groups: [
-      { type: 'true-false-not-given', count: 5 },
-      { type: 'sentence-completion', count: 4 },
-      { type: 'multiple-choice', count: 4 },
-    ],
-  },
-  {
-    sectionNumber: 3,
-    sectionType: 'general_article',
-    label: 'Section 3',
-    totalQuestions: 13,
-    textCount: 1,
-    groups: [
-      { type: 'paragraph-headings', count: 5 },
-      { type: 'true-false-not-given', count: 4 },
-      { type: 'summary-completion', count: 4 },
-    ],
-  },
+// Pool of valid question-group combos per section (Cambridge-authentic variety).
+// Each array entry is one possible "layout" — picked randomly each run.
+
+// Section 1 — 14q, 3 social-survival texts
+// Core: always has matching-information (which text) + at least one other type
+const SEC1_LAYOUTS = [
+  [{ type: 'matching-information', count: 7 }, { type: 'true-false-not-given', count: 4 }, { type: 'sentence-completion', count: 3 }],
+  [{ type: 'matching-information', count: 6 }, { type: 'true-false-not-given', count: 5 }, { type: 'sentence-completion', count: 3 }],
+  [{ type: 'matching-information', count: 7 }, { type: 'sentence-completion', count: 4 }, { type: 'multiple-choice', count: 3 }],
+  [{ type: 'true-false-not-given', count: 6 }, { type: 'matching-information', count: 5 }, { type: 'sentence-completion', count: 3 }],
+  [{ type: 'matching-information', count: 5 }, { type: 'true-false-not-given', count: 5 }, { type: 'multiple-choice', count: 4 }],
+  [{ type: 'matching-information', count: 7 }, { type: 'fill-in-blanks', count: 4 }, { type: 'multiple-choice', count: 3 }],
+  [{ type: 'matching-information', count: 6 }, { type: 'sentence-completion', count: 5 }, { type: 'true-false-not-given', count: 3 }],
+  [{ type: 'true-false-not-given', count: 7 }, { type: 'matching-information', count: 4 }, { type: 'fill-in-blanks', count: 3 }],
+  [{ type: 'matching-information', count: 8 }, { type: 'true-false-not-given', count: 3 }, { type: 'multiple-choice', count: 3 }],
+  [{ type: 'matching-information', count: 6 }, { type: 'multiple-choice', count: 4 }, { type: 'fill-in-blanks', count: 4 }],
 ];
+
+// Section 2 — 13q, 2 workplace texts
+const SEC2_LAYOUTS = [
+  [{ type: 'true-false-not-given', count: 5 }, { type: 'sentence-completion', count: 4 }, { type: 'multiple-choice', count: 4 }],
+  [{ type: 'true-false-not-given', count: 6 }, { type: 'sentence-completion', count: 4 }, { type: 'fill-in-blanks', count: 3 }],
+  [{ type: 'matching-information', count: 5 }, { type: 'true-false-not-given', count: 4 }, { type: 'sentence-completion', count: 4 }],
+  [{ type: 'sentence-completion', count: 6 }, { type: 'true-false-not-given', count: 4 }, { type: 'multiple-choice', count: 3 }],
+  [{ type: 'true-false-not-given', count: 5 }, { type: 'multiple-choice', count: 4 }, { type: 'sentence-completion', count: 4 }],
+  [{ type: 'sentence-completion', count: 5 }, { type: 'multiple-choice', count: 4 }, { type: 'true-false-not-given', count: 4 }],
+  [{ type: 'true-false-not-given', count: 7 }, { type: 'sentence-completion', count: 3 }, { type: 'multiple-choice', count: 3 }],
+  [{ type: 'fill-in-blanks', count: 5 }, { type: 'true-false-not-given', count: 5 }, { type: 'multiple-choice', count: 3 }],
+  [{ type: 'matching-information', count: 6 }, { type: 'sentence-completion', count: 4 }, { type: 'true-false-not-given', count: 3 }],
+  [{ type: 'true-false-not-given', count: 5 }, { type: 'fill-in-blanks', count: 4 }, { type: 'multiple-choice', count: 4 }],
+  [{ type: 'multiple-choice', count: 5 }, { type: 'true-false-not-given', count: 4 }, { type: 'sentence-completion', count: 4 }],
+  [{ type: 'yes-no-not-given', count: 5 }, { type: 'sentence-completion', count: 4 }, { type: 'multiple-choice', count: 4 }],
+  [{ type: 'table-completion', count: 5 }, { type: 'true-false-not-given', count: 4 }, { type: 'multiple-choice', count: 4 }],
+];
+
+// Section 3 — 13q, 1 long discursive article
+const SEC3_LAYOUTS = [
+  [{ type: 'paragraph-headings', count: 5 }, { type: 'true-false-not-given', count: 4 }, { type: 'summary-completion', count: 4 }],
+  [{ type: 'paragraph-headings', count: 6 }, { type: 'true-false-not-given', count: 4 }, { type: 'sentence-completion', count: 3 }],
+  [{ type: 'true-false-not-given', count: 5 }, { type: 'matching-information', count: 4 }, { type: 'summary-completion', count: 4 }],
+  [{ type: 'paragraph-headings', count: 5 }, { type: 'multiple-choice', count: 4 }, { type: 'summary-completion', count: 4 }],
+  [{ type: 'true-false-not-given', count: 6 }, { type: 'paragraph-headings', count: 4 }, { type: 'sentence-completion', count: 3 }],
+  [{ type: 'paragraph-headings', count: 5 }, { type: 'yes-no-not-given', count: 4 }, { type: 'summary-completion', count: 4 }],
+  [{ type: 'yes-no-not-given', count: 6 }, { type: 'paragraph-headings', count: 4 }, { type: 'summary-completion', count: 3 }],
+  [{ type: 'matching-information', count: 5 }, { type: 'true-false-not-given', count: 4 }, { type: 'sentence-completion', count: 4 }],
+  [{ type: 'paragraph-headings', count: 6 }, { type: 'multiple-choice', count: 4 }, { type: 'fill-in-blanks', count: 3 }],
+  [{ type: 'true-false-not-given', count: 5 }, { type: 'summary-completion', count: 4 }, { type: 'multiple-choice', count: 4 }],
+  [{ type: 'paragraph-headings', count: 5 }, { type: 'sentence-completion', count: 4 }, { type: 'multiple-choice', count: 4 }],
+  [{ type: 'yes-no-not-given', count: 5 }, { type: 'matching-information', count: 4 }, { type: 'summary-completion', count: 4 }],
+];
+
+function buildSectionBlueprints() {
+  return [
+    {
+      sectionNumber: 1,
+      sectionType: 'social_survival',
+      label: 'Section 1',
+      totalQuestions: 14,
+      textCount: 3,
+      groups: pickRandom(SEC1_LAYOUTS),
+    },
+    {
+      sectionNumber: 2,
+      sectionType: 'workplace',
+      label: 'Section 2',
+      totalQuestions: 13,
+      textCount: 2,
+      groups: pickRandom(SEC2_LAYOUTS),
+    },
+    {
+      sectionNumber: 3,
+      sectionType: 'general_article',
+      label: 'Section 3',
+      totalQuestions: 13,
+      textCount: 1,
+      groups: pickRandom(SEC3_LAYOUTS),
+    },
+  ];
+}
 
 // ─── Utility ──────────────────────────────────────────────────────────────────
 
@@ -158,22 +198,33 @@ function collectExistingGeneralTitles() {
   return titles;
 }
 
-async function pickFreshArticle(homepageUrl) {
+async function pickFreshArticle(inputUrl) {
   const existingTitles = collectExistingGeneralTitles();
-  const discovered = await discoverArticleUrls(homepageUrl, { limit: 40 });
-  if (!discovered.length) {
-    throw new Error(`Could not discover any article URLs from ${homepageUrl}.`);
-  }
-  for (const candidate of discovered) {
+
+  async function tryCandidate(url) {
     let crawled;
-    try { crawled = await crawlUrl(candidate.url); } catch { continue; }
-    if (!crawled.paragraphCount || crawled.paragraphCount < 3) continue;
+    try { crawled = await crawlUrl(url); } catch { return null; }
+    if (!crawled.paragraphCount || crawled.paragraphCount < 2) return null;
     const normalized = normalizeTitle(crawled.title);
-    if (!normalized) continue;
-    if (existingTitles.has(normalized)) continue;
+    if (!normalized) return null;
+    if (existingTitles.has(normalized)) return null;
     return crawled;
   }
-  throw new Error(`Could not find a fresh article page from ${homepageUrl}.`);
+
+  // If the input URL itself looks like an article (has meaningful content), use it directly
+  const direct = await tryCandidate(inputUrl);
+  if (direct) return direct;
+
+  // Otherwise treat it as a homepage/category and discover article links from it
+  const discovered = await discoverArticleUrls(inputUrl, { limit: 50 });
+  if (!discovered.length) {
+    throw new Error(`Could not discover any article URLs from ${inputUrl}.`);
+  }
+  for (const candidate of discovered) {
+    const result = await tryCandidate(candidate.url);
+    if (result) return result;
+  }
+  throw new Error(`Could not find a usable article from ${inputUrl}. Try passing a direct article URL.`);
 }
 
 function ensureIndexFile() {
@@ -234,10 +285,10 @@ function updateGeneralIndex(exportName) {
 
 // ─── AI helpers ───────────────────────────────────────────────────────────────
 
-async function getJsonCompletion(client, { systemPrompt, userPrompt, model = 'gpt-4o', maxTokens = 6000 }) {
+async function getJsonCompletion(client, { systemPrompt, userPrompt, model = 'gpt-4o', maxTokens = 6000, temperature = 0.2 }) {
   const response = await client.chat.completions.create({
     model,
-    temperature: 0.2,
+    temperature,
     max_tokens: maxTokens,
     messages: [
       { role: 'system', content: systemPrompt },
@@ -248,9 +299,42 @@ async function getJsonCompletion(client, { systemPrompt, userPrompt, model = 'gp
   return parseJsonResponse(text);
 }
 
+// ─── Variety seed pools ───────────────────────────────────────────────────────
+
+const SEC1_THEMES = [
+  'sports centre, local market, bus timetable',
+  'swimming pool, supermarket offer, community noticeboard',
+  'dental clinic, car park rules, evening class advertisement',
+  'hotel check-in policy, pharmacy opening hours, cooking class notice',
+  'cinema programme, recycling guidelines, language school enrolment',
+  'gym membership, farmers market, council noise regulations',
+  'public library, post office services, fitness class schedule',
+  'tourist information, laundromat rules, local festival programme',
+  'childcare centre policy, travel insurance notice, museum opening hours',
+  'airport lounge rules, bicycle hire advertisement, adult education course',
+];
+
+const SEC2_THEMES = [
+  'retail store induction, warehouse safety procedures',
+  'hospital staff handbook, shift scheduling policy',
+  'restaurant employee training, food hygiene guidelines',
+  'IT company remote work policy, data security procedures',
+  'construction site safety rules, subcontractor onboarding',
+  'call centre performance guidelines, customer complaint procedures',
+  'school staff handbook, student supervision policy',
+  'hotel front desk procedures, housekeeping training manual',
+  'logistics company delivery protocols, vehicle inspection checklist',
+  'pharmaceutical lab safety, clinical trial procedures',
+];
+
+function pickRandom(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
 // ─── Stage 1a: Generate Section 1 (social survival texts) ────────────────────
 
 async function generateSection1(client) {
+  const theme = pickRandom(SEC1_THEMES);
   const systemPrompt = `You are an IELTS General Training test writer.
 Return strict JSON only. No markdown, no commentary.
 
@@ -284,8 +368,9 @@ Return:
 
   return getJsonCompletion(client, {
     systemPrompt,
-    userPrompt: 'Generate 3 distinct practical texts for IELTS General Training Section 1. Make them realistic and varied.',
+    userPrompt: `Generate 3 distinct practical texts for IELTS General Training Section 1. Theme suggestion: ${theme}. Make them realistic and varied.`,
     maxTokens: 3000,
+    temperature: 0.9,
   });
 }
 
@@ -321,10 +406,12 @@ Return:
   "topic": "one sentence describing the workplace context"
 }`;
 
+  const theme = pickRandom(SEC2_THEMES);
   return getJsonCompletion(client, {
     systemPrompt,
-    userPrompt: 'Generate 2 distinct workplace texts for IELTS General Training Section 2. Make them different types (e.g., handbook + safety guidelines).',
+    userPrompt: `Generate 2 distinct workplace texts for IELTS General Training Section 2. Theme suggestion: ${theme}. Make them different document types (e.g., handbook excerpt + safety procedure).`,
     maxTokens: 3000,
+    temperature: 0.9,
   });
 }
 
@@ -371,6 +458,8 @@ ${paragraphs}`;
 // ─── Stage 2: Build evidence map for a section ───────────────────────────────
 
 async function buildSectionEvidenceMap(client, section) {
+  const needsHeadings = (section.groups || []).some((g) => g.type === 'paragraph-headings');
+
   const systemPrompt = `You are an IELTS General Training question designer.
 Return strict JSON only.
 
@@ -381,12 +470,13 @@ For each text unit (paragraph or short text), provide:
 - mainIdea: one sentence summary
 - keyFacts: 2–4 specific facts, rules, numbers, conditions
 - tfngCandidates: 2–3 statements that can be tested as TRUE/FALSE/NOT GIVEN
+- yesNoCandidates: 1–2 opinion/claim statements the writer makes (for YES/NO/NOT GIVEN)
 - contradictionCandidates: 1–2 statements that would be FALSE if slightly changed
 - notGivenCandidates: 1–2 topics NOT mentioned but plausible
 - completionPhrases: exact 1–2 word phrases from text suitable for gap-fill
 
-${section.sectionType === 'general_article' ? `Also provide:
-- headingIdeas: 8 distinct IELTS-style headings (i–viii). Main idea headings for actual paragraphs, plus 2–3 distractors. Each must have "value" (i–viii) and "text" (meaningful heading, not just the numeral).` : ''}
+${needsHeadings ? `Also provide:
+- headingIdeas: 8 distinct IELTS-style headings (i–viii). Main idea headings for actual paragraphs, plus 2–3 distractors. Each must have "value" (i–viii) and "text" (meaningful heading phrase — NOT just the numeral).` : ''}
 
 Return JSON:
 {
@@ -396,11 +486,12 @@ Return JSON:
       "mainIdea": "...",
       "keyFacts": ["...", "..."],
       "tfngCandidates": ["...", "..."],
+      "yesNoCandidates": ["...", "..."],
       "contradictionCandidates": ["...", "..."],
       "notGivenCandidates": ["...", "..."],
       "completionPhrases": ["...", "..."]
     }
-  ]${section.sectionType === 'general_article' ? `,
+  ]${needsHeadings ? `,
   "headingIdeas": [
     { "value": "i", "text": "..." },
     { "value": "ii", "text": "..." },
@@ -467,13 +558,40 @@ function buildGeneralQuestionTypeInstructions(blueprint) {
   - answers: A, B, or C. Exactly one correct answer. Distractors plausible but clearly wrong from the text.
   - Questions must follow text order.`;
 
-      case 'paragraph-headings':
+      case 'paragraph-headings': {
+        const lastPara = String.fromCharCode(64 + g.count); // e.g. count=5 → E
         return `paragraph-headings (${g.count} items):
-  - title: "The reading passage has ${g.count} paragraphs, A–E. Choose the correct heading for each paragraph from the list of headings below."
+  - title: "The reading passage has ${g.count} paragraphs, A–${lastPara}. Choose the correct heading for each paragraph from the list of headings below."
   - instruction: "Write the correct number, i-viii, in boxes [START]–[END] on your answer sheet."
-  - options: use all 8 headingIdeas from the evidence map. Each option MUST have "value" (Roman numeral) and "text" (meaningful heading, NOT just the numeral).
-  - items: [{ "paragraph": "A" }, { "paragraph": "B" }, ...] — one per paragraph being matched.
-  - answers: Roman numerals (i–viii). Include distractor headings.`;
+  - options: use all 8 headingIdeas from the evidence map. Each option MUST have "value" (Roman numeral i–viii) and "text" (meaningful heading phrase — NOT just the numeral).
+  - items: [{ "paragraph": "A" }, { "paragraph": "B" }, ...] — one per paragraph A–${lastPara}.
+  - answers: Roman numerals (i–viii). Include distractor headings (correct answers use only ${g.count} of the 8 options).`;
+      }
+
+      case 'yes-no-not-given':
+        return `yes-no-not-given (${g.count} items):
+  - Use type "yes-no-not-given" in the output JSON.
+  - title: "Do the following statements agree with the views/claims of the writer?"
+  - instruction: "In boxes [START]–[END] on your answer sheet, write YES if the statement agrees with the views/claims of the writer, NO if the statement contradicts the views/claims of the writer, or NOT GIVEN if it is impossible to say what the writer thinks about this."
+  - items: [{ "statement": "..." }]
+  - answers: YES, NO, or NOT GIVEN (all caps).
+  - Use for discursive/opinion passages (Section 3). Statements must reflect writer's stance, not just facts.`;
+
+      case 'fill-in-blanks':
+        return `fill-in-blanks (${g.count} items):
+  - Use type "fill-in-blanks" in the output JSON.
+  - title: "Complete the notes below."
+  - instruction: "Choose NO MORE THAN TWO WORDS AND/OR A NUMBER from the text for each answer. Write your answers in boxes [START]–[END] on your answer sheet."
+  - items: [{ "prefix": "...", "suffix": "..." }] — structured as a set of notes (e.g. bullet points about key facts).
+  - answers: exact 1–2 words or a number directly from the text.`;
+
+      case 'table-completion':
+        return `table-completion (${g.count} items):
+  - Use type "table-completion" in the output JSON.
+  - title: "Complete the table below."
+  - instruction: "Choose NO MORE THAN TWO WORDS AND/OR A NUMBER from the text for each answer. Write your answers in boxes [START]–[END] on your answer sheet."
+  - Structure as a table comparing 2–3 items across several attributes. Use items with "prefix" and "suffix" fields per cell gap (same as fill-in-blanks format).
+  - answers: exact 1–2 words or a number from the text.`;
 
       default:
         return `${g.type} (${g.count} items)`;
@@ -642,6 +760,12 @@ async function main() {
       image: crawled.image,
     },
   ];
+
+  const SECTION_BLUEPRINTS = buildSectionBlueprints();
+  console.log('  Section layouts:');
+  SECTION_BLUEPRINTS.forEach((bp) => {
+    console.log(`    ${bp.label}: ${bp.groups.map((g) => `${g.type}(${g.count})`).join(', ')}`);
+  });
 
   // ── Stage 2: Build evidence maps ──────────────────────────────────────────────
   console.log('\nStage 2/3: Building evidence maps...');

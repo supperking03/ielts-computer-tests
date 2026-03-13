@@ -1,0 +1,60 @@
+{
+  "title": "Practice General Test 02",
+  "sections": [
+    {
+      "label": "Section 1",
+      "title": "Section 1 — Social Survival Texts",
+      "sectionType": "social_survival",
+      "contentHtml": "<p><em>Questions 1–14 refer to the texts below.</em></p><h2><span class='text-label'>Text 1</span> Library Opening Hours</h2><div><h3>Library Opening Hours</h3><p>The City Library is open to all members. Our opening hours are as follows: Monday to Friday: 9:00 AM - 8:00 PM, Saturday: 10:00 AM - 6:00 PM, Sunday: Closed. Please note that the library will be closed on public holidays. For more information, visit our website or call us at (555) 123-4567.</p></div><hr/><h2><span class='text-label'>Text 2</span> Yoga Class Advertisement</h2><div><h3>Join Our Yoga Classes</h3><p>Looking to improve your flexibility and reduce stress? Join our yoga classes at the Downtown Wellness Center. Classes are available for all levels, from beginners to advanced. Sessions are held every Tuesday and Thursday at 6:30 PM. The first class is free for new members! For more details, contact us at info@wellnesscenter.com or call (555) 987-6543.</p></div><hr/><h2><span class='text-label'>Text 3</span> Community Park Notice</h2><div><h3>Community Park Notice</h3><p>Welcome to Greenfield Community Park! Please keep the park clean and dispose of litter in the bins provided. Dogs must be kept on a leash at all times. The playground is open from 8:00 AM to 7:00 PM daily. For safety reasons, cycling is not allowed on the walking paths. Thank you for your cooperation and enjoy your visit!</p></div>",
+      "texts": [
+        {
+          "id": "T1",
+          "title": "Library Opening Hours",
+          "wordCount": 120,
+          "contentHtml": "<h3>Library Opening Hours</h3><p>The City Library is open to all members. Our opening hours are as follows: Monday to Friday: 9:00 AM - 8:00 PM, Saturday: 10:00 AM - 6:00 PM, Sunday: Closed. Please note that the library will be closed on public holidays. For more information, visit our website or call us at (555) 123-4567.</p>"
+        },
+        {
+          "id": "T2",
+          "title": "Yoga Class Advertisement",
+          "wordCount": 160,
+          "contentHtml": "<h3>Join Our Yoga Classes</h3><p>Looking to improve your flexibility and reduce stress? Join our yoga classes at the Downtown Wellness Center. Classes are available for all levels, from beginners to advanced. Sessions are held every Tuesday and Thursday at 6:30 PM. The first class is free for new members! For more details, contact us at info@wellnesscenter.com or call (555) 987-6543.</p>"
+        },
+        {
+          "id": "T3",
+          "title": "Community Park Notice",
+          "wordCount": 140,
+          "contentHtml": "<h3>Community Park Notice</h3><p>Welcome to Greenfield Community Park! Please keep the park clean and dispose of litter in the bins provided. Dogs must be kept on a leash at all times. The playground is open from 8:00 AM to 7:00 PM daily. For safety reasons, cycling is not allowed on the walking paths. Thank you for your cooperation and enjoy your visit!</p>"
+        }
+      ]
+    },
+    {
+      "label": "Section 2",
+      "title": "Section 2 — Workplace Texts",
+      "sectionType": "workplace",
+      "contentHtml": "<p><em>Questions 15–27 refer to the texts below.</em></p><h2><span class='text-label'>Text 1</span> Employee Handbook: Remote Work Policy</h2><p>Our company supports flexible work arrangements, including remote work, to enhance employee satisfaction and productivity. This policy outlines the guidelines for employees who wish to work remotely.</p><p><strong>Eligibility:</strong> Employees must have completed at least 6 months of service to be eligible for remote work. Exceptions may be made at the discretion of the department manager.</p><p><strong>Application Process:</strong></p><ol><li>Submit a written request to your direct supervisor, outlining your reasons for remote work and proposed schedule.</li><li>Your supervisor will review the request and discuss it with the HR department.</li><li>Approval or denial will be communicated within 10 business days.</li></ol><p><strong>Expectations:</strong> Employees are expected to maintain regular communication with their team and attend all scheduled meetings. Performance will be evaluated based on outcomes, not hours worked.</p><p><strong>Equipment:</strong> The company will provide necessary equipment, such as laptops and software, but employees are responsible for ensuring a reliable internet connection.</p><p><strong>Security:</strong> Employees must adhere to all company data protection policies and ensure that confidential information is not accessed by unauthorized individuals.</p><hr/><h2><span class='text-label'>Text 2</span> Workplace Safety Guidelines: Fire Evacuation Procedures</h2><p>Ensuring the safety of all employees during a fire emergency is our top priority. Please familiarize yourself with the following fire evacuation procedures.</p><p><strong>Alarm Activation:</strong> In the event of a fire, activate the nearest fire alarm pull station. This will alert all employees and initiate the evacuation process.</p><p><strong>Evacuation Steps:</strong></p><ol><li>Upon hearing the fire alarm, remain calm and proceed to the nearest exit. Do not use elevators.</li><li>Follow the illuminated exit signs and proceed to the designated assembly area located in the parking lot.</li><li>Assist any individuals with disabilities or those who require help evacuating.</li></ol><p><strong>Assembly Area:</strong> Once at the assembly area, report to your designated team leader for a headcount. Do not leave the area until instructed by emergency personnel.</p><p><strong>Re-entry:</strong> Re-entry into the building is prohibited until the all-clear signal is given by the fire department or safety officer.</p><p><strong>Training:</strong> All employees must participate in annual fire safety training sessions. These sessions are scheduled every March and September.</p><p><strong>Responsibilities:</strong> Department heads are responsible for ensuring that all team members are aware of the evacuation routes and procedures.</p>",
+      "texts": [
+        {
+          "id": "T1",
+          "title": "Employee Handbook: Remote Work Policy",
+          "wordCount": 300,
+          "contentHtml": "<h3>Remote Work Policy</h3><p>Our company supports flexible work arrangements, including remote work, to enhance employee satisfaction and productivity. This policy outlines the guidelines for employees who wish to work remotely.</p><p><strong>Eligibility:</strong> Employees must have completed at least 6 months of service to be eligible for remote work. Exceptions may be made at the discretion of the department manager.</p><p><strong>Application Process:</strong></p><ol><li>Submit a written request to your direct supervisor, outlining your reasons for remote work and proposed schedule.</li><li>Your supervisor will review the request and discuss it with the HR department.</li><li>Approval or denial will be communicated within 10 business days.</li></ol><p><strong>Expectations:</strong> Employees are expected to maintain regular communication with their team and attend all scheduled meetings. Performance will be evaluated based on outcomes, not hours worked.</p><p><strong>Equipment:</strong> The company will provide necessary equipment, such as laptops and software, but employees are responsible for ensuring a reliable internet connection.</p><p><strong>Security:</strong> Employees must adhere to all company data protection policies and ensure that confidential information is not accessed by unauthorized individuals.</p>"
+        },
+        {
+          "id": "T2",
+          "title": "Workplace Safety Guidelines: Fire Evacuation Procedures",
+          "wordCount": 350,
+          "contentHtml": "<h3>Fire Evacuation Procedures</h3><p>Ensuring the safety of all employees during a fire emergency is our top priority. Please familiarize yourself with the following fire evacuation procedures.</p><p><strong>Alarm Activation:</strong> In the event of a fire, activate the nearest fire alarm pull station. This will alert all employees and initiate the evacuation process.</p><p><strong>Evacuation Steps:</strong></p><ol><li>Upon hearing the fire alarm, remain calm and proceed to the nearest exit. Do not use elevators.</li><li>Follow the illuminated exit signs and proceed to the designated assembly area located in the parking lot.</li><li>Assist any individuals with disabilities or those who require help evacuating.</li></ol><p><strong>Assembly Area:</strong> Once at the assembly area, report to your designated team leader for a headcount. Do not leave the area until instructed by emergency personnel.</p><p><strong>Re-entry:</strong> Re-entry into the building is prohibited until the all-clear signal is given by the fire department or safety officer.</p><p><strong>Training:</strong> All employees must participate in annual fire safety training sessions. These sessions are scheduled every March and September.</p><p><strong>Responsibilities:</strong> Department heads are responsible for ensuring that all team members are aware of the evacuation routes and procedures.</p>"
+        }
+      ]
+    },
+    {
+      "label": "Section 3",
+      "title": "The Success of a New Documentary Series",
+      "sectionType": "general_article",
+      "contentHtml": "<p><strong>A</strong> A new documentary series has achieved remarkable success by scoring 100 per cent on the popular review site Rotten Tomatoes. This achievement places it at the top of Netflix's viewing charts. The series, titled 'The Dinosaurs', consists of four episodes and has been produced with the involvement of influential figures from Hollywood. This has contributed to its high quality and popularity among viewers.</p><p><strong>B</strong> The series 'The Dinosaurs' explores the fascinating world of these prehistoric creatures, offering viewers a detailed look into their lives and environments. The documentary uses advanced technology and expert insights to bring the age of dinosaurs to life, making it both educational and entertaining. This combination of factors has likely contributed to its positive reception and high ratings.</p><p><strong>C</strong> Rotten Tomatoes is a well-known platform that aggregates reviews from critics and audiences to provide an overall score for movies and TV shows. Achieving a perfect score on this site is a significant accomplishment, indicating widespread acclaim and approval from both professional critics and general viewers. This can greatly influence a series' popularity and viewership.</p><p><strong>D</strong> Netflix, a leading streaming service, offers a wide range of content to its global audience. Being ranked number one on Netflix is a testament to a show's appeal and ability to attract viewers. The platform's recommendation algorithms and user-friendly interface help popular series reach a broader audience, further boosting their success.</p><p><strong>E</strong> The success of 'The Dinosaurs' highlights the growing interest in documentary series that combine educational content with high production values. Viewers are increasingly seeking content that not only entertains but also informs and educates. This trend is reflected in the popularity of similar series that explore historical, scientific, and cultural topics.</p><p><strong>F</strong> For students learning English as a second or foreign language, engaging with English-language media such as documentaries can be an effective way to improve language skills. Websites dedicated to ESL and EFL learners often provide resources like news readings and listening exercises based on current events. These resources can help learners enhance their comprehension and vocabulary while staying informed about global news stories.</p>",
+      "sourceUrl": "https://breakingnewsenglish.com/",
+      "sourceTitle": "Breaking News English - Easier News Lessons",
+      "image": "http://www.breakingnewsenglish.com/images/fb-og.jpg"
+    }
+  ]
+}

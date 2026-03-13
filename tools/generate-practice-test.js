@@ -21,37 +21,58 @@ const GENERATED_DIR = path.join(__dirname, 'generated');
 const PRACTICE_DIR = path.join(ROOT_DIR, 'src', 'components', 'practiceAcademicTests');
 const PRACTICE_INDEX_PATH = path.join(PRACTICE_DIR, 'index.js');
 
-// ─── Passage blueprints ───────────────────────────────────────────────────────
-// Each passage defines which question groups to generate and how many questions.
-const PASSAGE_BLUEPRINTS = [
-  {
-    passageIndex: 0,
-    totalQuestions: 13,
-    groups: [
-      { type: 'paragraph-headings', count: 5 },
-      { type: 'true-false-not-given', count: 5 },
-      { type: 'sentence-completion', count: 3 },
-    ],
-  },
-  {
-    passageIndex: 1,
-    totalQuestions: 13,
-    groups: [
-      { type: 'paragraph-matching', count: 5 },
-      { type: 'matching', count: 4 },
-      { type: 'summary-completion', count: 4 },
-    ],
-  },
-  {
-    passageIndex: 2,
-    totalQuestions: 14,
-    groups: [
-      { type: 'multiple-choice', count: 5 },
-      { type: 'yes-no-not-given', count: 5 },
-      { type: 'sentence-completion', count: 4 },
-    ],
-  },
+// ─── Passage blueprint pools ──────────────────────────────────────────────────
+// Randomised per run — matches Cambridge Academic Reading variety.
+
+function pickRandom(arr) {
+  return arr[Math.floor(Math.random() * arr.length)];
+}
+
+// Passage 1 — 13q, easiest passage
+const P1_LAYOUTS = [
+  [{ type: 'paragraph-headings', count: 5 }, { type: 'true-false-not-given', count: 5 }, { type: 'sentence-completion', count: 3 }],
+  [{ type: 'paragraph-headings', count: 6 }, { type: 'true-false-not-given', count: 4 }, { type: 'sentence-completion', count: 3 }],
+  [{ type: 'paragraph-headings', count: 5 }, { type: 'true-false-not-given', count: 4 }, { type: 'summary-completion', count: 4 }],
+  [{ type: 'true-false-not-given', count: 6 }, { type: 'paragraph-matching', count: 4 }, { type: 'sentence-completion', count: 3 }],
+  [{ type: 'paragraph-headings', count: 5 }, { type: 'sentence-completion', count: 5 }, { type: 'multiple-choice', count: 3 }],
+  [{ type: 'paragraph-matching', count: 5 }, { type: 'true-false-not-given', count: 5 }, { type: 'sentence-completion', count: 3 }],
+  [{ type: 'paragraph-headings', count: 6 }, { type: 'sentence-completion', count: 4 }, { type: 'true-false-not-given', count: 3 }],
+  [{ type: 'true-false-not-given', count: 7 }, { type: 'paragraph-headings', count: 3 }, { type: 'sentence-completion', count: 3 }],
 ];
+
+// Passage 2 — 13q, mid-difficulty
+const P2_LAYOUTS = [
+  [{ type: 'paragraph-matching', count: 5 }, { type: 'matching', count: 4 }, { type: 'summary-completion', count: 4 }],
+  [{ type: 'paragraph-matching', count: 6 }, { type: 'true-false-not-given', count: 4 }, { type: 'sentence-completion', count: 3 }],
+  [{ type: 'matching', count: 5 }, { type: 'paragraph-matching', count: 4 }, { type: 'summary-completion', count: 4 }],
+  [{ type: 'paragraph-matching', count: 5 }, { type: 'sentence-completion', count: 4 }, { type: 'multiple-choice', count: 4 }],
+  [{ type: 'true-false-not-given', count: 5 }, { type: 'paragraph-matching', count: 4 }, { type: 'summary-completion', count: 4 }],
+  [{ type: 'paragraph-matching', count: 5 }, { type: 'matching', count: 5 }, { type: 'sentence-completion', count: 3 }],
+  [{ type: 'paragraph-headings', count: 5 }, { type: 'paragraph-matching', count: 4 }, { type: 'summary-completion', count: 4 }],
+  [{ type: 'matching', count: 6 }, { type: 'true-false-not-given', count: 4 }, { type: 'sentence-completion', count: 3 }],
+  [{ type: 'paragraph-matching', count: 5 }, { type: 'yes-no-not-given', count: 4 }, { type: 'summary-completion', count: 4 }],
+];
+
+// Passage 3 — 14q, hardest passage
+const P3_LAYOUTS = [
+  [{ type: 'multiple-choice', count: 5 }, { type: 'yes-no-not-given', count: 5 }, { type: 'sentence-completion', count: 4 }],
+  [{ type: 'yes-no-not-given', count: 6 }, { type: 'multiple-choice', count: 4 }, { type: 'summary-completion', count: 4 }],
+  [{ type: 'paragraph-matching', count: 5 }, { type: 'yes-no-not-given', count: 5 }, { type: 'sentence-completion', count: 4 }],
+  [{ type: 'multiple-choice', count: 5 }, { type: 'true-false-not-given', count: 5 }, { type: 'summary-completion', count: 4 }],
+  [{ type: 'yes-no-not-given', count: 6 }, { type: 'paragraph-matching', count: 4 }, { type: 'sentence-completion', count: 4 }],
+  [{ type: 'multiple-choice', count: 6 }, { type: 'yes-no-not-given', count: 4 }, { type: 'summary-completion', count: 4 }],
+  [{ type: 'yes-no-not-given', count: 5 }, { type: 'multiple-choice', count: 5 }, { type: 'sentence-completion', count: 4 }],
+  [{ type: 'paragraph-headings', count: 5 }, { type: 'yes-no-not-given', count: 5 }, { type: 'multiple-choice', count: 4 }],
+  [{ type: 'matching', count: 5 }, { type: 'yes-no-not-given', count: 5 }, { type: 'summary-completion', count: 4 }],
+];
+
+function buildPassageBlueprints() {
+  return [
+    { passageIndex: 0, totalQuestions: 13, groups: pickRandom(P1_LAYOUTS) },
+    { passageIndex: 1, totalQuestions: 13, groups: pickRandom(P2_LAYOUTS) },
+    { passageIndex: 2, totalQuestions: 14, groups: pickRandom(P3_LAYOUTS) },
+  ];
+}
 
 // ─── Utility ──────────────────────────────────────────────────────────────────
 
@@ -279,7 +300,8 @@ ${source.paragraphs.map((p, i) => `[${i + 1}] ${p}`).join('\n\n')}`;
 
 // ─── Stage 2: Build evidence map for a passage ────────────────────────────────
 
-async function buildEvidenceMap(client, passage) {
+async function buildEvidenceMap(client, passage, blueprint) {
+  const needsHeadings = (blueprint?.groups || []).some((g) => g.type === 'paragraph-headings');
   const systemPrompt = `You are an IELTS question designer doing pre-analysis before writing questions.
 Return strict JSON only.
 
@@ -292,8 +314,8 @@ Analyze the passage and extract an evidence map with these fields for each parag
 - notGivenCandidates: 1–2 topics NOT mentioned that a test-taker might expect
 - completionPhrases: exact 1–2 word phrases from the text suitable for gap-fill answers
 
-Also provide:
-- headingIdeas: 8 distinct short IELTS-style headings (i–viii). Each covers a different main idea from the passage. Include at least 2–3 distractor headings not directly matching any paragraph.
+${needsHeadings ? `Also provide:
+- headingIdeas: 8 distinct short IELTS-style headings (i–viii). Each covers a different main idea from the passage. Include at least 2–3 distractor headings not directly matching any paragraph.` : ''}
 
 Return JSON:
 {
@@ -307,7 +329,7 @@ Return JSON:
       "notGivenCandidates": ["...", "..."],
       "completionPhrases": ["...", "..."]
     }
-  ],
+  ]${needsHeadings ? `,
   "headingIdeas": [
     { "value": "i", "text": "..." },
     { "value": "ii", "text": "..." },
@@ -317,7 +339,7 @@ Return JSON:
     { "value": "vi", "text": "..." },
     { "value": "vii", "text": "..." },
     { "value": "viii", "text": "..." }
-  ]
+  ]` : ''}
 }`;
 
   const passagePlain = toPassagePlainText(passage.contentHtml);
@@ -403,6 +425,27 @@ function buildQuestionTypeInstructions(blueprint) {
   - Exactly one correct answer per item. Distractors must be plausible and come from nearby ideas.
   - Questions must follow passage text order.`;
 
+      case 'fill-in-blanks':
+        return `fill-in-blanks (${g.count} items):
+  - title: "Complete the notes below."
+  - instruction: "Choose NO MORE THAN TWO WORDS AND/OR A NUMBER from the passage for each answer. Write your answers in boxes [START]-[END] on your answer sheet."
+  - items: [{ "prefix": "...", "suffix": "..." }] — structured as notes/bullet points.
+  - answers: exact 1–2 words or a number from the passage text.`;
+
+      case 'table-completion':
+        return `table-completion (${g.count} items):
+  - title: "Complete the table below."
+  - instruction: "Choose NO MORE THAN TWO WORDS AND/OR A NUMBER from the passage for each answer. Write your answers in boxes [START]-[END] on your answer sheet."
+  - items: [{ "prefix": "...", "suffix": "..." }] per cell gap — structured as a comparison table.
+  - answers: exact 1–2 words or a number from the passage text.`;
+
+      case 'multiple-select':
+        return `multiple-select (${g.count} items):
+  - title: "Choose TWO letters, A–E."
+  - instruction: "Write the correct letters in boxes [START]-[END] on your answer sheet."
+  - items: [{ "question": "...", "options": [{"value":"A","text":"..."},{"value":"B","text":"..."},{"value":"C","text":"..."},{"value":"D","text":"..."},{"value":"E","text":"..."}] }]
+  - answers: exactly 2 correct letters per item (e.g. "A" and "C" — output as two consecutive answer entries).`;
+
       default:
         return `${g.type} (${g.count} items)`;
     }
@@ -473,22 +516,24 @@ function assembleTest({ testId, displayTitle, passages, perPassageResults }) {
 
 // ─── Stage 5: Repair (fallback) ───────────────────────────────────────────────
 
-async function repairTestJson(client, { brokenTest, validationErrors, passages }) {
+async function repairTestJson(client, { brokenTest, validationErrors, passages, blueprints }) {
+  const blueprintDesc = blueprints
+    .map((bp, i) => `- Passage ${i + 1}: ${bp.groups.map((g) => `${g.type}(${g.count})`).join(' + ')} = ${bp.totalQuestions}`)
+    .join('\n');
+
   const systemPrompt = `You repair IELTS reading test JSON.
 Return strict JSON only. No markdown.
 
 Fix all validation errors listed. Keep exactly 3 passages and exactly 40 answers.
 Blueprints:
-- Passage 1: paragraph-headings(5) + true-false-not-given(5) + sentence-completion(3) = 13
-- Passage 2: paragraph-matching(5) + matching(4) + summary-completion(4) = 13
-- Passage 3: multiple-choice(5) + yes-no-not-given(5) + sentence-completion(4) = 14
+${blueprintDesc}
 
-For paragraph-headings:
-  - options: 8 entries (i–viii), each with "value" (Roman numeral) and "text" (meaningful heading, NOT just the numeral).
-For multiple-choice: every item must have its own options array with value/text.
-For sentence-completion/summary-completion: answers must be NO MORE THAN TWO WORDS from the passage.
-For true-false-not-given/yes-no-not-given: answers must be TRUE/FALSE/NOT GIVEN or YES/NO/NOT GIVEN (all caps).
-startQuestionNumber must be sequential across all groups in order (1, 6, 11, 14, 19, 23, 27, 32, 37).`;
+For paragraph-headings: options must be 8 entries (i–viii), each with "value" (Roman numeral) and "text" (meaningful heading, NOT just the numeral).
+For multiple-choice/multiple-select: every item must have its own options array with value/text.
+For sentence-completion/summary-completion/fill-in-blanks/table-completion: answers must be NO MORE THAN TWO WORDS AND/OR A NUMBER from the passage.
+For true-false-not-given: answers must be TRUE, FALSE, or NOT GIVEN (all caps).
+For yes-no-not-given: answers must be YES, NO, or NOT GIVEN (all caps).
+startQuestionNumber must be sequential across all groups in order.`;
 
   const userPrompt = `Repair this IELTS practice test JSON.
 
@@ -555,10 +600,16 @@ async function main() {
   const evidenceMaps = [];
   for (let i = 0; i < passages.length; i++) {
     console.log(`  Evidence map for passage ${i + 1}: "${passages[i].title}"`);
-    const map = await buildEvidenceMap(client, passages[i]);
+    const map = await buildEvidenceMap(client, passages[i], PASSAGE_BLUEPRINTS[i]);
     evidenceMaps.push(map);
     console.log(`    → ${(map.paragraphs || []).length} paragraphs analyzed, ${(map.headingIdeas || []).length} headings`);
   }
+
+  const PASSAGE_BLUEPRINTS = buildPassageBlueprints();
+  console.log('  Passage layouts:');
+  PASSAGE_BLUEPRINTS.forEach((bp, i) => {
+    console.log(`    Passage ${i + 1}: ${bp.groups.map((g) => `${g.type}(${g.count})`).join(' + ')}`);
+  });
 
   // ── Stage 3: Generate questions per passage ────────────────────────────────────
   console.log('\nStage 3/3: Generating questions per passage...');
@@ -586,7 +637,7 @@ async function main() {
   if (errors.length) {
     console.log(`\nValidation failed (${errors.length} errors). Attempting repair...`);
     errors.forEach((e) => console.log(`  - ${e}`));
-    generated = normalizeTestObject(await repairTestJson(client, { brokenTest: generated, validationErrors: errors, passages }));
+    generated = normalizeTestObject(await repairTestJson(client, { brokenTest: generated, validationErrors: errors, passages, blueprints: PASSAGE_BLUEPRINTS }));
     errors = validateTestObject(generated);
   }
 

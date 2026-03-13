@@ -82,19 +82,26 @@ function extractVisibleParagraphs($) {
   const seen = new Set();
   const paragraphs = [];
 
-  $('article p, main p').each((_, el) => {
-    const text = cleanText($(el).text());
-    if (text.length > 40 && !seen.has(text)) {
-      seen.add(text);
-      paragraphs.push(text);
-    }
-  });
+  // Try specific semantic containers first, then fall back to all <p>
+  const selectors = ['article p', 'main p', '.content p', '.post-content p', '.entry-content p', 'p'];
+  for (const selector of selectors) {
+    $('script, style, nav, header, footer, aside').remove();
+    $(selector).each((_, el) => {
+      const text = cleanText($(el).text());
+      if (text.length > 40 && !seen.has(text)) {
+        seen.add(text);
+        paragraphs.push(text);
+      }
+    });
+    if (paragraphs.length >= 3) break;
+  }
 
   return paragraphs;
 }
 
 function scoreParagraphs(paragraphs) {
-  return paragraphs.filter((text) => text.length >= 100 && text.length <= 1400);
+  // Keep paragraphs that are substantial sentences; no upper limit so long paragraphs aren't dropped
+  return paragraphs.filter((text) => text.length >= 60);
 }
 
 async function fetchHtml(url) {
@@ -114,15 +121,16 @@ function isLikelyArticleUrl(url) {
     const parsed = new URL(url);
     const path = parsed.pathname.replace(/\/+$/, '');
     if (!path || path === '') return false;
-    if (/\.(jpg|jpeg|png|gif|webp|svg|pdf)$/i.test(path)) return false;
-    if (/(video|search|tag|topic|newsletter|account|subscribe|newsletters)(\/|$)/i.test(path)) return false;
-
+    // Skip obvious non-article file types
+    if (/\.(jpg|jpeg|png|gif|webp|svg|pdf|css|js|xml|json)$/i.test(path)) return false;
+    // Skip utility/navigation pages
+    if (/(\/search|\/tag\/|\/tags\/|\/category\/|\/categories\/|\/newsletter|\/account|\/subscribe|\/login|\/signup|\/contact|\/about\/?$)(\/|$)/i.test(path)) return false;
+    // Must have at least one path segment with meaningful content
     const segments = path.split('/').filter(Boolean);
-    if (segments.length < 2) return false;
-
+    if (segments.length < 1) return false;
     const slug = segments[segments.length - 1];
-    if (!slug || slug.length < 8) return false;
-    if (!slug.includes('-')) return false;
+    // Allow any slug that is reasonably long (covers /slug, /year/slug, /year/slug.html, etc.)
+    if (!slug || slug.length < 4) return false;
 
     return true;
   } catch {
