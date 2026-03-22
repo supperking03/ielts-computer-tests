@@ -11,6 +11,7 @@ import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { isAnswerMatch } from '../utils/answerMatching';
 import { createReadingExplanationContext } from '../utils/readingExplanation';
 import { getReadingAnswerExplanation } from '../services/openai';
+import { loadTestProgress, saveTestProgress, clearTestProgress, countAnsweredQuestions } from '../utils/testProgress';
 
 function NewReadingPassage() {
     const { id } = useParams();
@@ -37,9 +38,10 @@ function NewReadingPassage() {
     const [explanationErrors, setExplanationErrors] = useState({});
     const [openExplanation, setOpenExplanation] = useState({});
     const [pendingEvidenceFocus, setPendingEvidenceFocus] = useState(null);
+    const [hasRestoredProgress, setHasRestoredProgress] = useState(false);
 
     const getExplanationContext = useMemo(
-        () => createReadingExplanationContext(selectedTest),
+        () => (selectedTest ? createReadingExplanationContext(selectedTest) : () => null),
         [selectedTest]
     );
 
@@ -62,14 +64,15 @@ function NewReadingPassage() {
         navigate('/');
     };
 
-    if (!selectedTest) {
-        return <div>Test not found!</div>;
-    }
-
     const isGeneralReadingTest =
         generalTests.includes(selectedTest) || practiceGeneralTests.includes(selectedTest);
+    const readingStorageScope =
+        generalTests.includes(selectedTest) ? 'reading-general' :
+        practiceTests.includes(selectedTest) ? 'practice-reading-academic' :
+        practiceGeneralTests.includes(selectedTest) ? 'practice-reading-general' :
+        'reading-academic';
 
-    const passages = selectedTest.passages;
+    const passages = selectedTest?.passages || [];
 
     function toggleFullScreen() {
         if (!document.fullscreenElement) {
@@ -503,7 +506,65 @@ function NewReadingPassage() {
         return 0.0;
     };
 
+    useEffect(() => {
+        if (!selectedTest) {
+            return;
+        }
 
+        const savedProgress = loadTestProgress(readingStorageScope, selectedTest.id);
+
+        if (savedProgress) {
+            setAnswers(Array.isArray(savedProgress.answers) ? savedProgress.answers : Array(40).fill(''));
+            setHasViewedResults(Boolean(savedProgress.hasViewedResults));
+            if (typeof savedProgress.currentPassage === 'number') {
+                setCurrentPassage(savedProgress.currentPassage);
+            }
+        } else {
+            setAnswers(Array(40).fill(''));
+            setHasViewedResults(false);
+        }
+
+        setExplanations({});
+        setLoadingExplanations({});
+        setExplanationErrors({});
+        setOpenExplanation({});
+        setPendingEvidenceFocus(null);
+        setHasRestoredProgress(true);
+    }, [readingStorageScope, selectedTest.id]);
+
+    useEffect(() => {
+        if (!selectedTest || !hasRestoredProgress) {
+            return;
+        }
+
+        const answeredCount = countAnsweredQuestions(answers);
+        if (!answeredCount && !hasViewedResults && currentPassage === 0) {
+            clearTestProgress(readingStorageScope, selectedTest.id);
+            return;
+        }
+
+        const existingProgress = loadTestProgress(readingStorageScope, selectedTest.id);
+        const score = hasViewedResults ? calculateScore() : null;
+        const bandScore = hasViewedResults && score !== null ? getBandScore(score) : null;
+        const now = new Date().toISOString();
+
+        saveTestProgress(readingStorageScope, selectedTest.id, {
+            version: 1,
+            answers,
+            answeredCount,
+            currentPassage,
+            hasViewedResults,
+            lastScore: score,
+            lastBandScore: bandScore,
+            startedAt: existingProgress?.startedAt || (answeredCount > 0 ? now : null),
+            completedAt: hasViewedResults ? (existingProgress?.completedAt || now) : null,
+            updatedAt: now
+        });
+    }, [answers, currentPassage, hasRestoredProgress, hasViewedResults, readingStorageScope, selectedTest.id]);
+
+    if (!selectedTest) {
+        return <div>Test not found!</div>;
+    }
 
     return (
         <div>

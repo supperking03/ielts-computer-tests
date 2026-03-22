@@ -6,6 +6,7 @@ import ListeningQuestionRenderer from './ListeningQuestionRenderer';
 import { Helmet } from 'react-helmet';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { isAnswerMatch } from '../utils/answerMatching';
+import { loadTestProgress, saveTestProgress, clearTestProgress, countAnsweredQuestions } from '../utils/testProgress';
 
 // Extract only images from HTML content (tables handled via structured questions data)
 function extractImagesHtml(html) {
@@ -35,12 +36,11 @@ function NewListeningPassage() {
     const [hasViewedResults, setHasViewedResults] = useState(false);
     const [isPlaying, setIsPlaying] = useState(false);
     const audioRef = useRef(null);
+    const [hasRestoredProgress, setHasRestoredProgress] = useState(false);
 
     const navigateBackToHome = () => navigate('/');
 
-    if (!selectedTest) return <div>Test not found!</div>;
-
-    const passages = selectedTest.passages;
+    const passages = selectedTest?.passages || [];
 
     const forward5s = () => {
         if (audioRef.current) {
@@ -162,6 +162,59 @@ function NewListeningPassage() {
         if (score >= 6) return 3.0; if (score >= 4) return 2.5; if (score >= 3) return 2.0;
         if (score >= 2) return 1.5; if (score >= 1) return 1.0; return 0.0;
     };
+
+    useEffect(() => {
+        if (!selectedTest) {
+            return;
+        }
+
+        const savedProgress = loadTestProgress('listening-academic', selectedTest.id);
+
+        if (savedProgress) {
+            setAnswers(Array.isArray(savedProgress.answers) ? savedProgress.answers : Array(40).fill(''));
+            setHasViewedResults(Boolean(savedProgress.hasViewedResults));
+            if (typeof savedProgress.currentSection === 'number') {
+                setCurrentSection(savedProgress.currentSection);
+            }
+        } else {
+            setAnswers(Array(40).fill(''));
+            setHasViewedResults(false);
+        }
+
+        setHasRestoredProgress(true);
+    }, [selectedTest.id]);
+
+    useEffect(() => {
+        if (!selectedTest || !hasRestoredProgress) {
+            return;
+        }
+
+        const answeredCount = countAnsweredQuestions(answers);
+        if (!answeredCount && !hasViewedResults && currentSection === 0) {
+            clearTestProgress('listening-academic', selectedTest.id);
+            return;
+        }
+
+        const existingProgress = loadTestProgress('listening-academic', selectedTest.id);
+        const score = hasViewedResults ? calculateScore() : null;
+        const bandScore = hasViewedResults && score !== null ? getBandScore(score) : null;
+        const now = new Date().toISOString();
+
+        saveTestProgress('listening-academic', selectedTest.id, {
+            version: 1,
+            answers,
+            answeredCount,
+            currentSection,
+            hasViewedResults,
+            lastScore: score,
+            lastBandScore: bandScore,
+            startedAt: existingProgress?.startedAt || (answeredCount > 0 ? now : null),
+            completedAt: hasViewedResults ? (existingProgress?.completedAt || now) : null,
+            updatedAt: now
+        });
+    }, [answers, currentSection, hasRestoredProgress, hasViewedResults, selectedTest.id]);
+
+    if (!selectedTest) return <div>Test not found!</div>;
 
     return (
         <div>

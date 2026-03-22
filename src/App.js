@@ -1,6 +1,6 @@
 // App.js
-import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import React, { useEffect, useMemo, useState } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
 import Home from './components/Home';
 import ReadingPassage from './components/ReadingPassage';
 import NewReadingPassage from './components/NewReadingPassage';
@@ -14,6 +14,7 @@ import NewListeningPassage from './components/NewListeningPassage';
 import './Menu.css';
 import './App.css';
 import { Helmet } from 'react-helmet';
+import { clearTestProgress, loadTestProgress, TEST_PROGRESS_UPDATED_EVENT } from './utils/testProgress';
 
 const FEATURES = [
     {
@@ -31,6 +32,14 @@ const FEATURES = [
         title: 'Many Tests',
         desc: 'Train with a large bank of Cambridge-style tests and extra practice sets in one place, so you always have enough material to build stamina and track improvement.',
     },
+];
+
+const TEST_COLLECTIONS = [
+    { scope: 'reading-academic', label: 'CAM Reading (Academic)', type: 'Reading', tests },
+    { scope: 'listening-academic', label: 'CAM Listening', type: 'Listening', tests: tests2 },
+    { scope: 'reading-general', label: 'Reading (General)', type: 'Reading', tests: testsGeneral },
+    { scope: 'practice-reading-academic', label: 'Practice Reading (Academic)', type: 'Reading', tests: practiceTests },
+    { scope: 'practice-reading-general', label: 'Practice Reading (General)', type: 'Reading', tests: practiceGeneralTests }
 ];
 
 function WhyModal({ onClose }) {
@@ -57,8 +66,141 @@ function WhyModal({ onClose }) {
     );
 }
 
+function HistoryModal({ onClose }) {
+    const [sortBy, setSortBy] = useState('recent');
+    const [entries, setEntries] = useState([]);
+
+    useEffect(() => {
+        const loadEntries = () => {
+            const nextEntries = TEST_COLLECTIONS.flatMap((collection) =>
+                collection.tests.map((test) => {
+                    const progress = loadTestProgress(collection.scope, test.id);
+                    if (!progress || !progress.answeredCount) {
+                        return null;
+                    }
+
+                    return {
+                        key: `${collection.scope}:${test.id}`,
+                        scope: collection.scope,
+                        testId: test.id,
+                        title: test.title,
+                        route: collection.type === 'Listening'
+                            ? `/new-listening/${test.id}/${test.title}`
+                            : `/new-reading/${test.id}/${test.title}`,
+                        collectionLabel: collection.label,
+                        type: collection.type,
+                        answeredCount: progress.answeredCount || 0,
+                        hasViewedResults: Boolean(progress.hasViewedResults),
+                        lastScore: progress.lastScore,
+                        lastBandScore: progress.lastBandScore,
+                        updatedAt: progress.updatedAt,
+                        completedAt: progress.completedAt
+                    };
+                }).filter(Boolean)
+            );
+
+            setEntries(nextEntries);
+        };
+
+        loadEntries();
+        window.addEventListener(TEST_PROGRESS_UPDATED_EVENT, loadEntries);
+        window.addEventListener('storage', loadEntries);
+        window.addEventListener('focus', loadEntries);
+
+        return () => {
+            window.removeEventListener(TEST_PROGRESS_UPDATED_EVENT, loadEntries);
+            window.removeEventListener('storage', loadEntries);
+            window.removeEventListener('focus', loadEntries);
+        };
+    }, []);
+
+    const sortedEntries = useMemo(() => {
+        const nextEntries = [...entries];
+
+        if (sortBy === 'band') {
+            nextEntries.sort((a, b) => {
+                const bandDelta = (b.lastBandScore ?? -1) - (a.lastBandScore ?? -1);
+                if (bandDelta !== 0) {
+                    return bandDelta;
+                }
+                return new Date(b.updatedAt || 0).getTime() - new Date(a.updatedAt || 0).getTime();
+            });
+            return nextEntries;
+        }
+
+        nextEntries.sort((a, b) =>
+            new Date(b.updatedAt || 0).getTime() - new Date(a.updatedAt || 0).getTime()
+        );
+        return nextEntries;
+    }, [entries, sortBy]);
+
+    const handleClearHistory = (scope, testId) => {
+        clearTestProgress(scope, testId);
+    };
+
+    return (
+        <div className="modal-overlay" onClick={onClose}>
+            <div className="modal-box history-modal-box" onClick={(e) => e.stopPropagation()}>
+                <div className="modal-header">
+                    <h2>History</h2>
+                    <button className="modal-close" onClick={onClose}>✕</button>
+                </div>
+                <div className="history-toolbar">
+                    <span className="history-count">{entries.length} saved tests</span>
+                    <label className="history-sort">
+                        <span>Sort</span>
+                        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+                            <option value="recent">Most recent</option>
+                            <option value="band">Highest band</option>
+                        </select>
+                    </label>
+                </div>
+                <div className="history-list">
+                    {sortedEntries.length === 0 ? (
+                        <div className="history-empty">No saved history yet.</div>
+                    ) : (
+                        sortedEntries.map((entry) => (
+                            <div key={entry.key} className="history-card">
+                                <div className="history-card-main">
+                                    <div className="history-card-meta">
+                                        <span className="history-type">{entry.type}</span>
+                                        <span className="history-source">{entry.collectionLabel}</span>
+                                    </div>
+                                    <div className="history-title">{entry.title}</div>
+                                    <div className="history-stats">
+                                        {entry.hasViewedResults
+                                            ? `Score ${entry.lastScore}/40 · Band ${entry.lastBandScore}`
+                                            : `In progress · ${entry.answeredCount}/40 answered`}
+                                    </div>
+                                    <div className="history-time">
+                                        {entry.updatedAt
+                                            ? new Date(entry.updatedAt).toLocaleString('vi-VN')
+                                            : ''}
+                                    </div>
+                                </div>
+                                <div className="history-actions">
+                                    <Link className="history-open-btn" to={entry.route} onClick={onClose}>
+                                        Open
+                                    </Link>
+                                    <button
+                                        className="history-clear-btn"
+                                        onClick={() => handleClearHistory(entry.scope, entry.testId)}
+                                    >
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                        ))
+                    )}
+                </div>
+            </div>
+        </div>
+    );
+}
+
 function Header() {
     const [showModal, setShowModal] = useState(false);
+    const [showHistoryModal, setShowHistoryModal] = useState(false);
 
     return (
         <>
@@ -79,12 +221,18 @@ function Header() {
                             <div className="site-brand-sub">Real practice &nbsp;·&nbsp; Real score</div>
                         </div>
                     </div>
-                    <button className="why-best-btn" onClick={() => setShowModal(true)}>
-                        ★ Why We Are The Best?
-                    </button>
+                    <div className="site-header-actions">
+                        <button className="why-best-btn" onClick={() => setShowHistoryModal(true)}>
+                            History
+                        </button>
+                        <button className="why-best-btn" onClick={() => setShowModal(true)}>
+                            ★ Why We Are The Best?
+                        </button>
+                    </div>
                 </div>
             </header>
             {showModal && <WhyModal onClose={() => setShowModal(false)} />}
+            {showHistoryModal && <HistoryModal onClose={() => setShowHistoryModal(false)} />}
         </>
     );
 }
@@ -92,6 +240,12 @@ function Header() {
 function AppContent() {
     const location = useLocation();
     const [currentPage, setCurrentPage] = useState(0);
+    const currentScope =
+        currentPage === 0 ? 'reading-academic' :
+        currentPage === 1 ? 'listening-academic' :
+        currentPage === 2 ? 'reading-general' :
+        currentPage === 3 ? 'practice-reading-academic' :
+        'practice-reading-general';
     const currentTests =
         currentPage === 0 ? tests :
         currentPage === 1 ? tests2 :
@@ -147,7 +301,7 @@ function AppContent() {
             )}
             <Routes>
                 <Route path="/" element={
-                    <Home tests={currentTests} />
+                    <Home tests={currentTests} storageScope={currentScope} />
                 } />
                 <Route path="/reading/:id/:title" element={<ReadingPassage />} />
                 <Route path="/new-reading/:id/:title" element={<NewReadingPassage />} />

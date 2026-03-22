@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
+import { loadTestProgress, TEST_PROGRESS_UPDATED_EVENT } from '../utils/testProgress';
 
 const PLACEHOLDER_COLORS = [
     ['#1a3a6b', '#2563eb'],
@@ -11,8 +12,30 @@ const PLACEHOLDER_COLORS = [
     ['#713f12', '#ca8a04'],
 ];
 
-function Home({ tests }) {
+function Home({ tests, storageScope }) {
     const isListening = Boolean(tests[0]?.audioSource);
+    const [progressMap, setProgressMap] = useState({});
+
+    useEffect(() => {
+        const loadProgressMap = () => {
+            const nextProgressMap = {};
+            tests.forEach((test) => {
+                nextProgressMap[test.id] = loadTestProgress(storageScope, test.id);
+            });
+            setProgressMap(nextProgressMap);
+        };
+
+        loadProgressMap();
+        window.addEventListener('focus', loadProgressMap);
+        window.addEventListener('storage', loadProgressMap);
+        window.addEventListener(TEST_PROGRESS_UPDATED_EVENT, loadProgressMap);
+
+        return () => {
+            window.removeEventListener('focus', loadProgressMap);
+            window.removeEventListener('storage', loadProgressMap);
+            window.removeEventListener(TEST_PROGRESS_UPDATED_EVENT, loadProgressMap);
+        };
+    }, [storageScope, tests]);
 
     if (!tests.length) {
         return (
@@ -32,6 +55,9 @@ function Home({ tests }) {
                 const to = isListening
                     ? `/new-listening/${test.id}/${test.title}`
                     : `/new-reading/${test.id}/${test.title}`;
+                const progress = progressMap[test.id];
+                const hasStarted = Boolean(progress?.answeredCount);
+                const isCompleted = Boolean(progress?.hasViewedResults);
                 return (
                     <Link key={test.id} className="test-card" to={to}>
                         <div className="test-card-img">
@@ -51,8 +77,22 @@ function Home({ tests }) {
                             )}
                         </div>
                         <div className="test-card-body">
-                            <span className="test-card-tag">{isListening ? 'Listening' : 'Reading'}</span>
+                            <div className="test-card-meta">
+                                <span className="test-card-tag">{isListening ? 'Listening' : 'Reading'}</span>
+                                {hasStarted && (
+                                    <span className={`test-progress-pill${isCompleted ? ' completed' : ''}`}>
+                                        {isCompleted ? `Band ${progress.lastBandScore}` : 'In Progress'}
+                                    </span>
+                                )}
+                            </div>
                             <h2 className="test-card-title">{test.title}</h2>
+                            {hasStarted && (
+                                <div className="test-card-progress">
+                                    {isCompleted
+                                        ? `Last score: ${progress.lastScore}/40`
+                                        : `Answered: ${progress.answeredCount}/40`}
+                                </div>
+                            )}
                             <span className="test-card-cta">Practice Now →</span>
                         </div>
                     </Link>
