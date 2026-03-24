@@ -1,6 +1,6 @@
 // App.js
 import React, { useEffect, useMemo, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, Link, useNavigate } from 'react-router-dom';
 import Home from './components/Home';
 import ReadingPassage from './components/ReadingPassage';
 import NewReadingPassage from './components/NewReadingPassage';
@@ -96,6 +96,29 @@ function WhyModal({ onClose }) {
                             </div>
                         </div>
                     ))}
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function LoginRequiredModal({ onClose, onSignIn, disabled }) {
+    return (
+        <div className="modal-overlay" onClick={onClose}>
+            <div className="modal-box login-required-modal" onClick={(event) => event.stopPropagation()}>
+                <div className="modal-header">
+                    <h2>Login required</h2>
+                    <button className="modal-close" onClick={onClose}>✕</button>
+                </div>
+                <div className="login-required-body">
+                    <p>Please sign in with Google before starting a test.</p>
+                    <button
+                        className="google-login-btn login-required-btn"
+                        onClick={onSignIn}
+                        disabled={disabled}
+                    >
+                        Google Login
+                    </button>
                 </div>
             </div>
         </div>
@@ -266,7 +289,6 @@ function Header({
     authUser,
     onSignIn,
     onSignOut,
-    syncStatus,
     syncError
 }) {
     const [showModal, setShowModal] = useState(false);
@@ -292,6 +314,12 @@ function Header({
                         </div>
                     </div>
                     <div className="site-header-actions">
+                        <button className="why-best-btn" onClick={() => setShowHistoryModal(true)}>
+                            History
+                        </button>
+                        <button className="why-best-btn" onClick={() => setShowModal(true)}>
+                            ★ Why We Are The Best?
+                        </button>
                         <div className="auth-panel">
                             {authLoading ? (
                                 <div className="auth-status">Checking login...</div>
@@ -299,9 +327,6 @@ function Header({
                                 <div className="auth-user-block">
                                     <div className="auth-user-name">{authUser.name || authUser.email}</div>
                                     <div className="auth-user-meta">
-                                        <span className={`sync-pill sync-pill-${syncStatus}`}>
-                                            {syncStatus === 'syncing' ? 'Syncing cloud...' : 'Cloud synced'}
-                                        </span>
                                         <button className="auth-link-btn" onClick={onSignOut}>
                                             Sign out
                                         </button>
@@ -321,12 +346,6 @@ function Header({
                             )}
                             {!!syncError && <div className="auth-status auth-status-error">{syncError}</div>}
                         </div>
-                        <button className="why-best-btn" onClick={() => setShowHistoryModal(true)}>
-                            History
-                        </button>
-                        <button className="why-best-btn" onClick={() => setShowModal(true)}>
-                            ★ Why We Are The Best?
-                        </button>
                     </div>
                 </div>
             </header>
@@ -338,12 +357,13 @@ function Header({
 
 function AppContent() {
     const location = useLocation();
+    const navigate = useNavigate();
     const [currentPage, setCurrentPage] = useState(0);
     const [authUser, setAuthUser] = useState(null);
     const [authLoading, setAuthLoading] = useState(isSupabaseConfigured);
-    const [syncStatus, setSyncStatus] = useState('idle');
     const [syncError, setSyncError] = useState('');
     const [syncReady, setSyncReady] = useState(false);
+    const [showLoginModal, setShowLoginModal] = useState(false);
     const currentScope =
         currentPage === 0 ? 'reading-academic' :
         currentPage === 1 ? 'listening-academic' :
@@ -363,6 +383,15 @@ function AppContent() {
         location.pathname.startsWith('/listening/') ||
         location.pathname.startsWith('/new-listening/')
     );
+
+    useEffect(() => {
+        if (authLoading || authUser || !isTestPage) {
+            return;
+        }
+
+        navigate('/', { replace: true });
+        setShowLoginModal(true);
+    }, [authLoading, authUser, isTestPage, navigate]);
 
     useEffect(() => {
         if (!supabase) {
@@ -402,7 +431,6 @@ function AppContent() {
 
             if (!session?.user) {
                 setSyncReady(false);
-                setSyncStatus('idle');
             }
         });
 
@@ -429,7 +457,6 @@ function AppContent() {
         let cancelled = false;
 
         const loadRemoteProgress = async () => {
-            setSyncStatus('syncing');
             setSyncError('');
             setSyncReady(false);
 
@@ -444,7 +471,6 @@ function AppContent() {
             }
 
             if (error) {
-                setSyncStatus('error');
                 setSyncError(formatSyncError(error));
                 return;
             }
@@ -469,14 +495,12 @@ function AppContent() {
                 }
 
                 if (upsertError) {
-                    setSyncStatus('error');
                     setSyncError(formatSyncError(upsertError));
                     return;
                 }
             }
 
             setSyncReady(true);
-            setSyncStatus('synced');
         };
 
         loadRemoteProgress();
@@ -495,7 +519,6 @@ function AppContent() {
 
         const syncLocalProgress = async () => {
             const practiceHistory = listStoredTestProgress();
-            setSyncStatus('syncing');
             setSyncError('');
 
             const { error } = await supabase.from(REMOTE_PROGRESS_TABLE).upsert({
@@ -505,12 +528,9 @@ function AppContent() {
             }, { onConflict: 'user_id' });
 
             if (error) {
-                setSyncStatus('error');
                 setSyncError(formatSyncError(error));
                 return;
             }
-
-            setSyncStatus('synced');
         };
 
         const handleProgressChange = () => {
@@ -563,7 +583,6 @@ function AppContent() {
 
         setAuthUser(null);
         setSyncReady(false);
-        setSyncStatus('idle');
         setSyncError('');
     };
 
@@ -575,7 +594,6 @@ function AppContent() {
                     authUser={authUser}
                     onSignIn={handleGoogleSignIn}
                     onSignOut={handleSignOut}
-                    syncStatus={syncStatus}
                     syncError={syncError}
                 />
             )}
@@ -617,13 +635,25 @@ function AppContent() {
             )}
             <Routes>
                 <Route path="/" element={
-                    <Home tests={currentTests} storageScope={currentScope} />
+                    <Home
+                        tests={currentTests}
+                        storageScope={currentScope}
+                        requiresLogin={!authLoading && !authUser}
+                        onRequireLogin={() => setShowLoginModal(true)}
+                    />
                 } />
                 <Route path="/reading/:id/:title" element={<ReadingPassage />} />
                 <Route path="/new-reading/:id/:title" element={<NewReadingPassage />} />
                 <Route path="/listening/:id/:title" element={<ListeningPassage />} />
                 <Route path="/new-listening/:id/:title" element={<NewListeningPassage />} />
             </Routes>
+            {showLoginModal && (
+                <LoginRequiredModal
+                    onClose={() => setShowLoginModal(false)}
+                    onSignIn={handleGoogleSignIn}
+                    disabled={!isSupabaseConfigured}
+                />
+            )}
         </div>
     );
 }

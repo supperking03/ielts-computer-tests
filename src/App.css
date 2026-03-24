@@ -53,6 +53,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    margin-left: auto;
 }
 
 .auth-panel {
@@ -131,32 +132,6 @@
 .google-login-btn:disabled {
     cursor: not-allowed;
     opacity: 0.7;
-}
-
-.sync-pill {
-    display: inline-flex;
-    align-items: center;
-    padding: 4px 8px;
-    border-radius: 999px;
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.02em;
-}
-
-.sync-pill-synced {
-    background: rgba(16, 185, 129, 0.18);
-    color: #d1fae5;
-}
-
-.sync-pill-syncing,
-.sync-pill-idle {
-    background: rgba(255,255,255,0.16);
-    color: #fff;
-}
-
-.sync-pill-error {
-    background: rgba(248, 113, 113, 0.18);
-    color: #fecaca;
 }
 
 .why-best-btn {
@@ -517,6 +492,26 @@
     background: #fff1f2;
     color: #be123c;
     border: 1px solid #fecdd3;
+}
+
+.login-required-modal {
+    max-width: 420px;
+}
+
+.login-required-body {
+    padding: 24px;
+    text-align: center;
+}
+
+.login-required-body p {
+    margin: 0 0 18px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #475569;
+}
+
+.login-required-btn {
+    min-width: 160px;
 }
 
 @media (max-width: 780px) {

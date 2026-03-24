@@ -12,7 +12,7 @@ const PLACEHOLDER_COLORS = [
     ['#713f12', '#ca8a04'],
 ];
 
-function Home({ tests, storageScope }) {
+function Home({ tests, storageScope, requiresLogin, onRequireLogin }) {
     const isListening = Boolean(tests[0]?.audioSource);
     const [progressMap, setProgressMap] = useState({});
 
@@ -59,7 +59,17 @@ function Home({ tests, storageScope }) {
                 const hasStarted = Boolean(progress?.answeredCount);
                 const isCompleted = Boolean(progress?.hasViewedResults);
                 return (
-                    <Link key={test.id} className="test-card" to={to}>
+                    <Link
+                        key={test.id}
+                        className="test-card"
+                        to={requiresLogin ? '/' : to}
+                        onClick={(event) => {
+                            if (requiresLogin) {
+                                event.preventDefault();
+                                onRequireLogin?.();
+                            }
+                        }}
+                    >
                         <div className="test-card-img">
                             {test.image ? (
                                 <img src={test.image} alt={test.title} />
