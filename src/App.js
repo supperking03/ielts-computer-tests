@@ -15,7 +15,15 @@ import AIInsights from './components/AIInsights';
 import './Menu.css';
 import './App.css';
 import { Helmet } from 'react-helmet';
-import { clearTestProgress, loadTestProgress, TEST_PROGRESS_UPDATED_EVENT } from './utils/testProgress';
+import { supabase, isSupabaseConfigured } from './lib/supabase';
+import {
+    clearTestProgress,
+    listStoredTestProgress,
+    loadTestProgress,
+    mergeTestProgressEntries,
+    replaceStoredTestProgress,
+    TEST_PROGRESS_UPDATED_EVENT
+} from './utils/testProgress';
 
 const FEATURES = [
     {
@@ -42,6 +50,33 @@ const TEST_COLLECTIONS = [
     { scope: 'practice-reading-academic', label: 'Practice Reading (Academic)', type: 'Reading', tests: practiceTests },
     { scope: 'practice-reading-general', label: 'Practice Reading (General)', type: 'Reading', tests: practiceGeneralTests }
 ];
+
+const REMOTE_PROGRESS_TABLE = 'computer_test_progress';
+
+const formatSyncError = (error) => {
+    if (!error) {
+        return '';
+    }
+
+    if (error.code === '42P01') {
+        return 'Supabase table "computer_test_progress" is missing. Run the SQL migration first.';
+    }
+
+    return error.message || 'Cloud sync failed.';
+};
+
+const mapAuthUser = (user) => {
+    if (!user) {
+        return null;
+    }
+
+    return {
+        id: user.id,
+        email: user.email || '',
+        name: user.user_metadata?.full_name || user.user_metadata?.name || '',
+        avatarUrl: user.user_metadata?.avatar_url || ''
+    };
+};
 
 function WhyModal({ onClose }) {
     return (
@@ -226,7 +261,14 @@ function HistoryModal({ onClose }) {
     );
 }
 
-function Header() {
+function Header({
+    authLoading,
+    authUser,
+    onSignIn,
+    onSignOut,
+    syncStatus,
+    syncError
+}) {
     const [showModal, setShowModal] = useState(false);
     const [showHistoryModal, setShowHistoryModal] = useState(false);
 
@@ -250,6 +292,35 @@ function Header() {
                         </div>
                     </div>
                     <div className="site-header-actions">
+                        <div className="auth-panel">
+                            {authLoading ? (
+                                <div className="auth-status">Checking login...</div>
+                            ) : authUser ? (
+                                <div className="auth-user-block">
+                                    <div className="auth-user-name">{authUser.name || authUser.email}</div>
+                                    <div className="auth-user-meta">
+                                        <span className={`sync-pill sync-pill-${syncStatus}`}>
+                                            {syncStatus === 'syncing' ? 'Syncing cloud...' : 'Cloud synced'}
+                                        </span>
+                                        <button className="auth-link-btn" onClick={onSignOut}>
+                                            Sign out
+                                        </button>
+                                    </div>
+                                </div>
+                            ) : (
+                                <button
+                                    className="google-login-btn"
+                                    onClick={onSignIn}
+                                    disabled={!isSupabaseConfigured}
+                                >
+                                    Google Login
+                                </button>
+                            )}
+                            {!authLoading && !authUser && !isSupabaseConfigured && (
+                                <div className="auth-status auth-status-warning">Missing Supabase config</div>
+                            )}
+                            {!!syncError && <div className="auth-status auth-status-error">{syncError}</div>}
+                        </div>
                         <button className="why-best-btn" onClick={() => setShowHistoryModal(true)}>
                             History
                         </button>
@@ -268,6 +339,11 @@ function Header() {
 function AppContent() {
     const location = useLocation();
     const [currentPage, setCurrentPage] = useState(0);
+    const [authUser, setAuthUser] = useState(null);
+    const [authLoading, setAuthLoading] = useState(isSupabaseConfigured);
+    const [syncStatus, setSyncStatus] = useState('idle');
+    const [syncError, setSyncError] = useState('');
+    const [syncReady, setSyncReady] = useState(false);
     const currentScope =
         currentPage === 0 ? 'reading-academic' :
         currentPage === 1 ? 'listening-academic' :
@@ -288,9 +364,221 @@ function AppContent() {
         location.pathname.startsWith('/new-listening/')
     );
 
+    useEffect(() => {
+        if (!supabase) {
+            setAuthLoading(false);
+            return undefined;
+        }
+
+        let isMounted = true;
+
+        const initializeAuth = async () => {
+            const { data, error } = await supabase.auth.getUser();
+
+            if (!isMounted) {
+                return;
+            }
+
+            if (error) {
+                setSyncError(error.message);
+                setAuthLoading(false);
+                return;
+            }
+
+            setAuthUser(mapAuthUser(data.user));
+            setAuthLoading(false);
+        };
+
+        initializeAuth();
+
+        const { data: authListener } = supabase.auth.onAuthStateChange(async (_event, session) => {
+            if (!isMounted) {
+                return;
+            }
+
+            setAuthUser(mapAuthUser(session?.user || null));
+            setAuthLoading(false);
+            setSyncError('');
+
+            if (!session?.user) {
+                setSyncReady(false);
+                setSyncStatus('idle');
+            }
+        });
+
+        return () => {
+            isMounted = false;
+            authListener.subscription.unsubscribe();
+        };
+    }, []);
+
+    useEffect(() => {
+        if (!authUser || !window.location.search.includes('code=')) {
+            return;
+        }
+
+        const cleanedUrl = `${window.location.origin}${window.location.pathname}`;
+        window.history.replaceState({}, document.title, cleanedUrl);
+    }, [authUser]);
+
+    useEffect(() => {
+        if (!supabase || !authUser) {
+            return undefined;
+        }
+
+        let cancelled = false;
+
+        const loadRemoteProgress = async () => {
+            setSyncStatus('syncing');
+            setSyncError('');
+            setSyncReady(false);
+
+            const { data, error } = await supabase
+                .from(REMOTE_PROGRESS_TABLE)
+                .select('practice_history')
+                .eq('user_id', authUser.id)
+                .maybeSingle();
+
+            if (cancelled) {
+                return;
+            }
+
+            if (error) {
+                setSyncStatus('error');
+                setSyncError(formatSyncError(error));
+                return;
+            }
+
+            const remoteEntries = Array.isArray(data?.practice_history) ? data.practice_history : [];
+            const localEntries = listStoredTestProgress();
+            const mergedEntries = mergeTestProgressEntries(localEntries, remoteEntries);
+
+            replaceStoredTestProgress(mergedEntries);
+
+            const hasRemoteEntries = JSON.stringify(remoteEntries) === JSON.stringify(mergedEntries);
+
+            if (!hasRemoteEntries) {
+                const { error: upsertError } = await supabase.from(REMOTE_PROGRESS_TABLE).upsert({
+                    user_id: authUser.id,
+                    practice_history: mergedEntries,
+                    updated_at: new Date().toISOString()
+                }, { onConflict: 'user_id' });
+
+                if (cancelled) {
+                    return;
+                }
+
+                if (upsertError) {
+                    setSyncStatus('error');
+                    setSyncError(formatSyncError(upsertError));
+                    return;
+                }
+            }
+
+            setSyncReady(true);
+            setSyncStatus('synced');
+        };
+
+        loadRemoteProgress();
+
+        return () => {
+            cancelled = true;
+        };
+    }, [authUser]);
+
+    useEffect(() => {
+        if (!supabase || !authUser || !syncReady) {
+            return undefined;
+        }
+
+        let timeoutId = null;
+
+        const syncLocalProgress = async () => {
+            const practiceHistory = listStoredTestProgress();
+            setSyncStatus('syncing');
+            setSyncError('');
+
+            const { error } = await supabase.from(REMOTE_PROGRESS_TABLE).upsert({
+                user_id: authUser.id,
+                practice_history: practiceHistory,
+                updated_at: new Date().toISOString()
+            }, { onConflict: 'user_id' });
+
+            if (error) {
+                setSyncStatus('error');
+                setSyncError(formatSyncError(error));
+                return;
+            }
+
+            setSyncStatus('synced');
+        };
+
+        const handleProgressChange = () => {
+            window.clearTimeout(timeoutId);
+            timeoutId = window.setTimeout(() => {
+                syncLocalProgress();
+            }, 400);
+        };
+
+        window.addEventListener(TEST_PROGRESS_UPDATED_EVENT, handleProgressChange);
+        window.addEventListener('storage', handleProgressChange);
+
+        return () => {
+            window.clearTimeout(timeoutId);
+            window.removeEventListener(TEST_PROGRESS_UPDATED_EVENT, handleProgressChange);
+            window.removeEventListener('storage', handleProgressChange);
+        };
+    }, [authUser, syncReady]);
+
+    const handleGoogleSignIn = async () => {
+        if (!supabase) {
+            setSyncError('Missing Supabase config.');
+            return;
+        }
+
+        setSyncError('');
+        const { error } = await supabase.auth.signInWithOAuth({
+            provider: 'google',
+            options: {
+                redirectTo: window.location.origin
+            }
+        });
+
+        if (error) {
+            setSyncError(error.message);
+        }
+    };
+
+    const handleSignOut = async () => {
+        if (!supabase) {
+            return;
+        }
+
+        const { error } = await supabase.auth.signOut();
+
+        if (error) {
+            setSyncError(error.message);
+            return;
+        }
+
+        setAuthUser(null);
+        setSyncReady(false);
+        setSyncStatus('idle');
+        setSyncError('');
+    };
+
     return (
         <div className="App">
-            {!isTestPage && <Header />}
+            {!isTestPage && (
+                <Header
+                    authLoading={authLoading}
+                    authUser={authUser}
+                    onSignIn={handleGoogleSignIn}
+                    onSignOut={handleSignOut}
+                    syncStatus={syncStatus}
+                    syncError={syncError}
+                />
+            )}
             {!isTestPage && (
                 <nav className="tab-nav">
                     <button

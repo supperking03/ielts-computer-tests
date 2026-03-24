@@ -55,6 +55,110 @@
     gap: 10px;
 }
 
+.auth-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.auth-user-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+}
+
+.auth-user-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.auth-user-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.auth-status {
+    font-size: 11px;
+    color: rgba(255,255,255,0.82);
+}
+
+.auth-status-warning {
+    color: #fde68a;
+}
+
+.auth-status-error {
+    color: #fecaca;
+    max-width: 260px;
+    text-align: right;
+}
+
+.auth-link-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.9);
+    font-size: 12px;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+.auth-link-btn:hover {
+    color: #fff;
+}
+
+.google-login-btn {
+    background: #fff;
+    color: #1e3a8a;
+    border: 1px solid rgba(255,255,255,0.7);
+    border-radius: 8px;
+    padding: 9px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    margin: 0;
+}
+
+.google-login-btn:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+}
+
+.google-login-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.sync-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.sync-pill-synced {
+    background: rgba(16, 185, 129, 0.18);
+    color: #d1fae5;
+}
+
+.sync-pill-syncing,
+.sync-pill-idle {
+    background: rgba(255,255,255,0.16);
+    color: #fff;
+}
+
+.sync-pill-error {
+    background: rgba(248, 113, 113, 0.18);
+    color: #fecaca;
+}
+
 .why-best-btn {
     background: rgba(255,255,255,0.15);
     color: #fff;
@@ -422,6 +526,22 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 12px;
+    }
+
+    .site-header-actions {
+        width: 100%;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .auth-panel,
+    .auth-user-block {
+        align-items: flex-start;
+    }
+
+    .auth-status-error {
+        text-align: left;
+        max-width: none;
     }
 
     .history-toolbar,
