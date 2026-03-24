@@ -11,6 +11,7 @@ import { practiceTests } from './components/practiceAcademicTests';
 import { practiceGeneralTests } from './components/practiceGeneralTests';
 import ListeningPassage from './components/ListeningPassage';
 import NewListeningPassage from './components/NewListeningPassage';
+import AIInsights from './components/AIInsights';
 import './Menu.css';
 import './App.css';
 import { Helmet } from 'react-helmet';
@@ -67,6 +68,7 @@ function WhyModal({ onClose }) {
 }
 
 function HistoryModal({ onClose }) {
+    const [activeTab, setActiveTab] = useState('history');
     const [sortBy, setSortBy] = useState('recent');
     const [entries, setEntries] = useState([]);
 
@@ -145,54 +147,80 @@ function HistoryModal({ onClose }) {
                     <h2>History</h2>
                     <button className="modal-close" onClick={onClose}>✕</button>
                 </div>
-                <div className="history-toolbar">
-                    <span className="history-count">{entries.length} saved tests</span>
-                    <label className="history-sort">
-                        <span>Sort</span>
-                        <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
-                            <option value="recent">Most recent</option>
-                            <option value="band">Highest band</option>
-                        </select>
-                    </label>
+
+                {/* Tab bar */}
+                <div className="history-modal-tabs">
+                    <button
+                        className={`history-modal-tab${activeTab === 'history' ? ' active' : ''}`}
+                        onClick={() => setActiveTab('history')}
+                    >
+                        Test History
+                    </button>
+                    <button
+                        className={`history-modal-tab${activeTab === 'insights' ? ' active' : ''}`}
+                        onClick={() => setActiveTab('insights')}
+                    >
+                        <span className="hmt-ai-badge">AI</span>
+                        AI Insights
+                    </button>
                 </div>
-                <div className="history-list">
-                    {sortedEntries.length === 0 ? (
-                        <div className="history-empty">No saved history yet.</div>
-                    ) : (
-                        sortedEntries.map((entry) => (
-                            <div key={entry.key} className="history-card">
-                                <div className="history-card-main">
-                                    <div className="history-card-meta">
-                                        <span className="history-type">{entry.type}</span>
-                                        <span className="history-source">{entry.collectionLabel}</span>
+
+                {activeTab === 'history' && (
+                    <>
+                        <div className="history-toolbar">
+                            <span className="history-count">{entries.length} saved tests</span>
+                            <label className="history-sort">
+                                <span>Sort</span>
+                                <select value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
+                                    <option value="recent">Most recent</option>
+                                    <option value="band">Highest band</option>
+                                </select>
+                            </label>
+                        </div>
+                        <div className="history-list">
+                            {sortedEntries.length === 0 ? (
+                                <div className="history-empty">No saved history yet.</div>
+                            ) : (
+                                sortedEntries.map((entry) => (
+                                    <div key={entry.key} className="history-card">
+                                        <div className="history-card-main">
+                                            <div className="history-card-meta">
+                                                <span className="history-type">{entry.type}</span>
+                                                <span className="history-source">{entry.collectionLabel}</span>
+                                            </div>
+                                            <div className="history-title">{entry.title}</div>
+                                            <div className="history-stats">
+                                                {entry.hasViewedResults
+                                                    ? `Score ${entry.lastScore}/40 · Band ${entry.lastBandScore}`
+                                                    : `In progress · ${entry.answeredCount}/40 answered`}
+                                            </div>
+                                            <div className="history-time">
+                                                {entry.updatedAt
+                                                    ? new Date(entry.updatedAt).toLocaleString('vi-VN')
+                                                    : ''}
+                                            </div>
+                                        </div>
+                                        <div className="history-actions">
+                                            <Link className="history-open-btn" to={entry.route} onClick={onClose}>
+                                                Open
+                                            </Link>
+                                            <button
+                                                className="history-clear-btn"
+                                                onClick={() => handleClearHistory(entry.scope, entry.testId)}
+                                            >
+                                                Delete
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div className="history-title">{entry.title}</div>
-                                    <div className="history-stats">
-                                        {entry.hasViewedResults
-                                            ? `Score ${entry.lastScore}/40 · Band ${entry.lastBandScore}`
-                                            : `In progress · ${entry.answeredCount}/40 answered`}
-                                    </div>
-                                    <div className="history-time">
-                                        {entry.updatedAt
-                                            ? new Date(entry.updatedAt).toLocaleString('vi-VN')
-                                            : ''}
-                                    </div>
-                                </div>
-                                <div className="history-actions">
-                                    <Link className="history-open-btn" to={entry.route} onClick={onClose}>
-                                        Open
-                                    </Link>
-                                    <button
-                                        className="history-clear-btn"
-                                        onClick={() => handleClearHistory(entry.scope, entry.testId)}
-                                    >
-                                        Delete
-                                    </button>
-                                </div>
-                            </div>
-                        ))
-                    )}
-                </div>
+                                ))
+                            )}
+                        </div>
+                    </>
+                )}
+
+                {activeTab === 'insights' && (
+                    <AIInsights testCollections={TEST_COLLECTIONS} />
+                )}
             </div>
         </div>
     );
